@@ -1,0 +1,1670 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 4.10 Ausgaben formatieren</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 4.10 Ausgaben formatieren">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 4.10 Ausgaben formatieren">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_05_001.htm#mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_08_001.htm#mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_09_001.htm#mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_11_001.htm#mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_04_009.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_04_011.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2" class="navnav">4 Der Umgang mit Zeichenketten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_04_001.htm#mj5b63e17de6120d8f4db3409131f2a86c" class="navnav">4.1 Einzelne Zeichen behandeln</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_001.htm#mjc7f12843e36b26e5931db779648c134a" class="navnav">4.1.1 Von ASCII über ISO-8859-1 zu Unicode</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_001.htm#mj367a73ec9189cdf83cea885b4e5f492c" class="navnav">4.1.2 Die Character-Klasse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_04_002.htm#mj1ce18a66f5cc0a95bbe689a9d8271a3d" class="navnav">4.2 Strings und deren Anwendung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_002.htm#mj87816fe537a5f78f1f0c0158b90c2bc8" class="navnav">4.2.1 String-Literale als String-Objekte für konstante Zeichenketten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_002.htm#mj0deae7da940491bac63ca1ef16eb3552" class="navnav">4.2.2 String-Länge und Test auf Leerstring</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_002.htm#mjfb86382026187a557451c0b681ad1085" class="navnav">4.2.3 Nach enthaltenen Zeichen und Zeichenfolgen suchen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_002.htm#mj5ee730cda1f64998edf27bd440d36bf1" class="navnav">4.2.4 Gut, dass wir verglichen haben</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_002.htm#mjac0dccd09d1a2ec631387a6918cd6768" class="navnav">4.2.5 Phonetische Vergleiche</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_002.htm#mjc6bf6272c679c8daa6715a7e8985f1c6" class="navnav">4.2.6 String-Teile extrahieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_002.htm#mjc18e7a29f3c160214dca9d72db9a1942" class="navnav">4.2.7 Strings anhängen, Groß-/Kleinschreibung und Leerraum</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_002.htm#mjcea37d75dba4d69967de4d1e249dbcc2" class="navnav">4.2.8 Suchen und ersetzen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_002.htm#mjae1154bac3cab076ee42a9a2dc61c6cc" class="navnav">4.2.9 String-Objekte mit Konstruktoren neu anlegen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_04_003.htm#mj267aa5287155844072bc1987dd3b46b3" class="navnav">4.3 Konvertieren zwischen Primitiven und Strings</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_003.htm#mj3f9f2b4d25b64111b3aba0aa049989ed" class="navnav">4.3.1 Unterschiedliche Typen in String-Repräsentationen konvertieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_003.htm#mja9e33f55a33c59da61e960c2023780c1" class="navnav">4.3.2 Stringinhalt in primitiven Wert konvertieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_003.htm#mj5a9a0a42e317bd6d405a3c8d0ba5d4f7" class="navnav">4.3.3 Unterschiedliche Ausgabeformate (Binär, Hex, Oktal) *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_04_004.htm#mjc49a6b30f15f92cfaa850a38756238c9" class="navnav">4.4 Veränderbare Zeichenketten mit StringBuilder und StringBuffer</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_004.htm#mj83f6ed07e8fdfe6af14e18edf6218235" class="navnav">4.4.1 Anlegen von StringBuilder/StringBuffer-Objekten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_004.htm#mj0d68aa867da26c23ab1c863a6f9ed03d" class="navnav">4.4.2 StringBuilder/StringBuffer in andere Zeichenkettenformate konvertieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_004.htm#mj3f07186fbf65f98df2b985234cc07990" class="navnav">4.4.3 Daten anhängen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_004.htm#mj993ba2d25f3b2f2cf18eedc1dbd7e5ca" class="navnav">4.4.4 Zeichen(folgen) setzen, erfragen, löschen und umdrehen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_004.htm#mj5dca8c7e847d7bbfeea8604976bebbf9" class="navnav">4.4.5 Länge und Kapazität eines StringBuilder/StringBuffer-Objekts *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_004.htm#mj49dcd52f127505866171474743dac369" class="navnav">4.4.6 Vergleichen von String mit StringBuilder und StringBuffer</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_004.htm#mjfcc09b72a35d873d5db103bdf4e4d1c3" class="navnav">4.4.7 »hashCode()« bei StringBuilder/StringBuffer *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_04_005.htm#mjc824d83eace3a6d1a6f009039461af93" class="navnav">4.5 CharSequence als Basistyp *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_04_006.htm#mj99de4087a46a9de05745fee5e80eb080" class="navnav">4.6 Sprachabhängiges Vergleichen und Normalisierung *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_006.htm#mje5efed3fcaf2a5c0e494ccbc901ac5d4" class="navnav">4.6.1 Die Klasse »Collator«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_006.htm#mjdc835aa7b61dc6f449d3d4cd1d3f2871" class="navnav">4.6.2 Effiziente interne Speicherung für die Sortierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_006.htm#mjffb5d2a9021a5520cecfe6f6b589bff5" class="navnav">4.6.3 Normalisierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_04_007.htm#mj26fc5cf60311afbddd72295cdd646a48" class="navnav">4.7 Reguläre Ausdrücke</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_007.htm#mjd5b5d84cb3f1b5bcb7638ea9221a491f" class="navnav">4.7.1 Arbeiten mit der Fassade: String#matches()</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_007.htm#mj10b152411c18f403a01181de6805ffab" class="navnav">4.7.2 Die Klassen Pattern und Matcher</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_007.htm#mjf7cf6ba5fe7a1ff4534771fe3acdcb82" class="navnav">4.7.3 Finden und nicht matchen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_007.htm#mjec24b38a489c334c89e79b5d93a7407c" class="navnav">4.7.4 Gierige und nicht gierige Operatoren *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_007.htm#mj2895cc789e3750872721abe1a018c166" class="navnav">4.7.5 Mit MatchResult alle Ergebnisse einsammeln *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_007.htm#mj1abbf8af8df05805ee6bdc65f332be5c" class="navnav">4.7.6 Suchen und Ersetzen mit Mustern</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_04_008.htm#mjea76920fd083ba12b49068b2113a5f62" class="navnav">4.8 Zerlegen von Zeichenketten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_008.htm#mj8173df624dd4e503133672215a4fb5b2" class="navnav">4.8.1 Splitten von Zeichenketten mit »split()«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_008.htm#mj93a3cb6f9d58defedbc989a780cf6c99" class="navnav">4.8.2 Die Klasse Scanner</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_008.htm#mj1f9dc3aad0907a177bf204b21eae4ddd" class="navnav">4.8.3 Die Klasse StringTokenizer *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_008.htm#mja636105fd65ffad38a6c118a42268154" class="navnav">4.8.4 BreakIterator als Zeichen-, Wort-, Zeilen- und Satztrenner *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_04_009.htm#mj8ef58986d2961c26b8707c1a8afb4d11" class="navnav">4.9 Zeichenkodierungen, XML/HTML-Entitys, Base64 *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_009.htm#mjb87cc00c80880e927ff29ee8ce0e1f50" class="navnav">4.9.1 Unicode und 8-Bit-Abbildungen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_009.htm#mjf513be2231479f85d1af7ab5d6f80a8b" class="navnav">4.9.2 Konvertieren mit »OutputStreamWriter«-Klassen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_009.htm#mje99d09ac96d967c3bb0d030f145ec3b3" class="navnav">4.9.3 Das Paket »java.nio.charset«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_009.htm#mj449273bd5294b09262f137915733a778" class="navnav">4.9.4 XML/HTML-Entitys ausmaskieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_04_009.htm#mj19dbf52792d98cd964b1133e5108ec63" class="navnav">4.9.5 Base64-Kodierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj53b74ba10bc69f50ef35fec994a0e0cf" class="navh">4.10 Ausgaben formatieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj858fbf1c224f5da2028e472edf93dba4" class="navh">4.10.1 Formatieren und Ausgeben mit »format()«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj87b0fa4e81f1eed16d205ce033d86124" class="navh">4.10.2 Die Formatter-Klasse *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjcb99bccbb69f33858ae88eb50f4973fc" class="navh">4.10.3 Formatieren mit Masken *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjf3f02de332c4f2de75442068ee669fef" class="navh">4.10.4 Format-Klassen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj8ba0378eee002645ede566d73c70c8f0" class="navh">4.10.5 Zahlen, Prozente und Währungen mit »NumberFormat« und »DecimalFormat« formatieren *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_04_011.htm#mjf6c9a513b65380464457c07fcb456181" class="navnav">4.11 Zum Weiterlesen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj53b74ba10bc69f50ef35fec994a0e0cf" name="mj53b74ba10bc69f50ef35fec994a0e0cf"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">4.10</span> Ausgaben formatieren  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Immer wieder müssen Zahlen, Datumsangaben und Text auf verschiedenste Art und Weise formatiert werden. Zur Formatierung bietet Java mehrere Lösungen:</p>
+<ul class="gp">
+<li>Seit Java 5 realisieren die <span class="clisting">format()</span>- und <span class="clisting">printf()</span>-Methoden eine Ausgabe, so wie sie unter C mit <span class="clisting">printf()</span> gesetzt wurde.</li>
+</ul>
+<ul class="gp">
+<li>Formatieren über <span class="clisting">Format</span>-Klassen: Allgemeines Formatierungsverhalten wird in einer abstrakten Klasse <span class="clisting">Format</span> fixiert; konkrete Unterklassen, wie <span class="clisting">NumberFormat</span> und <span class="clisting">DateFormat</span>, nehmen sich spezielle Datenformate vor.</li>
+</ul>
+<ul class="gp">
+<li>Umsetzung eines Strings nach einer gegebenen Maske mit einem <span class="clisting">MaskFormatter</span>.</li>
+</ul>
+<ul class="gp">
+<li>Die <span class="clisting">Format</span>-Klassen bieten nicht nur landes- beziehungsweise sprachabhängige Ausgaben per <span class="clisting">format()</span>, sondern auch den umgekehrten Weg, Zeichenketten wieder in Typen wie <span class="clisting">double</span> oder <span class="clisting">Date</span> zu zerlegen. Jede Zeichenkette, die vom <span class="clisting">Format</span>-Objekt erzeugt wurde, kann auch mit dem Parser wieder eingelesen werden.</li>
+</ul><a id="mj858fbf1c224f5da2028e472edf93dba4" name="mj858fbf1c224f5da2028e472edf93dba4"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">4.10.1</span> Formatieren und Ausgeben mit »format()«  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse <span class="clisting">String</span> stellt mit der statischen Methode <span class="clisting">format()</span> eine Möglichkeit bereit, Zeichenketten nach einer Vorgabe zu formatieren:</p>
+<div class="listing"><pre class="prettyprint">String s =<span class="cfett"> String.format</span>( "Hallo<span class="cfett"> %s</span>. Es gab einen Anruf von<span class="cfett"> %s</span>.", "Chris", "Joy" );
+System.out.println( s );    // Hallo Chris. Es gab einen Anruf von Joy.</pre></div>
+<p>Der erste übergebene String nennt sich <span class="ckursiv">Format-String</span>. Er enthält neben auszugebenden Zeichen weitere so genannte <span class="ckursiv">Format-Spezifizierer</span>, die dem Formatierer darüber Auskunft geben, wie er das Argument formatieren soll. <span class="clisting">%s</span> steht für eine unformatierte Ausgabe eines Strings. Nach dem Format-String folgt ein Varags (oder alternativ das Feld direkt) mit den Werten, auf die sich die Format-Spezifizierer beziehen.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 4.12    </strong>Die wichtigsten Format-Spezifizierer im Überblick</p>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Spezifizierer</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Steht für ...</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Spezifizierer</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Steht für ...</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%n</span></p>
+</td>
+<td class="tabellentext">
+<p>neue Zeile</p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">%b</span></p>
+</td>
+<td class="tabellentext">
+<p>Boolean</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%%</span></p>
+</td>
+<td class="tabellentext">
+<p>Prozentzeichen</p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">%s</span></p>
+</td>
+<td class="tabellentext">
+<p>String</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%c</span></p>
+</td>
+<td class="tabellentext">
+<p>Unicode-Zeichen</p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">%d</span></p>
+</td>
+<td class="tabellentext">
+<p>Dezimalzahl</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%x</span></p>
+</td>
+<td class="tabellentext">
+<p>Hexadezimalschreibweise</p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">%t</span></p>
+</td>
+<td class="tabellentext">
+<p>Datum und Zeit</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%f</span></p>
+</td>
+<td class="tabellentext">
+<p>Fließkommazahl</p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">%e</span></p>
+</td>
+<td class="tabellentext">
+<p>wissenschaftliche Notation</p>
+</td>
+</tr>
+</table><br><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Tipp   </span>Der Zeilenvorschub ist vom Betriebssystem abhängig, und <span class="clisting">%n</span> gibt uns ein gutes Mittel an die Hand, um an dieses Zeilenvorschubzeichen (oder diese Zeichenfolge) zu kommen. Dann kommt der <span class="clisting">format()</span>-Aufruf auch mit einem Argument aus, und es lautet <span class="clisting">String.format("%n")</span>.</p>
+</td>
+</tr>
+</table><br><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">final class java.lang.<span class="cfett">String</span>
+implements CharSequence, Comparable&lt;String&gt;, Serializable</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">static String format( String format, Object... args )</span>
+Liefert einen formatierten String, der aus dem String und den Argumenten hervorgeht.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static String format( Locale l, String format, Object... args )</span>
+Liefert einen formatierten String, der aus der gewünschten Sprache, dem String und den Argumenten hervorgeht.</li>
+</ul>
+<p>Intern werkeln <span class="clisting">java.util.Formatter</span> (keine <span class="clisting">java.text.Format</span>-Objekte), die sich auch direkt verwenden lassen; dort ist auch die Dokumentation festgemacht.</p>
+<h4 class="t4">System.out.printf()</h4>
+<p>Soll eine mit <span class="clisting">String.format()</span> formatierte Zeichenkette gleich ausgegeben werden, so muss dazu nicht <span class="clisting">System.out.print(String.format(format, args));</span> angewendet werden. Praktischerweise findet sich zum Formatieren und Ausgeben die aus <span class="clisting">String</span> bekannte Methode <span class="clisting">format()</span> auch in den Klassen <span class="clisting">PrintWriter</span> und <span class="clisting">PrintStream</span> (das <span class="clisting">System.out</span>-Objekt ist vom Typ <span class="clisting">PrintStream</span>). Da jedoch der Methodenname <span class="clisting">format()</span> nicht wirklich konsistent zu den anderen <span class="clisting">printXXX()</span>-Methoden ist, haben die Entwickler die <span class="clisting">format()</span>-Methoden auch unter dem Namen <span class="clisting">printf()</span> zugänglich gemacht (die Implementierung von <span class="clisting">printf()</span> ist eine einfache Weiterleitung zur Methode <span class="clisting">format()</span>).</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Gib die Zahlen von 1 bis 10 aus. Die Zahlen 1 bis 9 sollen eine führende Null bekommen:</p>
+<div class="listing"><pre class="prettyprint">for ( int i = 1 ; i &lt; 11; i++
+  <span class="cfett">System.out.printf</span>( "%02d%n", i );  // 01 02 … 10</pre></div>
+</td>
+</tr>
+</table><br><p>Auch bei <span class="clisting">printf()</span> ist als erstes Argument ein <span class="clisting">Locale</span> möglich.</p>
+<h4 class="t4">Pimp my String mit Format-Spezifizierern *</h4>
+<p>Die Anzahl der Format-Spezifizierer ist so groß und ihre weitere Parametrisierung so vielfältig, dass ein Blick in die API-Dokumentation auf jeden Fall nötig ist. Die wichtigsten Spezifizierer sind:</p>
+<ul class="gp">
+<li><span class="clisting">%n</span> ergibt das beziehungsweise die Zeichen für den Zeilenvorschub, jeweils bezogen auf die aktuelle Plattform. Die Schreibweise ist einem harten <span class="clisting">\n</span> vorzuziehen, da dies nicht das Zeilenvorschubzeichen der Plattform sein muss.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">%%</span> liefert das Prozentzeichen selbst, wie auch <span class="clisting">\\</span> in einem String den Backslash ausmaskiert.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">%s</span> liefert einen String, wobei <span class="clisting">null</span> zur Ausgabe »null« führt. <span class="clisting">%S</span> schreibt die Ausgabe groß.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">%b</span> schreibt ein <span class="clisting">Boolean</span>, und zwar den Wert »true« oder »false« im Fall des Typs Boolean. Die Ausgabe ist immer »false« bei <span class="clisting">null</span> und »true« bei anderen Typen wie <span class="clisting">Integer</span>, <span class="clisting">String</span>. <span class="clisting">%B</span> schreibt den String groß.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">%c</span> schreibt ein Zeichen, wobei die Typen <span class="clisting">Character</span>, <span class="clisting">Byte</span> und <span class="clisting">Short</span> erlaubt sind. <span class="clisting">%C</span> schreibt das Zeichen in Großbuchstaben.</li>
+</ul>
+<ul class="gp">
+<li>Für die ganzzahligen numerischen Ausgaben mit <span class="clisting">%d</span> (Dezimal), <span class="clisting">%x</span> (Hexadezimal), <span class="clisting">%o</span> (Oktal) sind <span class="clisting">Byte</span>, <span class="clisting">Short</span>, <span class="clisting">Integer</span>, <span class="clisting">Long</span> und <span class="clisting">BigInteger</span> erlaubt &#8211; <span class="clisting">%X</span> schreibt die hexadezimalen Buchstaben groß.</li>
+</ul>
+<ul class="gp">
+<li>Bei den Fließkommazahlen mit <span class="clisting">%f</span> oder <span class="clisting">%e</span> (<span class="clisting">%E</span>), <span class="clisting">%g</span> (<span class="clisting">%G</span>), <span class="clisting">%a</span> (<span class="clisting">%A</span>) sind zusätzlich die Typen <span class="clisting">Float</span>, <span class="clisting">Double</span> und <span class="clisting">BigDecimal</span> zulässig. Die Standardpräzision für <span class="clisting">%e</span>, <span class="clisting">%E</span>, <span class="clisting">%f</span> sind sechs Nachkommastellen.</li>
+</ul>
+<ul class="gp">
+<li>Im Fall von Datums-/Zeitangaben mit <span class="clisting">%t</span> beziehungsweise <span class="clisting">%T</span> sind erlaubt: <span class="clisting">Long</span>, <span class="clisting">Calendar</span> und <span class="clisting">Date</span>. <span class="clisting">%t</span> benötigt zwingend ein Suffix.</li>
+</ul>
+<ul class="gp">
+<li>Den Hashcode schreibt <span class="clisting">%h</span> beziehungsweise <span class="clisting">%H</span>. Beim Wert <span class="clisting">null</span> ist auch das Ergebnis »null«.</li>
+</ul>
+<p>Zusätzliche Flags, etwa für Längenangaben und die Anzahl an Nachkommastellen, sind möglich und werden im folgenden Beispiel gezeigt:</p>
+<p class="tabunter"><strong>Listing 4.30    </strong>PrintfDemo.java, main()</p>
+<div class="listing"><pre class="prettyprint">PrintStream o = System.out;
+
+int i = 123;
+o.printf( "|%d|%d|%n" ,       i, -i );   // |123|-123|
+o.printf( "|%5d|%5d|%n" ,     i, -i );   // |  123| &#8211;123|
+o.printf( "|%-5d|%-5d|%n" ,   i, -i );   // |123  |-123 |
+o.printf( "|%+-5d|%+-5d|%n" , i, -i );   // |+123 |-123 |
+o.printf( "|%05d|%05d|%n%n",  i, -i );   // |00123|-0123|
+
+o.printf( "|%X|%x|%n", 0xabc, 0xabc );     // |ABC|abc|
+o.printf( "|%04x|%#x|%n%n", 0xabc, 0xabc );// |0abc|0xabc|
+
+double d = 12345.678;
+o.printf( "|%f|%f|%n" ,         d, -d ); // |12345,678000| |-12345,678000|
+o.printf( "|%+f|%+f|%n" ,       d, -d ); // |+12345,678000| |-12345,678000|
+o.printf( "|% f|% f|%n" ,       d, -d ); // | 12345,678000| |-12345,678000|
+o.printf( "|%.2f|%.2f|%n" ,     d, -d ); // |12345,68| |-12345,68|
+o.printf( "|%,.2f|%,.2f|%n" ,   d, -d ); // |12.345,68| |-12.345,68|
+o.printf( "|%.2f|%(.2f|%n",     d, -d ); // |12345,68| |(12345,68)|
+o.printf( "|%10.2f|%10.2f|%n" , d, -d ); // |  12345,68| | &#8211;12345,68|
+o.printf( "|%010.2f|%010.2f|%n",d, -d ); // |0012345,68| |-012345,68|
+
+String s = "Monsterbacke";
+o.printf( "%n|%s|%n", s );                 // |Monsterbacke|
+o.printf( "|%S|%n", s );                   // |MONSTERBACKE|
+o.printf( "|%20s|%n", s );                 // |        Monsterbacke|
+o.printf( "|%-20s|%n", s );                // |Monsterbacke        |
+o.printf( "|%7s|%n", s );                  // |Monsterbacke|
+o.printf( "|%.7s|%n", s );                 // |Monster|
+o.printf( "|%20.7s|%n", s );               // |             Monster|
+
+Date t = new Date();
+o.printf( "%tT%n", t );                    // 11:01:39
+o.printf( "%tD%n", t );                    // 04/18/08
+o.printf( "%1$te. %1$tb%n", t );           // 18. Apr</pre></div>
+<p>Im Fall von Fließkommazahlen werden diese nach dem Modus <span class="clisting">BigDecimal.ROUND_HALF_UP</span> gerundet, sodass etwa <span class="clisting">System.out.printf("%.1f", 0.45);</span> die Ausgabe 0,5 ergibt.</p>
+<p>Aus den Beispielen lassen sich einige Flags ablesen, insbesondere bei Fließkommazahlen. Ein Komma steuert, ob Tausendertrenner eingesetzt werden. Ein + gibt an, ob immer ein Vorzeichen angegeben wird, und ein Leerzeichen besagt, ob dann bei positiven Zeichen ein Platz freibleibt. Eine öffnende Klammer setzt bei negativen Zahlen kein Minus, sondern setzt diese in Klammern.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Gib die Zahlen von 1 bis 10 aus. Die Zahlen 1 bis 9 sollen eine führende Null bekommen:</p>
+<div class="listing"><pre class="prettyprint">for ( int i = 1 ; i &lt; 11; i++
+  <span class="cfett">System.out.printf</span>( "%02d%n", i );  // 01 02 … 10</pre></div>
+</td>
+</tr>
+</table><br><h4 class="t4">Format-Spezifizierer für Datumswerte</h4>
+<p>Aus dem Beispiel wird ersichtlich, dass <span class="clisting">%t</span> nicht einfach die Zeit ausgibt, sondern immer ein weiteres Suffix erwartet, das genau angibt, welcher Datums-/Zeitteil eigentlich gewünscht ist. Die folgende Tabelle gibt die wichtigsten Suffixe an, und weitere finden Sie in der API-Dokumentation. Alle Ausgaben berücksichtigen die gegebene <span class="clisting">Locale</span>-Umgebung.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 4.13    </strong>Suffixe für Datumswerte</p>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Symbol</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%tA</span>, <span class="clisting">%ta</span></p>
+</td>
+<td class="tabellentext">
+<p>vollständiger/abgekürzter Name des Wochentags</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%tB</span>, <span class="clisting">%tb</span></p>
+</td>
+<td class="tabellentext">
+<p>vollständiger/abgekürzter Name des Monatsnamens</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%tC</span></p>
+</td>
+<td class="tabellentext">
+<p>zweistelliges Jahrhundert (00&#8211;99)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%te</span>, <span class="clisting">%td</span></p>
+</td>
+<td class="tabellentext">
+<p>Monatstag numerisch ohne beziehungsweise mit führenden Nullen (1&#8211;31 beziehungsweise 01&#8211;31)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%tk</span>, <span class="clisting">%tl</span></p>
+</td>
+<td class="tabellentext">
+<p>Stundenangabe bezogen auf 24 beziehungsweise 12 Stunden (0&#8211;23, 1&#8211;12)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%tH</span>, <span class="clisting">%tI</span></p>
+</td>
+<td class="tabellentext">
+<p>zweistellige Stundenangabe bezogen auf 24 beziehungsweise 12 Stunden (00&#8211;23, 01&#8211;12)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%tj</span></p>
+</td>
+<td class="tabellentext">
+<p>Tag des Jahres (001&#8211;366)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%tM</span></p>
+</td>
+<td class="tabellentext">
+<p>zweistellige Minutenangabe (00&#8211;59)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%tm</span></p>
+</td>
+<td class="tabellentext">
+<p>zweistellige Monatsangabe (in der Regel 01&#8211;12)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%tS</span></p>
+</td>
+<td class="tabellentext">
+<p>zweistellige Sekundenangabe (00&#8211;59)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%tY</span></p>
+</td>
+<td class="tabellentext">
+<p>vierstellige Jahresangabe</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%ty</span></p>
+</td>
+<td class="tabellentext">
+<p>die letzten beiden Ziffern der Jahresangabe (00&#8211;99)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%tZ</span></p>
+</td>
+<td class="tabellentext">
+<p>abgekürzte Zeitzone</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%tZ</span></p>
+</td>
+<td class="tabellentext">
+<p>Zeitzone mit Verschiebung zur GMT</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%tR</span></p>
+</td>
+<td class="tabellentext">
+<p>Stunden und Minuten in der Form <span class="clisting">%tH:%tM</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%tT</span></p>
+</td>
+<td class="tabellentext">
+<p>Stunden/Minuten/Sekunden: <span class="clisting">%tH:%tM:%tS</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%tD</span></p>
+</td>
+<td class="tabellentext">
+<p>Datum in der Form <span class="clisting">%tm/%td/%ty</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%tF</span></p>
+</td>
+<td class="tabellentext">
+<p>ISO-8601-Format <span class="clisting">%tY-%tm-%td</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">%tc</span></p>
+</td>
+<td class="tabellentext">
+<p>komplettes Datum mit Zeit in der Form <span class="clisting">%ta %tb %td %tT %tZ %tY</span></p>
+</td>
+</tr>
+</table><br><h4 class="t4">Positionsangaben</h4>
+<p>Im vorangegangenen Beispiel lautete eine Zeile:</p>
+<div class="listing"><pre class="prettyprint">System.out.printf( "%te. %<span class="cfett">1$</span>tb%n", t );     // 28. Okt</pre></div>
+<p>Die Angabe mit <span class="clisting">Position$</span> ist eine Positionsangabe, und so bezieht sich <span class="clisting">1$</span> auf das erste Argument, <span class="clisting">2$</span> auf das zweite und so weiter (interessant ist, dass hier die Nummerierung nicht bei null beginnt).</p>
+<p>Die Positionsangabe im Formatstring ermöglicht zwei Dinge:</p>
+<ul class="gp">
+<li>Wird, wie in dem Beispiel, das gleiche Argument mehrmals verwendet, ist es unnötig, es mehrmals anzugeben. So wiederholt <span class="clisting">printf("%te. %tb%n", t, t)</span> das Argument <span class="clisting">t</span>, was die Angabe einer Position vermeidet. Statt <span class="clisting">%te. %1$tb%n</span> lässt sich natürlich auch <span class="clisting">%</span><span class="cfett">1$</span><span class="clisting">te. %</span><span class="cfett">1$</span><span class="clisting">tb%n</span> schreiben, also auch für das erste Argument ausdrücklich die Position 1 vorschreiben.</li>
+</ul>
+<ul class="gp">
+<li>Die Reihenfolge der Parameter kann immer gleich bleiben, aber der Formatstring kann die Reihenfolge später ändern.</li>
+</ul>
+<p>Der zweite Punkt ist wichtig für lokalisierte Ausgaben. Dazu ein Beispiel: Eine Bildschirmausgabe soll den Vor- und Nachnamen in unterschiedlichen Sprachen ausgeben. Die Reihenfolge der Namensbestandteile kann jedoch unterschiedlich sein, und nicht immer steht in jeder Sprache der Vorname vor dem Nachnamen. Im Deutschen heißt es im Willkommenstext dann »Hallo Christian Ullenboom«, aber in der (erfundenen) Sprache Bwatuti hieße es »Jambo Ullenboom Christian«:</p>
+<p class="tabunter"><strong>Listing 4.31    </strong>FormatPosition.java, main()</p>
+<div class="listing"><pre class="prettyprint">Object[] formatArgs = { "Christian", "Ullenboom" };
+
+String germanFormat = "Hallo %<span class="cfett">1$</span>s %<span class="cfett">2$</span>s";
+System.out.printf( germanFormat, formatArgs );
+System.out.println();
+
+String bwatutiFormat = "Jambo %<span class="cfett">2$</span>s %<span class="cfett">1$</span>s";
+System.out.printf( bwatutiFormat, formatArgs );</pre></div>
+<p>Die Aufrufreihenfolge für Vor-/Nachname ist immer die gleiche, aber der Formatstring, der zum Beispiel extern aus einer Konfigurationsdatei oder Datenbank kommt, kann diese Reihenfolge ändern und so der Landessprache anpassen.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Tipp   </span>Bezieht sich ein nachfolgendes Formatelement auf das vorangehende Argument, so kann ein <span class="clisting">&lt;</span> gesetzt werden:</p>
+<div class="listing"><pre class="prettyprint">Calendar c1 = new GregorianCalendar( 1973, 2, 12 );
+Calendar c2 = new GregorianCalendar( 1985, 8, 2 );
+System.out.printf( "%te. %<span class="cfett">&lt;</span>tb %<span class="cfett">&lt;</span>ty, %<span class="cfett">2$</span>te. %<span class="cfett">&lt;</span>tb %<span class="cfett">&lt;</span>ty%n",
+                   c1,              c2 );     // 12. Mrz 73, 2. Sep 85</pre></div>
+<p class="BStandard">Die Angaben für Monat und Jahr beziehen sich jeweils auf die vorangehenden Positionen. So muss nur einmal <span class="clisting">c1</span> und <span class="clisting">c2</span> angegeben werden.</p>
+</td>
+</tr>
+</table><br><a id="mj87b0fa4e81f1eed16d205ce033d86124" name="mj87b0fa4e81f1eed16d205ce033d86124"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">4.10.2</span> Die Formatter-Klasse *  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Methoden <span class="clisting">format()</span> und <span class="clisting">prinf()</span> übernehmen die Aufbereitung nicht selbst, sondern delegieren sie an die Klasse <span class="clisting">java.util.Formatter</span>. Das ist auch der Grund, warum die Dokumentation für die Formatspezifizierer nicht etwa an <span class="clisting">String.format()</span> hängt, sondern an <span class="clisting">Formatter</span>.</p>
+<p>Ein Blick auf die Methode <span class="clisting">format()</span> der Klasse <span class="clisting">String</span> verrät, wie der <span class="clisting">Formatter</span> ins Spiel kommt:</p>
+<p class="tabunter"><strong>Listing 4.32    </strong>java.lang.String, format()</p>
+<div class="listing"><pre class="prettyprint">public static String format( String format, Object ... args )
+{
+  return new Formatter().format( format, args ).toString();
+}</pre></div>
+<p>Ein <span class="clisting">Formatter</span> übernimmt zwei Aufgaben. Er übernimmt zum einen die tatsächliche Formatierung, und zum anderen gibt er die formatierten Ausgaben an ein Ziel weiter. Wird der <span class="clisting">Formatter</span> mit dem Standardkonstruktor aufgerufen, so baut er selbst das Ausgabeziel aus einem <span class="clisting">StringBuilder</span> auf, den folgende <span class="clisting">format()</span>-Aufrufe dann füllen. <span class="clisting">toString()</span> vom <span class="clisting">Formatter</span> ist so implementiert, dass es auf dem Ausgabeziel (also in unserem Fall dem <span class="clisting">StringBuilder</span>) <span class="clisting">toString()</span> aufruft.</p>
+<p>Das Wissen um diesen Mechanismus ist für die Optimierung wichtig, um nicht zu viele Zwischenobjekte zu erzeugen. So führt die Schleife</p>
+<div class="listing"><pre class="prettyprint">StringBuilder sb = new StringBuilder();
+for ( double d = 0; d &lt;= 1; d += 0.1 )
+{
+ <span class="cfett"> String s = String.format( "%.1f%n", d );</span>
+  sb.append( s );
+}
+System.out.println( sb );   // 0,1 0,2 ... 1,0</pre></div>
+<p>zu:</p>
+<div class="listing"><pre class="prettyprint">StringBuilder sb = new StringBuilder();
+for ( double d = 0; d &lt;= 1; d += 0.1 )
+{
+ <span class="cfett"> String s = new Formatter().format( "%.1f%n", d ).toString();</span>
+  sb.append( s );
+}
+System.out.println( sb );   // 0,1 0,2 ... 1,0</pre></div>
+<p>Bei jedem Schleifendurchlauf wird also ein neuer <span class="clisting">Formatter</span> aufgebaut. Intern entsteht damit ein neuer <span class="clisting">StringBuilder</span> als Ziel für die formatierten Strings und schlussendlich über <span class="clisting">toString()</span> ein String-Objekt. Nicht zu vergessen sind die internen <span class="clisting">char</span>-Felder und der GC, der die Objekte wieder wegräumen muss.</p>
+<p>Würden wir gleich das Ziel angeben, so könnte das viel effizienter werden. Dazu wird nicht der Standardkonstruktor von <span class="clisting">Formatter</span> eingesetzt, der das Ziel mit einem neuen <span class="clisting">StringBuilder</span> vorbestimmt, sondern ein eigenes Zielobjekt, was unser <span class="clisting">StringBuilder</span> sein kann (es ist alles erlaubt, was vom Typ <span class="clisting">Appendable</span> ist). Optimiert folgt somit:</p>
+<p class="tabunter"><strong>Listing 4.33    </strong>FormatterDemo.java, main()</p>
+<div class="listing"><pre class="prettyprint">StringBuilder sb = new StringBuilder();<span class="cfett">
+Formatter formatter = new Formatter( sb );
+
+for ( double d = 0; d &lt;= 1; d += 0.1 )
+  formatter.format( "%.1f%n", d );
+</span>
+System.out.println(<span class="cfett"> formatter</span> );   // 0,1 0,2 ... 1,0</pre></div>
+<p>Wir weisen in der Schleife den <span class="clisting">Formatter</span> an, die Formatierung vorzunehmen. Da dieser mit dem Ziel <span class="clisting">StringBuilder</span> aufgebaut wurde, füllen die Zahlen nach und nach unseren <span class="clisting">StringBuilder</span>. Temporäre Zwischenobjekte werden so minimiert. Zum Schluss wird der <span class="clisting">Formatter</span> nach dem Ergebnis gefragt.</p>
+<h4 class="t4">»Formattable« und »formatTo()«</h4>
+<p>Der Formatspezifizierer <span class="clisting">%s</span> kann auf jedem Argumenttyp angewendet werden, denn durch die Varargs werden auch primitive Elemente zu Wrapper-Objekten (zu Wrapper-Klassen, siehe Abschnitt 9.2, »Wrapper-Klassen und Autoboxing«), die eine <span class="clisting">toString()</span>-Methode haben. Nun kann es aber sein, dass <span class="clisting">toString()</span> besonders implementiert werden muss und nicht unbedingt die Zeichenkette liefert, die für die Ausgabe gewünscht ist. Für diesen Fall berücksichtigt der <span class="clisting">Formatter</span> einen besonderen Typ. Implementiert die Klasse die besondere Schnittstelle <span class="clisting">java.util.Formattable</span>, so ruft der <span class="clisting">Formatter</span> nicht die <span class="clisting">toString()</span>-Methode auf, sondern  <span class="clisting">formatTo(Formatter formatter, int flags, int width, int precision)</span>. Die API-Dokumentation liefert ein Beispiel.</p><a id="mjcb99bccbb69f33858ae88eb50f4973fc" name="mjcb99bccbb69f33858ae88eb50f4973fc"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">4.10.3</span> Formatieren mit Masken *  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Oftmals unterscheidet sich bei grafischen Oberflächen die Darstellung von Daten von dem tieferliegenden Datenmodell. Während ein Datum zum Beispiel intern als große Zahl vorliegt, soll der Anwender sie in der gewünschten Landessprache sehen können. Bei einigen Ausgaben kommen Trennzeichen in die Ausgabe, um sie für den Leser besser verständlich zu machen. Eine IP-Adresse enthält Punkte an ganz bestimmen Stellen, eine Telefonnummer trennt die Vorwahl vom Rest ab, und die Segmente eines Datums trennen in der Regel die Zeichen »/« oder »-«.</p>
+<p>Für Formatierungen, bei denen ein Originalstring in einen Ausgabestring konvertiert wird und dabei neue Zeichen zur Ausgabe eingefügt werden, bietet die Java-API eine Klasse <span class="clisting">javax.swing.text.MaskFormatter</span>. Die Swing-Klasse hilft bei der Formatierung und dem Parsen:</p>
+<p class="tabunter"><strong>Listing 4.34    </strong>MaskFormatterDemo.java, main()</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">MaskFormatter mf = new MaskFormatter( "**-**-****"</span><span class="cfett"> )</span>;
+mf.setValueContainsLiteralCharacters( false );
+String valueToString =<span class="cfett"> mf.valueToString( "12031973"</span><span class="cfett"> )</span>;
+System.out.println( valueToString );       // 12-03-1973
+Object stringToValue =<span class="cfett"> mf.stringToValue( valueToString</span><span class="cfett"> )</span>;
+System.out.println( stringToValue );       // 12031973</pre></div>
+<p>Der Konstruktor von <span class="clisting">MaskFormatter</span> bekommt ein Muster, wobei es Platzhalter gibt. Es steht * für ein Zeichen. Die Methode <span class="clisting">valueToString()</span> bringt einen String in das Muster. Der gemusterte String wandelt <span class="clisting">stringToValue()</span> wieder in das Original um.</p>
+<p>Das Schöne ist, dass die Muster-Definitionen aus einer externen Quelle stammen können, ohne den Programmcode mit speziellen Formatierungsanweisungen zu verschmutzen. Neben * gibt es weitere Platzhalter, die erlaubte Zeichen eingrenzen, sodass bei der Umwandlung mit <span class="clisting">valueToString()</span> eine <span class="clisting">ParseException</span> ausgelöst wird, wenn das Zeichen nicht im Format vom Musterplatzhalter ist.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 4.14    </strong>Musterplatzhalter</p>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Musterzeichen</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Steht für</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">*</span></p>
+</td>
+<td class="tabellentext">
+<p>jedes Zeichen</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">#</span></p>
+</td>
+<td class="tabellentext">
+<p>eine Zahl, wie <span class="clisting">Character.isDigit()</span>sie testet</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">?</span></p>
+</td>
+<td class="tabellentext">
+<p>Zeichen nach <span class="clisting">Character.isLetter()</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">A</span></p>
+</td>
+<td class="tabellentext">
+<p>Zeichen oder Ziffer, also <span class="clisting">Character.isLetter()</span> oder <span class="clisting">Character.isDigit()</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">U</span></p>
+</td>
+<td class="tabellentext">
+<p>Zeichen nach <span class="clisting">Character.isLetter()</span>, aber konvertiert in Großbuchstaben</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">L</span></p>
+</td>
+<td class="tabellentext">
+<p>Zeichen nach <span class="clisting">Character.isLetter()</span>, aber konvertiert in Kleinbuchstaben</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">H</span></p>
+</td>
+<td class="tabellentext">
+<p>Hexadezimalzeichen (0&#8211;9, a&#8211;f oder A&#8211;F)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">'</span></p>
+</td>
+<td class="tabellentext">
+<p>einen ausmaskierten und nicht interpretierten Bereich</p>
+</td>
+</tr>
+</table><br><p>Weitere Möglichkeiten der Klasse beschreibt die API-Dokumentation.</p><a id="mjf3f02de332c4f2de75442068ee669fef" name="mjf3f02de332c4f2de75442068ee669fef"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">4.10.4</span> Format-Klassen  <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Methode <span class="clisting">format()</span> formatiert Zahlen, Datumswerte und sonstige Ausgaben und benötigt wegen ihrer Komplexität eine Beschreibung von mehreren Bildschirmseiten. Dabei gibt es noch einen anderen Weg, für unterschiedliche Typen von zu formatierenden Werten eigene Klassen zu haben:</p>
+<ul class="gp">
+<li><span class="clisting">DateFormat</span>: Formatieren von Datums-/Zeitwerten</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">NumberFormat</span>: Formatieren von Zahlen</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">MessageFormat</span>: Formatieren für allgemeine Programmmeldungen</li>
+</ul>
+<p>Die Klassen haben gemeinsam, dass sie die abstrakte Klasse <span class="clisting">Format</span> erweitern und so eine gemeinsame Schnittstelle haben. Jede dieser Klassen implementiert auf jeden Fall die Methode <span class="clisting">format()</span> zur Ausgabe und zum Parsen, also zur Konvertierung vom String in das Zielobjekt, die Methode <span class="clisting">parseObject()</span>.</p>
+<p>Zwei Gründe sprechen für den Einsatz der <span class="clisting">Format</span>-Klassen:</p>
+<ul class="gp">
+<li>Es gibt in <span class="clisting">String</span> zwar eine <span class="clisting">format()</span>-Methode, aber keine <span class="clisting">parseXXX()</span>-Methode.</li>
+</ul>
+<ul class="gp">
+<li>Die <span class="clisting">Format</span>-Klassen liefern mit statischen <span class="clisting">getXXXInstance()</span>-Methoden vordefinierte <span class="clisting">Format</span>-Objekte, die übliche Standardausgaben erledigen, etwa gerundete Ganzzahlen, Prozente oder unterschiedlich genaue Datums-/Zeitangaben.</li>
+</ul>
+<div class="bildbox">
+<p><a name="IDAJZZD"></a><a onClick="OpenWin('bilder/365_java_04_004.gif','Abbildung',800,800)"><img border="0" src="bilderklein/klein365_java_04_004.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 4.2    </strong>DateFormat, MessageFormat und NumberFormat erweitern die abstrakte Klasse Format. Die Unterklassen übernehmen die Ein-/Ausgabe für Datumsangaben, für allgemeine Programmmeldungen und für Zahlen.</p>
+<p>Das folgende Beispiel zeigt einige Anwendungen zum zweiten Punkt.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 4.15    </strong>Formatobjekte im Einsatz</p>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Ergebnis</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Formatiert mit</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>02.09.2005</p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">DateFormat.getDateInstance().format( new Date() )</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>15:25:16</p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">DateFormat.getTimeInstance().format( new Date() )</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>02.09.2005 15:25:16</p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">DateFormat.getDateTimeInstance().format( new Date() )</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>12.345,679</p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">NumberFormat.getInstance().format( 12345.6789 )</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>12.345,68 €</p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">NumberFormat.getCurrencyInstance().format( 12345.6789 )</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>12  %</p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">NumberFormat.getPercentInstance().format( 0.123 )</span></p>
+</td>
+</tr>
+</table><br><p>Beim Einsatz von <span class="clisting">DateFormat.</span><span class="cfett">getDateInstance</span><span class="clisting">().format(date)</span> berücksichtigt die Methode korrekt je nach Land die Reihenfolge von Tag, Monat und Jahr und das Trennzeichen. Bei einem <span class="clisting">String.format()</span> über <span class="clisting">%t</span> müssten die drei Segmente je nach Sprache in die richtige Reihenfolge gebracht werden, sodass die Variante über <span class="clisting">DateFormat</span> besser ist.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span><span class="clisting">NumberFormat</span> stellt die Zahlen nicht in Exponentialschreibweise dar, und standardmäßig ist die Anzahl an Nachkommastellen beschränkt:</p>
+<div class="listing"><pre class="prettyprint">System.out.println( NumberFormat.getInstance().format( <span class="cfett">2E30</span> ) );
+System.out.println( NumberFormat.getInstance().format( <span class="cfett">2E-30</span> ) );</pre></div>
+<p class="BStandard">Die Ausgabe ist:</p>
+<div class="listing"><pre class="prettyprint">2.000.000.000.000.000.000.000.000.000.000
+0</pre></div>
+</td>
+</tr>
+</table><br><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">abstract class java.text.<span class="cfett">Format</span>
+implements Serializable, Cloneable</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">String format( Object obj )</span>
+Formatiert das Objekt <span class="clisting">obj</span> und gibt eine Zeichenkette zurück.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">abstract StringB</span><span class="clisting">uffer format( Object obj, StringBuffer toAppendTo, FieldPosition pos )</span>
+Formatiert ein Objekt und hängt den Text an den angegebenen <span class="clisting">StringBuffer</span> an (eine Methode mit <span class="clisting">StringBuilder</span> gibt es nicht). Kann die Zeichenkette nicht mit <span class="clisting">format()</span> nach den Regeln des <span class="clisting">Format</span>-Objekts ausgegeben werden, löst die Methode eine <span class="clisting">IllegalArgumentException</span> aus. Ist die Formatierungsanweisung falsch, so gibt <span class="clisting">format()</span> das Unicode-Zeichen <span class="clisting">\uFFFD</span> zurück.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Object parseObject( String source )</span>
+Analysiert den Text von Anfang an.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">abstract Object parseObject( String source, ParsePosition pos )</span>
+Der Text wird ab der Stelle <span class="clisting">pos</span> umgewandelt. Konnte <span class="clisting">parseObject()</span> die Zeichenkette nicht zurückübersetzen, so folgt eine <span class="clisting">ParseException</span>. <span class="clisting">parseObject(String, ParsePosition)</span> verändert das <span class="clisting">ParsePosition</span>-Objekt nicht und gibt die <span class="clisting">null</span>-Referenz zurück.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Object clone()</span>
+Gibt eine Kopie zurück.</li>
+</ul>
+<p>Die Mehrzahl der <span class="clisting">Format</span>-Unterklassen implementiert statische Fabrikmethoden der Art:</p>
+<ul class="gp">
+<li><span class="clisting">static XXXFormat getYYYInstance()</span>
+Liefert ein Formatierungsobjekt mit den Formatierungsregeln für das voreingestellte Land.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static XXXFormat getYYYInstance( Locale l )</span>
+Für ein Formatierungsobjekt mit den Formatierungsregeln für das angegebene Land. So erlauben die Unterklassen von <span class="clisting">Format</span> es dem Benutzer auch, weitere Objekte zu erzeugen, die an die speziellen Sprachbesonderheiten der Länder angepasst sind.</li>
+</ul><a id="mj8ba0378eee002645ede566d73c70c8f0" name="mj8ba0378eee002645ede566d73c70c8f0"></a><a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3"><span class="cfett">4.10.5</span> Zahlen, Prozente und Währungen mit »NumberFormat« und 
+»DecimalFormat« formatieren *  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p><span class="clisting">NumberFormat</span> widmet sich der Ausgabe von Zahlen. Dabei unterstützt die Klasse vier Typen von Ausgaben, für die es jeweils eine statische Fabrikmethode gibt.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">abstract class java.text.<span class="cfett">NumberFormat</span>
+extends Format</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">static NumberFormat getNumberInstance()</span>
+Liefert den einfachen Formatierer für Zahlen.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static NumberFormat getIntegerInstance()</span>
+Liefert einen Formatierer, der den Nachkommateil abschneidet und rundet.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static NumberFormat getPercentInstance()</span>
+Liefert einen Formatierer, der Fließkommazahlen über die <span class="clisting">format()</span>-Methode im Bereich von 0 bis 1 annimmt und dann als Prozentzahl formatiert. Nachkommastellen werden abgeschnitten.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static NumberFormat getCurrencyInstance()</span>
+Liefert einen Formatierer für Währungen, der ein Währungszeichen zur Ausgabe hinzufügt.</li>
+</ul>
+<p>Die genannten vier statischen Methoden gibt es jeweils in der parameterlosen Variante und in der Variante mit einem <span class="clisting">Locale</span>-Objekt, um etwa das Währungszeichen oder das Kommazeichen anzupassen.</p>
+<h4 class="t4">Dezimalzahlformatierung mit »DecimalFormat«</h4>
+<p><span class="clisting">DecimalFormat</span> ist eine Unterklasse von <span class="clisting">NumberFormat</span> und ermöglicht individuellere Anpassungen an die Ausgabe. Dem Konstruktor kann ein Formatierungsstring übergeben werden, sozusagen eine Vorlage, wie die Zahlen zu formatieren sind. Die Formatierung einer Zahl durch <span class="clisting">DecimalFormat</span> erfolgt mit Rücksicht auf die aktuell eingestellte Sprache:</p>
+<p class="tabunter"><strong>Listing 4.35    </strong>DecimalFormatDemo.java, main()</p>
+<div class="listing"><pre class="prettyprint">double d = 12345.67890;
+DecimalFormat<span class="cfett"> df = new DecimalFormat( "###,##0.00" )</span>;
+System.out.println(<span class="cfett"> df.format(d)</span> );           // 12.345,68</pre></div>
+<p>Der Formatierungsstring kann eine Menge von Formatierungsanweisungen vertragen; im Beispiel kommen <span class="clisting">#</span>, <span class="clisting">0</span> und das Komma vor. Die beiden wichtigen Symbole sind jedoch <span class="clisting">0</span> und <span class="clisting">#</span>. Beide repräsentieren Ziffern. Der Unterschied tritt erst dann zutage, wenn weniger Zeichen zum Formatieren da sind, als im Formatierungsstring genannt werden.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 4.16    </strong>Formatierungsanweisungen für »DecimalFormat«</p>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Symbol</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Bedeutung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>0</p>
+</td>
+<td class="tabellentext">
+<p>Repräsentiert eine Ziffer &#8211; ist die Stelle nicht belegt, wird eine Null angezeigt.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>#</p>
+</td>
+<td class="tabellentext">
+<p>Repräsentiert eine Ziffer &#8211; ist die Stelle nicht belegt, bleibt sie leer, damit führende Nullen und unnötige Nullen hinter dem Komma nicht angezeigt werden.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>.</p>
+</td>
+<td class="tabellentext">
+<p>Dezimaltrenner. Trennt Vor- und Nachkommastellen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>,</p>
+</td>
+<td class="tabellentext">
+<p>Gruppiert die Ziffern (eine Gruppe ist so groß wie der Abstand von »,« zu ».«).</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>;</p>
+</td>
+<td class="tabellentext">
+<p>Trennzeichen. Links davon steht das Muster für positive Zahlen, rechts davon das Muster für negative Zahlen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>-</p>
+</td>
+<td class="tabellentext">
+<p>das Standardzeichen für das Negativpräfix</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>%</p>
+</td>
+<td class="tabellentext">
+<p>Die Zahl wird mit 100 multipliziert und als Prozentwert ausgewiesen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>\u2030</p>
+</td>
+<td class="tabellentext">
+<p>Die Zahl wird mit 1.000 multipliziert und als Promillewert ausgezeichnet.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>\u00A4</p>
+</td>
+<td class="tabellentext">
+<p>nationales Währungssymbol (€ für Deutschland)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>\u00A4\u00A4</p>
+</td>
+<td class="tabellentext">
+<p>internationales Währungssymbol (EUR für Deutschland)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>X</p>
+</td>
+<td class="tabellentext">
+<p>Alle anderen Zeichen &#8211; symbolisch X &#8211; können ganz normal benutzt werden.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>'</p>
+</td>
+<td class="tabellentext">
+<p>Ausmaskieren von speziellen Symbolen im Präfix oder Suffix</p>
+</td>
+</tr>
+</table><br><p>Hier sehen wir ein Beispiel für die Auswirkungen der Formatanweisungen auf einige Zahlen:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 4.17    </strong>Beispiel für verschiedene Formatanweisungen</p>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Format</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Eingabezahl</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Ergebnis</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>0000</p>
+</td>
+<td class="tabellentext">
+<p>12</p>
+</td>
+<td class="tabellentext">
+<p>0012</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>0000</p>
+</td>
+<td class="tabellentext">
+<p>12,5</p>
+</td>
+<td class="tabellentext">
+<p>0012</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>0000</p>
+</td>
+<td class="tabellentext">
+<p>1234567</p>
+</td>
+<td class="tabellentext">
+<p>1234567</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>##</p>
+</td>
+<td class="tabellentext">
+<p>12</p>
+</td>
+<td class="tabellentext">
+<p>12</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>##</p>
+</td>
+<td class="tabellentext">
+<p>12.3456</p>
+</td>
+<td class="tabellentext">
+<p>12</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>##</p>
+</td>
+<td class="tabellentext">
+<p>123456</p>
+</td>
+<td class="tabellentext">
+<p>123456</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>.00</p>
+</td>
+<td class="tabellentext">
+<p>12.3456</p>
+</td>
+<td class="tabellentext">
+<p>12,35</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>.00</p>
+</td>
+<td class="tabellentext">
+<p>.3456</p>
+</td>
+<td class="tabellentext">
+<p>,35</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>0.00</p>
+</td>
+<td class="tabellentext">
+<p>.789</p>
+</td>
+<td class="tabellentext">
+<p>0,79</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>#.000000</p>
+</td>
+<td class="tabellentext">
+<p>12.34</p>
+</td>
+<td class="tabellentext">
+<p>12,340000</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>,###</p>
+</td>
+<td class="tabellentext">
+<p>12345678.901</p>
+</td>
+<td class="tabellentext">
+<p>12.345.679</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>#.#;(#.#)</p>
+</td>
+<td class="tabellentext">
+<p>12345678.901</p>
+</td>
+<td class="tabellentext">
+<p>12345678,9</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>#.#;(#.#)</p>
+</td>
+<td class="tabellentext">
+<p>-12345678.901</p>
+</td>
+<td class="tabellentext">
+<p>(12345678,9)</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>,###.## \u00A4</p>
+</td>
+<td class="tabellentext">
+<p>12345.6789</p>
+</td>
+<td class="tabellentext">
+<p>12.345,68 €</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>,#00.00 \u00A4\u00A4</p>
+</td>
+<td class="tabellentext">
+<p>-12345678.9</p>
+</td>
+<td class="tabellentext">
+<p>-12.345.678,90 EUR</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>,#00.00 \u00A4\u00A4</p>
+</td>
+<td class="tabellentext">
+<p>0.1</p>
+</td>
+<td class="tabellentext">
+<p>00,10 EUR</p>
+</td>
+</tr>
+</table><br><h4 class="t4">Währungen angeben und die Klasse »Currency«</h4>
+<p>Die <span class="clisting">NumberFormat</span>-Klasse liefert mit <span class="clisting">getCurrencyInstance()</span> ein <span class="clisting">Format</span>-Objekt, das neben der Dezimalzahl auch noch ein Währungssymbol mit anzeigt. So liefert <span class="clisting">NumberFormat.getCurrencyInstance().format(12345.6789)</span> dann 12.345,68 €, also automatisch mit einem Euro-Zeichen. Dass es ein Euro-Zeichen ist und kein Yen-Symbol, liegt einfach daran, dass Java standardmäßig das eingestellte Land »sieht« und daraus die Währung ableitet. Wenn wir explizit den <span class="clisting">Formatter</span> mit einem Land initialisieren, etwa wie in</p>
+<div class="listing"><pre class="prettyprint">NumberFormat frmt1 = DecimalFormat.getCurrencyInstance(<span class="cfett"> Locale.FRANCE</span> );
+System.out.println( frmt1.format( 12345.6789 ) );         // 12 345,68 €</pre></div>
+<p>so ist die Währung automatisch Euro (denn Frankreich nutzt den Euro); schreiben wir <span class="clisting">DecimalFormat.getCurrencyInstance(Locale.JAPAN)</span>, ist sie Yen, und wir bekommen ¥12,346 (es gibt standardmäßig keine Nachkommastellen beim Yen). <span class="clisting">Locale</span>-Objekte repräsentieren immer eine Sprachregion.</p>
+<p><span class="clisting">DecimalFormat</span> beziehungsweise schon die Oberklasse <span class="clisting">NumberFormat</span> ermöglicht die explizite Angabe der Währung. In der Java-Bibliothek wird sie durch die Klasse <span class="clisting">java.util.Currency</span> repräsentiert. <span class="clisting">NumberFormat</span> liefert mit <span class="clisting">getCurrency()</span> die eingestellte <span class="clisting">Currency</span>, die zur Formatierung verwendet wird, und <span class="clisting">setCurrency()</span> setzt sie neu. Das löst Szenarios, in denen etwa ein Euro-Zeichen die Währung darstellt, aber die Zahlenformatierung englisch ist, wie die folgenden Zeilen zeigen:</p>
+<div class="listing"><pre class="prettyprint">NumberFormat frmt = DecimalFormat.getCurrencyInstance( Locale.ENGLISH );<span class="cfett">
+frmt.setCurrency( Currency.getInstance( "EUR" )</span><span class="cfett"> )</span>;
+System.out.println( frmt.format( 12345.6789 ) );  // EUR12,345.68</pre></div>
+<p>Die <span class="clisting">Currency</span>-Klasse bietet drei statische Methoden, die <span class="clisting">Currency</span>-Objekte liefern. Da ist zum einen <span class="clisting">getAvailableCurrencies()</span>, was ein <span class="clisting">Set&lt;Currency&gt;</span> liefert, und zum anderen die beiden Fabrikfunktionen <span class="clisting">getInstance(Locale locale)</span> und <span class="clisting">getInstance(String currency-Code)</span>. <span class="clisting">Currency</span>-Objekte besitzen eine ganze Reihe von Objektfunktionen, die etwa den ISO-4217-Währungscode liefern oder den ausgeschriebenen Währungsnamen (und das auch noch in verschiedenen Sprachen, wenn gewünscht).</p>
+<p>Folgendes Programm geht über alle Währungen und gibt die zentralen Informationen aus:</p>
+<div class="listing"><pre class="prettyprint">for (<span class="cfett"> Currency currency : Currency.getAvailableCurrencies()</span> )
+{
+  System.out.printf( "%s, %s, %s (%s)%n",
+                    <span class="cfett"> currency.getCurrencyCode</span><span class="cfett">()</span>,
+                    <span class="cfett"> currency.getSymbol</span><span class="cfett">()</span>,
+                    <span class="cfett"> currency.getDisplayName</span><span class="cfett">()</span>,
+                    <span class="cfett"> currency.getDisplayName(Locale.ENGLISH)</span> );
+}</pre></div>
+<p>Wir bekommen dann mehr als 200 Ausgaben, und die Ausgabe beginnt mit:</p>
+<div class="listing"><pre class="prettyprint">EGP, EGP, Ägyptisches Pfund (Egyptian Pound)
+IQD, IQD, Irak Dinar (Iraqi Dinar)
+GHS, GHS, Ghana Cedi (Ghana Cedi)
+AFN, AFN, Afghani (Afghani)
+MUR, MUR, Mauritius Rupie (Mauritius Rupee)
+SGD, SGD, Singapur Dollar (Singapore Dollar)</pre></div>
+<p>…</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="4.10 Ausgaben formatieren"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_04_009.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_04_011.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

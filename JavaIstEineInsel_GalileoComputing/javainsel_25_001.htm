@@ -1,0 +1,607 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 25 Reflection und Annotationen</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 25 Reflection und Annotationen">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 25 Reflection und Annotationen">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_05_001.htm#mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_08_001.htm#mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_09_001.htm#mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_11_001.htm#mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_24_013.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_25_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="#mja2e217bf5724cc65eba184a2af8b79cf" class="navh">25 Reflection und Annotationen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj2abe911fdec059a6e42247b9b091064f" class="navh">25.1 Metadaten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj315a4069dd5f2c47668112f03fb9d797" class="navh">25.1.1 Metadaten durch JavaDoc-Tags</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_25_002.htm#mj16f08fd7fd4c9adeb13f5d7c2fcd919f" class="navnav">25.2 Metadaten der Klassen mit dem Class-Objekt</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_002.htm#mj09d7b1757c11f48d2685f264293cfd81" class="navnav">25.2.1 An ein Class-Objekt kommen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_002.htm#mj67c730a004636f6b47cd8c294e184982" class="navnav">25.2.2 Was das Class-Objekt beschreibt *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_002.htm#mj3099d747a25881ea8508e42405ac13b7" class="navnav">25.2.3 Der Name der Klasse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_002.htm#mj61fae72b0d46a4162986360803fdb072" class="navnav">25.2.4 »instanceof« mit Class-Objekten *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_002.htm#mja42718317af09f43821fba60e5e53536" class="navnav">25.2.5 Oberklassen finden *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_002.htm#mj707904bd78adebe73ebc9f20c1fca7aa" class="navnav">25.2.6 Implementierte Interfaces einer Klasse oder eines Interfaces *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_002.htm#mjb52b207dc3b9c9ab6add1ccb619d8024" class="navnav">25.2.7 Modifizierer und die Klasse »Modifier« *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_002.htm#mj04b2a72dbd3a393bc006c673524f83f3" class="navnav">25.2.8 Die Arbeit auf dem Feld *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_25_003.htm#mjdcf36b03d66b224f70db70883063e30b" class="navnav">25.3 Attribute, Methoden und Konstruktoren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_003.htm#mjaf2fc804a04b0a9605e6ec61ad101b2d" class="navnav">25.3.1 Reflections &#8211; Gespür für Attribute einer Klasse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_003.htm#mja146160d83c4a4db68437c73bca7751d" class="navnav">25.3.2 Methoden einer Klasse erfragen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_003.htm#mj8e71fa5b8ac8cd9c415a9010d64d3a2d" class="navnav">25.3.3 Properties einer Bean erfragen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_003.htm#mj697f2a7998bfed8740ab0d7c8811267d" class="navnav">25.3.4 Konstruktoren einer Klasse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_003.htm#mjb90edd9e2256dd8950c5b3d8a38f05ab" class="navnav">25.3.5 Annotationen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_25_004.htm#mj8470eefe9558d2ea22830eebb54d3895" class="navnav">25.4 Objekte erzeugen und manipulieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_004.htm#mj41602c234dfdbd610ac24bb06ae70de4" class="navnav">25.4.1 Objekte erzeugen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_004.htm#mjdf779c908881a0b5c5bf32e8d86f743d" class="navnav">25.4.2 Die Belegung der Variablen erfragen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_004.htm#mj30f0dba6dc37ccee0118d7eb0294d137" class="navnav">25.4.3 Eine generische eigene toString()-Methode *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_004.htm#mj9aa10e65b00af04545359f2f77450651" class="navnav">25.4.4 Variablen setzen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_004.htm#mje9b0769f149edb46e2121d84d5471acb" class="navnav">25.4.5 Bean-Zustände kopieren *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_004.htm#mj2b2f793581f0133d58222cafdaf7d7f1" class="navnav">25.4.6 Private Attribute ändern</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_25_005.htm#mjefb1bc55a562666a08a70715595d26ba" class="navnav">25.5 Methoden aufrufen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_005.htm#mjdb4ca121d3d40f6489ba59ca88ec7818" class="navnav">25.5.1 Statische Methoden aufrufen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_25_006.htm#mj633b70502b735c98bdc3cd6b7f0b1390" class="navnav">25.6 Eigene Annotationstypen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_006.htm#mj8ee5e422cd1e266400f74d0dd2f6c02a" class="navnav">25.6.1 Annotationen zum Laden von Ressourcen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_006.htm#mj60e296b60a6dc2097ae7cac3434583ff" class="navnav">25.6.2 Neue Annotationen deklarieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_006.htm#mj052733c31d36a27bd3dc6aad17941a4a" class="navnav">25.6.3 Annotationen mit genau einem Attribut</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_006.htm#mja0eeecc785b7efb2f25f7b1932680e04" class="navnav">25.6.4 Element-Werte-Paare (Attribute) hinzufügen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_006.htm#mj4460b6f67f4881b62b0b3c63358d99f1" class="navnav">25.6.5 Annotationsattribute vom Typ einer Aufzählung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_006.htm#mjd9458ce9a06e7d41f2949ed430624809" class="navnav">25.6.6 Felder von Annotationsattributen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_006.htm#mjf04378e5ff87249012651cf607682580" class="navnav">25.6.7 Vorbelegte Attribute</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_006.htm#mj6dc62903d2743fc2d8a27fd497950dcd" class="navnav">25.6.8 Annotieren von Annotationstypen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_006.htm#mj60aea92bba1e0a0f9f928ac360d8e86f" class="navnav">25.6.9 Deklarationen für unsere Ressourcen-Annotationen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_006.htm#mjd93de34d21000e81fee2f0f533171473" class="navnav">25.6.10 Annotierte Elemente auslesen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_006.htm#mjbd900d811b3ff68ed9fa7a1dcaa3f261" class="navnav">25.6.11 Auf die Annotationsattribute zugreifen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_006.htm#mj01b681e8b50436cb7046411e70e21119" class="navnav">25.6.12 Komplettbeispiel zum Initialisieren von Ressourcen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_006.htm#mj7ef44c5695fc82f66dff1ba5ac1c9f1c" class="navnav">25.6.13 Mögliche Nachteile von Annotationen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_25_007.htm#mj24125bb544ec1fc07a6ac90fb6bdd8ef" class="navnav">25.7 Zum Weiterlesen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main">
+<p class="anleser"><em>»Aber wofür soll das gut sein?«
+&#8211; Advanced Computing Systems Division von IBM, 1968, zum Microchip</em></p><a id="mja2e217bf5724cc65eba184a2af8b79cf" name="mja2e217bf5724cc65eba184a2af8b79cf"></a><h1 class="t1"><span class="cfett">25</span> Reflection und Annotationen</h1>
+<p>Das Reflection-Modell erlaubt es uns, Klassen und Objekte, die zur Laufzeit von der JVM im Speicher gehalten werden, zu untersuchen und in begrenztem Umfang zu modifizieren. Das Konzept der Reflection (oder auch Introspektion) ist besonders bei JavaBeans oder Hilfsprogrammen zum Debuggen oder bei GUI-Buildern interessant. Diese Programme heißen auch <span class="ckursiv">Metaprogramme</span>, da sie auf den Klassen und Objekten anderer Programme operieren. Reflection fällt daher auch in die Schlagwortkategorie »Meta-Programming«.</p><a id="mj2abe911fdec059a6e42247b9b091064f" name="mj2abe911fdec059a6e42247b9b091064f"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">25.1</span> Metadaten  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Ein Metadatum ist eine Information über eine Information. In Java beschreibt ein <span class="clisting">Class</span>-Objekt, was Klassen »können«, also welche Konstruktoren und Methoden sie haben, welche Attribute sie besitzen und wie die Erweiterungsbeziehungen sind.</p><a id="mj315a4069dd5f2c47668112f03fb9d797" name="mj315a4069dd5f2c47668112f03fb9d797"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">25.1.1</span> Metadaten durch JavaDoc-Tags  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Seit den ersten Java-Versionen gibt es die <span class="ckursiv">JavaDoc-Tags</span>, die besondere Metadaten darstellen. So ist im folgenden Beispiel die Methode veraltet, weil das JavaDoc-Tag <span class="clisting">@deprecated</span> gesetzt ist:</p>
+<div class="listing"><pre class="prettyprint">/**
+ * Sets the day of the month of this &lt;tt&gt;Date&lt;/tt&gt;object to the specified value. ....
+ *<span class="cfett"> @deprecated</span> As of JDK version 1.1, replaced by ....
+ */
+@Deprecated
+public void setDate( int date ) {
+  getCalendarDate().setDayOfMonth( date );
+}</pre></div>
+<p>In diesem Fall gilt das JavaDoc-Tag für genau eine Methode, die dann als <span class="ckursiv">annotiert</span> gilt. Die Beschreibungen können aber noch weiter gehen und müssen nicht nur auf Methodenebene bleiben. So annotiert das Tag <span class="clisting">@author</span> den Autor und damit gleich eine ganze Klasse oder Schnittstelle.</p>
+<p>Um die in Kommentaren eingesetzten JavaDoc-Tags muss sich der Java-Compiler nicht kümmern, obwohl er <span class="clisting">@deprecated</span> eine Ausnahme zugesteht. Es ist Aufgabe des externen Programms <span class="ckursiv">javadoc</span> &#8211; eines so genannten <span class="ckursiv">Doclets</span> &#8211;, aus diesen Kommentaren etwas zu machen, etwa eine Sammlung von verknüpften HTML-Dokumenten.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="25 Reflection und Annotationen"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_24_013.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_25_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

@@ -1,0 +1,773 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 21.2 URI und URL</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 21.2 URI und URL">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 21.2 URI und URL">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_05_001.htm#mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_08_001.htm#mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_09_001.htm#mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_11_001.htm#mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_21_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_21_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75" class="navnav">21 Netzwerkprogrammierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_21_001.htm#mj912f16fad9a4d2996bb07718a7065cc7" class="navnav">21.1 Grundlegende Begriffe</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj7b4c38aadbbcc975306fbda867a319a4" class="navh">21.2 URI und URL</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj6a9a8db85dce8faa6616fadc6e1a3ce4" class="navh">21.2.1 Die Klasse URI</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj65da5acafb618d85063e608c8b1d3832" class="navh">21.2.2 Die Klasse URL</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj0411d96ed0371ecdf4693b88944377b2" class="navh">21.2.3 Informationen über eine URL *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj0ed88ae14045905d93cad24b235101ae" class="navh">21.2.4 Der Zugriff auf die Daten über die Klasse »URL«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_21_003.htm#mj2552385424dfea123df910156b6be1bd" class="navnav">21.3 Die Klasse URLConnection *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_003.htm#mj361cf58450bed19b4f7135a90e9622f8" class="navnav">21.3.1 Methoden und Anwendung von URLConnection</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_003.htm#mj13ed071a8bc56c5cc94b5cf4a727df60" class="navnav">21.3.2 Protokoll- und Content-Handler</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_003.htm#mjc5b89e4473010478da26fc57c8062a40" class="navnav">21.3.3 Im Detail: vom URL zur URLConnection</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_003.htm#mj924f618643fb5ec03bc8cbe696417844" class="navnav">21.3.4 Der Protokoll-Handler für Jar-Dateien</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_003.htm#mj5e7ad4990f3f7ccbf976c3eab61c5887" class="navnav">21.3.5 Basic Authentication/Proxy-Authentifizierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_21_004.htm#mjeb9209c2668af7983ec6bb0564bc6b4d" class="navnav">21.4 Mit GET und POST Daten übergeben *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_004.htm#mj3aa8779b2f1ab93b3b38727e4d13e3f9" class="navnav">21.4.1 Kodieren der Parameter für Serverprogramme</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_004.htm#mjfac6821e962deeb3c2b82fcade53fdb6" class="navnav">21.4.2 Eine Suchmaschine mit GET-Request ansprechen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_004.htm#mj09ddf4c4d29f03c1fa3ffe5344c0875d" class="navnav">21.4.3 POST-Request absenden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_21_005.htm#mj8ba2862796503ab879fa49a1124af188" class="navnav">21.5 Host- und IP-Adressen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_005.htm#mj0f02e7e92a15f342fa8c8790067d5ad8" class="navnav">21.5.1 Lebt der Rechner?</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_005.htm#mja458d15a1bc50cbc23a965b837d2dcba" class="navnav">21.5.2 IP-Adresse des lokalen Hosts</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_005.htm#mjc0969fd5dd1934cee2105b2c1559092f" class="navnav">21.5.3 Das Netz ist Klasse …</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_005.htm#mjc59bea256f67cd746428ad0ee486ce85" class="navnav">21.5.4 NetworkInterface</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_21_006.htm#mjcd64e398cec5737d9a288a4b4df04e2b" class="navnav">21.6 Mit dem Socket zum Server</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_006.htm#mj6526ba613a9c918e8ccf70a8c3ca5599" class="navnav">21.6.1 Das Netzwerk ist der Computer</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_006.htm#mj2ff12752264f561d87686536916021cc" class="navnav">21.6.2 Sockets</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_006.htm#mjfe60f5f7ed5d676625e4baac0611e75e" class="navnav">21.6.3 Eine Verbindung zum Server aufbauen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_006.htm#mj017969768211807334050be5a3c5df81" class="navnav">21.6.4 Server unter Spannung: die Ströme</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_006.htm#mje0a69a84c474cc332bb06aaa19de7822" class="navnav">21.6.5 Die Verbindung wieder abbauen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_006.htm#mjf57d5057f525ec0bb30fb3baad9ef3d2" class="navnav">21.6.6 Informationen über den Socket *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_006.htm#mjdb0c24f8269e83946df526f3a9aeed4c" class="navnav">21.6.7 Reine Verbindungsdaten über SocketAddress *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_21_007.htm#mj1ba27dc5fdf53f527163767f188e1d2e" class="navnav">21.7 Client-Server-Kommunikation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_007.htm#mj759e79b3a43e232270c0039832106d0f" class="navnav">21.7.1 Warten auf Verbindungen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_007.htm#mj0604389969fe7bded72be959d4f8ef23" class="navnav">21.7.2 Ein Multiplikationsserver</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_007.htm#mj565a926d79ff0b07fd9b504e58a1e02b" class="navnav">21.7.3 Blockierendes Lesen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_007.htm#mj47e2d40604b1b1b87a3c62d75a377747" class="navnav">21.7.4 Von außen erreichbar sein *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_21_008.htm#mjdc801150d9138730cd0f8ec13f024473" class="navnav">21.8 Apache HttpComponents und Commons Net</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_008.htm#mj7bee34b45f93eab88b7ac98166846793" class="navnav">21.8.1 HttpComponents</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_008.htm#mj1fee4bad0e1e74fcc6114dd6367afcb1" class="navnav">21.8.2 Jakarta Commons Net</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_21_009.htm#mj79da1cdf9f3c74dd63bb1dea9a5ec49c" class="navnav">21.9 Zum Weiterlesen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj7b4c38aadbbcc975306fbda867a319a4" name="mj7b4c38aadbbcc975306fbda867a319a4"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">21.2</span> URI und URL  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Die <span class="ckursiv">URL</span> (<span class="ckursiv">Uniform Resource Locator</span>) ist das Adressenformat für eine Ressource im Web. Eine URL ist formal in RFC 1738 beschrieben und stellt so etwas wie einen Dateinamen für das Dateisystem dar. Eine Adresse wie <span class="ckursiv">http://www.tutego.com/seminare/</span> zeigt eine übliche URL für Webadressen. Die Angaben beginnen mit einem Schema (auch <span class="ckursiv">Protokoll</span> genannt), es folgen Doppelpunkt und weitere Angaben wie der Servername und ein Pfad auf das Verzeichnis. Das Protokoll bestimmt die Zugriffsart, und das meistverwendete Protokoll ist HTTP (<span class="ckursiv">Hypertext Transfer Protocol</span>), mit dem auf Inhalte des Webs zugegriffen wird.</p><a id="mj6a9a8db85dce8faa6616fadc6e1a3ce4" name="mj6a9a8db85dce8faa6616fadc6e1a3ce4"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">21.2.1</span> Die Klasse URI  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Bei der URL geht es darum, dass die Ressource angesprochen werden kann &#8211; daher ist auch immer ein Zugriffsschema mit der URL verbunden, also etwa http, ftp, file. Denn einfach nur zum Beispiel <span class="ckursiv">download.movies/The Fairly OddParents</span> anzugeben reicht nicht aus; erst mit dem Schema kann ein Client auf die Ressource zugreifen, denn ob sie lokal liegt, über HTTP angesprochen wird oder über FTP, macht einen ziemlich großen Unterschied.</p>
+<div class="bildbox">
+<p><a name="IDATH0D"></a><a onClick="OpenWin('bilder/uriuml.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinuriuml.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p>Kommt es aber auf das Protokoll nicht an, und geht es nur darum, eine Ressource eindeutig zu identifizieren, wird der Begriff <span class="ckursiv">URI (Uniform Resource Identifier)</span> verwendet. Ein URI hat ebenfalls ein Schema, aber er spricht keine Ressource an, zu der eine Verbindung aufgebaut werden kann. So identifiziert der URI <span class="ckursiv">urn:isbn:978-3-8362-1371-4</span> die Java-Insel, aber keinen Ort. Eine URL ist somit nichts anderes als ein URI mit einer kodierten Zugriffsmöglichkeit. Eigentlich ist der Begriff URL damit veraltet, aber viele Internetbenutzer sind mit dem Begriff aufgewachsen, sodass auch die Insel bei dem Begriff »URL« bleibt. [Das Ganze ist schon etwas verwirrend und selbst das W3C hat extra ein Dokument (<span class="ckursiv"><a href="http://www.w3.org/TR/uri-clarification/" target="_blank">http://www.w3.org/TR/uri-clarification/</a></span>) aufgesetzt, das Klarheit schaffen soll.
+] </p>
+<p>In Java wird ein URI durch die Klasse <span class="clisting">java.net.URI</span> beschrieben. Eine Aufgabe der Klasse ist die Normalisierung, also das Auflösen von relativen Angaben mit »..«.</p><a id="mj65da5acafb618d85063e608c8b1d3832" name="mj65da5acafb618d85063e608c8b1d3832"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">21.2.2</span> Die Klasse URL  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Um ein <span class="clisting">URL</span>-Objekt zu erzeugen, ist es am einfachsten, über eine String-Repräsentation der URL-Adresse zu gehen:</p>
+<div class="listing"><pre class="prettyprint">URL url = new URL( "http://www.tutego.com/index.html" );</pre></div>
+<p>Die <span class="clisting">URL</span>-Klasse hat zusätzliche Konstruktoren; diese sind nützlich, wenn Komponenten der Adresse &#8211; also Zugriffsart (beispielsweise das HTTP), Hostname und Dateireferenz &#8211; getrennt angegeben sind. Eine Alternative zur oben genannten Form ist:</p>
+<div class="listing"><pre class="prettyprint">URL url = new URL( "http", "www.tutego.com", "index.html" );</pre></div>
+<p>Das zweite Argument in diesem Konstruktor ist die Basisadresse der URL, und das dritte Argument ist der Name der Ressource relativ zur Basisadresse. Ist diese Basisadresse <span class="clisting">null</span>, was möglich ist, dann ist die zweite Angabe absolut zu nehmen. Und ist das zweite Argument in absoluter Notation formuliert, wird alles im ersten String ignoriert.</p>
+<p>Da eine URL auch einen entfernten Rechner an einem anderen Port ansprechen kann, existiert dafür ebenfalls ein Konstruktor:</p>
+<div class="listing"><pre class="prettyprint">URL url = new URL( "http", "www.tutego.com", 80, "index.html" );</pre></div>
+<p>Die URL des Objekts wurde durch eine absolute Adresse erzeugt. Diese enthält dann alle Informationen, die für den Aufbau zum Host nötig sind. Es können jedoch auch <span class="clisting">URL</span>-Objekte erzeugt werden, bei denen nur eine relative Angabe bekannt ist. Relative Angaben werden häufig bei HTML-Seiten verwendet, da die Seite so besser vor Verschiebungen geschützt ist. Damit die Erzeugung eines URL-Objekts mit relativer Adressierung gelingt, muss eine Basisadresse bekannt sein. Ein Konstruktor für relative Adressen erwartet diese Basisadresse als Argument:</p>
+<div class="listing"><pre class="prettyprint">URL domainUrl = new URL( "http://www.tutego.com/" );
+URL indexUrl  = new URL( domainUrl, "index.html");</pre></div>
+<p>Diese Art und Weise der URL-Objekt-Erzeugung ist besonders praktisch für Referenzen innerhalb von Webseiten (engl. named anchors). Besitzt eine Webseite eine Textmarke <span class="clisting">lang</span>, so kann der URL-Konstruktor für relative URLs so verwendet werden:</p>
+<div class="listing"><pre class="prettyprint">URL url       = new URL( "http:// www.tutego.com" );
+URL bottomUrl = new URL( url, "/java/faq.html#lang" );</pre></div>
+<h4 class="t4">Ausnahmen bei der URL-Erzeugung</h4>
+<p>Jeder der Konstruktoren löst eine <span class="clisting">MalformedURLException</span> aus, wenn das Argument im Konstruktor entweder <span class="clisting">null</span> ist oder ein unbekanntes Protokoll (wie in <span class="ckursiv">telepatic:\\ullenboom\brain\java</span>) beschreibt. Somit ist der Code in der Regel von einem Block der folgenden Art umgeben:</p>
+<div class="listing"><pre class="prettyprint">try
+{
+  URL myURL = new URL( ... )
+}
+catch ( MalformedURLException e )
+{
+  // Fehlerbehandlung
+}</pre></div>
+<p>Es ist wichtig, zu erkennen, dass die Ausnahme nicht erzeugt wird, weil der angesprochene Rechner nicht erreicht werden kann. Nur die Schreibweise der URL ist für die Ausnahme ausschlaggebend. Die Konstruktoren bauen keine Internetverbindungen auf.</p>
+<div class="bildbox">
+<p><a name="IDAIS0D"></a><a onClick="OpenWin('bilder/urluml.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinurluml.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">final class java.net.<span class="cfett">URL</span>
+implements Serializable</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">URL( String spec ) throws MalformedURLException</span>
+Erzeugt ein Objekt aus der URL-Zeichenkette.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">URL( String protocol, String host, int port, String file )</span>
+  <span class="clisting">throws MalformedURLException</span>
+Erzeugt ein URL-Objekt mit dem gegebenen Protokoll, Hostnamen, der Port-Nummer und Datei. Ist die Port-Nummer &#8211;1, wird der Standardport verwendet; für das WWW ist der Port zum Beispiel 80.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">URL( String protocol, String host, String file )</span>
+  <span class="clisting">throws MalformedURLException</span>
+Das Gleiche wie <span class="clisting">URL(protocol, host, &#8211;1, file)</span>.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">URL( URL context, String spec ) throws MalformedURLException</span>
+Erzeugt relativ zur gegebenen URL ein neues URL-Objekt.</li>
+</ul><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Obwohl eine URL ein URI ist, gibt es keine Vererbungsbeziehungen. Es gilt:</p>
+<div class="listing"><pre class="prettyprint">final class <span class="cfett">URI</span> implements Comparable&lt;URI&gt;, Serializable
+final class <span class="cfett">URL</span> implements Serializable</pre></div>
+</td>
+</tr>
+</table><br><a id="mj0411d96ed0371ecdf4693b88944377b2" name="mj0411d96ed0371ecdf4693b88944377b2"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">21.2.3</span> Informationen über eine URL *  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Ist das <span class="clisting">URL</span>-Objekt einmal angelegt, lassen sich Attribute des Objekts erfragen, aber nicht mehr ändern. Es gibt zwar Setter-Methoden, doch sind diese <span class="clisting">protected</span> und somit den Unterklassen vorbehalten. Uns normalen Klassenbenutzern bietet die URL-Klasse nur Methoden zum Zugriff auf Protokoll, Hostname, Port-Nummer und Dateiname. Es lassen sich jedoch nicht alle URL-Adressen so detailliert aufschlüsseln; außerdem sind manche Zugriffsmethoden nur für HTTP sinnvoll.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">final class java.net.<span class="cfett">URL</span>
+implements Serializable</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">String getProtocol()</span>
+Liefert das Protokoll der URL.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">String getHost()</span>
+Liefert den Hostnamen der URL, sofern dies möglich ist. Für das Protokoll »file« ist dies ein leerer String. Im Falle einer IP-Adresse steht die Angabe in [ eckigen Klammern ].</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">int getPort()</span>
+Liefert die Port-Nummer. Ist sie nicht gesetzt, liefert <span class="clisting">getPort()</span> eine &#8211;1.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">String getRef()</span>
+Gibt den Anker &#8211; alles hinter dem # &#8211; zurück. Bei »vorne#anker« liefert <span class="clisting">getRef()</span> also den String »anker«.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">String getPath()</span>
+Gibt nur den Pfad der URL ohne Anker zurück.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">String getFile()</span>
+Gibt den Dateinamen der URL zusammen mit dem Anker zurück.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">String getQuery()</span>
+Liefert den Anfragestring, also das, was hinter dem Fragezeichen steht.</li>
+</ul>
+<p>Das nachfolgende kleine Programm erzeugt ein <span class="clisting">URL</span>-Objekt für <span class="ckursiv">http://www.tutego.com:80/java/faq.html#lang?key=val</span> und gibt die ermittelbaren Attribute aus:</p>
+<p class="tabunter"><strong>Listing 21.1    </strong>com/tutego/insel/net/ParseURL.java, main()</p>
+<div class="listing"><pre class="prettyprint">URL url = new URL( "http://www.tutego.com:80/java/faq.html?key=val#Lang" );
+
+System.out.println( url.getProtocol() );  // http
+System.out.println( url.getHost() );      // www.tutego.com
+System.out.println( url.getPort() );      // 80
+System.out.println( url.getFile() );      // /java/faq.html?key=val
+System.out.println( url.getPath() );      // /java/faq.html
+System.out.println( url.getQuery() );     // key=val
+System.out.println( url.getRef() );       // Lang</pre></div>
+<h4 class="t4">Verweisen zwei URLs auf die gleiche Seite?</h4>
+<p>Die <span class="clisting">URL</span>-Klasse untersucht mit <span class="clisting">equals()</span>, ob alle Komponenten der einen URL mit der anderen URL übereinstimmen. Zunächst testet die Methode, ob es sich bei dem zu vergleichenden Objekt um ein Exemplar von <span class="clisting">URL</span> handelt. Wenn ja, untersucht <span class="clisting">equals()</span> über <span class="clisting">sameFile()</span> Protokoll, Host, Port, Datei und dann auch noch, ob die Komponenten Referenzen (Anker) besitzen oder nicht.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">final class java.net.<span class="cfett">URL</span>
+implements Serializable</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">boolean sameFile( URL other)</span>
+Vergleicht zwei URL-Objekte. Die Methode liefert <span class="clisting">true</span>, wenn beide Objekte auf die gleiche Ressource zeigen. Der Anker der HTML-Dateien ist unwichtig.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">boolean equals( Object o )</span>
+Auch <span class="clisting">equals()</span> vergleicht intern mit <span class="clisting">sameFile()</span>, doch zusätzlich auch, ob die beiden Anker gleich sind.</li>
+</ul><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Wie schon in Kapitel 9 beschrieben (»Objektgleichheit mit <span class="clisting">equals()</span> und Identität«), führt <span class="clisting">equals()</span> eine Namensauflösung durch, wenn das nötig ist. Das Gleiche gilt für <span class="clisting">hashCode()</span>. Das bedeutet: <span class="clisting">URL</span>-Objekte in Datenstrukturen wie <span class="clisting">HashMap</span> zu haben, kann sehr teuer werden. Eine gute Alternative stellen <span class="clisting">URI</span>-Objekte dar.</p>
+</td>
+</tr>
+</table><br><a id="mj0ed88ae14045905d93cad24b235101ae" name="mj0ed88ae14045905d93cad24b235101ae"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">21.2.4</span> Der Zugriff auf die Daten über die Klasse »URL«  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Um auf die auf dem Webserver gespeicherten Dokumente zuzugreifen, gibt es drei Möglichkeiten:</p>
+<ul class="gp">
+<li>Jedes <span class="clisting">URL</span>-Objekt besitzt die Methode <span class="clisting">openStream</span><span class="clisting">()</span>, die einen <span class="clisting">InputStream</span> zum Weiterverarbeiten liefert, sodass wir dort die Daten auslesen können.</li>
+</ul>
+<ul class="gp">
+<li>Die API-Beschreibung erwähnt, dass <span class="clisting">openStream()</span> eigentlich nur eine Abkürzung für <span class="clisting">openConnection().getInputStream()</span> ist. <span class="clisting">openConnection()</span> erzeugt ein <span class="clisting">URLConnection</span>-Objekt, auf dem <span class="clisting">getInputStream()</span> den Eingabestrom liefert. So können wir natürlich auch mit <span class="clisting">openConnection()</span> und dem <span class="clisting">URLConnection</span> direkt arbeiten.</li>
+</ul>
+<ul class="gp">
+<li>Bei der dritten Möglichkeit ist Handarbeit angesagt, weshalb wir sie in Abschnitt 21.6, »Mit dem Socket zum Server«, beschreiben. Dazu brauchen auch die <span class="clisting">URL</span>-Klasse nicht mehr.</li>
+</ul>
+<h4 class="t4">Mit dem Scanner und dem InputStream eine Datei aus dem Netz laden</h4>
+<p>Verweist die URL auf eine Textdatei, dann erweitern wir oft den <span class="clisting">InputStream</span> zu einem <span class="clisting">BufferedReader</span>, da dieser eine <span class="clisting">readLine()</span>-Methode besitzt. Die <span class="clisting">Scanner</span>-Klasse lässt sich ebenfalls optimal einsetzen, da sie zum einen Zeile für Zeile und zum anderen mit dem passenden Delimiter auch die ganze Eingabe lesen kann. Insofern unterscheidet sich das Lesen einer Datei nicht vom Lesen eines entfernten URL-Objekts:</p>
+<p class="tabunter"><strong>Listing 21.2    </strong>com/tutego/insel/net/ReadAllFromUrl.java</p>
+<div class="listing"><pre class="prettyprint">package com.tutego.insel.net;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.Scanner;
+
+class ReadAllFromUrl
+{
+  public static void main( String[] args )
+  {
+    InputStream is = null;
+
+    try
+    {
+     <span class="cfett"> URL url = new URL( "http://www.tutego.com/aufgaben/bond.txt" );</span>
+     <span class="cfett"> is = url.openStream();</span>
+     <span class="cfett"> System.out.println( new Scanner( is ).useDelimiter( "\\Z" ).next() );</span>
+    }
+    catch ( Exception e ) {
+      e.printStackTrace();
+    }
+    finally {
+      if ( is != null )
+        try { is.close(); } catch ( IOException e ) { }
+    }
+  }
+}</pre></div>
+<p>Wir erzeugen ein <span class="clisting">URL</span>-Objekt und rufen darauf die <span class="clisting">openStream()</span>-Methode auf. Diese liefert einen <span class="clisting">InputStream</span> auf den Dateiinhalt. Sind die Daten gelesen, schließt <span class="clisting">close()</span> den Datenstrom; <span class="clisting">close()</span> bezieht sich allerdings nicht auf das <span class="clisting">URL</span>-Objekt, sondern auf den Datenstrom.</p>
+<p>Das Beispiel zeigt auch, dass bei <span class="clisting">openStream()</span> beziehungsweise <span class="clisting">openConnection()</span> ein <span class="clisting">try</span>-<span class="clisting">catch</span>-Block notwendig ist. Denn geht etwas daneben, zum Beispiel, wenn der Dienst nicht verfügbar ist, wird eine <span class="clisting">IOException</span> ausgelöst:</p>
+<div class="listing"><pre class="prettyprint">try
+{
+  URL           url = new URL( "http://www.tutego.com/index.html" );
+  URLConnection con = url.openConnection();
+}
+catch ( MalformedURLException e )    // new URL() ging daneben
+{ ... }
+catch ( IOException e )              // openConnection() schlug fehl
+{ ... }</pre></div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">final class java.net.<span class="cfett">URL</span>
+implements Serializable</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">final InputStream openStream() throws IOException</span>
+Öffnet eine Verbindung zum Server und liefert einen <span class="clisting">InputStream</span> zurück. Diese Methode ist eine Abkürzung für <span class="clisting">openConnection().getInputStream()</span>.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">URLConnection openConnection() throws IOException</span>
+Liefert ein <span class="clisting">URLConnection</span>-Objekt, das die Verbindung zum entfernten Objekt vertritt. <span class="clisting">openConnection()</span> wird vom Protokoll-Handler immer dann aufgerufen, wenn eine neue Verbindung geöffnet wird.</li>
+</ul><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="21.2 URI und URL"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_21_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_21_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

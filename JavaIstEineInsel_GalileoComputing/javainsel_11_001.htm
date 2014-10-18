@@ -1,0 +1,607 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 11 Die Klassenbibliothek</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 11 Die Klassenbibliothek">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 11 Die Klassenbibliothek">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_05_001.htm#mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_08_001.htm#mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_09_001.htm#mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_10_004.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_11_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="#mj60bc6a007ae9b8657949f3e91d96df3d" class="navh">11 Die Klassenbibliothek</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj02bea8b31605ee5952c444551c504697" class="navh">11.1 Die Java-Klassenphilosophie</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjfcefb1202e8bfff68693f7b4b9175fb6" class="navh">11.1.1 Übersicht über die Pakete der Standardbibliothek</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_11_002.htm#mj53ed9654bc9434b172d0438d1702dc19" class="navnav">11.2 Klassenlader (Class Loader)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_002.htm#mj3dc3fd417e653e689a9f172c4a0d7d01" class="navnav">11.2.1 Woher die kleinen Klassen kommen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_002.htm#mj215f73ea20d22c8b20d91d9fa0e60d59" class="navnav">11.2.2 Setzen des Klassenpfades</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_002.htm#mj9a13afdba6dd256f894e02fbadae77a0" class="navnav">11.2.3 Die wichtigsten drei Typen von Klassenladern</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_002.htm#mjb92320c4d2ceebfbcc9da112835f583a" class="navnav">11.2.4 Die Klasse java.lang.ClassLoader *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_002.htm#mj431ef7a4d752eaa36a5551472599bbb9" class="navnav">11.2.5 Hot Deployment mit dem URL-Classloader *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_002.htm#mj759e90ca0161232d122f57a13173e825" class="navnav">11.2.6 Das Verzeichnis jre/lib/endorsed *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_11_003.htm#mjc3fa83b3363e17bc986c040c751e00a2" class="navnav">11.3 Die Utility-Klasse System und Properties</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_003.htm#mj301ebcc98805c81f8b378d9f42d2c85e" class="navnav">11.3.1 Systemeigenschaften der Java-Umgebung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_003.htm#mj906360dff54e80341ac57ee2cd85403b" class="navnav">11.3.2 line.separator</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_003.htm#mjad6903638bccbba6783e1fe4f5a88f40" class="navnav">11.3.3 Property von der Konsole aus setzen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_003.htm#mj31cfa13c85710beeba5bca648636ad1a" class="navnav">11.3.4 Umgebungsvariablen des Betriebssystems *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_11_004.htm#mj519f885647f50baccfda39badd91c631" class="navnav">11.4 Einfache Benutzereingaben</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_004.htm#mj7415e57108ce190a1f2ed187bffaaf49" class="navnav">11.4.1 Grafischer Eingabedialog über JOptionPane</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_004.htm#mj4be1dd9136e7e82ee2590ec8bf28b514" class="navnav">11.4.2 Geschützte Passwort-Eingaben mit der Klasse »Console« *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_11_005.htm#mjf64aaa69388264acddb1e1f6e8f7544d" class="navnav">11.5 Ausführen externer Programme *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_005.htm#mj4579515cae281d4a5632f5f4b51adc78" class="navnav">11.5.1 »ProcessBuilder« und Prozesskontrolle mit Process</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_005.htm#mjb46035ffa5fdcefb2bb4f32e41390a94" class="navnav">11.5.2 Einen Browser, E-Mail-Client oder Editor aufrufen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_11_006.htm#mj4b961c488f7a34fd4b59068c84c087a6" class="navnav">11.6 Zum Weiterlesen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main">
+<p class="anleser"><em>Was wir brauchen, sind ein paar verrückte Leute;
+seht euch an, wohin uns die Normalen gebracht haben.
+&#8211; George Bernard Shaw (1856&#8211;1950)</em></p><a id="mj60bc6a007ae9b8657949f3e91d96df3d" name="mj60bc6a007ae9b8657949f3e91d96df3d"></a><h1 class="t1"><span class="cfett">11</span> Die Klassenbibliothek</h1><a id="mj02bea8b31605ee5952c444551c504697" name="mj02bea8b31605ee5952c444551c504697"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">11.1</span> Die Java-Klassenphilosophie  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Eine Programmiersprache besteht nicht nur aus einer Grammatik, sondern, wie im Fall von Java, auch aus einer Programmierbibliothek. Eine plattformunabhängige Sprache &#8211; so wie sich viele C oder C++ vorstellen &#8211; ist nicht wirklich plattformunabhängig, wenn auf jedem Rechner andere Funktionen und Programmiermodelle eingesetzt werden. Genau dies ist der Schwachpunkt von C(++). Die Algorithmen, die kaum vom Betriebssystem abhängig sind, lassen sich überall gleich anwenden, doch spätestens bei grafischen Oberflächen ist Schluss. Dieses Problem ergibt sich in Java seltener, weil sich die Entwickler große Mühe gaben, alle wichtigen Methoden in wohlgeformten Klassen und Paketen unterzubringen. Diese decken insbesondere die zentralen Bereiche Datenstrukturen, Ein- und Ausgabe, Grafik- und Netzwerkprogrammierung ab.</p><a id="mjfcefb1202e8bfff68693f7b4b9175fb6" name="mjfcefb1202e8bfff68693f7b4b9175fb6"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">11.1.1</span> Übersicht über die Pakete der Standardbibliothek  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Java 6-Klassenbibliothek bietet genau 203 Pakete. [Unsere Kollegen aus der Microsoft-Welt müssen eine dickere Pille schlucken, denn .NET 4 umfasst 408 Pakete (Assemblies genannt). Dafür enthält .NET aber auch Dinge, die in der Java-Welt der Java EE zuzuordnen sind. Aber auch dann liegt .NET immer noch vorne, denn Java EE 6 deklariert gerade einmal 117 Pakete.
+]  Die wichtigsten davon fasst die folgende Tabelle zusammen:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 11.1    </strong>Wichtige Pakete in Java 6</p>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Paket</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">java.awt</span></p>
+</td>
+<td class="tabellentext">
+<p>Das Paket AWT (<span class="ckursiv">Abstract Windowing Toolkit</span>) bietet Klassen zur Grafikausgabe und zur Nutzung von grafischen Bedienoberflächen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">java.awt.event</span></p>
+</td>
+<td class="tabellentext">
+<p>Schnittstellen für die verschiedenen Ereignisse unter grafischen
+Oberflächen</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">java.io</span></p>
+</td>
+<td class="tabellentext">
+<p>Möglichkeiten zur Ein- und Ausgabe. Dateien werden als Objekte repräsentiert. Datenströme erlauben den sequenziellen Zugriff auf die Dateiinhalte.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="cfett">java.lang</span></p>
+</td>
+<td class="tabellentext">
+<p>Ein Paket, das automatisch eingebunden ist und unverzichtbare Klassen wie String-, Thread- oder Wrapper-Klassen enthält</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="cfett">java.net</span></p>
+</td>
+<td class="tabellentext">
+<p>Kommunikation über Netzwerke. Klassen zum Aufbau von Client- und Serversystemen, die sich über TCP beziehungsweise IP mit dem Internet verbinden lassen</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="cfett">java.text</span></p>
+</td>
+<td class="tabellentext">
+<p>Unterstützung für internationalisierte Programme. Behandlung von Text, Formatierung von Datumswerten und Zahlen</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="cfett">java.util</span></p>
+</td>
+<td class="tabellentext">
+<p>Datenstrukturen, Raum und Zeit sowie Teile der Internationalisierung, Zufallszahlen</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="cfett">javax.swing</span></p>
+</td>
+<td class="tabellentext">
+<p>Swing-Komponenten für grafische Oberflächen. Das Paket besitzt diverse Unterpakete.</p>
+</td>
+</tr>
+</table><br><p>Als Entwickler ist es unumgänglich für die Details die JavaDoc http://download.oracle.com/javase/6/docs/api/ zu studieren.</p>
+<h4 class="t4">Offizielle Schnittstelle (java und javax-Pakete)</h4>
+<p>Das, was die JavaDoc dokumentiert, bildet den erlaubten Zugang zum JDK. Die Typen sind für die Ewigkeit ausgelegt, sodass Entwickler darauf zählen können, auch noch in 100 Jahren ihre Java-Programme ausführen zu können. Doch wer definiert die API? Im Kern sind es vier Quellen:</p>
+<ul class="gp">
+<li>Oracle-Entwickler setzen neue Pakete und Typen in die API.</li>
+</ul>
+<ul class="gp">
+<li>Der <span class="ckursiv">Java Community Process (JCP)</span> beschließt eine neue API. Dann ist es nicht nur Oracle allein, sondern eine Gruppe, die eine neue API erarbeitet und die Schnittstellen definiert.</li>
+</ul>
+<ul class="gp">
+<li>Die <span class="ckursiv">Object Management Group (OMG)</span> definiert für CORBA eine API.</li>
+</ul>
+<ul class="gp">
+<li>Das <span class="ckursiv">World Wide Web Consortium (W3C)</span> gibt eine API etwa für XML-DOM vor.</li>
+</ul>
+<p>Die Merkhilfe ist, dass alles, was mit <span class="clisting">java</span> oder <span class="clisting">javax</span> beginnt, eine erlaubte API darstellt, und alles andere zu nicht portablen Java-Programmen führen kann. Es gibt weiterhin Klassen, die unterstützt werden, aber nicht Teil der offiziellen API sind. Dazu zählen etwa diverse Swing-Klassen für das Aussehen der Oberfläche.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Die Laufzeitumgebung von Oracle liefert noch über 3.000 Klassendateien [Das Buch »Java Secrets« von Elliotte Rusty Harold geht den Klassen nach, ist aber schon älter.] in den Paketen <span class="clisting">sun</span> und <span class="clisting">sunw</span> aus. Diese internen Klassen sind nicht offiziell dokumentiert, aber zum Teil sehr leistungsfähig und erlauben selbst direkten Speicherzugriff oder können Objekte ohne Standard-Konstruktor erzeugen:</p>
+<p class="tabunter"><strong>Listing 11.1    </strong>com/tutego/insel/sun/UnsafeInstance.java, Ausschnitt</p>
+<div class="listing"><pre class="prettyprint">Field field = Unsafe.class.getDeclaredField( "theUnsafe" );
+field.setAccessible( true );
+sun.misc.Unsafe unsafe = (sun.misc.Unsafe) field.get( null );
+File f = (File) unsafe.allocateInstance( File.class );
+System.out.println( f.getPath() );                          // null</pre></div>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="clisting">File</span> hat keinen Standard-Konstruktor, nicht einmal einen privaten. Diese Art der Objekterzeugung kann bei der Deserialisierung (siehe dazu Kapitel 17, »Datenströme«) hilfreich sein.</p>
+</td>
+</tr>
+</table><br><h4 class="t4">Standard Extension API (javax-Pakete)</h4>
+<p>Einige der Java-Pakete beginnen mit <span class="clisting">javax</span>. Dies sind ursprünglich Erweiterungspakete (e<span class="cfett">x</span>tensions), die die Kern-Klassen ergänzen sollten. Im Laufe der Zeit sind jedoch viele der früher zusätzlich einzubindenden Pakete in die Standard-Distribution gewandert, sodass heute ein recht großer Anteil mit <span class="clisting">javax</span> beginnt, aber keine Erweiterungen mehr darstellt, die zusätzlich installiert werden müssen. Sun wollte damals die Pakete nicht umbenennen, um so eine Migration nicht zu erschweren. Fällt heute im Quellcode ein Paketname mit <span class="clisting">javax</span> auf, ist es daher nicht mehr so einfach zu entscheiden, ob eine externe Quelle mit eingebunden werden muss beziehungsweise ab welcher Java-Version das Paket Teil der Distribution ist. Echte externe Pakete sind unter anderem:</p>
+<ul class="gp">
+<li><span class="ckursiv">Enterprise/Server API</span> mit den Enterprise <span class="ckursiv">JavaBeans, Servlets</span> und <span class="ckursiv">JavaServer Faces</span></li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">Java Persistence API</span> (JPA) zum dauerhaften Abbilden von Objekten auf (in der Regel) relationale Datenbanken</li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">Java Communications API</span> für serielle und parallele Schnittstelle</li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">Java Telephony API</span></li>
+</ul>
+<ul class="gp">
+<li>Sprachein-/-ausgabe mit der <span class="ckursiv">Java Speech API</span></li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">JavaSpaces</span> für gemeinsamen Speicher unterschiedlicher Laufzeitumgebungen</li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">JXTA</span> zum Aufbauen von P2P-Netzwerken</li>
+</ul><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="11 Die Klassenbibliothek"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_10_004.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_11_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

@@ -1,0 +1,619 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 15.4 Internationalisierung und Lokalisierung</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 15.4 Internationalisierung und Lokalisierung">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 15.4 Internationalisierung und Lokalisierung">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_05_001.htm#mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_08_001.htm#mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_09_001.htm#mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_11_001.htm#mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_15_003.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_15_005.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497" class="navnav">15 Raum und Zeit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_15_001.htm#mj56e29327c75de6981fd89512388c0c8f" class="navnav">15.1 Weltzeit *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_15_002.htm#mj0fe2d6f0bfbcf5a0a17c81b25d0f4fbc" class="navnav">15.2 Wichtige Datum-Klassen im Überblick</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_002.htm#mjbf39546ea1acf5c2f9b227b54e7be9bc" class="navnav">15.2.1 Der 1.1.1970</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_002.htm#mj889c312abeda1d12246dcfd217ebb2ac" class="navnav">15.2.2 System.currentTimeMillis()</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_002.htm#mj29b9f9ad13628232071d64f22d8c5634" class="navnav">15.2.3 Einfach Zeitumrechnungen durch »TimeUnit«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_15_003.htm#mj66490aa7267a02fe487213e3202c3b11" class="navnav">15.3 Sprachen der Länder</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_003.htm#mjda24c291ae8fd4d5b601c37673adfe8b" class="navnav">15.3.1 Sprachen und Regionen über Locale-Objekte</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj96ec8d1bc0e71c464c41b370dd1db21b" class="navh">15.4 Internationalisierung und Lokalisierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj9ed528ba76447565da0f8433f52174c9" class="navh">15.4.1 ResourceBundle-Objekte und Ressource-Dateien</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj08ee310dd4405080165441ab4edcbe4e" class="navh">15.4.2 Ressource-Dateien zur Lokalisierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj116132335bcc3c3fb740980dfa671a32" class="navh">15.4.3 Die Klasse »ResourceBundle«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj399962cb4a4b4e463a60d66bff8e2260" class="navh">15.4.4 Ladestrategie für ResourceBundle-Objekte</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_15_005.htm#mj5664d06e45cf81294c55e16b4a0ffcfc" class="navnav">15.5 Die Klasse »Date«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_005.htm#mjb78932b990bf17464470e394450303da" class="navnav">15.5.1 Objekte erzeugen und Methoden nutzen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_005.htm#mj772a95b70d86a84afde750261a01c74c" class="navnav">15.5.2 Date-Objekte nicht immutable</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_15_006.htm#mjaed5eff4013d1faae60bd2e671a3ef7d" class="navnav">15.6 Calendar und GregorianCalendar</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_006.htm#mjc847dc8174500ca8af5a1d55532eb22f" class="navnav">15.6.1 Die abstrakte Klasse »Calendar«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_006.htm#mja3490a64c6913ed57fc8c579070ca4a2" class="navnav">15.6.2 Der gregorianische Kalender</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_006.htm#mj03f22e8d591046fd5eacb99580ae11cb" class="navnav">15.6.3 »Calendar« nach »Date« und Millisekunden fragen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_006.htm#mj670526851594fcb988f77b26256ce0ef" class="navnav">15.6.4 Ostertage *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_006.htm#mjbf7d3b89b1020fa31b9083f9957c81fb" class="navnav">15.6.5 Abfragen und Setzen von Datumselementen über Feldbezeichner</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_15_007.htm#mj46511cda4895a1e383a7ac83f74bc82e" class="navnav">15.7 Formatieren und Parsen von Datumsangaben</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_007.htm#mjb1b2e8ad9e53664d52ad5f89e7779eb6" class="navnav">15.7.1 Ausgaben mit »printf()«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_007.htm#mjad1f28a3f317aa895ddd6dea7d84b156" class="navnav">15.7.2 Mit »DateFormat« und »SimpleDateFormat« formatieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_007.htm#mjcab2b0858767ea6f1c23afab81b9ed3a" class="navnav">15.7.3 Parsen von Datumswerten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_15_008.htm#mj9f5339eca996c857fca493cc1d13e59e" class="navnav">15.8 Zum Weiterlesen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj96ec8d1bc0e71c464c41b370dd1db21b" name="mj96ec8d1bc0e71c464c41b370dd1db21b"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">15.4</span> Internationalisierung und Lokalisierung  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Soll ein Programm in jeder Kultur und jedem Sprachraum optimal laufen, ist auf eine ganze Reihe von Dingen zu achten:</p>
+<ul class="gp">
+<li>Texte der Beschriftungen</li>
+</ul>
+<ul class="gp">
+<li>Konventionen in Bezug auf Datum, Dezimalzahlen, Währungen, Telefonnummern</li>
+</ul>
+<ul class="gp">
+<li>Ausrichtungen und Schreibrichtung</li>
+</ul>
+<ul class="gp">
+<li>Grafiken, Farben</li>
+</ul>
+<ul class="gp">
+<li>Töne, Musiken</li>
+</ul>
+<p>In der Softwareentwicklung gibt es zwei Begriffe, die sich um sprachabhängige Programme drehen: Internationalisierung und Lokalisierung:</p>
+<ul class="gp">
+<li><span class="cfett">Internationalisierung</span>: Die Internationalisierung eines Programms bedeutet, dass es so entwickelt und vorbereitet wurde, dass es unter beliebig vielen Sprachen arbeitet.</li>
+</ul>
+<ul class="gp">
+<li><span class="cfett">Lokalisierung</span>: Die Lokalisierung ist der Prozess des Anpassens auf eine bestimmte neue Sprache.</li>
+</ul>
+<p>Eine Software, die gleich internationalisiert entworfen wird, kann leicht auf andere Sprachen gebracht werden, und Unternehmen können schnell in neue Märkte eintreten. Java unterstützt das mit diversen Möglichkeiten:</p>
+<ul class="gp">
+<li><span class="clisting">Format</span>-Klassen erleichtern die Formatierung von Datum und Zahlen.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">ResourceBundle</span>-Objekte ermöglichen unterschiedliche Sprachen durch Übersetzungs-Dateien.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Collator</span>-Klassen aus dem <span class="clisting">java.text</span>-Paket können sprachabhängig sortieren.</li>
+</ul>
+<ul class="gp">
+<li>Swing kann Text und Komponenten mühelos von rechts nach links laufen lassen.</li>
+</ul>
+<p>Die Vorbereitung kostet natürlich Zeit und gestalterische Klarheit. Ein Zuviel an Grafiken kann dabei der Lokalisierung im Wege stehen, etwa bei Handgesten, Bildern von Tieren, Gesichtern.</p><a id="mj9ed528ba76447565da0f8433f52174c9" name="mj9ed528ba76447565da0f8433f52174c9"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">15.4.1</span> ResourceBundle-Objekte und Ressource-Dateien  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Sollen Java-Programme sprachunabhängig gestaltet werden, müssen in der ersten Phase der Internationalisierung alle Zeichenketten einer Landessprache durch symbolische Namen ersetzt werden. Die Verbindung zwischen den symbolischen Namen und den landessprach-lichen Texten übernimmt ein <span class="clisting">ResourceBundle</span>-Objekt, hinter dem eine Lokalisierungs-Datei steht. Wenn das Programm später eine Zeichenkette nutzen will, greift es auf den symbolischen Namen zurück, die dann das <span class="clisting">ResourceBundle</span>-Objekt auf die entsprechende Übersetzung überträgt. Die <span class="clisting">ResourceBundle</span>-Objekte sind spezielle Assoziativspeicher, die alle programmrelevanten Texte und Informationen für ein spezielles Land repräsentieren. Ein wesentlicher Bestandteil von Java besteht in der Fähigkeit dieser Datenspeicher, sich die passenden Lokalisierungs-Dateien selbst herauszusuchen.</p><a id="mj08ee310dd4405080165441ab4edcbe4e" name="mj08ee310dd4405080165441ab4edcbe4e"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">15.4.2</span> Ressource-Dateien zur Lokalisierung  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Übersetzungen können aus Dateien oder einfachen Listen stammen; wir nehmen im Folgenden Dateien an. Da wir die Sprachen Englisch und Deutsch unterstützen wollen, legen wir im (frei wählbaren) Verzeichnis <span class="ckursiv">resources</span> zwei Dateien an, eine für die englische und eine für deutsche Version:</p>
+<p class="tabunter"><strong>Listing 15.2    </strong>resources/HelloWorld_en.properties</p>
+<div class="listing"><pre class="prettyprint"># HelloWorld_en.properties
+Hello=Hello World.
+Bye=Bye.</pre></div>
+<p class="tabunter"><strong>Listing 15.3    </strong>resources/HelloWorld_de.properties</p>
+<div class="listing"><pre class="prettyprint"># HelloWorld_de.properties
+Hello=Hallo Welt.
+Bye=Tschüss.</pre></div>
+<p>Die Datei enthält Schlüssel-Werte-Paare sowie Kommentare, die mit einer Raute beginnen. Mit einem Identifizierer &#8211; wie »Hello« &#8211; sind die landes-/sprachabhängigen Zeichenketten als Werte verbunden.</p>
+<p>Die Dateinamen für die Ressourcen-Dateien haben dabei einen speziellen Aufbau. Sie setzen sich aus dem so genannten <span class="ckursiv">Basisnamen</span> (hier <span class="ckursiv">HelloWorld</span>), einem Unterstrich (»_«), einer Landeskennung und dem Datei-Suffix <span class="ckursiv">properties</span> zusammen. Damit ergeben sich für die Sprachen Englisch und Deutsch die Dateinamen <span class="ckursiv">HelloWorld_en.properties</span> und <span class="ckursiv">HelloWorld    _de.properties</span>.</p>
+<p><div class="eclipse"><img src="common/eclipseicon.gif" align="top" width="53" height="23" alt="Eclipse" title="Eclipse"></div>Eclipse kann automatisch die Zeichenketten eines Programms in eine Datei auslagern. Dazu ist im Menü <span class="kapitalchen">Source</span> der Eintrag <span class="kapitalchen">Externalize Strings…</span> aufzurufen.</p><a id="mj116132335bcc3c3fb740980dfa671a32" name="mj116132335bcc3c3fb740980dfa671a32"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">15.4.3</span> Die Klasse »ResourceBundle«  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Um auf die Übersetzungsdateien zurückgreifen zu können, benötigen wir ein Objekt der Klasse <span class="clisting">ResourceBundle</span>. Die statische Fabrikmethode <span class="clisting">ResourceBundle.getBundle(name)</span> liefert den Assoziativspeicher, wobei <span class="clisting">name</span> der Basisname wie »HelloWorld« ist. Über den Schlüssel sucht die Methode <span class="clisting">getString()</span> die landesspezifische Meldung heraus.</p>
+<div class="bildbox">
+<p><a name="IDA3HQD"></a><a onClick="OpenWin('bilder/resourcebundleuml.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinresourcebundleuml.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Listing 15.4    </strong>com/tutego/insel/bundle/InternationalHelloWorld.java</p>
+<div class="listing"><pre class="prettyprint">package com.tutego.insel.bundle;
+
+import java.util.*;
+
+//$java -Duser.language=en com.tutego.insel.bundle.InternationalHelloWorld
+public class InternationalHelloWorld
+{
+  public static void main( String[] args )
+  {
+    String baseName = "resources.HelloWorld";
+
+    try
+    {
+      ResourceBundle bundle =<span class="cfett"> ResourceBundle.getBundle</span>( baseName );
+      System.out.println(<span class="cfett"> bundle.getString</span>("Hello") );
+    }
+    catch ( MissingResourceException e ) {
+      System.err.println( e );
+    }
+  }
+}</pre></div><a id="mj399962cb4a4b4e463a60d66bff8e2260" name="mj399962cb4a4b4e463a60d66bff8e2260"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">15.4.4</span> Ladestrategie für ResourceBundle-Objekte  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Methode <span class="clisting">getBundle()</span> sucht automatisch anhand der eingestellten Landessprache die passende Datei aus dem Klassenpfad (aus diesem Grund heißt unser Basisname »resources.HelloWorld« und nicht nur einfach »HelloWorld«). Die Dateinamen für die jeweiligen <span class="clisting">ResourceBundle</span>-Objekte können sehr variabel zusammengesetzt werden, wobei <span class="clisting">getBundle()</span> die nachfolgenden Bildungsgesetze verwendet und bei der Dateisuche mit der speziellsten Beschreibung beginnt:</p>
+<ul class="gp">
+<li><span class="ckursiv">bundleName_localeLanguage_localeCountry_localeVariant</span></li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">bundleName_localeLanguage_localeCountry</span></li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">bundleName_localeLanguage</span></li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">bundleName_defaultLanguage_defaultCountry_defaultVariant</span></li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">bundleName_defaultLanguage_defaultCountry</span></li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">bundleName_defaultLanguage</span></li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">bundleName</span></li>
+</ul>
+<p>Sind mehrere Ressourcen-Dateien im Klassenpfad, so integriert sie <span class="clisting">getBundle()</span>. Eine Datei wie <span class="ckursiv">HelloWorld_de.properties</span> erweitert (und überschreibt unter Umständen) die Inhalte von <span class="ckursiv">HelloWorld.properties</span>. Eine <span class="ckursiv">localeCountry</span> ist zum Beispiel »CH« (das ist keine Variante), was zu einem Dateinamen <span class="ckursiv">HelloWorld_de</span><span class="cfett">_CH</span><span class="ckursiv">.properties</span> führt.</p>
+<p class="tabunter"><strong>Listing 15.5    </strong>resources/HelloWorld_de_<span class="ckursiv">CH</span>.properties</p>
+<div class="listing"><pre class="prettyprint">Hello=Grüezi.</pre></div>
+<p>Die Anfrage <span class="clisting">bundle.getString("Hello")</span> liefert »Grüezi«, und <span class="clisting">bundle.getString("Bye")</span> retourniert »Tschüss« aus der übergeordneten Datei. Die Datei <span class="ckursiv">HelloWorld_de</span><span class="cfett">_CH</span><span class="ckursiv">.properties</span> überschreibt die hochdeutschen Wörter aus <span class="ckursiv">HelloWorld_de.properties</span> mit Wörtern auf Schwyzerdütsch, was wiederum Wörter aus <span class="ckursiv">HelloWorld.properties</span> überschreiben würde. Um das Programm zu testen, ändert folgende Zeile vor <span class="clisting">getBundle()</span> die Sprache:</p>
+<div class="listing"><pre class="prettyprint">Locale.setDefault( new Locale("de", "CH") );</pre></div>
+<p>Gibt es dann eine Datei wie <span class="ckursiv">HelloWorld_de</span><span class="cfett">_CH</span><span class="ckursiv">.properties,</span> aber <span class="ckursiv">HelloWorld_de.properties</span> fehlt und die eingestellte Sprache ist nur Deutsch und nicht ausschließlich Schweizerdeutsch, so beachtet <span class="clisting">getBundle()</span> die Datei <span class="ckursiv">HelloWorld_de</span><span class="cfett">_CH</span><span class="ckursiv">.properties</span> nicht, sondern nur eventuell vorgelagerte Dateien wie <span class="ckursiv">HelloWorld.properties</span>.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">abstract class java.util.<span class="cfett">ResourceBundle</span></pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">static ResourceBundle getBundle( String baseName )</span>
+Liefert das <span class="clisting">ResourceBundle</span> für einen Basisnamen. Eine <span class="clisting">MissingResourceException</span> folgt, wenn kein Resource-Bundle mit diesem Basisnamen gefunden werden konnte.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">String getString( String key )</span>
+Gibt den mit <span class="clisting">key</span> assoziierten Wert von diesem Resource-Bundle oder von den Vätern zurück.</li>
+</ul>
+<p>Die einfache statische Fabrikmethode <span class="clisting">getBundle()</span> bezieht zum Ansprechen der Dateien die Standard-Sprache aus <span class="clisting">Locale.getDefault()</span>.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="15.4 Internationalisierung und Lokalisierung"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_15_003.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_15_005.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

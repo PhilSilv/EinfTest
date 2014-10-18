@@ -1,0 +1,1166 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 5 Eigene Klassen schreiben</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 5 Eigene Klassen schreiben">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 5 Eigene Klassen schreiben">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_08_001.htm#mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_09_001.htm#mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_11_001.htm#mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_04_011.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_05_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="#mj005cd8e604aefc3ae72b92880fcee5c6" class="navh">5 Eigene Klassen schreiben</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj5e65ec67d9eb2305d2615016264efb64" class="navh">5.1 Eigene Klassen mit Eigenschaften deklarieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjcee55258f36e0664b9176ee9cd55196c" class="navh">5.1.1 Attribute deklarieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mja8308749ed5bc547761cab48fd9fd23d" class="navh">5.1.2 Methoden deklarieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj7b6528799a055d50c516a9a6ce03234c" class="navh">5.1.3 Die this-Referenz</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_05_002.htm#mjf5b3fff9748ae6323d1923016a906a8f" class="navnav">5.2 Privatsphäre und Sichtbarkeit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_002.htm#mj650376808746f63dbf94baaac0b3fcde" class="navnav">5.2.1 Für die Öffentlichkeit: public</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_002.htm#mj421fe84a059e68f00c9258e052efc416" class="navnav">5.2.2 Kein Public Viewing &#8211; Passwörter sind privat</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_002.htm#mjdb680cba3cfe3cb70471e03ced889467" class="navnav">5.2.3 Wieso nicht freie Methoden und Variablen für alle?</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_002.htm#mjd1a57903246651aa57bac01f46f16748" class="navnav">5.2.4 Privat ist nicht ganz privat: Es kommt darauf an, wer&#8217;s sieht *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_002.htm#mjadcdcfde5f010b9466c139b9b2061e4d" class="navnav">5.2.5 Zugriffsmethoden für Attribute deklarieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_002.htm#mj27d0c712d6a0b77771ea8729293a2fae" class="navnav">5.2.6 Setter und Getter nach der JavaBeans-Spezifikation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_002.htm#mjba3d0b97b59d4c00207b68330dc3ad14" class="navnav">5.2.7 Paketsichtbar</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_002.htm#mjefcaab87f441a3115bcea2e82c31d358" class="navnav">5.2.8 Zusammenfassung zur Sichtbarkeit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_05_003.htm#mjd51d5220468ee4a1f2a07b6796bb393b" class="navnav">5.3 Statische Methoden und statische Attribute</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_003.htm#mje56c1ef6befa9bebe6b70186d680d63b" class="navnav">5.3.1 Warum statische Eigenschaften sinnvoll sind</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_003.htm#mj7cfa3f33ec5dcd7e8c2aca7814ca4a80" class="navnav">5.3.2 Statische Eigenschaften mit static</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_003.htm#mjaf8db1dace632ead0a730ca50227a08e" class="navnav">5.3.3 Statische Eigenschaften über Referenzen nutzen? *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_003.htm#mj93916b1122a23b38d603c49e8c23ae86" class="navnav">5.3.4 Warum die Groß- und Kleinschreibung wichtig ist *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_003.htm#mj9745692d3b4d9195979f26881f24175f" class="navnav">5.3.5 Statische Variablen zum Datenaustausch *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_003.htm#mj5ff2708264298f2c098c7fa6f1ed8002" class="navnav">5.3.6 Statische Eigenschaften und Objekteigenschaften *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_05_004.htm#mja567f6e018aa38d0058d35e1803b2bd2" class="navnav">5.4 Konstanten und Aufzählungen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_004.htm#mjd8be12f49f6de8d40f91a3c1ed07ecd5" class="navnav">5.4.1 Konstanten über öffentliche statische finale Variablen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_004.htm#mjc4395a2f846baa2b3ff3387a18986f46" class="navnav">5.4.2 Typ(un)sichere Aufzählungen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_004.htm#mja2ff5a4ba845df2de7de3833743667c6" class="navnav">5.4.3 Aufzählungen mit »enum«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_05_005.htm#mja0dd46a19d4008a93c3a54831bd5386d" class="navnav">5.5 Objekte anlegen und zerstören</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_005.htm#mj415e65e884cf12aea272c84b0a833206" class="navnav">5.5.1 Konstruktoren schreiben</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_005.htm#mj191926dee50dc48898c3c71ad4454d3c" class="navnav">5.5.2 Der vorgegebene Konstruktor (engl. »default constructor«)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_005.htm#mj10809df0d7ff9feb8f7942bb9c23e0e5" class="navnav">5.5.3 Parametrisierte und überladene Konstruktoren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_005.htm#mjeba4c88cb0236221c5b762dfdea3a132" class="navnav">5.5.4 Copy-Konstruktor</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_005.htm#mj2e1c2363c979aed81150e04d7f06afd6" class="navnav">5.5.5 Einen anderen Konstruktor der gleichen Klasse mit »this()« aufrufen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_005.htm#mj10ff17c8792a477f4633c412382e068f" class="navnav">5.5.6 Ihr fehlt uns nicht &#8211; der Garbage-Collector</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_005.htm#mj975e7c7e428f38a991ecb081f96e90cc" class="navnav">5.5.7 Private Konstruktoren, Utility-Klassen, Singleton, Fabriken</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_05_006.htm#mjbe710643b3883f498c80f347751ac52a" class="navnav">5.6 Klassen- und Objektinitialisierung *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_006.htm#mj8bdf9677560ee64466724ec5d65423ec" class="navnav">5.6.1 Initialisierung von Objektvariablen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_006.htm#mj2781d1c908a54becfd6d5996eac112b7" class="navnav">5.6.2 Statische Blöcke als Klasseninitialisierer</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_006.htm#mj8151bb0849ace5d6e286b168aa468d9c" class="navnav">5.6.3 Initialisierung von Klassenvariablen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_006.htm#mj93db64c027de8387756ef445b5c1d073" class="navnav">5.6.4 Eincompilierte Belegungen der Klassenvariablen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_006.htm#mj80d4784164ee6ec88529af0dc09c0199" class="navnav">5.6.5 Exemplarinitialisierer (Instanzinitialisierer)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_006.htm#mj37081734f2a6f13a87371c0a6c2c818c" class="navnav">5.6.6 Finale Werte im Konstruktor und in statischen Blöcken setzen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_05_007.htm#mjd6495c652f2f2a6f6c1e2ac552ddf331" class="navnav">5.7 Assoziationen zwischen Objekten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_007.htm#mj827634ee23918b851afc993bec620517" class="navnav">5.7.1 Unidirektionale 1:1-Beziehung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_007.htm#mj9c8c7b30633d3cc76b8277277622d3e7" class="navnav">5.7.2 Bidirektionale 1:1-Beziehungen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_007.htm#mjd5082a1e2f2bbc199ccf24bdba5eb65d" class="navnav">5.7.3 Unidirektionale 1:n-Beziehung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_05_008.htm#mjf275cae4069cb07f60b602bcbea532c8" class="navnav">5.8 Vererbung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_008.htm#mjf017bb7a74c678fbdf843629b9781be8" class="navnav">5.8.1 Vererbung in Java</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_008.htm#mj04665ed002c9fa34418c2d0d8cc53f97" class="navnav">5.8.2 Spielobjekte modellieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_008.htm#mjf2b165b1e9385d011c0d5792532cfd0e" class="navnav">5.8.3 Die implizite Basisklasse »java.lang.Object«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_008.htm#mj42d2ad5de0265855ce32171a4bb7acaf" class="navnav">5.8.4 Einfach- und Mehrfachvererbung *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_008.htm#mj00156fc6ce7a12313715f065a9119155" class="navnav">5.8.5 Die Sichtbarkeit »protected«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_008.htm#mj23635ff54d83b3c53bdfc96dbf5f6f83" class="navnav">5.8.6 Konstruktoren in der Vererbung und »super()«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_05_009.htm#mjbd3c8b043ebc90220d949191218a7221" class="navnav">5.9 Typen in Hierarchien</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_009.htm#mj72e27b656ca33b6c872637c4209d0cef" class="navnav">5.9.1 Automatische und explizite Typanpassung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_009.htm#mjd97d9fef18bfca626033f7a8c53c2314" class="navnav">5.9.2 Das Substitutionsprinzip</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_009.htm#mjaf183bf5ba882c17eb18fb7dddbebc0e" class="navnav">5.9.3 Typen mit dem binären Operator »instanceof «testen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_05_010.htm#mj530675a29a46e99d1439817af2844707" class="navnav">5.10 Methoden überschreiben</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_010.htm#mjdc5bd8d9c9007f13c21f00a2fa95bdbc" class="navnav">5.10.1 Methoden in Unterklassen mit neuem Verhalten ausstatten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_010.htm#mj792df8e32f49fef687f4edbef6067b02" class="navnav">5.10.2 Mit »super« an die Eltern</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_010.htm#mj8c03d0b5f6c28323310c16b245875509" class="navnav">5.10.3 Finale Klassen und finale Methoden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_010.htm#mj997ffec8aa1bb149470ca2e874054115" class="navnav">5.10.4 Kovariante Rückgabetypen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_010.htm#mj3af86bc3f6025b10611cfcd62bd1670d" class="navnav">5.10.5 Array-Typen und Kovarianz *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_05_011.htm#mj179b2932e63e07c3658cec0c7e376385" class="navnav">5.11 Dynamisches Binden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_011.htm#mjc036e412c6d3646ea98a10f05a0bae63" class="navnav">5.11.1 Gebunden an »toString()«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_011.htm#mjfe413b04b37621547090a78cd5fb2f54" class="navnav">5.11.2 Implementierung von »System.out.println(Object)«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_011.htm#mj3b9279a804c54e2bbe5aa4b2b8b4cee3" class="navnav">5.11.3 Nicht dynamisch gebunden bei privaten, statischen und finalen Methoden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_011.htm#mjf2938bb5b101c91204b001121dbee1ac" class="navnav">5.11.4 Dynamisch gebunden auch bei Konstruktoraufrufen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_011.htm#mje4cf152d80f523f52875ea1e8b9a41ff" class="navnav">5.11.5 Eine letzte Spielerei mit Javas dynamischer Bindung und überschatteten Attributen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_05_012.htm#mj32c7e3f8f7365a86c4bcd11b0fde766a" class="navnav">5.12 Abstrakte Klassen und abstrakte Methoden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_012.htm#mj4976e2fb9af553c2864cb4e04c34a7b7" class="navnav">5.12.1 Abstrakte Klassen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_012.htm#mj0dad6b7ebd81c6a20b2ae7b0ce26456a" class="navnav">5.12.2 Abstrakte Methoden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_05_013.htm#mjfac44aa7eeb458fddc00bde8886194c9" class="navnav">5.13 Schnittstellen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_013.htm#mj0df1e3f7371a557bce922743775ec7be" class="navnav">5.13.1 Schnittstellen deklarieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_013.htm#mj1db69466438ff5e185f95e83f910e178" class="navnav">5.13.2 Implementieren von Schnittstellen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_013.htm#mj71d8701af59f1e9c6d377298701b3d3d" class="navnav">5.13.3 Markierungsschnittstellen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_013.htm#mjda7c7677ce960626e25240c2eec899f5" class="navnav">5.13.4 Ein Polymorphie-Beispiel mit Schnittstellen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_013.htm#mj7e38de0dde8ca35e495fea8be6b50f9d" class="navnav">5.13.5 Die Mehrfachvererbung bei Schnittstellen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_013.htm#mj97d20b849f890ef012d5d0de8b7b49d6" class="navnav">5.13.6 Keine Kollisionsgefahr bei Mehrfachvererbung *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_013.htm#mj6add6a3a81e0233b226a28bb9a7172ca" class="navnav">5.13.7 Erweitern von Interfaces &#8211; Subinterfaces</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_013.htm#mj978990f92232692e5997f2806abb4cd5" class="navnav">5.13.8 Konstantendeklarationen bei Schnittstellen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_013.htm#mj5eafea4c42fac6e5f1da6ea613e0292b" class="navnav">5.13.9 Initialisierung von Schnittstellenkonstanten *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_013.htm#mj03dd446f2805e920115595bc775916fb" class="navnav">5.13.10 Abstrakte Klassen und Schnittstellen im Vergleich</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_05_014.htm#mj1b008761e7e60dd49fcab7bf8de0d2cd" class="navnav">5.14 Dokumentationskommentare mit JavaDoc</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_014.htm#mj73579bedbce03e903a0b17dafef33215" class="navnav">5.14.1 Einen Dokumentationskommentar setzen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_014.htm#mj2af1671fd24a3eec2a34b1443a19369b" class="navnav">5.14.2 Mit dem Werkzeug javadoc eine Dokumentation erstellen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_014.htm#mj070291c7a074a5f5be4fce22cfa08ba8" class="navnav">5.14.3 HTML-Tags in Dokumentationskommentaren *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_014.htm#mj769808fd6db0127c9a729fd0d9ba8ae2" class="navnav">5.14.4 Generierte Dateien</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_014.htm#mj8e31f35d329c44560c0da4dbd76c5b20" class="navnav">5.14.5 Dokumentationskommentare im Überblick *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_014.htm#mje4d1241f5450e9bf883e150d266cb7b5" class="navnav">5.14.6 JavaDoc und Doclets *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_014.htm#mj0eb8045dfc88d70ba4640493b2d23548" class="navnav">5.14.7 Veraltete (deprecated) Typen und Eigenschaften</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main">
+<p class="anleser"><em>»Das Gesetz ist der abstrakte Ausdruck
+des allgemeinen an und für sich seienden Willens«.
+&#8211; Georg Wilhelm Friedrich Hegel (1770&#8211;1831)</em></p><a id="mj005cd8e604aefc3ae72b92880fcee5c6" name="mj005cd8e604aefc3ae72b92880fcee5c6"></a><h1 class="t1"><span class="cfett">5</span> Eigene Klassen schreiben</h1><a id="mj5e65ec67d9eb2305d2615016264efb64" name="mj5e65ec67d9eb2305d2615016264efb64"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">5.1</span> Eigene Klassen mit Eigenschaften deklarieren  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Die Deklaration einer Klasse leitet das Schlüsselwort <span class="clisting">class</span> ein. Im Rumpf der Klasse lassen sich deklarieren:</p>
+<ul class="gp">
+<li>Attribute (Variablen)</li>
+</ul>
+<ul class="gp">
+<li>Methoden</li>
+</ul>
+<ul class="gp">
+<li>Konstruktoren</li>
+</ul>
+<ul class="gp">
+<li>Klassen- sowie Exemplarinitialisierer</li>
+</ul>
+<ul class="gp">
+<li>innere Klassen beziehungsweise innere Schnittstellen</li>
+</ul>
+<h4 class="t4">Eine ganz einfache Klassendeklaration</h4>
+<p>Wir wollen die Konzepte der Klassen und Schnittstellen an einem kleinen Spiel verdeutlichen. Beginnen wir mit dem Spieler, den die Klasse <span class="clisting">Player</span> repräsentiert:</p>
+<p class="tabunter"><strong>Listing 5.1    </strong>com/tutego/insel/game/v1/Player.java, Player</p>
+<div class="listing"><pre class="prettyprint">class Player
+{
+}</pre></div>
+<p>Die Klasse hat einen vom Compiler generierten Konstruktor, sodass sich ein Exemplar unserer Klasse mit <span class="clisting">new Player()</span> erzeugen lässt.</p><a id="mjcee55258f36e0664b9176ee9cd55196c" name="mjcee55258f36e0664b9176ee9cd55196c"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">5.1.1</span> Attribute deklarieren  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Diese <span class="clisting">Player</span>-Klasse hat bisher keine Attribute und kann bisher nichts. Geben wir dem Spieler zwei Attribute: eines für den Namen und ein zweites für einen Gegenstand, den er trägt. Die Datentypen sollen beide <span class="clisting">String</span> sein:</p>
+<p class="tabunter"><strong>Listing 5.2    </strong>com/tutego/insel/game/v2/Player.java, Player</p>
+<div class="listing"><pre class="prettyprint">class Player
+{
+ <span class="cfett"> String name;</span>
+ <span class="cfett"> String item;</span>
+}</pre></div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Eine spezielle Namenskonvention für Objektvariablen gibt es nicht. So ist es zwar möglich, zur Unterscheidung von lokalen Variablen ein Präfix wie »f« oder »_« voranzustellen, doch sogar die Eclipse-Macher sind davon abgekommen. Objektvariablen können auch grundsätzlich wie Methoden heißen, doch ist das unüblich, da Variablennamen im Allgemeinen Substantive und Methoden Verben sind. Da Bezeichner nie so heißen können wie Schlüsselwörter, fallen Variablen wie <span class="clisting">enum</span> schon raus (das führte in Java 5 zu einigen Quellcodeänderungen, da dort <span class="clisting">enum</span> als neues Schlüsselwort eingeführt wurde).</p>
+</td>
+</tr>
+</table><br><p>Eine zweite Klasse <span class="clisting">Playground</span> erzeugt in der statischen <span class="clisting">main()</span>-Methode für den mutigen Spieler ein <span class="clisting">Player</span>-Objekt, schreibt und liest die Attribute:</p>
+<p class="tabunter"><strong>Listing 5.3    </strong>com/tutego/insel/game/v2/Playground.java, Playground</p>
+<div class="listing"><pre class="prettyprint">class Playground
+{
+  public static void main( String[] args )
+  {
+    Player p = new Player();
+    p.name = "Mutiger Manfred";
+    p.item = "Schlips";
+
+    System.out.printf( "%s nimmt einen %s mit.", p.name, p.item );
+  }
+}</pre></div>
+<div class="bildbox">
+<p><a name="IDAYZWD"></a><a onClick="OpenWin('bilder/v2player.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinv2player.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<h4 class="t4">Initialisierung von Attributen</h4>
+<p>Anders als lokale Variablen initialisiert die Laufzeitumgebung alle Attribute mit einem Standardwert:</p>
+<ul class="gp">
+<li>0 bei numerischen Werten und <span class="clisting">char</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">false</span> bei <span class="clisting">boolean</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">null</span> bei Referenzvariablen</li>
+</ul>
+<p>Gefällt uns das nicht, lassen sich die Variablen mit einem Wert belegen:</p>
+<div class="listing"><pre class="prettyprint">class Player
+{
+  String name<span class="cfett"> = ""</span>;
+}</pre></div>
+<h4 class="t4">Gültigkeitsbereich, Sichtbarkeit und Lebensdauer</h4>
+<p>Lokale Variablen beginnen ihr Leben ab dem Moment, ab dem sie deklariert und initialisiert wurden. Endet der Block, ist die lokale Variable nicht mehr gültig, und sie kann nicht mehr verwendet werden, da sie aus dem Sichtbarkeitsbereich ist. Bei Objektvariablen ist das anders. Eine Objektvariable lebt ab dem Moment, ab dem das Objekt mit <span class="clisting">new</span> aufgebaut wurde, und so lange, bis der Garbage-Collector es wegräumt. Sichtbar und gültig ist die Variable aber immer im gesamten Objekt und in allen Blöcken. [Das gilt nicht für statische Methoden und statische Initialisierungsblöcke, aber diese werden erst später vorgestellt.
+] </p>
+<div class="bildbox">
+<p><a name="IDAS0WD"></a><a onClick="OpenWin('bilder/NextEditorPreference.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinNextEditorPreference.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p>Spätestens, wenn zwei Klassen im Editor offen sind, möchten Tastaturjunkies schnell zwischen den Editoren wechseln. Das geht in Eclipse mit 
+    <span class="tastenkappe">Strg</span>
+  +
+    <span class="tastenkappe">F6</span>
+  . Allerdings ist dieses Tastaturkürzel in der Windows-Welt unüblich, sodass es umdefiniert werden kann, etwa zu 
+    <span class="tastenkappe">Strg</span>
+  +
+    <span class="tastenkappe">Tab</span>
+  . Das geht so: Unter <span class="kapitalchen">Windows</span> 
+    •
+   <span class="kapitalchen">Preferences</span> aktivieren wir unter <span class="kapitalchen">General</span> 
+    •
+   <span class="kapitalchen">Keys</span> das Kommando <span class="kapitalchen">Next Editor</span>. Im Textfeld <span class="kapitalchen">Binding</span> lässt sich zunächst das alte Kürzel löschen und einfach 
+    <span class="tastenkappe">Strg</span>
+  +
+    <span class="tastenkappe">Tab</span>
+   drücken. Das Ganze lässt sich auch für <span class="kapitalchen">Previous Editor</span> und 
+    <span class="tastenkappe">Strg</span>
+  +
+    <span class="tastenkappe">Umschalt</span>
+  +
+    <span class="tastenkappe">Tab</span>
+   wiederholen.</p><a id="mja8308749ed5bc547761cab48fd9fd23d" name="mja8308749ed5bc547761cab48fd9fd23d"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">5.1.2</span> Methoden deklarieren  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Zu Attributen gesellen sich Methoden, die üblicherweise auf den Objektvariablen arbeiten. Anders als unsere bisherigen statischen Methoden werden diese aber für <span class="clisting">Player</span> keine Klassenmethoden sein. Geben wir dem Spieler zwei Methoden: <span class="clisting">clearName()</span> soll den Namen auf den Leerstring <span class="clisting">""</span> zurücksetzen, und <span class="clisting">hasCompoundName()</span> soll verraten, ob der Spielername aus einem Vor- und Nachnamen zusammengesetzt ist. Der Name »Parry Hotter« ist zum Beispiel zusammengesetzt, »Spuckiman« aber nicht.</p>
+<p class="tabunter"><strong>Listing 5.4    </strong>com/tutego/insel/game/v3/Player.java, Player</p>
+<div class="listing"><pre class="prettyprint">class Player
+{
+  String name = "";
+  String item = "";
+
+ <span class="cfett"> void clearName()</span>
+ <span class="cfett"> {</span>
+   <span class="cfett"> name = "";</span>
+ <span class="cfett"> }
+
+  boolean hasCompoundName()</span>
+ <span class="cfett"> {</span>
+   <span class="cfett"> return (name == null) ? false : name.contains( " " );</span>
+ <span class="cfett"> }</span>
+}</pre></div>
+<div class="bildbox">
+<p><a name="IDAN3WD"></a><a onClick="OpenWin('bilder/v3player.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinv3player.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p>Testen wir die Methode mit zwei Spielern:</p>
+<p class="tabunter"><strong>Listing 5.5    </strong>com/tutego/insel/game/v3/Playground.java, main()</p>
+<div class="listing"><pre class="prettyprint">Player parry = new Player();
+parry.name = "Parry Hotter";
+System.out.printf( "'%s' hat zusammengesetzten Namen: %b%n",
+                   parry.name, parry.hasCompoundName() );
+
+Player spucki = new Player();
+spucki.name = "Spuckiman";
+System.out.printf( "'%s' hat zusammengesetzten Namen: %b%n",
+                   spucki.name, spucki.hasCompoundName() );
+spucki.clearName();
+System.out.printf( "Spuckis Name ist leer? %b%n", spucki.name.isEmpty() );</pre></div>
+<p>Wie zu erwarten, ist die Ausgabe:</p>
+<div class="listing"><pre class="prettyprint">'Parry Hotter' hat zusammengesetzten Namen: true
+'Spuckiman' hat zusammengesetzten Namen: false
+Spuckis Name ist leer? true</pre></div>
+<div class="bildbox">
+<p><a name="IDAN4WD"></a><a onClick="OpenWin('bilder/v3seq.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinv3seq.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 5.1    </strong>Ein Sequenzdiagramm stellt nur die Objekterzeugung und Methodenaufrufe, jedoch keine Attributzugriffe dar.</p>
+<p><div class="eclipse"><img src="common/eclipseicon.gif" align="top" width="53" height="23" alt="Eclipse" title="Eclipse"></div>Um schnell von einer Methode (oder Variablen) zur anderen zu navigieren, zeigt 
+    <span class="tastenkappe">Strg</span>
+  +
+    <span class="tastenkappe">O</span>
+   ein Outline an (dieselbe Ansicht wie in der Ansicht <span class="kapitalchen">Outline</span>). Im Unterschied zur Ansicht <span class="kapitalchen">Outline</span> lässt sich in diesem kleinen gelben Fenster mit den Cursor-Tasten navigieren, und ein 
+    <span class="tastenkappe">Enter</span>
+   befördert uns zur angewählten Methode oder dem angewählten Attribut. Wird in der Ansicht erneut 
+    <span class="tastenkappe">Strg</span>
+  +
+    <span class="tastenkappe">O</span>
+   gedrückt, befinden sich dort auch die in den Oberklassen deklarierten Eigenschaften. Sie sind grau, und zusätzlich befinden sich hinter den Eigenschaften die Klassennamen.</p>
+<h4 class="t4">Methodenaufrufe und Nebeneffekte</h4>
+<p>Alle Variablen und Methoden einer Klasse sind in der Klasse selbst sichtbar. Das heißt, innerhalb einer Klasse werden die Objektvariablen und Methoden mit ihrem Namen verwendet. Somit greift die Methode <span class="clisting">hasCompoundName()</span> direkt auf das nötige Attribut <span class="clisting">name</span> zu, um die Programmlogik auszuführen. Dies wird oft für Nebeneffekte (Seiteneffekte) genutzt. Die Methode <span class="clisting">clearName()</span> ändert ausdrücklich eine Objektvariable und verändert so den Zustand des Objekts. <span class="clisting">hasCompoundName()</span> liest dagegen nur den Zustand, modifiziert ihn aber nicht. Methoden, die Zustände ändern, sollten das in der API-Beschreibung entsprechend dokumentieren.</p>
+<h4 class="t4">Objektorientierte und prozedurale Programmierung im Vergleich</h4>
+<p>Entwickler aus der prozeduralen Welt haben ein anderes Denkmodell verinnerlicht, sodass wir an dieser Stelle die Besonderheit der Objektorientierung noch einmal verdeutlichen wollen. Während in der guten objektorientierten Modellierung die Objekte immer gleichzeitig Zustand und Verhalten besitzen, gibt es in der prozeduralen Welt nur Speicherbereiche, die referenziert werden; Daten und Verhalten liegen hier nicht zusammen. Problematisch wird es, wenn die prozedurale Denkweise in Java-Programme abgebildet wird. Dazu ein Beispiel: Die Klasse <span class="clisting">PlayerData</span> ist ein reiner Datencontainer für den Zustand, aber Verhalten wird hier nicht deklariert:</p>
+<p class="tabunter"><strong>Listing 5.6    </strong>PlayerData.java</p>
+<div class="listing"><pre class="prettyprint">class PlayerData
+{
+  String name = "";
+  String item = "";
+}</pre></div>
+<p>Anstatt nun die Methoden ordentlich, wie in unserem ersten Beispiel, mit an die Klasse zu hängen, würde in der prozeduralen Welt ein Unterprogramm genau ein Datenobjekt bekommen und von diesem Zustände erfragen oder ändern:</p>
+<p class="tabunter"><strong>Listing 5.7    </strong>PlayerFunctions.java</p>
+<div class="listing"><pre class="prettyprint">class PlayerFunctions
+{
+  static void clearName(<span class="cfett"> PlayerData data</span> )
+  {
+    data.name = "";
+  }
+
+  static boolean hasCompoundName(<span class="cfett"> PlayerData data</span> )
+  {
+    return (data.name == null) ? false : data.name.contains( " " );
+  }
+}</pre></div>
+<p>Da die Unterprogramme nun nicht mehr an Objekte gebunden sind, können sie statisch sein. Genauso falsch wären aber auch Methoden (egal ob statisch oder nicht) in der Klasse <span class="clisting">PlayerData</span>, wenn sie ein <span class="clisting">PlayerData</span>-Objekt übergeben bekommen.</p>
+<p>Beim Aufruf ist dieser nicht-objektorientierte Ansatz gut zu sehen. Setzen wir links den falschen und rechts den korrekt objektorientiert modellierten Weg ein:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellenkopf"><span class="cfett">Prozedural</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Objektorientiert</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">PlayerData parry = new PlayerData();
+parry.name = "Parry Hotter";
+PlayerFunctions.</span><span class="cfett">hasCompoundName( parry )</span><span class="clisting">;
+PlayerFunctions.</span><span class="cfett">clearName( parry )</span><span class="clisting">;</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">Player parry = new Player();
+parry.name = "Parry Hotter";</span><span class="cfett">
+parry.hasCompoundName();
+parry.clearName();</span></p>
+</td>
+</tr>
+</table><br><p>Ein Indiz für problematische objektorientierte Modellierung ist also, wenn externen Methoden Objekte übergeben werden, anstatt die Methoden selbst an die Objekte zu setzen.</p><a id="mj7b6528799a055d50c516a9a6ce03234c" name="mj7b6528799a055d50c516a9a6ce03234c"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">5.1.3</span> Die this-Referenz  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>In jeder Objektmethode und jedem Konstruktor steht eine Referenz mit dem Namen <span class="clisting">this</span> bereit, die auf das eigene Exemplar zeigt. Mit dieser <span class="clisting">this</span>-Referenz lassen sich elegante Lösungen realisieren, wie die folgenden Beispiele zeigen:</p>
+<ul class="gp">
+<li>Die <span class="clisting">this</span>-Referenz löst das Problem, wenn Parameter beziehungsweise lokale Variablen Objektvariablen verdecken.</li>
+</ul>
+<ul class="gp">
+<li>Liefert eine Methode als Rückgabe die <span class="clisting">this</span>-Referenz auf das aktuelle Objekt, lassen sich Methoden der Klasse einfach hintereinandersetzen.</li>
+</ul>
+<ul class="gp">
+<li>Mit der <span class="clisting">this</span>-Referenz lässt sich einer anderen Methode eine Referenz auf uns selbst geben.</li>
+</ul>
+<h4 class="t4">Überdeckte Objektvariablen nutzen</h4>
+<p>Trägt eine lokale Variable den gleichen Namen wie eine Objektvariable, so <span class="ckursiv">verdeckt</span> sie diese. Das folgende Beispiel deklariert in der <span class="clisting">Player</span>-Klasse eine Objektvariable <span class="clisting">name</span>, und eine Methode <span class="clisting">quote()</span> deklariert in der Parameterliste eine Variable, die ebenfalls <span class="clisting">name</span> heißt. Somit bezieht sich in der Methode jeder Zugriff auf <span class="clisting">name</span> auf die Parametervariable und nicht auf die Objektvariable:</p>
+<div class="listing"><pre class="prettyprint">class Player
+{
+  String<span class="cfett"> name</span>;                                // Objektvariable name
+
+  void quote( String<span class="cfett"> name</span> )                   // Lokale Parametervariable name
+  {
+    System.out.println( "'" +<span class="cfett"> name</span> + "'" );   // Bezieht sich auf Parametervariable
+  }
+}</pre></div>
+<p>Das heißt aber nicht, dass auf die äußere Variable nicht mehr zugegriffen werden kann. Die <span class="clisting">this</span>-Referenz zeigt auf das aktuelle Objekt, und damit ist auch ein Zugriff auf Objekteigenschaften jederzeit möglich:</p>
+<div class="listing"><pre class="prettyprint">class Player
+{
+  String name;
+
+  void quote( String name )
+  {
+    System.out.println( "'" +<span class="cfett"> this</span>.name + "'" ); // Zugriff auf Objektvariable
+    System.out.println( "'" + name + "'" );      // Zugriff auf Parametervariable
+  }
+}</pre></div>
+<p>Häufiger Einsatzort für das <span class="clisting">this</span> in Methoden sind Methoden, die Zustände initialisieren. Gerne nennen Entwickler die Parametervariablen so wie die Exemplarvariablen, um damit eine starke Zugehörigkeit auszudrücken. Schreiben wir eine Methode <span class="clisting">setName()</span>:</p>
+<div class="listing"><pre class="prettyprint">class Player
+{
+  String name;
+
+  void setName( String name )
+  {
+   <span class="cfett"> this.name = name</span>;
+  }
+}</pre></div>
+<p>Der an <span class="clisting">setName()</span> übergebene Wert soll die Objektvariable <span class="clisting">name</span> initialisieren. So greift <span class="clisting">this.name</span> auf die Objektvariable direkt zu, sodass die Zuweisung <span class="clisting">this.name = name;</span> die Objektvariable mit dem Argument initialisiert.</p>
+<div class="bildbox">
+<p><a name="IDA1GXD"></a><a onClick="OpenWin('bilder/thisnameplayer.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinthisnameplayer.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<h4 class="t4">»this« für kaskadierte Methoden *</h4>
+<p>Die <span class="clisting">append()</span>-Methoden bei <span class="clisting">StringBuilder</span> liefern die <span class="clisting">this</span>-Referenz, sodass sich Folgendes schreiben lässt:</p>
+<div class="listing"><pre class="prettyprint">StringBuilder sb = new StringBuilder();
+sb.append( "Android oder iPhone" )<span class="cfett">.append( '?' )</span>;</pre></div>
+<p>Jedes <span class="clisting">append()</span> liefert das <span class="clisting">StringBuilder</span>-Objekt, auf dem es aufgerufen wird. Wir wollen diese Möglichkeit bei einem Spieler programmieren, sodass die Methoden <span class="clisting">name()</span> und <span class="clisting">item()</span> Spielername und Gegenstand zuweisen. Beide Methoden liefern ihr eigenes <span class="clisting">Player</span>-Objekt über die <span class="clisting">this</span>-Referenz zurück:</p>
+<p class="tabunter"><strong>Listing 5.8    </strong>com/tutego/insel/game/v4/Player.java, Player</p>
+<div class="listing"><pre class="prettyprint">class Player
+{
+  String name = "", item = "";
+
+ <span class="cfett"> Player name( String name )</span>
+  {
+    this.name = name;
+   <span class="cfett"> return this</span>;
+  }
+
+ <span class="cfett"> String</span> name()
+  {
+    return name;
+  }
+
+ <span class="cfett"> Player item( String item )</span>
+  {
+    this.item = item;
+   <span class="cfett"> return this;</span>
+  }
+
+ <span class="cfett"> String</span> item()
+  {
+    return item;
+  }
+
+  String id()
+  {
+    return name + " hat " + item;
+  }
+}</pre></div>
+<div class="bildbox">
+<p><a name="IDACKXD"></a><a onClick="OpenWin('bilder/v4player.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinv4player.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p>Erzeugen wir einen <span class="clisting">Player</span>, und kaskadieren wir einige Methoden:</p>
+<p class="tabunter"><strong>Listing 5.9    </strong>com/tutego/insel/game/v4/Playground.java, main()</p>
+<div class="listing"><pre class="prettyprint">Player patty =<span class="cfett"> new Player().name( "Parry" ).item( "Helm" )</span>;
+System.out.println( patty.name() );                     // Parry
+System.out.println( patty.id() );                       // Parry hat Helm</pre></div>
+<p>Der Ausdruck <span class="clisting">new Player()</span> liefert eine Referenz, die wir sofort für den Methodenaufruf nutzen. Da <span class="clisting">name(String)</span> wiederum eine Objektreferenz vom Typ <span class="clisting">Player</span> liefert, ist dahinter direkt <span class="clisting">.item(String)</span> möglich. Die Verschachtelung von <span class="clisting">name(String).item(String)</span> bewirkt, dass Name und Gegenstand gesetzt werden und der jeweils nächste Methodenaufruf in der Kette über <span class="clisting">this</span> eine Referenz auf dasselbe Objekt, aber mit verändertem internen Zustand bekommt.</p>
+<div class="bildbox">
+<p><a name="IDA3KXD"></a><a onClick="OpenWin('bilder/v4player.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinv4player.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Bei Anfragemethoden könnten wir versucht sein, diese praktische Eigenschaft überall zu verwenden. Üblicherweise sollten Objekte jedoch ihre Eigenschaften nach der JavaBeans-Konvention mit <span class="clisting">void setXXX()</span> setzen, und dann liefern sie ausdrücklich keine Rückgabe. Eine mit dem Objekttyp deklarierte Rückgabe <span class="clisting">Player setName(String)</span> verstößt also gegen diese Konvention, sodass die Methode in dem Beispiel einfach <span class="clisting">Player name(String)</span> heißt. Beispiele dieser Bauart sind in der Java-Bibliothek an einigen Stellen zu finden. Sie werden auch <span class="ckursiv">Builder</span> genannt.</p>
+</td>
+</tr>
+</table><br><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="5 Eigene Klassen schreiben"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_04_011.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_05_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

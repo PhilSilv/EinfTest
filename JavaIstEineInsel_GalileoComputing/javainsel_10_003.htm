@@ -1,0 +1,817 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 10.3 JavaBean</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 10.3 JavaBean">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 10.3 JavaBean">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_05_001.htm#mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_08_001.htm#mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_09_001.htm#mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_11_001.htm#mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_10_002.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_10_004.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b" class="navnav">10 Architektur, Design und angewandte Objektorientierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_10_001.htm#mj18230d8235930d9b42fd2165745f351d" class="navnav">10.1 Architektur, Design und Implementierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_10_002.htm#mja2b0434000bfa6d0cf4eaf99112fce6b" class="navnav">10.2 Design-Pattern (Entwurfsmuster)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_10_002.htm#mj1a161907d87e18f5fa397deda66ca494" class="navnav">10.2.1 Motivation für Design-Pattern</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_10_002.htm#mjc7ffdeb540e30917defcbcab81cc06b4" class="navnav">10.2.2 Das Beobachter-Pattern (Observer/Observable)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_10_002.htm#mj6367b03ecdf1b782fddcf60ac6d4658c" class="navnav">10.2.3 Ereignisse über Listener</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj429f288f51ba205abf14be6b3d114cee" class="navh">10.3 JavaBean</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj6548e11cd688937faa1e8dc03ac1ebcb" class="navh">10.3.1 Properties (Eigenschaften)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj36b234b85e28f4ead03f1b94f205a32a" class="navh">10.3.2 Einfache Eigenschaften</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj1f6f85815c192ab43d2e1afd283aefff" class="navh">10.3.3 Indizierte Eigenschaften</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj8574fe066e7567d9a4e8bf988868ebe1" class="navh">10.3.4 Gebundene Eigenschaften und PropertyChangeListener</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj83b4485bef3865ef3bb30984d0f64147" class="navh">10.3.5 Veto-Eigenschaften &#8211; dagegen!</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj37a114845c2154c378d52ab696e22192" class="navh">10.3.6 Ein POJO (Plain Old Java Object) ohne technische Abhängigkeiten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_10_004.htm#mjb75c50ee19836d45d207dfbffa13c0f1" class="navnav">10.4 Zum Weiterlesen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj429f288f51ba205abf14be6b3d114cee" name="mj429f288f51ba205abf14be6b3d114cee"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">10.3</span> JavaBean  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Die Architektur von <span class="ckursiv">JavaBeans</span> ist ein einfaches Komponenten-Modell. Ursprünglich waren JavaBeans eng mit grafischen Oberflächen verbunden, und so liest sich in der JavaBeans Spezifikation 1.01 von 1997 noch:</p>
+<p><em><span class="ckursiv">»A Java Bean is a reusable software component that can be manipulated visually in a builder tool.«</span></em></p>
+<p>Heutzutage ist das Feld viel größer und Beans kommen in allen Ecken der Java-Bibliothek vor: bei der Persistenz (also bei der Abbildung der Objekte in relationalen Datenbanken oder XML-Dokumenten), als Datenmodelle für Webanwendungen, bei grafischen Oberflächen und in vielen weiteren Einsatzgebieten.</p>
+<p>Im Kern basieren JavaBeans auf:</p>
+<ul class="gp">
+<li><span class="ckursiv">Selbstbeobachtung</span> <span class="ckursiv">(Introspection</span><span class="ckursiv">).</span> Eine Klasse lässt sich von außen auslesen. So kann ein spezielles Programm, etwa ein GUI-Builder oder eine visuelle Entwicklungsumgebung, eine Bean analysieren und ihre Eigenschaften abfragen. Auch umgekehrt kann eine Bean herausfinden, ob sie etwa gerade von einem grafischen Entwicklungswerkzeug modelliert wird oder in einer Applikation ohne GUI Verwendung findet.</li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">Eigenschaften</span> <span class="ckursiv">(Properties</span><span class="ckursiv">).</span> Attribute beschreiben den Zustand des Objekts. In einem Modellierungswerkzeug lassen sie sich ändern. Da eine Bean zum Beispiel eine grafische Komponente sein kann, hat sie etwa eine Hintergrundfarbe. Diese Informationen können von außen durch bestimmte Methoden abgefragt und verändert werden. Für alle Eigenschaften werden spezielle Zugriffsmethoden deklariert; sie werden <span class="ckursiv">Property-Design-Patterns</span> genannt.</li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">Ereignissen</span> <span class="ckursiv">(Events</span><span class="ckursiv">).</span> Komponenten können Ereignisse auslösen, die Zustandsänderungen oder Programmteile weiterleiten können.</li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">Anpassung</span> <span class="ckursiv">(Customization</span><span class="ckursiv">).</span> Der Bean-Entwickler kann die Eigenschaften einer Bean visuell und interaktiv anpassen.</li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">Speicherung (Persistenz</span><span class="ckursiv">).</span> Jede Bean kann ihren internen Zustand, also die Eigenschaften, durch Serialisierung speichern und wiederherstellen. So kann ein Builder-Tool die Komponenten laden und benutzen. Ein spezieller Externalisierungsmechanismus erlaubt dem Entwickler die Definition eines eigenen Speicherformats, zum Beispiel als XML-Datei.</li>
+</ul>
+<p>Zusätzlich zu diesen notwendigen Grundpfeilern lässt sich durch Internationalisierung die Entwicklung internationaler Komponenten vereinfachen. Verwendet eine Bean länderspezifische Ausdrücke, wie etwa Währungs- oder Datumsformate, kann der Bean-Entwickler mit länderunabhängigen Bezeichnern arbeiten, die dann in die jeweilige Landessprache übersetzt werden.</p><a id="mj6548e11cd688937faa1e8dc03ac1ebcb" name="mj6548e11cd688937faa1e8dc03ac1ebcb"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">10.3.1</span> Properties (Eigenschaften)  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Properties einer JavaBean steuern den Zustand des Objekts. Bisher hat Java keine spezielle Schreibweise für Properties &#8211; anders als C# und andere Sprachen &#8211;, und so nutzt es eine spezielle Namensgebung bei den Methoden, um Eigenschaften zu lesen und zu schreiben. Der JavaBeans-Standard unterscheidet vier Arten von Properties:</p>
+<ul class="gp">
+<li><span class="ckursiv">Einfache Eigenschaften</span><span class="ckursiv">.</span> Hat eine Person eine Property »Name«, so bietet die JavaBean die Methoden <span class="clisting">getName()</span> und <span class="clisting">setName()</span> an.</li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">Indizierte/Indexierte Eigenschaften</span> (engl. <span class="ckursiv">indexed properties</span>). Sie werden eingesetzt, falls mehrere gleiche Eigenschaften aus einem Array verwaltet werden. So lassen sich Felder gleichen Datentyps verwalten.</li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">Gebundene Eigenschaften</span> (engl. <span class="ckursiv">bound properties</span>). Ändert eine JavaBean ihren Zustand, kann sie angemeldete Interessenten (Listener) informieren.</li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">Eigenschaft mit Vetorecht</span> (engl. <span class="ckursiv">veto properties</span>, auch <span class="ckursiv">constraint properties</span> beziehungsweise <span class="ckursiv">eingeschränkte Eigenschaften</span> genannt). Ihre Benutzung ist in jenen Fällen angebracht, in denen eine Bean Eigenschaften ändern möchte, andere Beans aber dagegen sind und ihr Veto einlegen.</li>
+</ul>
+<p>Die Eigenschaften der Komponente können primitive Datentypen, aber auch komplexe Klassen sein. Der Text einer Schaltfläche ist ein einfacher String; eine Sortierstrategie in einem Sortierprogramm ist dagegen ein komplexes Objekt.</p><a id="mj36b234b85e28f4ead03f1b94f205a32a" name="mj36b234b85e28f4ead03f1b94f205a32a"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">10.3.2</span> Einfache Eigenschaften  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Für die einfachen Eigenschaften muss für die Setter und Getter nur ein Paar von <span class="clisting">setXXX()</span>- und <span class="clisting">getXXX()</span>-Methoden eingesetzt werden. Der Zugriff auf eine Objektvariable wird also über Methoden geregelt. Dies hat den Vorteil, dass ein Zugriffsschutz und weitere Überprüfungen eingerichtet werden können. Soll eine Eigenschaft nur gelesen werden (weil sie sich zum Beispiel regelmäßig automatisch aktualisiert), müssen wir die <span class="clisting">setXXX()</span>-Methode nicht implementieren. Genauso gut können wir Werte, die außerhalb des erlaubten Wertebereichs unserer Applikation liegen, prüfen und ablehnen. Dazu kann eine Methode eine Exception auslösen.</p>
+<p>Allgemein sieht dann die Signatur der Methoden für eine Eigenschaft <span class="clisting">XXX</span> vom Typ <span class="clisting">T</span> folgendermaßen aus:</p>
+<ul class="gp">
+<li><span class="clisting">public T getXXX()</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">public void setXXX( T value )</span></li>
+</ul>
+<p>Ist der Property-Typ ein Wahrheitswert, ist neben der Methode <span class="clisting">getXXX()</span> eine <span class="clisting">isXXX()</span>-Methode erlaubt:</p>
+<ul class="gp">
+<li><span class="clisting">public boolean isXXX()</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">public void setXXX( boolean value )</span></li>
+</ul><a id="mj1f6f85815c192ab43d2e1afd283aefff" name="mj1f6f85815c192ab43d2e1afd283aefff"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">10.3.3</span> Indizierte Eigenschaften  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Falls eine Bean nur über eine einfache Eigenschaft wie eine primitive Variable verfügt, so weisen die <span class="clisting">getXXX()</span>-Methoden keinen Parameter und genau einen Rückgabewert auf. Der Rückgabewert hat den gleichen Datentyp wie die interne Eigenschaft. Die <span class="clisting">setXXX()</span>-Methode besitzt genau einen Parameter des Datentyps dieser Eigenschaft und hat keinen expliziten Rückgabewert, sondern <span class="clisting">void</span>. Wenn nun kein atomarer Wert, sondern ein Feld von Werten intern gespeichert ist, müssen wir Zugriff auf bestimmte Werte bekommen. Daher erwarten die <span class="clisting">setXXX()</span>- und <span class="clisting">getXXX()</span>-Methoden im zusätzlichen Parameter einen Index:</p>
+<ul class="gp">
+<li><span class="clisting">public T[] getXXX()</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">public T getXXX( int index )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">public void setXXX( T[] values )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">public void setXXX( T value, int index )</span></li>
+</ul><a id="mj8574fe066e7567d9a4e8bf988868ebe1" name="mj8574fe066e7567d9a4e8bf988868ebe1"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">10.3.4</span> Gebundene Eigenschaften und PropertyChangeListener  <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die <span class="ckursiv">gebundenen Eigenschaften</span> einer Bean erlauben es, andere Komponenten über eine Zustandsänderung der Properties zu informieren. Wenn sich zum Beispiel der Name eines Spielers ändert &#8211; Aufruf einer Methode <span class="clisting">setName()</span> &#8211;, führt die Namensänderung vielleicht an anderer Stelle zu einer Aktualisierung der Darstellung. Bei den gebundenen Eigenschaften (engl. <span class="ckursiv">bound properties</span>) geht es ausschließlich um Änderungen der Properties und nicht um andere Ereignisse, die nichts mit den Bean-Eigenschaften zu tun haben.</p>
+<p>Die Listener empfangen von der Bean ein <span class="clisting">PropertyChangeEvent</span>, das sie auswerten können. Die Interessierten implementieren dafür <span class="clisting">PropertyChangeListener</span>. Das Ereignis-Objekt speichert den alten und den neuen Wert sowie den Typ und den Namen der Eigenschaft.</p>
+<p>Die Bean muss also nur die Interessenten aufnehmen und dann feuern, wenn es eine Änderung an den Properties gibt. Da die Verwaltung der Listener immer gleich ist, bietet Java hier schon eine Klasse an: <span class="clisting">PropertyChangeSupport</span>, die die JavaBeans nutzen, um die Listener zu verwalten. Die Interessenten lassen sich mit <span class="clisting">addPropertyChangeListener()</span> als Zuhörer einfügen und mit <span class="clisting">removePropertyChangeListener()</span> abhängen. Bei einer Veränderung ruft die Bean auf dem <span class="clisting">PropertyChangeSupport</span>-Objekt die Methode <span class="clisting">firePropertyChange()</span> auf, und so werden alle registrierten Zuhörer durch ein <span class="clisting">PropertyChangeEvent</span> informiert. Die Zuhörer werden erst nach der Änderung des internen Zustands informiert.</p>
+<p>Ein Beispiel: Unsere Person-Komponente besitzt eine Property »Name«, die der Setter <span class="clisting">setName()</span> ändert. Nach der Änderung werden alle Listener informiert. Sie bewirkt darüber hinaus nichts Großartiges:</p>
+<p class="tabunter"><strong>Listing 10.9    </strong>com/tutego/insel/bean/bound/Person.java</p>
+<div class="listing"><pre class="prettyprint">package com.tutego.insel.bean.bound;
+
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+
+public class Person
+{
+  private String name = "";
+
+ <span class="cfett"> private PropertyChangeSupport changes = new PropertyChangeSupport( this );
+
+  public void setName( String name )</span>
+  {
+   <span class="cfett"> String oldName = this.name;</span>
+   <span class="cfett"> this.name = name;</span>
+   <span class="cfett"> changes.firePropertyChange( "name", oldName, name );</span>
+  }
+
+  public String getName()
+  {
+    return name;
+  }
+
+ <span class="cfett"> public void addPropertyChangeListener( PropertyChangeListener l )</span>
+  {
+   <span class="cfett"> changes.addPropertyChangeListener( l );</span>
+  }
+
+ <span class="cfett"> public void removePropertyChangeListener( PropertyChangeListener l )</span>
+  {
+   <span class="cfett"> changes.removePropertyChangeListener( l );</span>
+  }
+}</pre></div>
+<p>Der Implementierung <span class="clisting">setName()</span> kommt zentrale Bedeutung zu. Der erste Parameter von <span class="clisting">firePropertyChange()</span> ist der Name der Eigenschaft. Er ist für das Ereignis von Belang und muss nicht zwingend der Name der Bean-Eigenschaft sein. Es folgen der alte und der neue Stand des Werts. Die Methode informiert alle angemeldeten Zuhörer über die Änderung mit einem <span class="clisting">PropertyChangeEvent</span>.</p>
+<div class="bildbox">
+<p><a name="IDACW2D"></a><a onClick="OpenWin('bilder/PersonWithPCL.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinPersonWithPCL.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.beans.<span class="cfett">PropertyChangeSupport</span>
+implements Serializable</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">PropertyChangeSupport( Object sourceBean )</span>
+Konstruiert ein <span class="clisting">PropertyChangeSupport</span>-Objekt, das <span class="clisting">sourceBean</span> als auslösende Bean betrachtet.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">synchronized void addPropertyChangeListener( PropertyChangeListener listener )</span>
+Fügt einen Listener hinzu.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">synchronized void removePro</span><span class="clisting">pertyChangeListener( PropertyChangeListener listener )</span>
+Entfernt einen Listener.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">synchronized void addPropertyChangeListener( String propertyName,
+PropertyChangeListener listener )</span>
+Fügt einen Listener hinzu, der nur auf Ereignisse mit dem Namen <span class="clisting">propertyName</span> hört.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">synchronized void removePropertyChangeListener( String propertyName,
+PropertyChangeListener listener )</span>
+Entfernt den Listener, der auf <span class="clisting">propertyName</span> hört.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void firePropertyChange( String propertyName, Object oldValue, Object newValue )</span>
+Informiert alle Listener über eine Werteänderung. Sind alte und neue Werte gleich, werden keine Events ausgelöst.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void firePropertyChange( String propertyName, int oldValue, int newValue )
+void firePropertyChange( String propertyName, boolean oldValue, boolean newValue )</span>
+Varianten von <span class="clisting">firePropertyChange()</span> mit <span class="clisting">Integer</span>- und <span class="clisting">Boolean</span>-Werten</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void firePropertyChange( PropertyChangeEvent evt )</span>
+Informiert alle Interessenten mit einem <span class="clisting">PropertyChangeEvent</span>, indem es <span class="clisting">propertyChange()</span> aufruft.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">synchronized boolean hasListeners( String propertyName )</span>
+Liefert <span class="clisting">true</span>, wenn es mindestens einen Listener für die Eigenschaft gibt.</li>
+</ul>
+<p>Angemeldete <span class="clisting">PropertyChangeListener</span> können auf das <span class="clisting">PropertyChangeEvent</span> reagieren. Wir testen das an einer Person, die einen neuen Namen bekommt:</p>
+<p class="tabunter"><strong>Listing 10.10    </strong>com/tutego/insel/bean/bound/PersonWatcher.java, main()</p>
+<div class="listing"><pre class="prettyprint">Person p = new Person();<span class="cfett">
+p.addPropertyChangeListener( new PropertyChangeListener()</span>
+{
+ <span class="cfett"> @Override public void propertyChange( PropertyChangeEvent e )</span>
+  {
+    System.out.printf( "Property '%s': '%s' -&gt; '%s'%n", <img src="common/umbruch.gif" border="0" alt="Umbruch">
+                      <span class="cfett"> e.getPropertyName(), e.getOldValue(), e.getNewValue()</span> );
+  }
+} );
+p.<span class="cfett">setName</span>( "Ulli" );   // Property 'name': '' -&gt; 'Ulli'
+p.<span class="cfett">setName</span>( "Ulli" );
+p.<span class="cfett">setName</span>( "Chris" );  // Property 'name': 'Ulli' -&gt; 'Chris'</pre></div>
+<p>Beim zweiten <span class="clisting">setName()</span> erfolgt kein Event, da es nur dann ausgelöst wird, wenn der Wert wirklich nach der <span class="clisting">equals()</span>-Methode anders ist.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">interface java.beans.<span class="cfett">PropertyChangeListener</span>
+extends java.util.EventListener</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">void propertyChange( PropertyChangeEvent evt )</span>
+Wird aufgerufen, wenn sich die gebundene Eigenschaft ändert. Über das <span class="clisting">PropertyChangeEvent</span> erfahren wir die Quelle und den Inhalt der Eigenschaft.</li>
+</ul><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.beans.<span class="cfett">PropertyChangeEvent</span>
+extends java.util.EventObject</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">PropertyChangeEvent( Object source, String propertyName,</span>
+                         <span class="clisting">Object oldValue, Object newValue )</span>
+Erzeugt ein neues Objekt mit der Quelle, die das Ereignis auslöst, einem Namen, dem alten und dem gewünschten Wert. Die Werte werden intern in privaten Variablen gehalten und lassen sich später nicht mehr ändern.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">String getPropertyName()</span>
+Liefert den Namen der Eigenschaft.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Object getNewValue()</span>
+Liefert den neuen Wert.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Object getOldValue()</span>
+Liefert den alten Wert.</li>
+</ul><a id="mj83b4485bef3865ef3bb30984d0f64147" name="mj83b4485bef3865ef3bb30984d0f64147"></a><a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3"><span class="cfett">10.3.5</span> Veto-Eigenschaften &#8211; dagegen!  <a href="#t2t37"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Wenn sich der Zustand einer gebundenen Eigenschaft ändert, informieren JavaBeans ihre Zuhörer darüber. Möglicherweise haben diese Zuhörer jedoch etwas gegen diesen neuen Wert. In diesem Fall kann ein Zuhörer ein Veto mit einer <span class="clisting">PropertyVetoException</span> einlegen und so eine Werteänderung verhindern. Es geht nicht darum, dass die Komponente selbst den Wert ablehnt &#8211; es geht um die Interessenten, die das nicht wollen!</p>
+<p>Bevor eine JavaBean eine Änderung an einer Property durchführt, holen wir zunächst die Zustimmung ein. Programmieren wir eine <span class="clisting">setXXX()</span>-Methode mit Veto, gibt es im Rumpf vor dem meldenden <span class="clisting">firePropertyChange()</span> ein fragendes <span class="clisting">fireVetoableChange()</span>, das die Veto-Listener informiert. Der Veto-Listener kann durch eine ausgelöste <span class="clisting">PropertyVetoException</span> anzeigen, dass er gegen die Änderung war. Das bricht den Setter ab, und es kommt nicht zum <span class="clisting">firePropertyChange()</span>. Wegen der <span class="clisting">PropertyVetoException</span> muss auch die Methode eine Signatur mit <span class="clisting">throws PropertyVetoException</span> besitzen.</p>
+<p>In unserem Beispiel darf die Person ein Bigamist sein. Aber natürlich nur dann, wenn es kein Veto gab!</p>
+<p class="tabunter"><strong>Listing 10.11    </strong>com/tutego/insel/bean/veto/Person.java</p>
+<div class="listing"><pre class="prettyprint">package com.tutego.insel.bean.veto;
+
+import java.beans.*;
+
+public class Person
+{
+  private boolean bigamist;
+
+  private PropertyChangeSupport changes = new PropertyChangeSupport( this );
+ <span class="cfett"> private VetoableChangeSupport vetos = new VetoableChangeSupport( this );
+
+  public void setBigamist( boolean bigamist ) throws PropertyVetoException
+  {
+    boolean oldValue = this.bigamist;</span>
+   <span class="cfett"> vetos.fireVetoableChange( "bigamist", oldValue, bigamist );</span>
+   <span class="cfett"> this.bigamist = bigamist;</span>
+   <span class="cfett"> changes.firePropertyChange( "bigamist", oldValue, bigamist );</span>
+  }
+
+  public boolean isBigamist()
+  {
+    return bigamist;
+  }
+
+  public void addPropertyChangeListener( PropertyChangeListener l )
+  {
+    changes.addPropertyChangeListener( l );
+  }
+
+  public void removePropertyChangeListener( PropertyChangeListener l )
+  {
+    changes.removePropertyChangeListener( l );
+  }
+
+ <span class="cfett"> public void addVetoableChangeListener( VetoableChangeListener l )</span>
+  {
+   <span class="cfett"> vetos.addVetoableChangeListener( l );</span>
+  }
+
+
+ <span class="cfett"> public void removeVetoableChangeListener( VetoableChangeListener l )</span>
+  {
+   <span class="cfett"> vetos.removeVetoableChangeListener( l );</span>
+  }
+}</pre></div>
+<p>Wie wir an dem Beispiel sehen, ist zusätzlich zum Veto eine gebundene Eigenschaft dabei. Das ist die Regel, damit Interessierte nicht nur gegen gewünschte Änderungen Einspruch erheben können, sondern die tatsächlich gemachten Belegungen ebenfalls erfahren. Der Kern einer Setter-Methode mit Veto ist es, erst eine Änderung mit <span class="clisting">fireVetoableChange()</span> anzukündigen und dann, wenn es keine Einwände dagegen gibt, mit <span class="clisting">firePropertyChange()</span> diese neue Belegung zu berichten.</p>
+<p>Melden wir bei einer <span class="clisting">Person</span> einen <span class="clisting">PropertyChangeListener</span> an, um alle gültigen Zustandswechsel auszugeben:</p>
+<p class="tabunter"><strong>Listing 10.12    </strong>com/tutego/insel/bean/veto/PersonWatcher.java, main() Teil 1</p>
+<div class="listing"><pre class="prettyprint">Person p = new Person();
+p.addPropertyChangeListener( new PropertyChangeListener()
+{
+  @Override public void propertyChange( PropertyChangeEvent e )
+  {
+    System.out.printf( "Property '%s': '%s' -&gt; '%s'%n",
+                       e.getPropertyName(), e.getOldValue(), e.getNewValue() );
+  }
+} );</pre></div>
+<p>Ohne ein Veto gehen alle Zustandsänderungen durch:</p>
+<p class="tabunter"><strong>Listing 10.13    </strong>com/tutego/insel/bean/veto/PersonWatcher.java, main() Teil 2</p>
+<div class="listing"><pre class="prettyprint">try
+{
+  p.setBigamist( true );
+  p.setBigamist( false );
+}
+catch ( PropertyVetoException e )
+{
+  e.printStackTrace();
+}</pre></div>
+<p>Die Ausgabe wird sein:</p>
+<div class="listing"><pre class="prettyprint">Property 'bigamist': 'false' -&gt; 'true'
+Property 'bigamist': 'true' -&gt; 'false'</pre></div>
+<p>Nach der Heirat darf unsere Person kein Bigamist mehr sein. Während am Anfang ein Wechsel der Zustände leicht möglich war, ist nach dem Hinzufügen eines veto-einlegenden <span class="clisting">Veto-ableChangeListener</span> eine Änderung nicht mehr erlaubt:</p>
+<p class="tabunter"><strong>Listing 10.14    </strong>com/tutego/insel/bean/veto/PersonWatcher.java, main() Teil 3</p>
+<div class="listing"><pre class="prettyprint">p.<span class="cfett">addVetoableChangeListener</span>( new<span class="cfett"> VetoableChangeListener</span>()
+{
+  @Override
+ <span class="cfett"> public void vetoableChange( PropertyChangeEvent e )</span>
+   <span class="cfett"> throws PropertyVetoException</span>
+  {
+    if ( "bigamist".equals( e.getPropertyName() ) )
+      if ( (Boolean) e.getNewValue() )
+       <span class="cfett"> throw new PropertyVetoException( "Not with me", e );</span>
+  }
+} );</pre></div>
+<p>Der Kern der Logik ist die Anweisung <span class="clisting">throw new PropertyVetoException</span>. Jetzt sind keine unerwünschten Änderungen mehr möglich:</p>
+<p class="tabunter"><strong>Listing 10.15    </strong>com/tutego/insel/bean/veto/PersonWatcher.java, main() Teil 4</p>
+<div class="listing"><pre class="prettyprint">try
+{
+  p.setBigamist( true );
+}
+catch ( PropertyVetoException e )
+{
+  e.printStackTrace();
+}</pre></div>
+<p>Das <span class="clisting">setBigamist(true);</span> führt zu einer <span class="clisting">PropertyVetoException</span>. Der Stack-Trace ist:</p>
+<div class="listing"><pre class="prettyprint">java.beans.PropertyVetoException: Not with me
+at com.tutego.insel.bean.veto.PersonWatcher$2.vetoableChange(PersonWatcher.<img src="common/umbruch.gif" border="0" alt="Umbruch">
+java40)at java.beans.VetoableChangeSupport.fireVetoableChange(<img src="common/umbruch.gif" border="0" alt="Umbruch">
+VetoableChangeSupport.java:335)at java.beans.VetoableChangeSupport.<img src="common/umbruch.gif" border="0" alt="Umbruch">
+fireVetoableChange(VetoableChangeSupport.java:252)at java.beans.<img src="common/umbruch.gif" border="0" alt="Umbruch">
+VetoableChangeSupport.fireVetoableChange(VetoableChangeSupport.java:294)
+    at com.tutego.insel.bean.veto.Person.setBigamist(Person.java:19)
+    at com.tutego.insel.bean.veto.PersonWatcher.main(PersonWatcher.java:46)</pre></div>
+<p>Obwohl es mit <span class="clisting">addPropertyChangeListener(PropertyChangeListener l)</span> sowie <span class="clisting">addVeto-ableChangeListener(VetoableChangeListener l)</span> jeweils zwei Listener gibt, versenden beide Ereignis-Objekte vom Typ <span class="clisting">PropertyChangeEvent</span>. Doch während bei Veto-Objekten vor der Zustandsänderung ein <span class="clisting">PropertyChangeEvent</span> erzeugt und versendet wird, informieren die gebundenen Eigenschaften erst nach der Änderung ihre Zuhörer mit einem <span class="clisting">PropertyChangeEvent</span>. Daher bedeutet das Aufkommen eines <span class="clisting">PropertyChangeEvent</span> jeweils etwas Unterschiedliches.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.beans.<span class="cfett">VetoableChangeSupport</span>
+implements Serializable</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">void addVetoableChangeListener( VetoableChangeListener listener )</span>
+Fügt einen <span class="clisting">VetoableListener</span> hinzu, der alle gewünschten Änderungen meldet.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void addVetoableChangeListener( String propertyName, VetoableChangeListener listener )</span>
+Fügt einen <span class="clisting">VetoableListener</span> hinzu, der auf alle gewünschten Änderungen der Property <span class="clisting">propertyName</span> hört.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void fireVetoableChange( String propertyNa</span><span class="clisting">me, boolean oldValue, boolean newValue )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void fireVetoableChange( String propertyName, int oldValue, int newValue )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void fireVetoableChange( String propertyName, Object oldValue, Object newValue )</span>
+Meldet eine gewünschte Änderung der Eigenschaft mit dem Namen <span class="clisting">propertyName</span>.</li>
+</ul><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">interface java.beans.<span class="cfett">VetoableChangeListener</span>
+extends java.util.EventListener</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">void vetoableChange( PropertyChangeEvent evt ) throws PropertyVetoException</span>
+Wird aufgerufen, wenn die gebundene Eigenschaft geändert werden soll. Über das <span class="clisting">PropertyChangeEvent</span> erfahren wir die Quelle und den Inhalt der Eigenschaft. Die Methode löst eine <span class="clisting">PropertyVetoException</span> aus, wenn die Eigenschaft nicht geändert werden soll.</li>
+</ul><a id="mj37a114845c2154c378d52ab696e22192" name="mj37a114845c2154c378d52ab696e22192"></a><a name="t36"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t37"></a><h3 class="t3"><span class="cfett">10.3.6</span> Ein POJO (Plain Old Java Object) ohne technische Abhängigkeiten  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t36"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>In objektorientierten Programmen stehen Klassen ganz im Mittelpunkt. Sie realisieren die komplette Geschäftslogik , aber auch Hilfsdienste wie String-Konvertierungen. In einer guten objektorientierten Modellierung existiert eine wohldurchdachte Objekthierarchie und ein bescheidendes Objektgeflecht, in dem jedes Objekt eine ganz spezielle Aufgabe erfüllt. Das krasse Gegenteil wäre eine Riesenklasse, die alles macht. Neben dem Wunsch, dass ein Objekt nur eine klar umrissene Aufgabe erfüllt, ist es optimal, wenn ein Objekt wenig Abhängigkeiten von anderen Objekten besitzt (niedrige Kopplung genannt) sowie technische und fachliche Aspekte sauber trennt. Doch leider ist genau dies schwierig. Oftmals haben Klassen technische Abhängigkeiten und damit eine höhere Kopplung an genau diese technischen Realisierungen. Drei Zwänge erhöhen diese Kopplung:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="top" width="10"><strong>1.</strong></td>
+<td valign="top" width="100%" align="left"> Implementieren einer Schnittstelle,</td>
+</tr>
+<tr>
+<td valign="baseline" width="16">     </td>
+<td valign="top" width="100%" align="left">     </td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="top" width="10"><strong>2.</strong></td>
+<td valign="top" width="100%" align="left"> Erweitern einer Oberklasse oder</td>
+</tr>
+<tr>
+<td valign="baseline" width="16">     </td>
+<td valign="top" width="100%" align="left">     </td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="top" width="10"><strong>3.</strong></td>
+<td valign="top" width="100%" align="left"> das Setzen einer Annotation.</td>
+</tr>
+<tr>
+<td valign="baseline" width="16">     </td>
+<td valign="top" width="100%" align="left">     </td>
+</tr>
+</table>
+<p>Ein Beispiel: Wenn ein Objekt in Java serialisiert werden soll &#8211; das heißt, die Objektzustände können automatisch ausgelesen und in einen Datenstrom geschrieben werden &#8211;, dann muss die Klasse die Schnittstelle <span class="clisting">java.io.Serializable</span> implementieren. Nehmen wir an, ein Konto-Objekt soll serialisiert werden, so hat das Objekt die fachliche Aufgabe, den Kontostand zu vermerken, hat aber gleichzeitig über die Implementierung der Schnittstelle einen technischen Bezug zur Serialisierung, die überhaupt nichts mit dem Konto an sich zu tun hat. Die Implementierung dieser Schnittstelle ist aber zwingend, denn andernfalls kann das Konto-Objekt nicht an der Standard-Serialisierung teilhaben.</p>
+<p>Serialisierung ist nur ein Beispiel einer technischen Realisierung für Objektpersistenz. Es gibt andere Abhängigkeiten für Persistenz, die heutzutage durch Annotationen ausgedrückt werden. Dann ist es etwa die Annotation <span class="clisting">@Entity</span> zur Beschreibung einer auf eine Datenbank abbildbaren Klasse oder <span class="clisting">@XmlElement</span> für eine Abbildung einer Eigenschaft auf ein XML-Element. Ober wenn ein Dienst als Web-Service angeboten werden kann, kommt zur fachlichen Realisierung noch <span class="clisting">@WebMethod</span> an die Methode.</p>
+<p>In den letzten Jahren hat sich die Kopplung, also haben sich die Abhängigkeiten zur technischen Realisierung verschoben, wurden aber nicht wirklich aufgehoben. Dabei gab es eine interessante Entwicklung. In den Anfängen gab es oftmals Oberklassen, die zu erweitern waren, oder Schnittstellen, die zu implementieren waren. Es folgte dann eine Abkehr von diesen technischen Realisierungen, angestoßen durch IoC-Container wie Spring. Der Container verwaltet ein Objekt ohne technische Abhängigkeiten und setzte zur Laufzeit etwa Persistenz-eigenschaften dazu. Nun musste allerdings die Information, dass ein Objekt in einen Hintergrundspeicher persistiert werden kann, irgendwo vermerkt werden, sodass der Container den Wunsch auf Persistierung erkennt. So genannte Metadaten sind nötig. Hierzu wurden XML-Dokumente verwendet. Nun hat XML keinen guten Ruf, und es stimmt auch, dass Megabyte-große XML-Dokumente keine gute Lösung für das Problem sind, Java-Klassen von ihren technischen Realisierungen zu befreien.</p>
+<p>Als in Java 5 Metadaten über Annotationen eingeführt wurden, verschwanden im Laufe der Zeit alle XML-Dokumente zur Beschreibung der Metadaten, beziehungsweise wurden nur noch als optionaler Zusatz geführt. Annotationen lösten zwar die lästigen XML-Dokumente ab, bedeuten aber wiederum einen Schritt zurück, da sie die technischen Belange wieder in die Klasse hineinnehmen, die die XML-Dokumente gerade erst entfernt hatten.</p>
+<p>Heutzutage kommen alle bedeutenden Java-Frameworks mit einer großen Anzahl von Annotationen zur Beschreibung einer technischen Realisierung daher, insbesondere für die Objektpersistenz, die bei Geschäftsanwendungen eine gewichtige Rolle einnimmt. Eine Modellierung aufzubauen, die keine technischen Abhängigkeiten hat, ist daher schwierig und wird von den meisten Entwicklern auch nicht verfolgt, da es oft zu aufwändig ist und zu mehr Klassen führt.</p>
+<h4 class="t4">Plain Old Java Object (POJO)</h4>
+<p>Das Gegenteil dieser voll mit Abhängigkeiten und Annotationen aufgepumpten Klassen sind <span class="ckursiv">POJO</span>s. Ein POJO [<span class="ckursiv"><a href="http://www.martinfowler.com/bliki/POJO.html" target="_blank">http://www.martinfowler.com/bliki/POJO.html</a></span>
+]  ist ein »<span class="ckursiv">Plain Old Java Object</span>«, also ein ganz einfaches, nettes Java-Objekt ohne Infrastruktur-Abhängigkeiten. Ist ein POJO [Auch in der .NET-Welt gibt es Vergleichbares. Dort heißt es POCO (Plain Old CLR Object). Kurz war auch PONO für »Plain Old .NET Object« im Gespräch, aber das klang den Entwicklern wohl zu sehr nach POrNO. Aber wer schon WIX (Windows Installer XML) hat, dem kann PONO nicht zu peinlich sein…
+]  ein Objekt der Geschäftslogik, sollte es:</p>
+<ul class="gp">
+<li>keine technische Schnittstelle implementieren</li>
+</ul>
+<ul class="gp">
+<li>keine spezielle technische Oberklasse erweitern</li>
+</ul>
+<ul class="gp">
+<li>keine Annotationen tragen</li>
+</ul>
+<p>Die POJOs spielen bei einem Entwurfsmodell des so genannten <span class="ckursiv">Domain Driven Design (DDD)</span> eine zentrale Rolle, in dem es um saubere Objektorientierung geht und das fachliche Problem im Mittelpunkt steht.</p>
+<p>Ernüchternd lässt sich jedoch feststellen, dass heutzutage POJOs auch Klassen genannt werden, die Annotationen tragen. Entwickler argumentieren, es seien »nur« Metadaten, die in einem anderen Kontext auch gar nicht ausgewertet und benutzt werden müssten. Das ignoriert jedoch die Tatsache, dass die Klasse mit den Annotationen schlichtweg gar nicht erst compiliert werden kann, wenn der Annotationstyp nicht bekannt ist. Hier gibt es folglich eine ganz klare Abhängigkeit, auch wenn diese geringer als bei zu implementierenden Schnittstellen oder Oberklassen ist.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="10.3 JavaBean"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_10_002.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_10_004.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

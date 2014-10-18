@@ -1,0 +1,1042 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 14.6 Synchronisation über Warten und Benachrichtigen</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 14.6 Synchronisation über Warten und Benachrichtigen">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 14.6 Synchronisation über Warten und Benachrichtigen">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_05_001.htm#mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_08_001.htm#mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_09_001.htm#mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_11_001.htm#mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_14_005.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_14_007.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58" class="navnav">14 Threads und nebenläufige Programmierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_14_001.htm#mjbc08c9ba7fdf2e6f67fc98569de436d7" class="navnav">14.1 Nebenläufigkeit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_001.htm#mj43de7374f351a9fba442f8d3b0f02d3e" class="navnav">14.1.1 Threads und Prozesse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_001.htm#mja9c21f6c79bc59a950217decf528edb6" class="navnav">14.1.2 Wie parallele Programme die Geschwindigkeit steigern können</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_001.htm#mj5562a2faec24834d623c76125dc07ce4" class="navnav">14.1.3 Was Java für Nebenläufigkeit alles bietet</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_14_002.htm#mj45ef6b526108a654e748170e45b47506" class="navnav">14.2 Threads erzeugen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_002.htm#mjd345a92a4debb2b6c1b71c9da5491844" class="navnav">14.2.1 Threads über die Schnittstelle Runnable implementieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_002.htm#mj0165190038369a99536f97f8344a85aa" class="navnav">14.2.2 Thread mit Runnable starten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_002.htm#mj8e1e70be702a313131e53009a9232b14" class="navnav">14.2.3 Die Klasse Thread erweitern</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_14_003.htm#mjd0f19999270d6e1fbfd4af3a16273eef" class="navnav">14.3 Thread-Eigenschaften und -Zustände</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_003.htm#mj3a1cfb56f9c6901e615807d90a0beec7" class="navnav">14.3.1 Der Name eines Threads</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_003.htm#mj35593f9059cd12233d0f6ecc9d1eabbc" class="navnav">14.3.2 Wer bin ich?</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_003.htm#mj06ce248fe2000330b7f17e9b7547230b" class="navnav">14.3.3 Die Zustände eines Threads *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_003.htm#mj00ef8d8369b2f161f338e0395d2d3375" class="navnav">14.3.4 Schläfer gesucht</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_003.htm#mjc55c89ec9366f4b8fdd423c85d3794c1" class="navnav">14.3.5 Mit »yield()« auf Rechenzeit verzichten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_003.htm#mj2fe030afd882ac6fb143b967926afdfa" class="navnav">14.3.6 Der Thread als Dämon</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_003.htm#mj164ad9b22305873b9aa42eea993c3092" class="navnav">14.3.7 Das Ende eines Threads</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_003.htm#mj4193c6da30b5a3e9d41c167ec04d571f" class="navnav">14.3.8 Einen Thread höflich mit Interrupt beenden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_003.htm#mj33fd0981eb8001536afe69cd515aa912" class="navnav">14.3.9 »UncaughtExceptionHandler« für unbehandelte Ausnahmen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_003.htm#mjaa35fb508fd076484f1fe6f102542192" class="navnav">14.3.10 Der »stop()« von außen und die Rettung mit ThreadDeath *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_003.htm#mj4d4380c02798d72c9129099992a3f7c1" class="navnav">14.3.11 Ein Rendezvous mit »join()« *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_003.htm#mj0fba9714c2dc96c5fdda5b22e6123a91" class="navnav">14.3.12 Arbeit niederlegen und wieder aufnehmen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_003.htm#mjb80d2e0bed313429e1cc31b6b5533932" class="navnav">14.3.13 Priorität *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_14_004.htm#mj2f866e14a50f07accd817e14e068e022" class="navnav">14.4 Der Ausführer (Executor) kommt</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_004.htm#mjfdf7295f7b164c526b7e2bcc93c82c77" class="navnav">14.4.1 Die Schnittstelle »Executor«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_004.htm#mje4f944bb971775c1015afd48aaa0f8fd" class="navnav">14.4.2 Die Thread-Pools</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_004.htm#mj1b2390839194e0171bbe333adf513efb" class="navnav">14.4.3 Threads mit Rückgabe über Callable</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_004.htm#mj216a6d7dc56854a7c2ace2af15ea7538" class="navnav">14.4.4 Mehrere Callable abarbeiten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_004.htm#mj040a06e4da6875dc988daed0e6698a0e" class="navnav">14.4.5 Mit ScheduledExecutorService wiederholende Ausgaben und Zeitsteuerungen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_14_005.htm#mjdd7f4718142f506c26dd21b125c3eeb9" class="navnav">14.5 Synchronisation über kritische Abschnitte</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_005.htm#mj0b86165a201ae570714e286c068b2481" class="navnav">14.5.1 Gemeinsam genutzte Daten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_005.htm#mjfffb7cafaea36a3ca8312390e06292da" class="navnav">14.5.2 Probleme beim gemeinsamen Zugriff und kritische Abschnitte</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_005.htm#mjc042126cea52cb31673bce1b51e7da34" class="navnav">14.5.3 Punkte parallel initialisieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_005.htm#mj93dd1d204a3132119782b90b9d2a8b91" class="navnav">14.5.4 »i++« sieht atomar aus, ist es aber nicht *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_005.htm#mj9311fe1d3b8eab7542264c02d389dd2f" class="navnav">14.5.5 Kritische Abschnitte schützen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_005.htm#mj56cc8d74bdebad1074cc9c5a8010bf9b" class="navnav">14.5.6 Schützen mit ReentrantLock</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_005.htm#mj1bb85cdbf7de3e53c2f4909006721fe5" class="navnav">14.5.7 Synchronisieren mit »synchronized«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_005.htm#mjcd4b04f6e98c720091cfe986e6ffbbcd" class="navnav">14.5.8 Synchronized-Methoden der Klasse »StringBuffer« *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_005.htm#mj06c1e7e183ad53dff9ca9f5f31845549" class="navnav">14.5.9 Mit synchronized synchronisierte Blöcke</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_005.htm#mj7dbd0ab9bb5f9d276c324109e3fca0e5" class="navnav">14.5.10 Dann machen wir doch gleich alles synchronisiert!</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_005.htm#mj7f86c2fcc6f66725145007cbca98aa8f" class="navnav">14.5.11 Lock-Freigabe im Fall von Exceptions</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_005.htm#mj835189eac360de56887ed92c5c4ecde5" class="navnav">14.5.12 Deadlocks</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_005.htm#mjac6b857b6e9b19e0ddd6f7047deb1927" class="navnav">14.5.13 Mit »synchronized« nachträglich synchronisieren *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_005.htm#mjef386e0ad0e4f81d20c24fc7013063a6" class="navnav">14.5.14 Monitore sind reentrant &#8211; gut für die Geschwindigkeit *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_005.htm#mj971b2acd022777011b0152eaa4837a24" class="navnav">14.5.15 Synchronisierte Methodenaufrufe zusammenfassen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj9bf9f420b34b6f02276dafd31a8fd050" class="navh">14.6 Synchronisation über Warten und Benachrichtigen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mje2b58ede047a8963da930acab3fa6052" class="navh">14.6.1 Die Schnittstelle »Condition«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjc38ef5b969bd2691779c81805b6c2a7c" class="navh">14.6.2 It&#8217;s Disco-Time *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj0ba218bd2eaf4ea985fe997b1df29eff" class="navh">14.6.3 Warten mit »wait()« und Aufwecken mit »notify()« *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj136bf82444e4726887b78ff7e2940dcb" class="navh">14.6.4 Falls der Lock fehlt: IllegalMonitorStateException *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_14_007.htm#mj4145d5f8cf91e93d1d41e573c3d11ccc" class="navnav">14.7 Zeitgesteuerte Abläufe</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_007.htm#mjb1126ef61ae8b4987d341b8b5ca908bb" class="navnav">14.7.1 Die Klassen »Timer« und »TimerTask«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_14_007.htm#mjf6968022d786735ff347cc7539d4a5cc" class="navnav">14.7.2 Job-Scheduler Quartz</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_14_008.htm#mjd6f266fe3a93d82ea877896fff494d12" class="navnav">14.8 Einen Abbruch der virtuellen Maschine erkennen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_14_009.htm#mj97bf64dc1952296836c473e63db84371" class="navnav">14.9 Zum Weiterlesen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj9bf9f420b34b6f02276dafd31a8fd050" name="mj9bf9f420b34b6f02276dafd31a8fd050"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">14.6</span> Synchronisation über Warten und Benachrichtigen  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Die Synchronisation von Methoden oder Blöcken ist eine einfache Möglichkeit, konkurrierende Zugriffe von der virtuellen Maschine auflösen zu lassen. Obwohl die Umsetzung mit den Locks die Programmierung einfach macht, reicht dies für viele Aufgabenstellungen nicht aus. Wir können zwar Daten in einer synchronisierten Abfolge austauschen, doch gerne möchte ein Thread das Ankommen von Informationen signalisieren, und andere Threads wollen informiert werden, wenn Daten bereitstehen und abgeholt werden können.</p>
+<div class="bildbox">
+<p><a name="IDADJKJ"></a><a onClick="OpenWin('bilder/365_java_09_005.gif','Abbildung',800,800)"><img border="0" src="bilderklein/klein365_java_09_005.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p>Bei der Realisierung der Benachrichtigungen gibt es eine Reihe von Möglichkeiten. Im Folgenden nennen wir die einfachsten:</p>
+<ul class="gp">
+<li>Jedes Objekt besitzt über die Klasse <span class="clisting">java.lang.Object</span> die Methoden <span class="clisting">wait()</span> und <span class="clisting">notify()</span>. Ein Thread, der über den Monitor verfügt, kann die Methoden aufrufen und sich so in einen Wartezustand versetzen oder einen anderen Thread aufwecken. Diese Möglichkeit gibt es seit Java 1.0 (es ist schon ein wenig seltsam, dass Java für die Synchronisation ein eingebautes Schlüsselwort hat, aber die Benachrichtigung über Methoden realisiert).</li>
+</ul>
+<ul class="gp">
+<li>Von einem <span class="clisting">ReentrantLock</span> &#8211; der den Monitor repräsentiert &#8211; liefert <span class="clisting">newCondition()</span> ein <span class="clisting">Condition</span>-Objekt, das über <span class="clisting">await()</span> und <span class="clisting">signal()</span> warten und benachrichtigen lässt. Diese Typen gibt es seit Java 5.</li>
+</ul>
+<p>Szenarien mit Warten und Benachrichtigen sind oft Produzenten-Konsumenten-Beispiele. Ein Thread liefert Daten, die ein anderer Thread verwenden möchte. Da dieser in keiner kostspieligen Schleife auf die Information warten soll, synchronisieren sich die Partner über ein beiden bekanntes Objekt. Erst wenn der Produzent sein Okay gegeben hat, ergibt es für den Datennutzer Sinn, weiterzuarbeiten; jetzt hat er seine benötigten Daten. So wird keine unnötige Zeit in Warteschleifen vergeudet, und der Prozessor kann die übrige Zeit anderen Threads zuteilen.</p><a id="mje2b58ede047a8963da930acab3fa6052" name="mje2b58ede047a8963da930acab3fa6052"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">14.6.1</span> Die Schnittstelle »Condition«  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Mit einem <span class="clisting">Lock</span>-Objekt wie <span class="clisting">ReentrantLock</span> können zwecks Benachrichtigung <span class="clisting">Condition</span>-Objekte abgeleitet werden. Dazu dient die Methode <span class="clisting">newCondition()</span>:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">interface java.util.concurrent.locks.</span><span class="cfett">Lock</span></p>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">Condition newCondition()</span>
+Liefert ein <span class="clisting">Condition</span>-Objekt, das mit dem <span class="clisting">Lock</span> verbunden ist. Mit einem <span class="clisting">Lock</span>-Objekt können beliebig viele <span class="clisting">Condition</span>-Objekte gebildet werden.</li>
+</ul>
+<h4 class="t4">Warten mit »await()« und Aufwecken mit »signal()«</h4>
+<p>Damit das Warten und Benachrichtigen funktioniert, kommunizieren die Parteien über ein gemeinsames <span class="clisting">Condition</span>-Objekt, das vom <span class="clisting">Lock</span> erfragt wird:</p>
+<div class="listing"><pre class="prettyprint">Condition condition = lock.newCondition();</pre></div>
+<p>In einem fiktiven Szenario soll ein Thread T1 auf ein Signal warten und ein Thread T2 dieses Signal geben. Da nun beide Threads Zugriff auf das gemeinsame <span class="clisting">Condition</span>-Objekt haben, kann T1 sich mit folgender Anweisung in den Schlaf begeben:</p>
+<div class="listing"><pre class="prettyprint">try {
+  condition.<span class="cfett">await</span>();
+} catch ( InterruptedException e ) {
+  ...
+}</pre></div>
+<p>Mit dem <span class="clisting">await()</span> geht der Thread in den Zustand <span class="ckursiv">nicht ausführend</span> über. Der Grund für den <span class="clisting">try</span>-<span class="clisting">catch</span>-Block ist, dass ein <span class="clisting">await()</span> durch eine <span class="clisting">InterruptedException</span> vorzeitig abgebrochen werden kann. Das passiert zum Beispiel, wenn der wartende Thread per <span class="clisting">interrupt()</span>-Methode einen Hinweis zum Abbruch bekommt.</p>
+<p>Die Methode <span class="clisting">await()</span> bestimmt den ersten Teil des Paares. Der zweite Thread T2 kann nun nach Eintreffen einer Bedingung das Signal geben:</p>
+<div class="listing"><pre class="prettyprint">condition.signal();</pre></div>
+<p>Um das <span class="clisting">signal()</span> muss es keinen Block geben, der Exceptions auffängt.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Wenn ein Thread ein <span class="clisting">signal()</span> auslöst und es keinen wartenden Thread gibt, dann verhallt das <span class="clisting">signal()</span> ungehört. Der Hinweis wird nicht gespeichert, und ein nachfolgendes <span class="clisting">await()</span> muss mit einem neuen <span class="clisting">signal()</span> aufgeweckt werden.</p>
+</td>
+</tr>
+</table><br><div class="bildbox">
+<p><a name="IDAXNKJ"></a><a onClick="OpenWin('bilder/conditionuml.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinconditionuml.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">interface java.util.concurrent.lock.</span><span class="cfett">Condition</span></p>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">void await() throws InterruptedException</span>
+Wartet auf ein Signal, oder die Methode wird unterbrochen.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void signal()</span>
+Weckt einen wartenden Thread auf.</li>
+</ul>
+<h4 class="t4">Vor der Condition kommt ein Lock</h4>
+<p>Auf den ersten Blick scheint es, als ob das <span class="clisting">Lock</span>-Objekt nur die Aufgabe hat, ein <span class="clisting">Condition</span>-Objekt herzugeben. Das ist aber noch nicht alles, denn die Methoden <span class="clisting">await()</span> und auch <span class="clisting">signal()</span> können nur dann aufgerufen werden, wenn vorher ein <span class="clisting">lock()</span> den Signal-Block exklusiv sperrt:</p>
+<div class="listing"><pre class="prettyprint">lock.lock();
+try {
+  condition.<span class="cfett">await()</span>;
+} catch ( InterruptedException e ) {
+  ...
+}
+finally {
+  lock.unlock();
+}</pre></div>
+<p>Doch was passiert ohne Aufruf von <span class="clisting">lock()</span>? Zwei Zeilen zeigen die Auswirkung:</p>
+<p class="tabunter"><strong>Listing 14.24    </strong>com/tutego/insel/thread/concurrent/AwaitButNoLock.java, main()</p>
+<div class="listing"><pre class="prettyprint">Condition condition = new ReentrantLock().newCondition();
+condition.<span class="cfett">await()</span>;     // java.lang.IllegalMonitorStateException</pre></div>
+<p>Das Ergebnis ist eine <span class="clisting">java.lang.IllegalMonitorStateException</span>.</p>
+<h4 class="t4">Temporäre Lock-Freigabe bei »await()«</h4>
+<p>Um auf den <span class="clisting">Condition</span>-Objekten also <span class="clisting">await()</span> und <span class="clisting">signal()</span> aufrufen zu können, ist ein vorangehender <span class="clisting">Lock</span> nötig. Augenblick mal: Wenn ein <span class="clisting">await()</span> kommt, hält der Thread doch den Monitor, und kein anderer Thread könnte in einem kritischen Abschnitt, der über das gleiche <span class="clisting">Lock</span>-Objekt gesperrt ist, <span class="clisting">signal()</span> aufrufen. Wie ist das möglich? Die Lösung besteht darin, dass <span class="clisting">await()</span> den Monitor freigibt und den Thread so lange sperrt, bis zum Beispiel von einem anderen Thread das <span class="clisting">signal()</span> kommt (wenn wir ein Programm mit nur einem Thread haben, dann ergibt natürlich so ein Pärchen keinen Sinn). Kommt das Signal, weckt das den wartenden Thread wieder auf, und er kann am Scheduling wieder teilnehmen. Da also ein anderer Thread prinzipiell in den gleichen Block wie der Wartende hineinlaufen kann, ist das nicht <span class="ckursiv">logisch atomar</span> &#8211; was es wäre, wenn der Thread komplett einen synchronisieren Block durchliefe, bevor ein anderer Thread den Block betritt.</p>
+<h4 class="t4">Mehrere Wartende und »signalAll()«</h4>
+<p>Es kann durchaus vorkommen, dass mehrere Threads in einer Warteposition an demselben Objekt sind und aufgeweckt werden wollen. <span class="clisting">signal()</span> wählt dann aus der Liste der Wartenden einen Thread aus und gibt ihm das Signal. Sollten alle Wartenden einen Hinweis bekommen, lässt sich <span class="clisting">signalAll()</span> verwenden.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">interface java.util.concurrent.lock.</span><span class="cfett">Condition</span></p>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">void signalAll()</span>
+Weckt alle wartenden Threads auf.</li>
+</ul>
+<h4 class="t4">»await()« mit einer Zeitspanne</h4>
+<p>Ein <span class="clisting">await()</span> wartet im schlechtesten Fall bis zum Sankt-Nimmerleins-Tag, wenn es kein <span class="clisting">signal()</span> gibt. Es gibt jedoch Situationen, in denen wir eine bestimmte Zeit lang warten, aber bei Fehlen der Benachrichtigung weitermachen wollen. Dazu kann dem <span class="clisting">await()</span> in unterschiedlichen Formen eine Zeit mitgegeben werden.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">interface java.util.concurrent.lock.</span><span class="cfett">Condition</span></p>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">long awaitNanos( long nanosTimeout ) throws InterruptedException</span>
+Wartet eine bestimmte Anzahl Nanosekunden auf ein Signal, oder die Methode wird unterbrochen. Die Rückgabe gibt die Wartezeit an.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">boolean await( long time, TimeUnit unit ) throws InterruptedException</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">boolean awaitUntil( Date deadline ) throws InterruptedException</span>
+Wartet eine bestimmte Zeit auf ein Signal. Kommt das Signal in der Zeit nicht, geht die Methode weiter und liefert <span class="clisting">true</span>. Kam das Signal oder ein <span class="clisting">interrupt()</span>, liefert die Methode <span class="clisting">false</span>.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void awaitUninterruptibly()</span>
+Wartet ausschließlich auf ein Signal und lässt sich nicht durch ein <span class="clisting">interrupt()</span> beenden.</li>
+</ul>
+<p>An den Methoden ist schon zu erkennen, dass die Wartezeit einmal relativ (<span class="clisting">await()</span>) und einmal absolut (<span class="clisting">awaitUntil()</span>) sein kann (mit den eingebauten Methoden <span class="clisting">wait()</span> und <span class="clisting">notify()</span> ist immer nur eine relative Angabe möglich).</p>
+<p>Eine <span class="clisting">IllegalMonitorStateException</span> wird das Ergebnis sein, wenn beim Aufruf einer <span class="clisting">Condition</span>-Methode das <span class="clisting">lock()</span> des zugrundeliegenden <span class="clisting">Lock</span>-Objekts gefehlt hat.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Warte maximal zwei Sekunden auf das Signal über <span class="clisting">condition1</span>. Wenn es nicht ankommt, versuche <span class="clisting">signal()</span>/<span class="clisting">signalAll()</span> von <span class="clisting">condition2</span> zu bekommen:</p>
+<div class="listing"><pre class="prettyprint">condition1.await( 2, TimeUnit.SECONDS );
+condition2.await();</pre></div>
+<p class="BStandard">Die Ausnahmebehandlung muss bei einem lauffähigen Beispiel noch hinzugefügt werden.</p>
+</td>
+</tr>
+</table><br><a id="mjc38ef5b969bd2691779c81805b6c2a7c" name="mjc38ef5b969bd2691779c81805b6c2a7c"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">14.6.2</span> It&#8217;s Disco-Time *  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Ein kleines Programm soll die Anwendung von Threads kurz demonstrieren. Gegeben sind eine Tanzfläche und Tänzer, die auf die Tanzfläche möchten. Gleichzeitig holen Hütchenspieler immer wieder Tänzer von der Tanzfläche herunter. In die Java-Sprache übersetzt heißt das, dass zwei Threads auf eine gemeinsame Datenbasis, eine Queue, zurückgreifen. Ein Thread produziert unentwegt Tänzer und setzt sie in die Queue. Der Hütchenspieler-Thread nimmt die Tänzer aus der Queue heraus.</p>
+<p>Beginnen wir mit einer Klasse <span class="clisting">Dancefloor</span>, die mit den Methoden <span class="clisting">in()</span> und <span class="clisting">out()</span> Tänzer auf die Tanzfläche setzt und sie dort wieder entnimmt. Die Größe der Tanzfläche ist auf 5 beschränkt, und so blockiert die Methode <span class="clisting">in()</span>, wenn mehr als das definierte Maximum von Tänzern gespeichert werden soll. (Gut, wir hätten die Elemente auch verwerfen können, aber das ist hier keine gute Idee, denn Daten sollen nicht einfach verschwinden. In einigen Szenarien ist aber das Verwerfen von Anfragen die beste Strategie.) Eine zweite Wartesituation haben wir auch noch: Ist die Tanzfläche leer, kann <span class="clisting">out()</span> keinen Tänzer geben:</p>
+<p class="tabunter"><strong>Listing 14.25    </strong>com/tutego/insel/thread/concurrent/DanceFloorDemo.java, Teil 1</p>
+<div class="listing"><pre class="prettyprint">class Dancefloor
+{
+  private final Queue&lt;String&gt; dancers = new LinkedList&lt;String&gt;();
+  private final Lock lock             = new ReentrantLock();
+  private final Condition notFull     = lock.newCondition();
+  private final Condition notEmpty    = lock.newCondition();
+
+  public void in( String name ) throws InterruptedException
+  {
+    lock.lock();
+    try
+    {
+      while ( dancers.size() == 5 )
+      {
+        System.out.printf( "Tanzfläche ist voll, kann %s nicht aufnehmen!%n", name );
+        notFull.await();
+      }
+
+      dancers.add( name );
+      System.out.printf( "%s ist neu auf der Tanzfläche.%n", name );
+
+      notEmpty.signalAll();
+    }
+    finally {
+      lock.unlock();
+    }
+  }
+
+  public String out() throws InterruptedException
+  {
+    lock.lock();
+    try
+    {
+      while ( dancers.size() == 0 )
+      {
+        System.out.println( "Keiner auf der Tanzfläche!" );
+        notEmpty.await();
+      }
+
+      String elem = dancers.poll();
+
+      notFull.signalAll();
+
+      return elem;
+    }
+    finally {
+      lock.unlock();
+    }
+  }
+}</pre></div>
+<p>Als Objektvariable wird eine Warteschlange als Objekt vom Typ <span class="clisting">Queue</span> deklariert, die die Daten aufnimmt, auf die die Threads dann zurückgreifen. Die erste deklarierte Methode ist <span class="clisting">in()</span>. Wenn noch Platz in der Warteschlange ist, dann hängt die Methode die Zeichenketten mit dem Tänzernamen an. Ist die Tanzfläche voll, muss gewartet werden, bis jemand einen Tänzer von der Tanzfläche nimmt.</p>
+<div class="listing"><pre class="prettyprint">while ( dancers.size() == 5 )
+  notFull.await();</pre></div>
+<p>Es ist typisch für Wartesituationen, dass <span class="clisting">await()</span> &#8211; die synchronisierte Aktion, die ein zusätzliches Kriterium sicherstellt &#8211; in einem Schleifenrumpf aufgerufen wird. Denn falls <span class="clisting">signalAll()</span> einen Thread aus dem <span class="clisting">await()</span> holt, muss außerdem getestet werden, ob die Bedingung immer noch gilt. Ein einfaches <span class="clisting">if</span> würde dazu führen, dass bei zwei aufgeweckten Threads beide glauben, die Queue könne jeweils ein Element, also in der Summe zwei, aufnehmen. Doch bei nur einem entnommenen Element &#8211; und dem damit verbundenen <span class="clisting">signalAll()</span> &#8211; darf auch nur ein Element wieder hinein. Die Schleife verhindert, dass jeder Geweckte ein Element hineinlegt. Die Bedingung, ob schon maximal viele Produkte in der Datenstruktur stecken, wird im Englischen <span class="ckursiv">guard</span> (zu Deutsch etwa <span class="ckursiv">Wache</span>) genannt, und die überwachte Aktion (engl. <span class="ckursiv">guarded action</span>) <span class="ckursiv">Warte</span> wird damit zum so genannten <span class="ckursiv">überwachten Warten</span> (engl. <span class="ckursiv">guarded wait</span>).</p>
+<p>Bei der Methode <span class="clisting">out()</span> finden wir das gleiche Muster. Sind in der Warteschlange keine Daten vorhanden, so muss der interessierte Thread warten. Kommt ein Element hinein, kann genau eines herausgenommen werden. Eine einfache Fallunterscheidung könnte bei zwei Wartenden und einem <span class="clisting">signalAll()</span> vom neuen Element dazu führen, dass beide Threads ein Element entnehmen. Das geht aber nicht, da nur ein Element in der Queue ist.</p>
+<p>Die Schleifenbedingung &#8211; etwa <span class="clisting">dancers.size() == 0</span> &#8211; ist das Gegenteil der Bedingung, auf die gewartet werden soll; Anzahl Tänzer ungleich null, dann geht&#8217;s weiter.</p>
+<p>Unsere <span class="clisting">Dancefloor</span>-Klasse ist ein Beispiel für eine so genannte beschränkte blockierende Queue. Java 5 deklariert mit <span class="clisting">BlockingQueue</span> eine Schnittstelle für blockierende Operationen. Die Klasse <span class="clisting">ArrayBlockingQueue</span> ist eine solche Warteschlange, die blockiert, wenn keine Daten enthalten sind und ein Maximum erreicht ist. Jetzt haben wir uns eine einfache Variante einer solchen Datenstruktur selbst gebaut!</p>
+<p>In der Quellcodedatei folgt zunächst ein Thread, der unermüdlich Tänzer generiert und auf die Tanzfläche schickt:</p>
+<p class="tabunter"><strong>Listing 14.26    </strong>com/tutego/insel/thread/concurrent/DanceFloorDemo.java, Teil 2</p>
+<div class="listing"><pre class="prettyprint">public class DancefloorDemo
+{
+  public static void main( String[] args )
+  {
+    final Dancefloor dancefloor = new Dancefloor();
+
+    new Thread()
+    {
+      @Override public void run()
+      {
+        try
+        {
+          while ( true )
+          {
+            dancefloor.in( "Tony Manero " + System.nanoTime() % 100 );
+
+            TimeUnit.MILLISECONDS.sleep( new Random().nextInt( 200 ) + 1 );
+          }
+        }
+        catch ( InterruptedException e ) { e.printStackTrace(); }
+      }
+    }.start();</pre></div>
+<p>Der letzte Teil soll eine Thread-Klasse für Hütchenspieler deklarieren. Ein Hütchenspieler wird dann an der Tanzfläche lauern und Tänzer entnehmen:</p>
+<p class="tabunter"><strong>Listing 14.27    </strong>com/tutego/insel/thread/concurrent/DanceFloorDemo.java, Teil 3</p>
+<div class="listing"><pre class="prettyprint">class Thimblerigger extends Thread
+    {
+      final private String name;
+
+      Thimblerigger( String name )
+      {
+        this.name = name;
+      }
+
+      @Override public void run()
+      {
+        try
+        {
+          while ( true )
+          {
+            System.out.println( name + " nahm " + dancefloor.out()
+                            + " von der Tanzfläche." );
+
+            TimeUnit.MILLISECONDS.sleep( new Random().nextInt( 2000 ) + 1 );
+          }
+        }
+        catch ( InterruptedException e ) { e.printStackTrace(); }
+      }
+    }
+
+    new Thimblerigger( "Hütchenspieler Heinz" ).start();
+    new Thimblerigger( "Pronto Salvatore" ).start();
+    new Thimblerigger( "Flinker Finger Jo" ).start();
+  }
+}</pre></div>
+<p>Das Programm startet drei Hütchenspieler, was eine Ausgabe ähnlich dieser ergibt:</p>
+<div class="listing"><pre class="prettyprint">Tony Manero 84 ist neu auf der Tanzfläche.
+Hütchenspieler Heinz nahm Tony Manero 84 von der Tanzfläche.
+Keiner auf der Tanzfläche!
+Keiner auf der Tanzfläche!
+Tony Manero 4 ist neu auf der Tanzfläche.
+Pronto Salvatore nahm Tony Manero 4 von der Tanzfläche.
+Keiner auf der Tanzfläche!
+Tony Manero 98 ist neu auf der Tanzfläche.
+Flinker Finger Jo nahm Tony Manero 98 von der Tanzfläche.
+Tony Manero 55 ist neu auf der Tanzfläche.
+Tony Manero 62 ist neu auf der Tanzfläche.
+Flinker Finger Jo nahm Tony Manero 55 von der Tanzfläche.
+Tony Manero 35 ist neu auf der Tanzfläche.
+Tony Manero 33 ist neu auf der Tanzfläche.
+Tony Manero 38 ist neu auf der Tanzfläche.
+Tony Manero 79 ist neu auf der Tanzfläche.
+Hütchenspieler Heinz nahm Tony Manero 62 von der Tanzfläche.
+Tony Manero 70 ist neu auf der Tanzfläche.
+Hütchenspieler Heinz nahm Tony Manero 35 von der Tanzfläche.
+Tony Manero 35 ist neu auf der Tanzfläche.
+Tanzfläche ist voll, kann Tony Manero 60 nicht aufnehmen!
+Flinker Finger Jo nahm Tony Manero 33 von der Tanzfläche.
+Tony Manero 60 ist neu auf der Tanzfläche.
+Tanzfläche ist voll, kann Tony Manero 33 nicht aufnehmen!
+Flinker Finger Jo nahm Tony Manero 38 von der Tanzfläche.
+Tony Manero 33 ist neu auf der Tanzfläche.
+Pronto Salvatore nahm Tony Manero 79 von der Tanzfläche.
+Tony Manero 98 ist neu auf der Tanzfläche.
+Tanzfläche ist voll, kann Tony Manero 65 nicht aufnehmen!
+Flinker Finger Jo nahm Tony Manero 70 von der Tanzfläche.
+Tony Manero 65 ist neu auf der Tanzfläche.
+Tanzfläche ist voll, kann Tony Manero 36 nicht aufnehmen!
+Hütchenspieler Heinz nahm Tony Manero 35 von der Tanzfläche.
+Tony Manero 36 ist neu auf der Tanzfläche.
+Tanzfläche ist voll, kann Tony Manero 82 nicht aufnehmen!
+Pronto Salvatore nahm Tony Manero 60 von der Tanzfläche.
+Tony Manero 82 ist neu auf der Tanzfläche.
+Tanzfläche ist voll, kann Tony Manero 32 nicht aufnehmen!
+Hütchenspieler Heinz nahm Tony Manero 33 von der Tanzfläche.
+Tony Manero 32 ist neu auf der Tanzfläche.
+Pronto Salvatore nahm Tony Manero 98 von der Tanzfläche.
+Tony Manero 44 ist neu auf der Tanzfläche.
+Tanzfläche ist voll, kann Tony Manero 76 nicht aufnehmen!
+... bis in die Unendlichkeit</pre></div><a id="mj0ba218bd2eaf4ea985fe997b1df29eff" name="mj0ba218bd2eaf4ea985fe997b1df29eff"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">14.6.3</span> Warten mit »wait()« und Aufwecken mit »notify()« *  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Nachdem im vorigen Abschnitt der Weg mit den Java-5-Klassen und -Schnittstellen beschritten wurde, wollen wir uns abschließend mit den Möglichkeiten beschäftigen, die Java seit der Version 1.0 mitbringt.</p>
+<p>Nehmen wir wieder zwei Threads an. Sie sollen sich am Objekt <span class="clisting">o</span> synchronisieren &#8211; die Methoden <span class="clisting">wait()</span> und <span class="clisting">notify()</span> sind nur mit dem entsprechenden Monitor gültig, und den besitzt das Programmstück, wenn es sich in einem synchronisierten Block aufhält. Thread T1 soll auf Daten warten, die Thread T2 liefert. T1 führt dann etwa den folgenden Programmcode aus:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">synchronized( o )</span>
+{
+  try {
+   <span class="cfett"> o.wait();</span>
+    // Habe gewartet, kann jetzt loslegen.
+  } catch ( InterruptedException e ) {
+    ...
+  }
+}</pre></div>
+<p>Wenn der zweite Thread den Monitor des Objekts <span class="clisting">o</span> bekommt, kann er den wartenden Thread aufwecken. Er bekommt den Monitor durch das Synchronisieren der Methode, was ja bei Objektmethoden <span class="clisting">synchronized(this)</span> entspricht. T2 gibt das Signal mit <span class="clisting">notify()</span>:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">synchronized( o )</span>
+{
+  // Habe etwas gemacht und informiere jetzt meinen Wartenden.
+ <span class="cfett"> o.notify();</span>
+}</pre></div>
+<p>Um <span class="clisting">notify()</span> muss es keinen Block geben, der Exceptions auffängt. Wenn ein Thread ein <span class="clisting">notify()</span> auslöst und es keinen wartenden Thread gibt, dann verpufft es.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">class java.lang.</span><span class="cfett">Object</span></p>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">void wait() throws InterruptedException</span>
+Der aktuelle Thread wartet an dem aufrufenden Objekt darauf, dass er nach einem <span class="clisting">notify()</span>/<span class="clisting">notifyAll()</span> weiterarbeiten kann. Der aktive Thread muss natürlich den Monitor des Objekts belegt haben. Andernfalls kommt es zu einer <span class="clisting">IllegalMonitorStateException.</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void wait( long timeout ) throws InterruptedException</span>
+Wartet auf ein <span class="clisting">notify()</span>/<span class="clisting">notifyAll()</span> eine gegebene Anzahl von Millisekunden. Nach Ablauf dieser Zeit geht es ohne Fehler weiter.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void wait( long timeout, int nanos ) throws InterruptedException</span>
+Wartet auf ein <span class="clisting">notify()</span>/<span class="clisting">notifyAll()</span> &#8211; angenähert 1.000.000 <span class="clisting">* timeout</span> + <span class="clisting">nanos</span> Nano-sekunden.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void notify()</span>
+Weckt einen beliebigen Thread auf, der an diesem Objekt wartet.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void notifyAll()</span>
+Benachrichtigt alle Threads, die auf dieses Objekt warten.</li>
+</ul>
+<p>Für die Variante <span class="clisting">wait(long)</span>/<span class="clisting">wait(long,int)</span> mit der Zeiteinheit bietet <span class="clisting">TimeUnit</span> eine Alternative.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">public enum java.util.concurrent.</span>TimeUnit<span class="clisting">
+extends Enum&lt;TimeUnit&gt;</span></p>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">void timedWait( Object obj, long timeout ) throws InterruptedException</span>
+Berechnet aus der gewählten <span class="clisting">TimeUnit</span> und dem <span class="clisting">timeout</span> die Millisekunden (<span class="clisting">ms</span>) und Nanosekunden (<span class="clisting">ns</span>) und führt <span class="clisting">obj.wait(ms, ns)</span> aus.</li>
+</ul>
+<p>Ein <span class="clisting">wait()</span> kann mit einer <span class="clisting">InterruptedException</span> vorzeitig abbrechen, wenn der wartende Thread per <span class="clisting">interrupt()</span>-Methode unterbrochen wird. Die Tatsache, dass <span class="clisting">wait()</span> temporär den Lock freigibt, was für uns mit <span class="clisting">synchronized</span> aber nicht möglich ist, spricht dafür, dass etwas wie <span class="clisting">wait()</span> nativ implementiert werden muss.</p><a id="mj136bf82444e4726887b78ff7e2940dcb" name="mj136bf82444e4726887b78ff7e2940dcb"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">14.6.4</span> Falls der Lock fehlt: IllegalMonitorStateException *  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Wenn <span class="clisting">wait()</span> oder <span class="clisting">notify()</span> aufgerufen werden, uns aber der entsprechende Lock für das Objekt fehlt, kommt es zum Laufzeitfehler <span class="clisting">IllegalMonitorStateException</span>, wie wir es schon bei <span class="clisting">Condition</span> und dem fehlenden <span class="clisting">lock()</span> vom <span class="clisting">Lock</span> gesehen haben.</p>
+<p>Was wird bei folgendem Programm passieren?</p>
+<p class="tabunter"><strong>Listing 14.28    </strong>com/tutego/insel/thread/NotOwner.java, main()</p>
+<div class="listing"><pre class="prettyprint">package com.tutego.insel.thread;
+
+class NotOwner
+{
+  public static void main( String[] args ) throws InterruptedException
+  {
+    new NotOwner().wait();
+  }
+}</pre></div>
+<p>Der Compiler kann das Programm übersetzen, doch zur Laufzeit wird es zu einem Fehler kommen:</p>
+<div class="listing"><pre class="prettyprint">java.lang.IllegalMonitorStateException: current thread not owner
+  at java.lang.Object.wait(Native Method)
+  at java.lang.Object.wait(Object.java:426)
+  at NotOwner.main(NotOwner.java:5)
+Exception in thread "main"</pre></div>
+<p>Der Fehler zeigt an, dass der aktuelle ausführende Thread (<span class="ckursiv">current thread</span>) nicht den nötigen <span class="clisting">Lock</span> besitzt, um <span class="clisting">wait()</span> auszuführen. Das Problem ist hier mit einem <span class="clisting">synchronized</span>-Block (oder einer <span class="clisting">synchronized</span>-Methode) zu lösen. Um den Fehler zu beheben, setzen wir:</p>
+<div class="listing"><pre class="prettyprint">NotOwner o = new NotOwner();
+synchronized( o )
+{
+  o.wait();
+}</pre></div>
+<p>Dies zeigt, dass das Objekt <span class="clisting">o</span>, das den <span class="clisting">Lock</span> besitzt, für ein <span class="clisting">wait()</span> »bereit« sein muss. In die richtige Stimmung wird es nur mit <span class="clisting">synchronized</span> gebracht:</p>
+<div class="listing"><pre class="prettyprint">synchronized( NotOwner.class )
+{
+  new NotOwner().wait();
+}</pre></div>
+<p>Doch natürlich könnten wir auch am Klassenobjekt synchronisieren:</p>
+<div class="listing"><pre class="prettyprint">synchronized( NotOwner.class )
+{
+  NotOwner.class.wait();
+}</pre></div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Die Ähnlichkeit zwischen <span class="clisting">Lock</span> auf der einen Seite und einem synchronisierten Block bzw. einer synchronisierten Methode auf der anderen und den Methoden <span class="clisting">wait()</span> und <span class="clisting">notify()</span> bei <span class="clisting">Object</span> und den analogen Methoden <span class="clisting">await()</span> und <span class="clisting">signal()</span> bei den <span class="clisting">Condition</span>-Objekten ist nicht zu übersehen. Auch der Fehler beim Fehlen des Monitors ist der gleiche: Ein Aufruf der Methoden <span class="clisting">await()</span>/<span class="clisting">wait()</span> und <span class="clisting">notify()</span>/<span class="clisting">signal()</span> führt zu einer <span class="clisting">Illegal-MonitorStateException</span>. Es muss also erst ein synchronisierter Block für den Monitor her oder ein Aufruf <span class="clisting">lock()</span> auf dem <span class="clisting">Condition</span> zugrundeliegenden <span class="clisting">Lock</span>-Objekt.</p>
+</td>
+</tr>
+</table><br><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="14.6 Synchronisation über Warten und Benachrichtigen"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_14_005.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_14_007.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

@@ -1,0 +1,62 @@
+package ch05.Pi;
+
+import java.util.Calendar;
+
+public class PiCalculator {
+	/*
+	public static double approximiere_pi(double tropfenzahl, Calendar cal) {
+		  double pi = 0;
+		  double innerhalb = 0;
+		  double gesamt = tropfenzahl;
+		  int len = 0;
+		  double diff;
+		  
+		 
+		  while (gesamt > 0) { // generiere Tropfen und addiere je nach Zugehörigkeit
+		    double dotx = Math.random();
+		    double doty = Math.random();
+		 
+		    if (dotx*dotx + doty*doty <= 1) {
+		      // Punkt liegt innerhalb des Kreises
+		      innerhalb++;
+		      diff = Math.abs(Math.PI-pi);
+		      if ( Double.toString(diff).length() > len){
+		    	  len++;
+		    	  System.out.println(pi);
+		    	  System.out.println(diff);
+		      }
+		    } else {
+		      // Punkt liegt außerhalb des Kreises
+		    }
+		 
+		    gesamt--;
+		  }
+		 
+		  pi = 4*innerhalb/tropfenzahl;
+		  return pi;
+		}
+		*/
+	public static void approximiere_pi(int tropfenzahl) {
+		  double pi = 0;
+		  int innerhalb = 0;
+		  int gesamt = tropfenzahl;
+		 
+		  while (gesamt > 0) { // generiere Tropfen und addiere je nach Zugehörigkeit
+		    double dotx = Math.random();
+		    double doty = Math.random();
+		 
+		    if (dotx*dotx + doty*doty <= 1) {
+		      // Punkt liegt innerhalb des Kreises
+		      innerhalb++;
+		    } else {
+		      // Punkt liegt außerhalb des Kreises
+		    }
+		 
+		    gesamt--;
+		  }
+		 
+		  pi = 4*(double)innerhalb/tropfenzahl;
+		  System.out.println(Double.toString(Math.PI-pi));
+		  //return pi;
+		}
+}

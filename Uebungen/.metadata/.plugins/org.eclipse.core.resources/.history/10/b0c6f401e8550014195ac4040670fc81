@@ -1,0 +1,40 @@
+package ch05.Pi;
+
+import java.util.Calendar;
+
+import org.omg.CORBA.IdentifierHelper;
+
+public class PiCalculator {
+	public static void approximiere_pi(double tropfenzahl) {
+		  double pi = 0;
+		  double innerhalb = 0;
+		  double gesamt = tropfenzahl;
+		  double diff = 0;
+		  int len = 2;
+		  
+		 
+		  while (gesamt > 0) { // generiere Tropfen und addiere je nach Zugehörigkeit
+		    double dotx = Math.random();
+		    double doty = Math.random();
+		 
+		    if (dotx*dotx + doty*doty <= 1) {
+		      // Punkt liegt innerhalb des Kreises
+		      innerhalb++;
+		      pi = 4*innerhalb/tropfenzahl;
+		      diff = Math.abs(Math.PI-pi);
+		      if ((Double.toString(diff)).charAt(len) == 0){
+		    	  System.out.println("wuhu");
+		    	  len++;
+		    	  System.out.println(Double.toString(diff));
+		      }
+		    } else {
+		      // Punkt liegt außerhalb des Kreises
+		    }
+		 
+		    gesamt--;
+		  }
+		 
+		  //pi = 4*(double)innerhalb/tropfenzahl;
+		  //return pi;
+		}
+}

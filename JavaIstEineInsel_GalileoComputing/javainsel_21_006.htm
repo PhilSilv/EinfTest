@@ -1,0 +1,732 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 21.6 Mit dem Socket zum Server</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 21.6 Mit dem Socket zum Server">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 21.6 Mit dem Socket zum Server">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_05_001.htm#mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_08_001.htm#mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_09_001.htm#mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_11_001.htm#mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_21_005.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_21_007.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75" class="navnav">21 Netzwerkprogrammierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_21_001.htm#mj912f16fad9a4d2996bb07718a7065cc7" class="navnav">21.1 Grundlegende Begriffe</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_21_002.htm#mj7b4c38aadbbcc975306fbda867a319a4" class="navnav">21.2 URI und URL</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_002.htm#mj6a9a8db85dce8faa6616fadc6e1a3ce4" class="navnav">21.2.1 Die Klasse URI</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_002.htm#mj65da5acafb618d85063e608c8b1d3832" class="navnav">21.2.2 Die Klasse URL</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_002.htm#mj0411d96ed0371ecdf4693b88944377b2" class="navnav">21.2.3 Informationen über eine URL *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_002.htm#mj0ed88ae14045905d93cad24b235101ae" class="navnav">21.2.4 Der Zugriff auf die Daten über die Klasse »URL«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_21_003.htm#mj2552385424dfea123df910156b6be1bd" class="navnav">21.3 Die Klasse URLConnection *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_003.htm#mj361cf58450bed19b4f7135a90e9622f8" class="navnav">21.3.1 Methoden und Anwendung von URLConnection</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_003.htm#mj13ed071a8bc56c5cc94b5cf4a727df60" class="navnav">21.3.2 Protokoll- und Content-Handler</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_003.htm#mjc5b89e4473010478da26fc57c8062a40" class="navnav">21.3.3 Im Detail: vom URL zur URLConnection</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_003.htm#mj924f618643fb5ec03bc8cbe696417844" class="navnav">21.3.4 Der Protokoll-Handler für Jar-Dateien</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_003.htm#mj5e7ad4990f3f7ccbf976c3eab61c5887" class="navnav">21.3.5 Basic Authentication/Proxy-Authentifizierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_21_004.htm#mjeb9209c2668af7983ec6bb0564bc6b4d" class="navnav">21.4 Mit GET und POST Daten übergeben *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_004.htm#mj3aa8779b2f1ab93b3b38727e4d13e3f9" class="navnav">21.4.1 Kodieren der Parameter für Serverprogramme</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_004.htm#mjfac6821e962deeb3c2b82fcade53fdb6" class="navnav">21.4.2 Eine Suchmaschine mit GET-Request ansprechen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_004.htm#mj09ddf4c4d29f03c1fa3ffe5344c0875d" class="navnav">21.4.3 POST-Request absenden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_21_005.htm#mj8ba2862796503ab879fa49a1124af188" class="navnav">21.5 Host- und IP-Adressen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_005.htm#mj0f02e7e92a15f342fa8c8790067d5ad8" class="navnav">21.5.1 Lebt der Rechner?</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_005.htm#mja458d15a1bc50cbc23a965b837d2dcba" class="navnav">21.5.2 IP-Adresse des lokalen Hosts</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_005.htm#mjc0969fd5dd1934cee2105b2c1559092f" class="navnav">21.5.3 Das Netz ist Klasse …</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_005.htm#mjc59bea256f67cd746428ad0ee486ce85" class="navnav">21.5.4 NetworkInterface</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mjcd64e398cec5737d9a288a4b4df04e2b" class="navh">21.6 Mit dem Socket zum Server</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj6526ba613a9c918e8ccf70a8c3ca5599" class="navh">21.6.1 Das Netzwerk ist der Computer</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj2ff12752264f561d87686536916021cc" class="navh">21.6.2 Sockets</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjfe60f5f7ed5d676625e4baac0611e75e" class="navh">21.6.3 Eine Verbindung zum Server aufbauen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj017969768211807334050be5a3c5df81" class="navh">21.6.4 Server unter Spannung: die Ströme</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mje0a69a84c474cc332bb06aaa19de7822" class="navh">21.6.5 Die Verbindung wieder abbauen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjf57d5057f525ec0bb30fb3baad9ef3d2" class="navh">21.6.6 Informationen über den Socket *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjdb0c24f8269e83946df526f3a9aeed4c" class="navh">21.6.7 Reine Verbindungsdaten über SocketAddress *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_21_007.htm#mj1ba27dc5fdf53f527163767f188e1d2e" class="navnav">21.7 Client-Server-Kommunikation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_007.htm#mj759e79b3a43e232270c0039832106d0f" class="navnav">21.7.1 Warten auf Verbindungen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_007.htm#mj0604389969fe7bded72be959d4f8ef23" class="navnav">21.7.2 Ein Multiplikationsserver</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_007.htm#mj565a926d79ff0b07fd9b504e58a1e02b" class="navnav">21.7.3 Blockierendes Lesen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_007.htm#mj47e2d40604b1b1b87a3c62d75a377747" class="navnav">21.7.4 Von außen erreichbar sein *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_21_008.htm#mjdc801150d9138730cd0f8ec13f024473" class="navnav">21.8 Apache HttpComponents und Commons Net</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_008.htm#mj7bee34b45f93eab88b7ac98166846793" class="navnav">21.8.1 HttpComponents</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_21_008.htm#mj1fee4bad0e1e74fcc6114dd6367afcb1" class="navnav">21.8.2 Jakarta Commons Net</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_21_009.htm#mj79da1cdf9f3c74dd63bb1dea9a5ec49c" class="navnav">21.9 Zum Weiterlesen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mjcd64e398cec5737d9a288a4b4df04e2b" name="mjcd64e398cec5737d9a288a4b4df04e2b"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">21.6</span> Mit dem Socket zum Server  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Die URL-Verbindungen sind schon High-Level-Verbindungen, und wir müssen uns nicht erst um Übertragungsprotokolle wie HTTP oder &#8211; noch tiefer &#8211; TCP/IP kümmern. Aber alle höheren Verbindungen bauen auf Sockets auf, und auch die Verbindung zu einem Rechner über eine URL ist mit Sockets realisiert. Beschäftigen wir uns also nun etwas mit dem Hintergrund.</p><a id="mj6526ba613a9c918e8ccf70a8c3ca5599" name="mj6526ba613a9c918e8ccf70a8c3ca5599"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">21.6.1</span> Das Netzwerk ist der Computer  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Rechner, die im Internet verbunden sind, kommunizieren über Protokolle, wobei TCP/IP das wichtigste geworden ist. Die Entwicklung von TCP/IP reicht in die 1980er Jahre zurück. Die ARPA (<span class="ckursiv">Advanced Research Projects Agency</span>) gab der Universität von Berkeley (Kalifornien) den Auftrag, unter Unix das TCP/IP-Protokoll zu implementieren, um dort im Netzwerk zu kommunizieren. [Dass das Internet nur entwickelt wurde, um bei Rechnerausfällen infolge kriegerischer Aktivitäten Kommunikation weiter zu ermöglichen, trifft nicht zu. Larry Roberts bemerkt dazu, dass die Entwickler dem Ministerium die Vorteile des Internets mit diesem Argument verkauften, um mehr Forschungsgelder zu bekommen.
+]  Was sich die Kalifornier ausgedacht hatten, fand auch in der Berkeley Software Distribution (BSD), einer Unix-Variante, Verwendung: die Berkeley-Sockets. Mittlerweile hat sich das Berkeley-Socket-Interface über alle Betriebssystemgrenzen hinweg verbreitet und ist der De-facto-Standard für TCP/IP-Kommunikation, so auch unter Windows.</p><a id="mj2ff12752264f561d87686536916021cc" name="mj2ff12752264f561d87686536916021cc"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">21.6.2</span> Sockets  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Ein Socket dient zur Abstraktion und ist ein Verbindungspunkt in einem TCP/IP-Netzwerk. Werden mehrere Computer verbunden, so implementiert jeder Rechner einen Socket: Derjenige, der die Verbindung initiiert und Daten sendet, einen Client-Socket und derjenige, der auf eingehende Verbindungen horcht, einen Server-Socket. Es lässt sich in der Realität nicht immer ganz trennen, wer Client und wer Server ist, da Server zum Datenaustausch ebenfalls Verbindungen aufbauen können. Doch für den Betrachter von außen ist der Server der Wartende und der Client derjenige, der die Verbindung initiiert.</p>
+<h4 class="t4">Serveradresse und Port</h4>
+<p>Damit der Empfänger den Sender auch hören kann, muss Letzterer durch eine eindeutige Adresse als Server ausgemacht werden. Er bekommt also eine IP-Adresse im Netz und eine ebenso eindeutige Port-Adresse. Der Port ist so etwas wie eine Zimmernummer im Hotel. Die Adresse bleibt dieselbe, aber in jedem Zimmer sitzt jemand und erledigt seine Aufgaben. Jeder Dienst (Service), den ein Server zur Verfügung stellt, läuft auf einem anderen Port. Eine Port-Nummer ist eine Ganzzahl und in die Gruppen »System« und »Benutzer« eingeteilt. Die so genannten <span class="ckursiv">Well-known System Ports</span> (auch <span class="ckursiv">Contact Ports</span> genannt) liegen im Bereich von 0 bis 1023. Die User-Ports umfassen den restlichen Bereich von 1024 bis 65535. Wichtige Port-Nummern sind zum Beispiel 80 für Webserver und 20 für FTP.</p>
+<h4 class="t4">Stream-Sockets/Datagram-Sockets</h4>
+<p>Ein Stream-Socket baut eine feste Verbindung zu einem Rechner auf. Das Besondere daran: Die Verbindung bleibt für die Dauer der Übertragung bestehen. Dies ist bei der anderen Form der Sockets, den Datagram-Sockets, nicht der Fall. Wir behandeln die Stream-Sockets zuerst.</p><a id="mjfe60f5f7ed5d676625e4baac0611e75e" name="mjfe60f5f7ed5d676625e4baac0611e75e"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">21.6.3</span> Eine Verbindung zum Server aufbauen  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Um Daten von einer Stelle zur anderen zu schicken, muss zunächst eine Verbindung zum Server bestehen. Dieser wiederum beantwortet die eingehenden Fragen. Mit den Netzwerkklassen unter Java lassen sich sowohl client- als auch serverbasierte Programme schreiben. Da die Clientseite noch einfacher als die Serverseite ist &#8211; in Java ist Netzwerkprogrammierung ein Genuss &#8211;, beginnen wir mit dem Client. Dieser muss mit einem horchenden Server verbunden werden &#8211; eine Verbindung, die durch die <span class="clisting">java.net.Socket</span>-Klasse aufgebaut wird.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Baue Verbindung zu einem Rechner auf Port 80 auf, der »die.weite.welt« heißt.</p>
+<div class="listing"><pre class="prettyprint">Socket socket = new Socket( "die.weite.welt", 80 );</pre></div>
+</td>
+</tr>
+</table><br><p>Der erste Parameter des Konstruktors erwartet den Namen des Servers (Host-Adresse), mit dem wir uns verbinden wollen. Der zweite Parameter steht für den Port.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Verbinden wir ein Applet mit dem Server, von dem es geladen wurde, würden wir mit <span class="clisting">getCodeBase().getHost()</span> arbeiten, etwa so:</p>
+<div class="listing"><pre class="prettyprint">Socket socket = new Socket( getCodeBase().getHost(), 80 );</pre></div>
+</td>
+</tr>
+</table><br><p>Es gibt noch eine andere Möglichkeit, einen <span class="clisting">Socket</span> zu initialisieren &#8211; über die Klasse <span class="clisting">InetAddress</span>:</p>
+<div class="listing"><pre class="prettyprint">Socket secondSocket = new Socket( server.getInetAddress(), 1234 );</pre></div>
+<p>Alternativ ermittelt die statische Methode <span class="clisting">InetAddress.getByName(String)</span> die <span class="clisting">InetAddress</span> eines Hosts. Ist der Server nicht erreichbar, so löst das System bei allen Socket-Konstruktionsversuchen eine <span class="clisting">UnknownHostException</span> aus; dabei handelt es sich um eine Unterklasse von <span class="clisting">IOException</span>, sodass grundsätzlich ein Auffangen/Weiterleiten einer <span class="clisting">IOException</span> ausreicht.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.net.<span class="cfett">Socket</span></pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">Socket( String host, int port ) throws IOException</span>
+Erzeugt einen Stream-Socket und verbindet ihn mit der Port-Nummer am angegebenen Host.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Socket( InetAddress address, int port ) throws IOException</span>
+Erzeugt einen Stream-Socket und verbindet ihn mit der Port-Nummer am Host mit der angegebenen IP-Nummer.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Socket( String host, int port, InetAddress localAddr, int localPort )
+throws IOException</span>
+Erzeugt einen Socket für den Host <span class="clisting">host</span> am Port <span class="clisting">port</span> und bindet ihn an die lokale Adresse <span class="clisting">localAddr</span> und an den lokalen Port <span class="clisting">localPort</span>.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Socket( InetAddress address, int port, InetAddress localAddr, int localPort )
+throws IOException</span>
+Erzeugt einen Socket für den durch <span class="clisting">address</span> gegebenen Host am Port <span class="clisting">port</span> und bindet ihn an die lokale Adresse <span class="clisting">localAddr</span> und an den lokalen Port <span class="clisting">localPort</span>.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Socket() throws IOException</span>
+Erzeugt einen nicht verbundenen Socket über die Standard-<span class="clisting">SocketImpl</span>.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">protected Socket( SocketImpl impl ) throws IOException</span>
+Erzeugt einen unverbundenen Socket mit einer benutzerdefinierten <span class="clisting">SocketImpl</span>. Nützlich für Unterklassen mit angepassten Verbindungen, die etwa den Datenstrom verschlüsseln oder komprimieren.</li>
+</ul><a id="mj017969768211807334050be5a3c5df81" name="mj017969768211807334050be5a3c5df81"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">21.6.4</span> Server unter Spannung: die Ströme  <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Besteht erst einmal die Verbindung, so wird mit den Daten vom Server genauso verfahren wie mit den Daten aus einer Datei. Die <span class="clisting">Socket</span>-Klasse liefert uns mit <span class="clisting">getInputStream()</span> und <span class="clisting">getOutputStream()</span> Kommunikationsströme, mit denen wir Daten vom Server lesen und Daten zum Server schreiben können. Oft werden die Ströme aufgewertet, etwa zu einem <span class="clisting">BufferedReader</span> oder <span class="clisting">Scanner</span> zum Lesen oder zu einem <span class="clisting">DataOutputStream</span> oder <span class="clisting">PrintWriter</span> zum Schreiben. Wir kennen das Aufwertungsprinzip schon von den URL-Verbindungen und von der Dateieingabe/-ausgabe.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.net.<span class="cfett">Socket</span></pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">InputStream getInputStream() throws IOException</span>
+Liefert den Eingabestrom für den Socket.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">OutputStream getOutputStream() throws IOException</span>
+Liefert den Ausgabestrom für den Socket.</li>
+</ul><a id="mje0a69a84c474cc332bb06aaa19de7822" name="mje0a69a84c474cc332bb06aaa19de7822"></a><a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3"><span class="cfett">21.6.5</span> Die Verbindung wieder abbauen  <a href="#t2t37"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Methode <span class="clisting">close()</span> leitet das Ende einer Verbindung ein und gibt dem Betriebssystem die reservierten Handles zurück. Ohne Freigabe könnte das Betriebssystem unter Umständen nach einer gewissen Zeit keine Handles mehr zurückgeben, und eine Fortsetzung der Arbeit wäre nicht möglich. Dies geht so weit, dass auch der Browser keine HTML-Seite mehr vom Server bekommt. Kommt es jedoch vor, dass sich zwar einige Verbindungen aufbauen lassen, danach aber Schluss ist, sollte diese Lücke untersucht werden.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.net.<span class="cfett">Socket</span></pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">void close() throws IOException</span>
+Schließt den Socket.</li>
+</ul><a id="mjf57d5057f525ec0bb30fb3baad9ef3d2" name="mjf57d5057f525ec0bb30fb3baad9ef3d2"></a><a name="t36"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t37"></a><h3 class="t3"><span class="cfett">21.6.6</span> Informationen über den Socket *  <a href="#t2t38"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t36"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Wie beim <span class="clisting">URL</span>-Objekt lässt auch die Klasse <span class="clisting">Socket</span> keine grundsätzlich wichtigen Änderungen zu. Port-Adresse wie auch das Ziel müssen beim Erzeugen bekannt sein, doch lassen sich wie bei einer URL Informationen über das <span class="clisting">Socket</span>-Objekt einholen.</p>
+<div class="bildbox">
+<p><a name="IDA0VUI"></a><a onClick="OpenWin('bilder/socketuml.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinsocketuml.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.net.<span class="cfett">Socket</span></pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">InetAddress getInetAddress()</span>
+Liefert die Adresse, mit der der Socket verbunden ist.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">InetAddress getLocalAddress()</span>
+Liefert die lokale Adresse, an die der Socket gebunden ist.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">int getPort()</span>
+Gibt den Remote-Port zurück, mit dem der Socket verbunden ist.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">int getLocalPort()</span>
+Gibt den lokalen Port des Sockets zurück.</li>
+</ul>
+<p>Weitere Methoden kommen noch hinzu, die allerdings an einem Beispiel demonstriert werden sollen:</p>
+<p class="tabunter"><strong>Listing 21.12    </strong>com/tutego/insel/net/SocketProperties.java. main()</p>
+<div class="listing"><pre class="prettyprint">Socket s = new Socket( "www.tutego.com", 80 );
+out.println( s.getKeepAlive() );           // false
+out.println( s.getLocalAddress() );        // /192.168.2.138
+out.println( s.getLocalPort() );           // 1456
+out.println( s.getLocalSocketAddress() );  // /192.168.2.138:1202
+out.println( s.getOOBInline() );           // false
+out.println( s.getPort() );                // 80
+out.println( s.getRemoteSocketAddress() ); // www.tutego.com/82.96.100.30:80
+out.println( s.getReuseAddress() );        // false
+out.println( s.getReceiveBufferSize() );   // 8192
+out.println( s.getSendBufferSize() );      // 8192
+out.println( s.getSoLinger() );            // &#8211;1
+out.println( s.getTcpNoDelay() );          // false
+out.println( s.getTrafficClass() );        // 0</pre></div><a id="mjdb0c24f8269e83946df526f3a9aeed4c" name="mjdb0c24f8269e83946df526f3a9aeed4c"></a><a name="t37"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t38"></a><h3 class="t3"><span class="cfett">21.6.7</span> Reine Verbindungsdaten über SocketAddress *  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t37"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die <span class="clisting">Socket</span>-Klasse bietet neben der Beschreibung der Verbindungsparameter auch Methoden zum Aufbau der Verbindung und zum Erfragen und Setzen von Metadaten. Sind nur die Verbindungsdaten Adresse und Port nötig, so lassen sich diese auch durch <span class="clisting">InetSocketAddress</span>-Objekte beschreiben. Alle <span class="clisting">InetSocketAddress</span>-Objekte sind von der Klasse <span class="clisting">SocketAddress</span> abgeleitet, wofür es bisher nur <span class="clisting">InetSocketAddress</span> als Unterklasse gibt. Für den Aufbau von <span class="clisting">InetSocketAddress</span>-Objekten stehen drei Konstruktoren bereit:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.net.<span class="cfett">InetSocketAddress</span>
+extends SocketAddress</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">InetSocketAddress( String hostname, int port )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">InetSocketAddress( InetAddress addr, int port )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">InetSocketAddress( int port )</span></li>
+</ul>
+<p>Natürlich stellt sich die Frage, warum ein Programm <span class="clisting">InetSocketAddress</span>-Objekte nutzen sollte, wenn doch auch <span class="clisting">Socket</span>-Objekte alle Verbindungsdaten enthalten. Ein Grund ist, dass Objekte vom Typ <span class="clisting">InetSocketAddress</span> serialisierbar sind, und ein anderer, dass über <span class="clisting">SocketAddress</span>-Objekte bei einer gewünschten Verbindung leicht ein Timeout gesetzt werden kann.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Versuche, eine Verbindung zu einem Rechner aufzubauen. Wenn nach 100 Millisekunden kein Kontakt zustande kommt, folgt eine <span class="clisting">SocketTimeoutException</span>:</p>
+<div class="listing"><pre class="prettyprint">SocketAddress addr = new InetSocketAddress( host, port );
+Socket socket = new Socket();
+socket.connect( addr, <span class="cfett">100</span> );</pre></div>
+</td>
+</tr>
+</table><br><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.net.<span class="cfett">Socket</span></pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">void connect( SocketAddress endpoint, int timeout ) throws IOException</span>
+Baue eine <span class="clisting">Socket</span>-Verbindung auf. Die Verbindungsparameter kommen aus dem <span class="clisting">SocketAddress</span>-Objekt.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void connect( SocketAddress endpoint, int timeout ) throws IOException</span>
+Baue eine <span class="clisting">Socket</span>-Verbindung auf. Wenn nach <span class="clisting">timeout</span> Millisekunden keine Verbindung möglich ist, erfolgt eine <span class="clisting">SocketTimeoutException</span>.</li>
+</ul><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="21.6 Mit dem Socket zum Server"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_21_005.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_21_007.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

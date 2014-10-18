@@ -1,0 +1,949 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 12.6 Große Zahlen *</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 12.6 Große Zahlen *">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 12.6 Große Zahlen *">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_05_001.htm#mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_08_001.htm#mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_09_001.htm#mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_11_001.htm#mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_12_005.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_12_007.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6" class="navnav">12 Bits und Bytes und Mathematisches</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_12_001.htm#mje9b90073f9a6a7e879622df6429acbf6" class="navnav">12.1 Bits und Bytes *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_12_001.htm#mjf41db20fa8422536625ef7f9e97aaa77" class="navnav">12.1.1 Die Bit-Operatoren Komplement, Und, Oder und Xor</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_12_001.htm#mj68ee5bb61976ba124da977d1662a5bea" class="navnav">12.1.2 Repräsentation ganzer Zahlen in Java &#8211; das Zweierkomplement</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_12_001.htm#mjfbec58f8ff2067ac66755c7cb2c0f9b7" class="navnav">12.1.3 Auswirkung der Typanpassung auf die Bitmuster</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_12_001.htm#mj7155b7bcc45b802242d7d23cf4395e61" class="navnav">12.1.4 »byte« als vorzeichenlosen Datentyp nutzen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_12_001.htm#mj7471d7019b56d0bf8ea862bc9f8db7a0" class="navnav">12.1.5 Die Verschiebeoperatoren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_12_001.htm#mjeee1deeb8d213c0b333f1c983f1ac94c" class="navnav">12.1.6 Ein Bit setzen, löschen, umdrehen und testen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_12_001.htm#mjbf4a7e65e1ff71094e3777c1a12bbada" class="navnav">12.1.7 Bit-Methoden der Integer- und Long-Klasse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_12_002.htm#mj98656ad94dde9f88b6ee533b44b23d6b" class="navnav">12.2 Fließkommaarithmetik in Java</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_12_002.htm#mje243bcc42966365e4a66c8359cc07638" class="navnav">12.2.1 Spezialwerte für Unendlich, Null, NaN</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_12_002.htm#mj460db4438d2096f55b59e776dc2d84da" class="navnav">12.2.2 Standard-Notation und wissenschaftliche Notation bei Fließkommazahlen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_12_002.htm#mj619c77e97f365a03e7bfea2ba0c64530" class="navnav">12.2.3 Mantisse und Exponent *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_12_003.htm#mja764079554f73fbeafb1b33c563aae00" class="navnav">12.3 Die Eigenschaften der Klasse Math</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_12_003.htm#mj091e2f449d2fa5247e2e0fadc9415906" class="navnav">12.3.1 Attribute</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_12_003.htm#mj5e0759f316ac5cd9af03f3188a127485" class="navnav">12.3.2 Absolutwerte und Vorzeichen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_12_003.htm#mjb859bc3ac0d26103903c0930c5011ef8" class="navnav">12.3.3 Maximum/Minimum</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_12_003.htm#mj2e6bc08eb80588c258eef0a0f51aed01" class="navnav">12.3.4 Runden von Werten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_12_003.htm#mjc920503eef16d7902c69a55412d9cc79" class="navnav">12.3.5 Wurzel und Exponentialmethoden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_12_003.htm#mj1b6e5fdaa687321d8efe01e658f11ea2" class="navnav">12.3.6 Der Logarithmus *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_12_003.htm#mj53f5e8e580776adf0d072543f59db20d" class="navnav">12.3.7 Rest der ganzzahligen Division *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_12_003.htm#mj38096c5e01c666daa0c14dc50aecda46" class="navnav">12.3.8 Winkelmethoden *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_12_003.htm#mje77a8acf200c41b84e6965565dc79ea8" class="navnav">12.3.9 Zufallszahlen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_12_004.htm#mjd15c0421c5a3116bc9c6ae458a27442a" class="navnav">12.4 Mathe bitte strikt *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_12_004.htm#mj89cd63dbc2570b89a83a734b287141de" class="navnav">12.4.1 Strikte Fließkommaberechungungen mit strictfp</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_12_004.htm#mj247f95417d6cbf88dc348c46425041a3" class="navnav">12.4.2 Die Klassen Math und StrictMath</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_12_005.htm#mje4ad6e86a12fd27d9d70730955ca4f9c" class="navnav">12.5 Die Random-Klasse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_12_005.htm#mjeba095819d66206187d9dcd64dfb1f15" class="navnav">12.5.1 Objekte aufbauen mit dem Samen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_12_005.htm#mjb49a5f343c7ae88040ab6a26c390e79b" class="navnav">12.5.2 Zufallszahlen erzeugen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_12_005.htm#mj78a73cd36be000e3723a6b264559fcb4" class="navnav">12.5.3 Pseudo-Zufallszahlen in der Normalverteilung *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mjb7eac3af197800d59092e82df405f7d8" class="navh">12.6 Große Zahlen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj26d475e731cd7f91bbf8804338268382" class="navh">12.6.1 Die Klasse BigInteger</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj9e465fe675d15d3bc3ed1b5abc717ddd" class="navh">12.6.2 Methoden von BigInteger</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj17d47a85d74215f34434aac2e8afdd16" class="navh">12.6.3 Ganz lange Fakultäten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjf036bc1893d76e8855590f7a9a00f5d8" class="navh">12.6.4 Große Fließkommazahlen mit BigDecimal</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mja77c5e58cdfad7518eecbc93ef219228" class="navh">12.6.5 Mit MathContext komfortabel die Rechengenauigkeit setzen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_12_007.htm#mj03c66eab29df8a7ce901478f6cf9f4f9" class="navnav">12.7 Zum Weiterlesen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mjb7eac3af197800d59092e82df405f7d8" name="mjb7eac3af197800d59092e82df405f7d8"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">12.6</span> Große Zahlen *  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Die feste Länge der primitiven Datentypen <span class="clisting">int</span>, <span class="clisting">long</span> für Ganzzahlwerte und <span class="clisting">float</span>, <span class="clisting">double</span> für Fließkommawerte reicht für diverse numerische Berechnungen nicht aus. Besonders wünschenswert sind beliebig große Zahlen in der Kryptografie und präzise Auflösungen in der Finanzmathematik. Für solche Anwendungen gibt es im <span class="clisting">math</span>-Paket zwei Klassen: <span class="clisting">BigInteger</span> für Ganzzahlen und <span class="clisting">BigDecimal</span> für Gleitkommazahlen.</p>
+<div class="bildbox">
+<p><a name="IDAYGYD"></a><a onClick="OpenWin('bilder/biguml.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinbiguml.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div><a id="mj26d475e731cd7f91bbf8804338268382" name="mj26d475e731cd7f91bbf8804338268382"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">12.6.1</span> Die Klasse BigInteger  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Mit der Klasse <span class="clisting">BigInteger</span> ist es uns möglich, beliebig genaue Zahlen anzulegen, zu verwalten und damit zu rechnen. Die <span class="clisting">BigInteger</span>-Objekte werden dabei immer so lang, wie die entsprechenden Ergebnisse Platz benötigen (engl. <span class="ckursiv">infinite word size</span>). Die Berechnungsmöglichkeiten gehen dabei weit über die der primitiven Typen hinaus und bieten des Weiteren viele statische Methoden der <span class="clisting">Math</span>-Klasse. Zu den Erweiterungen gehören modulare Arithmetik, Bestimmung des größten gemeinsamen Teilers (ggT), Pseudo-Primzahltests, Bitmanipulation und Weiteres.</p>
+<p>Die Implementierung stellt ein <span class="clisting">BigInteger</span>-Objekt intern wie auch die primitiven Datentypen <span class="clisting">byte</span>, <span class="clisting">short</span>, <span class="clisting">int</span>, <span class="clisting">long</span> im Zweierkomplement da. Auch die weiteren Operationen entsprechen den Ganzzahl-Operationen der primitiven Datentypen, wie etwa die Division durch null, die eine <span class="clisting">ArithmeticException</span> auslöst.</p>
+<p>Intern vergrößert ein <span class="clisting">BigInteger</span>, wenn nötig, den Wertebereich, sodass einige Operationen nicht übertragbar sind. So kann der Verschiebe-Operator <span class="clisting">&gt;&gt;&gt;</span> nicht übernommen werden, denn bei einer Rechtsverschiebung haben wir kein Vorzeichen-Bit im <span class="clisting">BigInteger</span>. Da die Größe des Datentyps bei Bedarf immer ausgedehnt wird und durch diese interne Anpassung des internen Puffers kein Überlauf möglich ist, muss ein Anwender gegebenenfalls einen eigenen Überlauftest in sein Programm einbauen, wenn er den Wertebereich beschränken will.</p>
+<p>Auch bei logischen Operatoren muss eine Interpretation der Werte vorgenommen werden. Bei Operationen auf zwei <span class="clisting">BigInteger</span>-Objekten mit unterschiedlicher Bitlänge wird der kleinere dem größeren durch Replikation (Wiederholung) des Vorzeichen-Bits angepasst. Über spezielle Bitoperatoren können einzelne Bits gesetzt werden. Wie bei der Klasse <span class="clisting">BitSet</span> lassen sich durch die »unendliche« Größe Bits setzen, auch wenn die Zahl nicht so viele Bits benötigt. Durch die Bitoperationen lässt sich das Vorzeichen einer Zahl nicht verändern; gegebenenfalls wird vor der Zahl ein neues Vorzeichen-Bit mit dem ursprünglichen Wert ergänzt.</p>
+<h4 class="t4">BigInteger-Objekte erzeugen</h4>
+<p>Zur Erzeugung stehen uns verschiedene Konstruktoren zur Verfügung. Einen Standard-Konstruktor gibt es nicht. Neben Konstruktoren, die das Objekt mit Werten aus einem Byte-Feld oder String initialisieren, lässt sich auch ein Objekt mit einer zufälligen Belegung erzeugen. Die Klasse <span class="clisting">BigInteger</span> bedient sich dabei der Klasse <span class="clisting">java.util.Random</span>. Ebenso lassen sich <span class="clisting">BigInteger</span>-Objekte erzeugen, die Pseudo-Primzahlen sind.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.math.<span class="cfett">BigInteger</span>
+extends Number
+implements Comparable&lt;BigInteger&gt;</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">BigInteger( String val )</span>
+Erzeugt ein <span class="clisting">BigInteger</span> aus einem Ziffern-String mit einem optionalen Vorzeichen.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigInteger( String val, int radix )</span>
+Ein String mit einem optionalen Vorzeichen wird zu einem <span class="clisting">BigInteger</span>-Objekt übersetzt. Der Konstruktor verwendet die angegebene Basis <span class="clisting">radix</span>, um die Zeichen des Strings als Ziffern zu interpretieren. Für <span class="clisting">radix</span> &gt; 10 werden die Buchstaben A&#8211;Z beziehungsweise a&#8211;z als zusätzliche »Ziffern« verwendet.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigInteger( byte[] val )</span>
+Ein Byte-Feld mit einer Zweierkomplement-Repräsentation einer <span class="clisting">BigInteger</span>-Zahl im Big-Endian-Format (Array-Element mit Index 0, enthält die niederwertigsten Bits) initialisiert das neue <span class="clisting">BigInteger</span>-Objekt.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigInteger( int signum, byte[] magnitude )</span>
+Erzeugt aus einem Big-Endian-Betrag beziehungsweise einer Vorzeichen-Repräsentation ein <span class="clisting">BigInteger</span>-Objekt. <span class="clisting">signum</span> gibt das Vorzeichen an und kann mit &#8211;1 (negative Zahlen), 0 (Null) und 1 (positive Zahlen) belegt werden.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigInteger( int bitLength, int certainty, Random rnd )</span>
+Erzeugt eine <span class="clisting">BigInteger</span>-Zahl mit der Bitlänge <span class="clisting">bitLength</span> (&gt;1), bei der es sich mit gewisser Wahrscheinlichkeit um eine Primzahl handelt. Der Wert <span class="clisting">certainty</span> bestimmt, wie wahrscheinlich ein Fehlurteil ist. Mit der Wahrscheinlichkeit 1/(2^<span class="ckursiv">certainty</span>) handelt es sich bei der erzeugten Zahl fälschlicherweise doch um keine Primzahl. Je größer <span class="clisting">certainty</span> (und je unwahrscheinlicher ein Fehlurteil) ist, desto mehr Zeit nimmt sich der Konstruktor.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigInteger( int numbits, Random rnd )</span>
+Liefert eine Zufallszahl aus dem Wertebereich 0 bis 2^<span class="ckursiv">numBits</span>&#8211;1. Alle Werte sind gleich wahrscheinlich.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static BigInteger valueOf( long val )</span>
+Statische Fabrikmethode, die aus einem <span class="clisting">long</span> ein <span class="clisting">BigInteger</span> konstruiert.</li>
+</ul>
+<p>Bei falschen Zeichenfolgen löst der Konstruktor mit String-Parameter eine <span class="clisting">NumberFormat-Exception</span> aus.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Gegeben sei eine Zeichenkette, die eine Binärfolge aus Nullen und Einsen kodiert. Dann lässt sich ein Objekt der Klasse <span class="clisting">BigInteger</span> nutzen, um diese Zeichenkette in ein Byte-Array zu konvertieren:</p>
+<div class="listing"><pre class="prettyprint">String s = "11011101 10101010 0010101 00010101".replace( " ", "" );
+
+byte[] bs = new BigInteger( s, 2 ).toByteArray(); // [158,261,69,69]
+
+for ( byte b : bs )
+  System.out.println( Integer.toBinaryString(b &amp; 0xFF) );</pre></div>
+<p class="BStandard">Die Schleife erzeugt die vier Ausgaben 1101110, 11010101, 10101 und 10101.</p>
+</td>
+</tr>
+</table><br><p>Leider existiert noch immer kein Konstruktor, der auch den <span class="clisting">long</span>-Datentyp annimmt. Seltsam &#8211; denn es gibt die statische Fabrikmethode <span class="clisting">valueOf(long)</span>, die <span class="clisting">BigInteger</span>-Objekte erzeugt. Dies ist sehr verwirrend, da viele Programmierer diese Methoden übersehen und ein String-Objekt verwenden. Besonders ärgerlich ist es dann, einen privaten Konstruktor zu sehen, der mit einem <span class="clisting">long</span> arbeitet. Genau diesen Konstruktor nutzt auch <span class="clisting">valueOf()</span>.</p>
+<p>Neben den Konstruktoren und dem <span class="clisting">valueOf()</span> gibt es drei Konstanten für die Werte 0, 1 und 10.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.math.<span class="cfett">BigInteger</span>
+extends Number
+implements Comparable&lt;BigInteger&gt;</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">static final BigInteger ZERO</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static final BigInteger ONE</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static final BigInteger TEN</span></li>
+</ul><a id="mj9e465fe675d15d3bc3ed1b5abc717ddd" name="mj9e465fe675d15d3bc3ed1b5abc717ddd"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">12.6.2</span> Methoden von BigInteger  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die erste Kategorie von Methoden bilden arithmetische Operationen nach, für die es sonst ein Operatorzeichen oder eine Methode aus <span class="clisting">Math</span> gäbe.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.math.<span class="cfett">BigInteger</span>
+extends Number
+implements Comparable&lt;BigInteger&gt;</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">BigInteger abs()</span>
+Liefert den Absolutwert, ähnlich wie <span class="clisting">Math.abs()</span> für primitive Datentypen.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigInteger add( BigInteger val )</span>, <span class="clisting">BigInteger and( BigInteger val )</span>, <span class="clisting">BigInteger andNot( BigInteger val )</span>, <span class="clisting">BigInteger divide( BigInteger val )</span>, <span class="clisting">BigInteger mod( BigInteger m )</span>, <span class="clisting">BigInteger multiply( BigInteger val )</span>, <span class="clisting">BigInteger or( BigInteger val )</span>, <span class="clisting">BigInteger remainder( BigInteger val )</span>, <span class="clisting">BigInteger subtract( BigInteger val )</span>, <span class="clisting">BigInteger xor( BigInteger val )</span>
+Bildet ein neues <span class="clisting">BigInteger</span>-Objekt mit der Summe, Und-Verknüpfung, Und-Nicht-Verknüpfung, Division, dem Modulo, Produkt, Oder, Restwert, der Differenz, dem Xor dieses Objekts und des anderen.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigInteger[] divideAndRemainder( BigInteger val )</span>
+Liefert ein Feld mit zwei <span class="clisting">BigInteger</span>-Objekten. Im Feld, dem Rückgabeobjekt, steht an der Stelle 0 der Wert für <span class="clisting">this / val</span>, und an der Stelle 1 folgt <span class="clisting">this % val</span>.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigInteger modInverse( BigInteger m )</span>
+Bildet ein neues <span class="clisting">BigInteger</span>, indem es vom aktuellen <span class="clisting">BigInteger</span> 1 subtrahiert und es dann Modulo <span class="clisting">m</span> nimmt.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigInteger modPow( BigInteger exponent, BigInteger m )</span>
+Nimmt den aktuellen <span class="clisting">BigInteger</span> hoch <span class="clisting">exponent</span> Modulo <span class="clisting">m</span>.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigInteger negate()</span>
+Negiert das Objekt, liefert also ein neues <span class="clisting">BigInteger</span> mit umgekehrtem Vorzeichen.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigInteger not()</span>
+Liefert ein neues <span class="clisting">BigInteger</span>, das die Bits negiert hat.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigInteger pow( int exponent )</span>
+Bildet <span class="clisting">this</span> hoch <span class="clisting">exponent</span>.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">int signum()</span>
+Liefert das Vorzeichen des eigenen <span class="clisting">BigInteger</span>-Objekts.</li>
+</ul>
+<p>Die nächste Kategorie von Methoden ist eng mit den Bits der Zahl verbunden:</p>
+<ul class="gp">
+<li><span class="clisting">int bitCount()</span>
+Zählt die Anzahl gesetzter Bits der Zahl, die im Zweierkomplement vorliegt.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">int bitLength()</span>
+Liefert die Anzahl der Bits, die nötig sind, um die Zahl im Zweierkomplement ohne Vorzeichen-Bit darzustellen.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigInteger clearBit( int n )</span>, <span class="clisting">BigInteger flipBit( int n ),
+BigInteger setBit( int n )</span>
+Liefert ein neues <span class="clisting">BigInteger</span>-Objekt mit gelöschtem/gekipptem/gesetztem <span class="ckursiv">n</span>-tem Bit.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigInteger shiftLeft( int n )</span>, <span class="clisting">BigInteger shiftRight( int n )</span>
+Schiebt die Bits um <span class="clisting">n</span> Stellen nach links/rechts.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">int getLowestSetBit()</span>
+Liefert die Position eines Bits, das in der Repräsentation der Zahl am weitesten rechts gesetzt ist.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">boolean testBit( int n )
+true</span>, wenn das Bit <span class="clisting">n</span> gesetzt ist.</li>
+</ul>
+<p>Folgende Methoden sind besonders für kryptografische Verfahren interessant:</p>
+<ul class="gp">
+<li><span class="clisting">BigInteger gcd( BigInteger val )</span>
+Liefert den größten gemeinsamen Teiler vom aktuellen Objekt und <span class="clisting">val</span>.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">boolean isProbablePrime( int certainty )</span>
+Ist das <span class="clisting">BigInteger</span>-Objekt mit der Wahrscheinlichkeit <span class="clisting">certainty</span> eine Primzahl?</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigInteger nextProbablePrime()</span>
+Liefert die nächste Ganzzahl hinter dem aktuellen <span class="clisting">BigInteger</span>, die wahrscheinlich eine Primzahl ist.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static BigInteger probablePrime( int bitLength, Random rnd )</span>
+Liefert mit einer bestimmten Wahrscheinlichkeit eine Primzahl der Länge <span class="clisting">bitLength</span>.</li>
+</ul>
+<p>Die letzte Gruppe bilden die Vergleichs- und Konvertierungsmethoden:</p>
+<ul class="gp">
+<li><span class="clisting">int compareTo( Object o )</span>, <span class="clisting">int compareTo( BigInteger o )</span>
+Da die Klasse <span class="clisting">BigInteger</span> die Schnittstelle <span class="clisting">java.lang.Comparable</span> implementiert, lässt sich jedes <span class="clisting">BigInteger</span>-Objekt mit einem anderen vergleichen. Die Methode mit dem Datentyp <span class="clisting">BigInteger</span> ist natürlich nicht von <span class="clisting">Comparable</span> vorgeschrieben, aber beide Methoden sind identisch.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">double doubleValue()</span>, <span class="clisting">float floatValue()</span>, <span class="clisting">int intValue()</span>, <span class="clisting">long longValue()</span>
+Konvertiert den <span class="clisting">BigInteger</span> in ein <span class="clisting">double</span>/<span class="clisting">float</span>/<span class="clisting">int</span>/<span class="clisting">long</span>. Es handelt sich um implementierte Methoden der abstrakten Oberklasse <span class="clisting">Number</span>.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">boolean equals( Object x )</span>
+Vergleicht, ob <span class="clisting">x</span> und das eigene <span class="clisting">BigInteger</span>-Objekt den gleichen Wert annehmen.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigInteger max( BigInteger val )</span>, <span class="clisting">BigInteger min( BigInteger val )</span>
+Liefert das größere/kleinere der <span class="clisting">BigInteger</span>-Objekte als Rückgabe.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">byte[] toByteArray()</span>
+Liefert ein Byte-Feld mit dem <span class="clisting">BigInteger</span> als Zweierkomplement.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">String toString()</span>, <span class="clisting">String toString( int radix )</span>
+Liefert die String-Repräsentation von diesem <span class="clisting">BigInteger</span> zur Basis 10 beziehungsweise einer beliebigen Basis.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static BigInteger valueOf( long val )</span>
+Erzeugt ein <span class="clisting">BigInteger</span>, das den Wert <span class="clisting">val</span> annimmt.</li>
+</ul><a id="mj17d47a85d74215f34434aac2e8afdd16" name="mj17d47a85d74215f34434aac2e8afdd16"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">12.6.3</span> Ganz lange Fakultäten  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Unser Beispielprogramm soll die Fakultät einer natürlichen Zahl berechnen. Die Zahl muss positiv sein:</p>
+<p class="tabunter"><strong>Listing 12.9    </strong>Factorial.java</p>
+<div class="listing"><pre class="prettyprint">import java.math.*;
+
+class Factorial
+{
+  static BigInteger factorial( int n )
+  {
+    BigInteger result = BigInteger.ONE;
+
+    if ( n == 0 || n == 1 )
+      return result;
+
+    if ( n &gt; 1 )
+      for ( int i = 1; i &lt;= n; i++ )
+        result = result.multiply( BigInteger.valueOf(i) );
+
+    return result;
+  }
+
+  static public void main( String[] args )
+  {
+    System.out.println( factorial(100) );
+  }
+}</pre></div>
+<p>Neben dieser iterativen Variante ist eine rekursive denkbar. Sie ist allerdings aus zwei Gründen nicht wirklich gut. Zuerst aufgrund des hohen Speicherplatzbedarfs: Für die Berechnung von <span class="ckursiv">n</span>! sind <span class="ckursiv">n</span> Objekte nötig. Im Gegensatz zur iterativen Variante müssen jedoch alle Zwischenobjekte bis zum Auflösen der Rekursion im Speicher gehalten werden. Dadurch ergibt sich die zweite Schwäche: die längere Laufzeit. Aus akademischen Gründen soll dieser Weg hier allerdings aufgeführt werden. Es ist interessant zu beobachten, wie diese rekursive Implementierung den Speicher aufzehrt. Dabei ist es nicht einmal der Heap, der keine neuen Objekte mehr aufnehmen kann, sondern vielmehr der Stack des aktuellen Threads:</p>
+<p class="tabunter"><strong>Listing 12.10    </strong>Factorial.java, factorial2()</p>
+<div class="listing"><pre class="prettyprint">public static BigInteger<span class="cfett"> factorial2( int i )</span>
+{
+  if ( i &lt;= 1 )
+    return BigInteger.ONE;
+
+  return BigInteger.valueOf( i ).multiply(<span class="cfett"> factorial2( i</span> &#8211;<span class="cfett"> 1 )</span> );
+}</pre></div><a id="mjf036bc1893d76e8855590f7a9a00f5d8" name="mjf036bc1893d76e8855590f7a9a00f5d8"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">12.6.4</span> Große Fließkommazahlen mit BigDecimal  <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Während sich <span class="clisting">BigInteger</span> um die beliebig genauen Ganzzahlen kümmert, übernimmt <span class="clisting">BigDecimal</span> die Fließkommazahlen.</p>
+<h4 class="t4">BigDecimal aufbauen</h4>
+<p>Der Konstruktor nimmt unterschiedliche Typen an, unter anderem <span class="clisting">double</span> und <span class="clisting">String</span>. Bei <span class="clisting">double</span> ist Obacht geboten, denn während</p>
+<div class="listing"><pre class="prettyprint">new BigDecimal( 1.00000000000000000000000000000000000000000000000000000001 )</pre></div>
+<p>das Literal auf den für <span class="clisting">double</span> gültigen Bereich bringt (<span class="clisting">1</span>), ist Folgendes präzise:</p>
+<div class="listing"><pre class="prettyprint">new BigDecimal( "1.00000000000000000000000000000000000000000000000000000001" )</pre></div>
+<p>Das gleiche Phänomen ist bei <span class="clisting">System.out.println(new BigDecimal(Math.PI));</span> zu beobachten; die Ausgabe suggeriert eine hohe Genauigkeit:</p>
+<div class="listing"><pre class="prettyprint">3.141592653589793<span class="cfett">115997963468544185161590576171875</span></pre></div>
+<p>Richtig ist jedoch:</p>
+<div class="listing"><pre class="prettyprint">3.141592653589793<span class="cfett">238462643383279502884197169399375</span></pre></div>
+<h4 class="t4">Methoden statt Operatoren</h4>
+<p>Mit den <span class="clisting">BigDecimal</span>-Objekten lässt sich nun rechnen, wie von <span class="clisting">BigInteger</span> bekannt. Die wichtigsten Methoden sind:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.math.<span class="cfett">BigDecimal</span>
+extends Number
+implements Comparable&lt;BigDecimal&gt;</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">BigDecimal add( BigDecimal augend )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigDecimal subtract( BigDecimal subtrahend )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigDecimal divide( BigDecimal divisor )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigDecimal multiply( BigDecimal multiplicand )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigDecimal remainder( BigDecimal divisor )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigDecimal abs()</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigDecimal negate()</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigDecimal plus()</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigDecimal max( BigDecimal val ), BigDecimal min( BigDecimal val )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigDecimal pow( int n )</span></li>
+</ul>
+<p>Des Weiteren gibt es drei Konstanten für die Zahlen <span class="clisting">BigDecimal.ZERO</span>, <span class="clisting">BigDecimal.ONE</span> und <span class="clisting">BigDecimal.TEN</span>.</p>
+<h4 class="t4">Rundungsmodus</h4>
+<p>Eine Besonderheit stellt jedoch die Methode <span class="clisting">divide()</span> dar, die zusätzlich einen Rundungs-modus und optional auch eine Anzahl gültiger Nachkommastellen bekommen kann.</p>
+<div class="listing"><pre class="prettyprint">BigDecimal a = new BigDecimal( "10" );
+BigDecimal b = new BigDecimal( "2" );
+System.out.println( a.divide(b) );   // 5</pre></div>
+<p>Es ist kein Problem, wenn das Ergebnis eine Ganzzahl oder das Ergebnis exakt ist.</p>
+<div class="listing"><pre class="prettyprint">System.out.println( new BigDecimal(1).divide(b) );  // 0.5</pre></div>
+<p>Wenn das Ergebnis aber nicht exakt ist, lässt sich <span class="clisting">divide()</span> nicht einsetzen. Die Anweisung</p>
+<div class="listing"><pre class="prettyprint">new BigDecimal(1).divide( new BigDecimal(3) )</pre></div>
+<p>ergibt den Fehler:</p>
+<div class="listing"><pre class="prettyprint">java.lang.ArithmeticException: Non-terminating decimal expansion; no exact   representable decimal result.</pre></div>
+<p>An dieser Stelle kommen die Rundungsmodi <span class="clisting">ROUND_UP</span>, <span class="clisting">ROUND_DOWN</span>, <span class="clisting">ROUND_CEILING</span>, <span class="clisting">ROUND_FLOOR</span>, <span class="clisting">ROUND_HALF_UP</span>, <span class="clisting">ROUND_HALF_DOWN</span>, <span class="clisting">ROUND_HALF_EVEN</span> ins Spiel. <span class="clisting">ROUND_UNNECES-SARY</span> ist auch einer davon, darf aber nur dann verwendet werden, wenn die Division exakt ist:</p>
+<div class="listing"><pre class="prettyprint">System.out.println( c.divide(d, BigDecimal.ROUND_UP) );        // 1
+System.out.println( c.divide(d, BigDecimal.ROUND_DOWN) );      // 0</pre></div>
+<p>Jetzt kann noch die Anzahl der Nachkommastellen bestimmt werden:</p>
+<div class="listing"><pre class="prettyprint">System.out.println( c.divide(d, 6, BigDecimal.ROUND_UP) );     // 0.333334
+System.out.println( c.divide(d, 6, BigDecimal.ROUND_DOWN) );   // 0.333333</pre></div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span><span class="clisting">BigDecimal</span> bietet die praktische Methode <span class="clisting">setScale()</span> an, mit der sich die Anzahl der Nachkommastellen setzen lässt. Das ist zum Runden sehr gut. In unserem Beispiel sollen 45 Liter Benzin zu 1,399 bezahlt werden:</p>
+<p class="tabunter"><strong>Listing 12.11    </strong>RoundWithSetScale.java, main()</p>
+<div class="listing"><pre class="prettyprint">BigDecimal petrol = new BigDecimal( "1.399" ).multiply( new BigDecimal(45) );
+System.out.println( petrol.<span class="cfett">setScale( 3, BigDecimal.ROUND_HALF_UP )</span> );
+System.out.println( petrol.<span class="cfett">setScale( 2, BigDecimal.ROUND_HALF_UP )</span> );</pre></div>
+<p class="BStandard">Die Ausgaben sind 62.955 und 62.96.</p>
+</td>
+</tr>
+</table><br><a id="mja77c5e58cdfad7518eecbc93ef219228" name="mja77c5e58cdfad7518eecbc93ef219228"></a><a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3"><span class="cfett">12.6.5</span> Mit MathContext komfortabel die Rechengenauigkeit setzen  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse <span class="clisting">java.math.MathContext</span> wurde in Java 5 eingeführt, um für <span class="clisting">BigDecimal</span> komfortabel die Rechengenauigkeit (nicht die Nachkommastellen) und den Rundungsmodus setzen zu können. Vorher wurde diese Information, wie das vorangehende Beispiel gezeigt hat, den einzelnen Berechnungsmethoden mitgegeben. Jetzt kann dieses eine Objekt einfach an alle berechnenden Methoden weitergegeben werden.</p>
+<p>Die Eigenschaften werden mit den Konstruktoren gesetzt, denn <span class="clisting">MathContext</span>-Objekte sind anschließend immutable.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.math.<span class="cfett">MathContext</span>
+implements Serializable</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">MathContext( int setPrecision )</span>
+Baut ein neues <span class="clisting">MathContext</span> mit angegebener Präzision als Rundungsmodus <span class="clisting">HALF_UP</span>.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">MathContext( int setPrecision, RoundingMode setRoundingMode )</span>
+Baut ein neues <span class="clisting">MathContext</span> mit angegebener Präzision und einem vorgegebenen Rundungsmodus vom Typ <span class="clisting">RoundingMode</span>. Deklarierte Konstanten der Aufzählung sind <span class="clisting">CEILING</span>, <span class="clisting">DOWN</span>, <span class="clisting">FLOOR</span>, <span class="clisting">HALF_DOWN</span>, <span class="clisting">HALF_EVEN</span>, <span class="clisting">HALF_UP</span>, <span class="clisting">UNNECESSARY</span> und <span class="clisting">UP</span>.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">MathContext( String val )</span>
+Baut ein neues <span class="clisting">MathContext</span> aus einem String. Der Aufbau des Strings ist wie von <span class="clisting">toString()</span> der Klasse, etwa <span class="clisting">precision=34 roundingMode=HALF_EVEN</span>.</li>
+</ul>
+<p>Für die üblichen Fälle stehen vier vorgefertigte <span class="clisting">MathContex</span>-Objekte als Konstanten der Klasse zur Verfügung: <span class="clisting">DECIMAL128</span>, <span class="clisting">DECIMAL32</span>, <span class="clisting">DECIMAL64</span> und <span class="clisting">UNLIMITED</span>.</p>
+<p class="tabunter"><strong>Listing 12.12    </strong>MathContextDemo.java, main()</p>
+<div class="listing"><pre class="prettyprint">out.println( MathContext.DECIMAL128 ); // precision=34 roundingMode=HALF_EVEN</pre></div>
+<p>Nach dem Aufbau des <span class="clisting">MathContext</span>-Objekts wird es im Konstruktor von <span class="clisting">BigDecimal</span> übergeben.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.math.<span class="cfett">BigDecimal</span>
+extends Number
+implements Comparable&lt;BigInteger&gt;</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">BigDecimal( BigInteger unscaledVal, int scale, MathContext mc )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigDecimal( BigInteger val, MathContext mc )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigDecimal( char[] in, int offset, int len, MathContext mc )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigDecimal( char[] in, MathContext mc )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigDecimal( double val, MathContext mc )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigDecimal( int val, MathContext mc )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigDecimal( long val, MathContext mc )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigDecimal( String val, MathContext mc )</span></li>
+</ul>
+<p>Auch bei jeder Berechnungsmethode lässt sich nun das <span class="clisting">MathContext</span>-Objekt übergeben:</p>
+<ul class="gp">
+<li><span class="clisting">BigDecimal abs( MathContext mc )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigDecimal add( BigDecimal augend, MathContext mc )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigDecimal divide( BigDecimal divisor, MathContext mc )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigDecimal divideToIntegralValue( BigDecimal divisor, MathContext mc )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigDecimal plus( MathContext mc )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigDecimal pow( int n, MathContext mc )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigDecimal remainder( BigDecimal divisor, MathContext mc )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigDecimal round( MathContext mc )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigDecimal subtract( BigDecimal subtrahend, MathContext mc )</span></li>
+</ul><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="12.6 Große Zahlen *"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_12_005.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_12_007.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

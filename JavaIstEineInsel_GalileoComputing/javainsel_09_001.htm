@@ -1,0 +1,652 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 9 Besondere Klassen der Java SE</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 9 Besondere Klassen der Java SE">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 9 Besondere Klassen der Java SE">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_05_001.htm#mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_08_001.htm#mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_11_001.htm#mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_08_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_09_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="#mj94af2b90e8a2dad6c1ef67255f89a137" class="navh">9 Besondere Klassen der Java SE</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj3ddd02b9666d4fc340fdb6405a0f3616" class="navh">9.1 Vergleichen von Objekten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj8a85f5b5aeb1bcd90175fc9455224490" class="navh">9.1.1 Natürlich geordnet oder nicht?</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj0ed1876a49727c1dc4a281f6818e3a95" class="navh">9.1.2 Die Schnittstelle Comparable</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjb229dd3e0c549bc7bf8a2503fbedb9dd" class="navh">9.1.3 Die Schnittstelle Comparator</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj550f9cf0302921bc2da7e5671447de14" class="navh">9.1.4 Rückgabewerte kodieren die Ordnung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_09_002.htm#mje37d90c12874f9ae2898ef61d7f21c97" class="navnav">9.2 Wrapper-Klassen und Autoboxing</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_09_002.htm#mjbe1449b7ae820f093f6d98929e07cf8d" class="navnav">9.2.1 Wrapper-Objekte erzeugen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_09_002.htm#mjfcc9ccd6b164cb6389e2daa620ee7b42" class="navnav">9.2.2 Konvertierungen in eine String-Repräsentation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_09_002.htm#mj987a90501851c20bcde7822857b7ab14" class="navnav">9.2.3 Die Basisklasse Number für numerische Wrapper-Objekte</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_09_002.htm#mjecf5de0c4d43d2ba0f83dfce865d017e" class="navnav">9.2.4 Vergleiche durchführen mit »compare()«, »compareTo()« und »equals()«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_09_002.htm#mj28ea7d603270b0dd47fceea971440d70" class="navnav">9.2.5 Die Klasse Integer</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_09_002.htm#mjee10d7cf5077c4f7a00dafb1b58385f6" class="navnav">9.2.6 Die Klassen Double und Float für Fließkommazahlen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_09_002.htm#mj3d6f4811d493a0b54aeda9ef7213c8cf" class="navnav">9.2.7 Die Boolean-Klasse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_09_002.htm#mj9aaef31dce82a3daebaeb79ea69bfab2" class="navnav">9.2.8 Autoboxing: Boxing und Unboxing</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_09_003.htm#mj2d86e66e54287fd3a7216ef0e9e70a3c" class="navnav">9.3 Object ist die Mutter aller Klassen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_09_003.htm#mj23d2063caef590e4f07f8dea2ba81ebf" class="navnav">9.3.1 Klassenobjekte</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_09_003.htm#mjb955c41594d5085cbcc3db2dca6507a1" class="navnav">9.3.2 Objektidentifikation mit »toString()«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_09_003.htm#mj4c33787451c2460c2eb18623b08278d9" class="navnav">9.3.3 Objektgleichheit mit »equals()« und Identität</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_09_003.htm#mjf4272fd243c9ca882397f284661c5aad" class="navnav">9.3.4 Klonen eines Objekts mit »clone()« *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_09_003.htm#mj7fe8f3d9fd296c97017de07898eebccc" class="navnav">9.3.5 Hashcodes über »hashCode()« liefern *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_09_003.htm#mj719f4e662e9ffafee33ad5d59fdc0dbb" class="navnav">9.3.6 Aufräumen mit »finalize()« *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_09_003.htm#mjaa2ddfc2bae3f5cf4c8a3427a2ed1555" class="navnav">9.3.7 Synchronisation *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_09_004.htm#mj2f6d324dfd3b9293fe6312045c460ad3" class="navnav">9.4 Die Spezial-Oberklasse Enum</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_09_004.htm#mjb51623ea831884c57b143981630b06fb" class="navnav">9.4.1 Methoden auf Enum-Objekten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_09_004.htm#mj83148487d9d7e07f7a117a0a6b4be8c5" class="navnav">9.4.2 »Enum« mit eigenen Konstruktoren und Methoden *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_09_005.htm#mjaedac022d8feb8adeb6b664e81d2e969" class="navnav">9.5 Erweitertes »for« und »Iterable«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_09_005.htm#mjfc718ed8a1956898dc6f70e8ed9ca1ad" class="navnav">9.5.1 Die Schnittstelle »Iterable«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_09_005.htm#mj71228677e0dcf9d6abaa2b5a84e78c15" class="navnav">9.5.2 Einen eigenen Iterable implementieren *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_09_006.htm#mj9a703099ff8a171b1423262b0e4a6d45" class="navnav">9.6 Zum Weiterlesen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main">
+<p class="anleser"><em>»Einen Rat befolgen heißt,
+die Verantwortung verschieben.«
+&#8211; Johannes Urzidil (1896&#8211;1970)</em></p><a id="mj94af2b90e8a2dad6c1ef67255f89a137" name="mj94af2b90e8a2dad6c1ef67255f89a137"></a><h1 class="t1"><span class="cfett">9</span> Besondere Klassen der Java SE</h1><a id="mj3ddd02b9666d4fc340fdb6405a0f3616" name="mj3ddd02b9666d4fc340fdb6405a0f3616"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">9.1</span> Vergleichen von Objekten  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Sollen Objekte verglichen werden, muss es eine Ordnung dieser Typen geben. Wie sollte das System sonst selbstständig entscheiden können, ob eine Person zum Beispiel kleiner als eine andere Person ist? Weil die eine Person 1,50 Meter groß ist, die andere aber 1,80 Meter, oder weil die eine Person eine Million Euro auf dem Konto hat und die andere nur fünf Euro? [Im 10. Jahrhundert lebte der Großwesir Abdul Kassem Ismael, der immer seine gesamte Bibliothek mit 117.000 Bänden mitführte. Die trainierten 400 Kamele transportierten die Werke in alphabetischer Reihenfolge.
+]  Diese Fragen sind wichtig, wenn wir zum Beispiel eine Liste sortieren wollen.</p><a id="mj8a85f5b5aeb1bcd90175fc9455224490" name="mj8a85f5b5aeb1bcd90175fc9455224490"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">9.1.1</span> Natürlich geordnet oder nicht?  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>In Java gibt es zwei unterschiedliche Schnittstellen (in zwei unterschiedlichen Paketen) zur Bestimmung der Ordnung:</p>
+<ul class="gp">
+<li><span class="clisting">Comparable</span>: Implementiert eine Klasse <span class="clisting">Comparable</span>, so können sich die Objekte selbst mit anderen Objekten vergleichen. Da die Klassen im Allgemeinen nur ein Sortierkriterium implementieren, wird hierüber eine so genannte <span class="ckursiv">natürliche Ordnung</span> (engl. <span class="ckursiv">natural ordering</span>) realisiert.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Comparator</span>: Eine implementierende Klasse, die sich <span class="clisting">Comparator</span> nennt, nimmt zwei Objekte an und vergleicht sie. Ein <span class="clisting">Comparator</span> für Räume könnte zum Beispiel nach der Anzahl der Personen oder auch nach der Größe in Quadratmetern vergleichen; die Implementierung von <span class="clisting">Comparable</span> wäre nicht sinnvoll, weil hier nur ein Kriterium natürlich umgesetzt werden kann, ein Raum aber nicht <span class="ckursiv">die</span> Ordnung hat.</li>
+</ul>
+<p>Zusammenfassend lässt sich sagen: Während <span class="clisting">Comparable</span> üblicherweise nur ein Sortierkriterium umsetzt, kann es viele Extraklassen vom Typ <span class="clisting">Comparator</span> geben, die jeweils unterschiedliche Ordnungen definieren.</p>
+<h4 class="t4">Comparable und Comparator in der Java-API</h4>
+<p>Eine Implementierung von <span class="clisting">Comparable</span> findet sich genau dort, wo eine natürliche Ordnung naheliegt, etwa bei:</p>
+<ul class="gp">
+<li><span class="clisting">String</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BigDecimal</span>, <span class="clisting">BigInteger</span>, <span class="clisting">Byte</span>, <span class="clisting">Character</span>, <span class="clisting">Double</span>, <span class="clisting">Float</span>, <span class="clisting">Integer</span>, <span class="clisting">Long</span>, <span class="clisting">Short</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Date</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">File</span>, <span class="clisting">URI</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Enum</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">TimeUnit</span></li>
+</ul>
+<p>Von <span class="clisting">Comparator</span> finden wir in der API-Dokumentation nur <span class="clisting">java.text.Collator</span> vermerkt.</p><a id="mj0ed1876a49727c1dc4a281f6818e3a95" name="mj0ed1876a49727c1dc4a281f6818e3a95"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">9.1.2</span> Die Schnittstelle Comparable  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Schnittstelle <span class="clisting">Comparable</span> kommt aus dem <span class="clisting">java.lang</span>-Paket und deklariert eine Methode:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">interface java.lang.</span><span class="cfett">Comparable&lt;</span><span class="clisting">T</span><span class="cfett">&gt;</span></p>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">int compareTo( T o )</span>
+Vergleicht sich mit einem anderen.</li>
+</ul><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Wichtig ist neben einer Implementierung von <span class="clisting">compareTo()</span> auch die passende Realisierung in <span class="clisting">equals()</span>. Sie ist erst dann konsistent, wenn <span class="clisting">e1.compareTo(e2) == 0</span> das gleiche Ergebnis wie <span class="clisting">e1.equals(e2)</span> liefert, wobei <span class="clisting">e1</span> und <span class="clisting">e2</span> den gleichen Typ besitzen. Ein Verstoß gegen diese Regel kann bei sortierten Mengen schnell Probleme bereiten; ein Beispiel nennt die API-Dokumentation. Auch sollte die <span class="clisting">hashCode()</span>-Methode korrekt realisiert sein, denn sind Objekte gleich, müssen auch die Hashcodes gleich sein. Und die Gleichheit bestimmen eben <span class="clisting">equals()</span>/<span class="clisting">compareTo()</span>.</p>
+<p class="BStandard"><span class="clisting">e.compareTo(null)</span> sollte eine <span class="clisting">NullPointerException</span> auslösen, auch wenn <span class="clisting">e.equals(null)</span> die Rückgabe <span class="clisting">false</span> liefert.</p>
+</td>
+</tr>
+</table><br><a id="mjb229dd3e0c549bc7bf8a2503fbedb9dd" name="mjb229dd3e0c549bc7bf8a2503fbedb9dd"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">9.1.3</span> Die Schnittstelle Comparator  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Schnittstelle <span class="clisting">Comparator</span> kommt aus dem Paket <span class="clisting">java.util</span> und deklariert:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">interface java.util.</span><span class="cfett">Comparator</span><span class="clisting">&lt;T&gt;</span></p>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">int compare( T o1, T o2 )</span>
+Vergleicht zwei Argumente auf ihre Ordnung.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">boolean equals( Object obj )</span>
+Testet, ob <span class="clisting">Comparator</span>-Objekte gleich sind. Das testet keine Gleichheit von Objekten! Die Methode muss nicht zwingend implementiert werden, da ja schon <span class="clisting">Object</span> eine Implementierung bereitstellt. Sie steht hier nur, damit eine API-Dokumentation dieses Missverständnis erklärt.</li>
+</ul>
+<div class="bildbox">
+<p><a name="IDAITUD"></a><a onClick="OpenWin('bilder/365_java_11_006.gif','Abbildung',800,800)"><img border="0" src="bilderklein/klein365_java_11_006.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div><a id="mj550f9cf0302921bc2da7e5671447de14" name="mj550f9cf0302921bc2da7e5671447de14"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">9.1.4</span> Rückgabewerte kodieren die Ordnung  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Der Rückgabewert von <span class="clisting">compare()</span> beim <span class="clisting">Comparator</span> beziehungsweise <span class="clisting">compareTo()</span> bei <span class="clisting">Comparable</span> ist &lt;0, =0 oder &gt;0 und bestimmt so die Ordnung der Objekte. Nehmen wir zwei Objekte <span class="clisting">o1</span> und <span class="clisting">o2</span> an, deren Klassen <span class="clisting">Comparable</span> implementieren. Dann gilt folgende Übereinkunft:</p>
+<ul class="gp">
+<li><span class="clisting">o1.compareTo( o2 ) &lt;</span>  <span class="clisting">0</span> o1 &lt; o2</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">o1.compareTo( o2 ) == 0</span> o1 == o2</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">o1.compareTo( o2 ) &gt;</span>  <span class="clisting">0</span> o1 &gt; o2</li>
+</ul>
+<p>Ein externer <span class="clisting">Comparator</span> (symbolisch <span class="clisting">comp</span> genannt) verhält sich ähnlich:</p>
+<ul class="gp">
+<li><span class="clisting">comp.compare( o1, o2 ) &lt;</span>  <span class="clisting">0</span> o1 &lt; o2</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">comp.compare( o1, o2 ) == 0</span> o1 == o2</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">comp.compare( o1, o2 ) &gt;</span>  <span class="clisting">0</span> o1 &gt; o2</li>
+</ul>
+<div class="bildbox">
+<p><a name="IDAEVUD"></a><a onClick="OpenWin('bilder/comparatorcomparableuml.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleincomparatorcomparableuml.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Tipp   </span>Sollen Objekte mit einem <span class="clisting">Comparator</span> verglichen werden, aber <span class="clisting">null</span>-Werte vorher aussortiert werden, so wird seit Java 7 die statische Methode <span class="clisting">int compare(T a, T b, Comparator&lt;? super T&gt; c)</span> aus der Klasse <span class="clisting">Objects</span> nützlich. Die Methode liefert 0, wenn <span class="clisting">a</span> und <span class="clisting">b</span> beide entweder <span class="clisting">null</span> sind oder der Comparator die Objekte <span class="clisting">a</span> und <span class="clisting">b</span> für gleich erklärt. Sind <span class="clisting">a</span> und <span class="clisting">b</span> beide ungleich <span class="clisting">null</span>, so ist die Rückgabe <span class="clisting">c.compare(a, b)</span>. Ist nur <span class="clisting">a</span> oder <span class="clisting">b</span> gleich <span class="clisting">null</span>, so hängt es vom <span class="clisting">Comparator</span> und der Reihenfolge der Parameter ab.</p>
+</td>
+</tr>
+</table><br><h4 class="t4">Den größten Raum einer Sammlung finden</h4>
+<p>Wir wollen Räume ihrer Größe nach sortieren und müssen dafür einen <span class="clisting">Comparator</span> schreiben (dass Räume <span class="clisting">Comparable</span> sind, ist nicht angebracht, da es keine natürliche Ordnung für Räume gibt). Daher soll ein externes <span class="clisting">Comparator</span>-Objekt entscheiden, welches Raum-Objekt nach der Anzahl seiner Quadratmeter größer ist.</p>
+<p>Der Raum enthält für das kleine Demoprogramm nur einen parametrisierten Konstruktor und merkt sich dort seine Quadratmeter:</p>
+<p class="tabunter"><strong>Listing 9.1    </strong>com/tutego/insel/util/RoomComparatorDemo.java, Room</p>
+<div class="listing"><pre class="prettyprint">class Room
+{
+  int sm;
+
+  Room( int sm )
+  {
+    this.sm = sm;
+  }
+}</pre></div>
+<p>Der spezielle Raum-<span class="clisting">Comparator</span> ist das eigentlich Interessante:</p>
+<p class="tabunter"><strong>Listing 9.2    </strong>com/tutego/insel/util/RoomComparatorDemo.java, RoomComparator</p>
+<div class="listing"><pre class="prettyprint">class RoomComparator implements<span class="cfett"> Comparator&lt;Room&gt;</span>
+{
+  @Override public<span class="cfett"> int compare( Room room1, Room room2 )</span>
+  {
+    return room1.sm &#8211; room2.sm;
+  }
+}</pre></div>
+<p>Er bildet die Differenz der Raumgrößen, was eine einfache Möglichkeit darstellt, eine Rückgabe &lt;0, =0 oder &gt;0 zu bekommen. Bei Fließkommazahlen funktioniert das nicht &#8211; denn (int)(0.1 &#8211; 0.0), (int)(0.0 &#8211; 0.1) und (int)(0.0 &#8211; 0.0) ergeben alle 0, wären also gleich &#8211; bei Ganzzahlen ist der Vergleich aber in Ordnung. Ab Java 7 lässt sich <span class="clisting">Integer.compareTo(room1.sm, room2.sm)</span> einsetzen.</p>
+<p>Mit dem <span class="clisting">Comparator</span>-Objekt lässt sich eine Raumliste sortieren:</p>
+<p class="tabunter"><strong>Listing 9.3    </strong>com/tutego/insel/util/RoomComparatorDemo.java, RoomComparatorDemo main()</p>
+<div class="listing"><pre class="prettyprint">List&lt;Room&gt; list = Arrays.asList(new Room(100), new Room(1123), new Room(123) );
+
+Collections.sort( list, new RoomComparator() );
+System.out.println( list.get(0).sm );      // 100</pre></div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Ist ein <span class="clisting">Comparator</span> mit einer Datenstruktur &#8211; wie dem <span class="clisting">TreeSet</span> oder der <span class="clisting">TreeMap</span> &#8211; verbunden, muss die <span class="clisting">Comparator</span>-Klasse <span class="clisting">Serializable</span> (siehe Kapitel 17, »Datenströme«) implementieren, wenn auch die Datenstruktur serialisiert werden soll.</p>
+</td>
+</tr>
+</table><br><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="9 Besondere Klassen der Java SE"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_08_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_09_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

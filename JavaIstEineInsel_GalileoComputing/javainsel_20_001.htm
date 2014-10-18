@@ -1,0 +1,735 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 20 Grafikprogrammierung</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 20 Grafikprogrammierung">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 20 Grafikprogrammierung">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_05_001.htm#mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_08_001.htm#mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_09_001.htm#mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_11_001.htm#mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_19_029.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_20_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="#mj25cc7d47e476b8b1a183a10ee741dbaa" class="navh">20 Grafikprogrammierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj0b6314b6f10d983ddef5d00966d99f1e" class="navh">20.1 Grundlegendes zum Zeichnen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjd2e34b0d8796cabb2342454e6e81fb29" class="navh">20.1.1 Die paint()-Methode für das AWT-Frame</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mja24005ce84f031f74ed78fd92dd27a56" class="navh">20.1.2 Zeichnen von Inhalten auf ein JFrame</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj5c1a24233f893de97b190b13044ea7f2" class="navh">20.1.3 Auffordern zum Neuzeichnen mit »repaint()«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjb75d86c6baba384b7db6c355df649e4b" class="navh">20.1.4 Java 2D-API</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_20_002.htm#mj6ab5adb8c4ee61a2595d19419db66fa6" class="navnav">20.2 Einfache Zeichenmethoden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_002.htm#mj00532e6ba996d57f8d141f1e1810454f" class="navnav">20.2.1 Linien</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_002.htm#mj033deb2589e5c716a36d13aec9e67031" class="navnav">20.2.2 Rechtecke</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_002.htm#mjf45337ebd521b61f5b3491dc05f1540f" class="navnav">20.2.3 Ovale und Kreisbögen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_002.htm#mj9a2a1ec184eed3ff77b69aa6cd7557e1" class="navnav">20.2.4 Polygone und Polylines</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_20_003.htm#mjdf3e66c04aa595687745bcfd0bd68276" class="navnav">20.3 Zeichenketten schreiben und Fonts</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_003.htm#mj7b1f73176737f58ab6d30a3e29f9e652" class="navnav">20.3.1 Zeichenfolgen schreiben</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_003.htm#mj8d62457ab2e3bf9f532507320e9fef0c" class="navnav">20.3.2 Die Font-Klasse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_003.htm#mj71653b2ace9bbdae4ca92e3ea28dde77" class="navnav">20.3.3 Einen neuen Font aus einem gegebenen Font ableiten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_003.htm#mj759dcba307b5389773a7c91fa283b86d" class="navnav">20.3.4 Zeichensätze des Systems ermitteln *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_003.htm#mjdae768bb3fa8f15a823b8ba67776a0e2" class="navnav">20.3.5 Neue TrueType-Fonts in Java nutzen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_003.htm#mj109c2be8526524ac3a9664b28499ac10" class="navnav">20.3.6 Font-Metadaten durch FontMetrics *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_20_004.htm#mj8f56d039c43274ff5216ba94cef550b1" class="navnav">20.4 Geometrische Objekte</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_004.htm#mj1b17eb5ffccc2a086d1f58a41301eca8" class="navnav">20.4.1 Die Schnittstelle Shape</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_004.htm#mj39007fefcea7a6972382f3b9d3145ff5" class="navnav">20.4.2 Kreisförmiges</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_004.htm#mj7dc308fc56ca053379e4626b302062a1" class="navnav">20.4.3 Kurviges *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_004.htm#mj5fdf6c9575c830555ab08b93f47ff019" class="navnav">20.4.4 Area und die konstruktive Flächengeometrie *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_004.htm#mj232d157f4cbc07a99523a83bcb6dd096" class="navnav">20.4.5 Pfade *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_004.htm#mj77f1da5cccbf02d6af4fb72f9864d9da" class="navnav">20.4.6 Punkt in einer Form, Schnitt von Linien, Abstand Punkt/Linie *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_20_005.htm#mj39cebc7db18c5020b9bc97ef0af55c70" class="navnav">20.5 Das Innere und Äußere einer Form</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_005.htm#mj66dee545b61b16bbcc8b726e662c09d4" class="navnav">20.5.1 Farben und die Paint-Schnittstelle</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_005.htm#mjf976cd2fc969884fad90dab47f853d61" class="navnav">20.5.2 Farben mit der Klasse »Color«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_005.htm#mj2a52836e0690ebe20831790d3766b062" class="navnav">20.5.3 Die Farben des Systems über SystemColor *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_005.htm#mj099a779c1ebce4eb51bc794f4e5bd2ed" class="navnav">20.5.4 Composite und Xor *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_005.htm#mj40e338e3b80e6ab79fbc5447fae0300a" class="navnav">20.5.5 Dicke und Art der Linien von Formen bestimmen über »Stroke« *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_20_006.htm#mj4c12381d5bacf8fb6ee31448d26890bb" class="navnav">20.6 Bilder</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mj173615a4c416ec276851213a24dd4be2" class="navnav">20.6.1 Eine Übersicht über die Bilder-Bibliotheken</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mjba60f99ac6f4a3cd9177b59abea0c6ba" class="navnav">20.6.2 Bilder mit »ImageIO« lesen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mj7fe19a5b7fd9823e5ff4f8729749225b" class="navnav">20.6.3 Ein Bild zeichnen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mj3d7ff912a37f3af72eca322fea16dcbe" class="navnav">20.6.4 Programm-Icon/Fenster-Icon setzen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mjaebdd1a3040bd8901b1bd49df5495a5a" class="navnav">20.6.5 Splash-Screen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mjd84fb329d6d62f3c77b26c3445372c24" class="navnav">20.6.6 Bilder im Speicher erzeugen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mjdd8fc80751b1bc88bfa58847b9fae351" class="navnav">20.6.7 Pixel für Pixel auslesen und schreiben *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mj133115d4eac3734a7b62458792f9142b" class="navnav">20.6.8 Bilder skalieren *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mj23f219adf8635dfd786fc80edaa2070e" class="navnav">20.6.9 Schreiben mit ImageIO</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mjcaff18d32bfd6c2bb1d2e0d486fe9197" class="navnav">20.6.10 Asynchrones Laden mit getImage() und dem MediaTracker *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_20_007.htm#mj18a6025debf68eba85c78d9de97f7e75" class="navnav">20.7 Zum Weiterlesen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main">
+<p class="anleser"><em>»Die größte Gefahr geht nicht von den Erfahrungen aus,
+die man machen muss, sondern von denen,
+die man nicht machen darf.«
+&#8211; Hellmut Walters (1930&#8211;1985)</em></p><a id="mj25cc7d47e476b8b1a183a10ee741dbaa" name="mj25cc7d47e476b8b1a183a10ee741dbaa"></a><h1 class="t1"><span class="cfett">20</span> Grafikprogrammierung</h1><a id="mj0b6314b6f10d983ddef5d00966d99f1e" name="mj0b6314b6f10d983ddef5d00966d99f1e"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">20.1</span> Grundlegendes zum Zeichnen  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Ist das Fenster geöffnet, lässt sich etwas in dem Fenster zeichnen. Da sich die Wege zwischen AWT und Swing trennen, wollen wir mit dem AWT beginnen und dann alle weiteren Beispiele mit Swing bestreiten.</p><a id="mjd2e34b0d8796cabb2342454e6e81fb29" name="mjd2e34b0d8796cabb2342454e6e81fb29"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">20.1.1</span> Die paint()-Methode für das AWT-Frame  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Als einleitendes Beispiel soll uns genügen, einen Text zu platzieren. Dafür überschreiben wir die Methode <span class="clisting">paint()</span> der Klasse <span class="clisting">Frame</span> und setzen dort alles hinein, was gezeichnet werden soll, etwa Linien, Texte oder gefüllte Polygone. Der gewünschte Inhalt wird immer dann gezeichnet, wenn das Fenster neu aufgebaut wird oder wir von außen <span class="clisting">repaint()</span> aufrufen, denn genau in diesem Fall wird das Grafiksystem <span class="clisting">paint()</span> aufrufen und das Zeichnen anstoßen:</p>
+<p class="tabunter"><strong>Listing 20.1    </strong>com/tutego/insel/ui/graphics/Bee.java</p>
+<div class="listing"><pre class="prettyprint">package com.tutego.insel.ui.graphics;
+
+import java.awt.*;
+import java.awt.event.*;
+
+public class Bee extends Frame
+{
+  private static final long serialVersionUID = &#8211;3800165321162121122L;
+
+  public Bee()
+  {
+    setSize( 500, 100 );
+
+    addWindowListener( new WindowAdapter() {
+      @Override
+      public void windowClosing ( WindowEvent e ) { System.exit( 0 ); }
+    } );
+  }
+
+ <span class="cfett"> @Override</span>
+ <span class="cfett"> public void paint( Graphics g )</span>
+  {
+    g.drawString( "\"Maja, wo bist du?\" (Mittermeier)", 120, 60 );
+  }
+
+  public static void main( String[] args )
+  {
+    new Bee().setVisible( true );
+  }
+}</pre></div>
+<div class="bildbox">
+<p><a name="IDAFSYC"></a><a onClick="OpenWin('bilder/365_java_14_025.gif','Abbildung',800,800)"><img border="0" src="bilderklein/klein365_java_14_025.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 20.1    </strong>Ein Fenster mit gezeichnetem Inhalt</p>
+<h4 class="t4">Der Grafikkontext »Graphics«</h4>
+<p>Das Grafiksystem ruft von unserem Programm die <span class="clisting">paint()</span>-Methode auf und übergibt ein Objekt vom Typ <span class="clisting">Graphics</span> &#8211; beziehungsweise <span class="clisting">Graphics2D</span>, wie wir später sehen werden. Dieser Grafikkontext bietet verschiedene Methoden zum Setzen von Zeichenzuständen und zum Zeichnen selbst, etwa von Linien, Kreisen, Ovalen, Rechtecken, Zeichenfolgen oder Bildern. Dies funktioniert auch dann, wenn die Zeichenfläche nicht direkt sichtbar ist, wie bei Hintergrundgrafiken.</p>
+<p>Das <span class="clisting">Graphics</span>-Objekt führt Buch über mehrere Dinge:</p>
+<ul class="gp">
+<li>die Komponente, auf der gezeichnet wird (hier erst einmal das rohe Fenster)</li>
+</ul>
+<ul class="gp">
+<li>Koordinaten des Bildbereichs und des Clipping-Bereichs. Die Zeichenoperationen außerhalb des Clipping-Bereichs werden nicht angezeigt. Daher wird ein Clipping-Bereich auch Beschnitt-Bereich genannt.</li>
+</ul>
+<ul class="gp">
+<li>den aktuellen Zeichensatz (<span class="clisting">java.awt.Font</span>) und die aktuelle Farbe (<span class="clisting">java.awt.Color</span>)</li>
+</ul>
+<ul class="gp">
+<li>die Pixeloperation (Xor [Zur Bewegung des Grafik-Cursors wird gern eine Xor-Operation eingesetzt. Obwohl dies absolut einfach erscheint, ist die Realisierungsidee patentiert.
+]  oder Paint)</li>
+</ul>
+<ul class="gp">
+<li>die Translation &#8211; eine Verschiebung vom Nullpunkt</li>
+</ul>
+<p>Wir können nur in der <span class="clisting">paint()</span>-Methode auf das <span class="clisting">Graphics</span>-Objekt zugreifen. Diese wird immer dann aufgerufen, wenn die Komponente neu gezeichnet werden muss. Dies nutzen wir, um einen Text zu schreiben. Dem <span class="clisting">Bee</span>-Beispiel ist zu entnehmen, dass die Methode <span class="clisting">drawString(String text, int x, int y)</span> einen Text in den Zeichenbereich des Grafikkontexts schreibt. Im Folgenden werden wir noch weitere Methoden kennenlernen.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Etwas ungewöhnlich ist die Tatsache, dass der Nullpunkt nicht oben links in den sichtbaren Bereich fällt, sondern dass die Titelleiste den Nullpunkt überdeckt. Um an die Höhe der Titelleiste zu kommen und die Zeichenoperationen so zu verschieben, dass sie in den sichtbaren Bereich fallen, wird ein <span class="clisting">java.awt.Insets</span>-Objekt benötigt. Ist <span class="clisting">f</span> ein <span class="clisting">Frame</span>-Objekt, liefert <span class="clisting">f.getInsets().top</span> die Höhe der Titelleiste.</p>
+</td>
+</tr>
+</table><br><a id="mja24005ce84f031f74ed78fd92dd27a56" name="mja24005ce84f031f74ed78fd92dd27a56"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">20.1.2</span> Zeichnen von Inhalten auf ein JFrame  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Wenn Swing eine Komponente zeichnet, ruft es automatisch die Methode <span class="clisting">paint()</span> auf. Um eine Grafik selbst in ein Fenster zu zeichnen, ließe sich von <span class="clisting">JFrame</span> eine Unterklasse bilden und <span class="clisting">paint()</span> überschreiben &#8211; das ist jedoch nicht der übliche Weg.</p>
+<p>Stattdessen wählen wir einen anderen Ansatz, der sogar unter AWT eine gute Lösung ist. Wir bilden eine eigene Komponente, eine Unterklasse von <span class="clisting">JPanel</span> (unter AWT <span class="clisting">Panel</span>, was wir aber nicht mehr weiter verfolgen wollen), und setzen diese auf das Fenster. Wird das Fenster neu gezeichnet, gibt das Grafiksystem den Zeichenauftrag an die Kinder weiter, also an unser spezielles <span class="clisting">JPanel</span>, und ruft die überschriebene <span class="clisting">paint()</span>-Methode auf. Allerdings überschreiben eigene Unterklassen von Swing-Komponenten im Regelfall nicht <span class="clisting">paint()</span>, sondern <span class="clisting">paintComponent()</span>. Das liegt daran, dass Swing in <span class="clisting">paint()</span> zum Beispiel noch Rahmen zeichnet und sich um eine Pufferung des Bildschirminhalts zur Optimierung kümmert. So ruft <span class="clisting">paint()</span> die drei Methoden <span class="clisting">paintComponent()</span>, <span class="clisting">paintBorder()</span> und <span class="clisting">paintChildren()</span> auf, und bei einer Neudarstellung kümmert sich ein <span class="clisting">RepaintManager</span> um eine zügige Darstellung mithilfe der gepufferten Inhalte, was bei normalen Swing-Interaktionskomponenten wie Schaltflächen wichtig ist.</p>
+<p>Damit ist die Darstellung von Inhalten in einem <span class="clisting">JFrame</span> einfach. Wir importieren drei Klassen, <span class="clisting">JPanel</span> und <span class="clisting">JFrame</span> aus <span class="clisting">javax.swing</span> sowie <span class="clisting">Graphics</span> aus <span class="clisting">java.awt</span>. Dann bilden wir eine Unterklasse von <span class="clisting">JPanel</span> und überschreiben <span class="clisting">paintComponent()</span>:</p>
+<p class="tabunter"><strong>Listing 20.2    </strong>com/tutego/insel/ui/graphics/DrawFirstLine.java, Teil 1</p>
+<div class="listing"><pre class="prettyprint">package com.tutego.insel.ui.graphics;
+
+import java.awt.Graphics;
+import javax.swing.*;
+
+class DrawPanel extends JPanel
+{
+  @Override
+ <span class="cfett"> protected void paintComponent( Graphics g )</span>
+  {
+    super.paintComponent( g );
+    g.drawLine( 10, 10, 100, 50 );
+  }
+}</pre></div>
+<p>Die Methode <span class="clisting">paintComponent()</span> besitzt in der Oberklasse die Sichtbarkeit <span class="clisting">protected</span>, was wir beibehalten sollten; die Methode wird nicht von uns von anderer Stelle aufgerufen, daher muss eine Unterklasse die Sichtbarkeit nicht zu <span class="clisting">public</span> erweitern. Der Aufruf von <span class="clisting">super.paintComponent()</span> ist immer dann angebracht, wenn die Oberklasse ihre Inhalte zeichnen soll. Bei vollständig eigenem Inhalt ist das nicht notwendig.</p>
+<p>Der letzte Schritt ist ein Testprogramm, das ein Exemplar des spezialisierten <span class="clisting">JPanel</span> bildet und auf den <span class="clisting">JFrame</span> setzt:</p>
+<p class="tabunter"><strong>Listing 20.3    </strong>com/tutego/insel/ui/graphics/DrawFirstLine.java, Teil 2</p>
+<div class="listing"><pre class="prettyprint">public class DrawFirstLine
+{
+  public static void main( String[] args )
+  {
+    JFrame f = new JFrame();
+    f.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+    f.setSize( 100, 100 );
+   <span class="cfett"> f.add( new DrawPanel() );</span>
+    f.setVisible( true );
+  }
+}</pre></div>
+<p>Die Lösung mit dem <span class="clisting">JPanel</span> muss nicht die Höhe der Titelleiste berücksichtigen; die Komponente <span class="clisting">JPanel</span>, die auf das Fenster gesetzt wird, befindet sich korrekt unterhalb der Titelleiste, und die Zeichenfläche liegt nicht verdeckt unter der Titelleiste.</p><a id="mj5c1a24233f893de97b190b13044ea7f2" name="mj5c1a24233f893de97b190b13044ea7f2"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">20.1.3</span> Auffordern zum Neuzeichnen mit »repaint()«  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Methode <span class="clisting">repaint()</span> kann von außen aufgerufen werden, um ein Neuzeichnen zu erzwingen. Wenn die Komponente wie unsere Unterklasse von <span class="clisting">JPanel</span> eine Swing-Komponente ist, dann wird die <span class="clisting">paint()</span>-Methode der Komponente aufgerufen. Im Fall einer AWT-Komponente, wie <span class="clisting">Frame</span>, wird <span class="clisting">update()</span> aufgerufen, das ja automatisch <span class="clisting">paint()</span> aufruft.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">abstract class java.awt.<span class="cfett">Component</span>
+implements ImageObserver, MenuContainer, Serializable</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">void repaint()</span>
+Erbittet sofortiges Neuzeichnen der Komponente.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void repaint( long tm )</span>
+Erbittet Neuzeichnen in <span class="clisting">millis</span> Millisekunden.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void repaint( int x, int y, int width, int height )</span>
+Erbittet Neuzeichnen der Komponente im angegebenen Bereich.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void repaint( long tm, int x, int y, int width, int height )</span>
+Erbittet Neuzeichnen der Komponente nach <span class="clisting">tm</span> Millisekunden im angegebenen Bereich.</li>
+</ul><a id="mjb75d86c6baba384b7db6c355df649e4b" name="mjb75d86c6baba384b7db6c355df649e4b"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">20.1.4</span> Java 2D-API  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Seit dem JDK 1.2 &#8211; und das ist nun schon etwas her &#8211; hat sich beim Zeichnen einiges getan. So wird der <span class="clisting">paint()</span>-Methode &#8211; und <span class="clisting">paintComponent()</span> ebenso &#8211; nicht mehr nur ein <span class="clisting">Graphics</span>-Objekt übergeben, sondern eine Unterklasse von <span class="clisting">Graphics</span>, <span class="clisting">Graphics2D</span>. Die Klasse wurde im Rahmen der Java 2D-API aus den <span class="ckursiv">Java Foundation Classes</span> (<span class="ckursiv">JFC</span>) eingeführt und bietet erweiterte Zeichenmöglichkeiten, die mit der Sprache PostScript vergleichbar sind. Als wichtige Ergänzung sind Transformationen auf beliebig geformten Objekten sowie Füllmustern und Kompositionen zu nennen. Die Zeichenoperationen sind optional weichgezeichnet.</p>
+<p>Da die Java-Entwickler die Signatur der <span class="clisting">paintXXX()</span>-Methoden nicht ändern wollten, blieb <span class="clisting">Graphics</span> als Parametertyp stehen, und wir müssen es, um die erweiterte Funktionalität nutzen zu können, im Rumpf auf <span class="clisting">Graphics2D</span> anpassen:</p>
+<div class="listing"><pre class="prettyprint">protected void paintComponent( Graphics g )
+{
+  Graphics2D g2 = (Graphics2D) g;
+  ...
+}</pre></div>
+<p>Obwohl <span class="clisting">Graphics2D</span> selbst im <span class="clisting">java.awt</span>-Paket untergebracht ist, befinden sich viele der 2D-Klassen im Paket <span class="clisting">java.awt.geom</span>.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Das Grafiksystem übergibt uns in der <span class="clisting">paintXXX()</span>-Methode zwar immer ein Objekt vom Typ <span class="clisting">Graphics2D</span>, aber wir werden in den Beispielprogrammen nur dann eine Typanpassung vornehmen, wenn wir wirklich die Erweiterungen von <span class="clisting">Graphics2D</span> nutzen.</p>
+</td>
+</tr>
+</table><br><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="20 Grafikprogrammierung"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_19_029.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_20_002.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

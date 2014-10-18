@@ -1,0 +1,958 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 2.2 Anweisungen formen Programme</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 2.2 Anweisungen formen Programme">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 2.2 Anweisungen formen Programme">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_05_001.htm#mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_08_001.htm#mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_09_001.htm#mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_11_001.htm#mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_02_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_02_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2" class="navnav">2 Sprachbeschreibung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_02_001.htm#mj4c39ccec48a76ae30226f3f932121636" class="navnav">2.1 Elemente der Programmiersprache Java</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_001.htm#mj5b64c72b27b5a6ab0a66c5e72bb198cf" class="navnav">2.1.1 Token</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_001.htm#mjecb61a9b6f9af4b3942699e5e3bd68d1" class="navnav">2.1.2 Textkodierung durch Unicode-Zeichen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_001.htm#mjc69b2ac175f46ac3528ed4a2a25453bc" class="navnav">2.1.3 Literale</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_001.htm#mjea18182a41b645e6fbe90ee51045338f" class="navnav">2.1.4 Bezeichner</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_001.htm#mj6c435823530664f454748e31c7501bf7" class="navnav">2.1.5 Reservierte Schlüsselwörter</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_001.htm#mj5a0b15f1dc322e8b94e434a98bb500b4" class="navnav">2.1.6 Zusammenfassung der lexikalischen Analyse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_001.htm#mj60051b94eb75aff76b77b34080d60b4c" class="navnav">2.1.7 Kommentare</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mje6cf7db9d2efcd52e5d81fc832f8b139" class="navh">2.2 Anweisungen formen Programme</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj41f7748a6816ed4f9e4936292f838c48" class="navh">2.2.1 Was sind Anweisungen?</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjf3869f794db9bf16bbaf9a79668c17d3" class="navh">2.2.2 Klassendeklaration</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjd13c9e060033d31199f1482b71660888" class="navh">2.2.3 Die Reise beginnt am main()</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjb81c2e28c2fe110a0b7a2ef9da7d10a4" class="navh">2.2.4 Der erste Methodenaufruf: println()</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj17be0d5f85aa24f9db2bee70ea355e9c" class="navh">2.2.5 Atomare Anweisungen und Anweisungssequenzen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mje4439fc88c3da817f3de3838c4d83baa" class="navh">2.2.6 Mehr zu print(), println() und printf() für Bildschirmausgaben</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj31d33be82ee48d560fea2597234eb467" class="navh">2.2.7 Die API-Dokumentation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj2d3ffeacbc5d2d61393972d4204f73c4" class="navh">2.2.8 Ausdrucksanweisung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj641d7792a19c51b88ef2fe06bf079712" class="navh">2.2.9 Erste Idee der Objektorientierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj5892f57ef257e41d40b817935ca8595f" class="navh">2.2.10 Modifizierer</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_02_003.htm#mjfa63996892f690e96d6bdc12b0045e24" class="navnav">2.3 Datentypen, Typisierung, Variablen und Zuweisungen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_003.htm#mj2a9abd617099b9fd801bd838feae09cc" class="navnav">2.3.1 Primitive Datentypen im Überblick</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_003.htm#mj2eae18508a8cdb7b415dcb04a19eba9f" class="navnav">2.3.2 Variablendeklarationen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_003.htm#mje0a1a7aa587e4ef38dc8a8d84cfcd506" class="navnav">2.3.3 Variablendeklaration mit Wertinitialisierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_003.htm#mjb5488e9f0c7c9d35049e1d883a370c30" class="navnav">2.3.4 Zuweisungsoperator</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_003.htm#mjf64878f5c2fa2b31ae20a20c7ef2d2e2" class="navnav">2.3.5 Wahrheitswerte</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_003.htm#mjc11164cdd5eedb52b21ddd19b16f0385" class="navnav">2.3.6 Ganzzahlige Datentypen und Literale</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_003.htm#mjbd61f831aaea6b174b7a007af1a67476" class="navnav">2.3.7 Das binäre (Basis 2), oktale (Basis 8), hexadezimale (Basis 16) Stellenwertsystem *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_003.htm#mjaed1f301e088df504ed1f24dae0d0caf" class="navnav">2.3.8 Die Fließkommazahlen »float« und »double«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_003.htm#mj45c99ccfafcac85ec9c0e87222047c6f" class="navnav">2.3.9 Alphanumerische Zeichen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_003.htm#mj76f1b77014dafca1b945790800d9aedd" class="navnav">2.3.10 Gute Namen, schlechte Namen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_02_004.htm#mjb044d5eb156360a6192e0bde3eeaceb0" class="navnav">2.4 Blöcke, Initialisierung und Sichtbarkeit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_004.htm#mj266d7a655884ea92d24ba0aa380f56f3" class="navnav">2.4.1 Gruppieren von Anweisungen mit Blöcken</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_004.htm#mjeb2ef4723a3c26e8c0a6ae1eec3a5626" class="navnav">2.4.2 Initialisierung von lokalen Variablen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_004.htm#mj47f0fa7692df8df688cd6a8a6cf9fefd" class="navnav">2.4.3 Sichtbarkeit und Gültigkeitsbereich</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_02_005.htm#mj727e5a27eac7c9b15b5799f50c4a2895" class="navnav">2.5 Ausdrücke, Operanden und Operatoren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_005.htm#mj9a3af0f9509c60c1a268346af4c9aedb" class="navnav">2.5.1 Ausdrücke</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_005.htm#mj998e5fa30c9c8bd8a0d12f9b09f3f71d" class="navnav">2.5.2 Arithmetische Operatoren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_005.htm#mj03da32a2fe369215529830de87a204d1" class="navnav">2.5.3 Unäres Minus und Plus</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_005.htm#mj63bbbb7a2e0d9190bab41140a3bb33c2" class="navnav">2.5.4 Zuweisung mit Operation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_005.htm#mj54700b6f99a3a2cf4f2a38465dc17289" class="navnav">2.5.5 Präfix- oder Postfix-Inkrement und -Dekrement</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_005.htm#mjb37eafd775d803d67baf4aae75ee97d7" class="navnav">2.5.6 Die relationalen Operatoren und die Gleichheitsoperatoren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_005.htm#mje27fd167a2ddda300630b8d5c405d763" class="navnav">2.5.7 Logische Operatoren: Nicht, Und,Oder, Xor</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_005.htm#mj001aa1d35c1746f2106c8a28aff843e8" class="navnav">2.5.8 Der Rang der Operatoren in der Auswertungsreihenfolge</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_005.htm#mj714856e56857d03d2d050f84d418981d" class="navnav">2.5.9 Die Typanpassung (das Casting)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_005.htm#mj93a46c1206bdba6ff4c9adf47674d2a7" class="navnav">2.5.10 Überladenes Plus für Strings</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_005.htm#mj9431e0ffd2d053ce73e865c35801f571" class="navnav">2.5.11 Operator vermisst *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_02_006.htm#mj3530d43fab0c366ff75b1414feef64e3" class="navnav">2.6 Bedingte Anweisungen oder Fallunterscheidungen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_006.htm#mj5c02f22dd3cf727da8cf465e7a3ec9a0" class="navnav">2.6.1 Die if-Anweisung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_006.htm#mjb94647aaf953d4eac34b42a303575c94" class="navnav">2.6.2 Die Alternative mit einer if-else-Anweisung wählen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_006.htm#mj0ed4e5c52acd8f230d31a246ccd268c6" class="navnav">2.6.3 Der Bedingungsoperator</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_006.htm#mj448e6960f284a4beda96b23e994ebd5e" class="navnav">2.6.4 Die switch-Anweisung bietet die Alternative</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_02_007.htm#mjb517285509ecebe1bb38c15fc43eb4c2" class="navnav">2.7 Schleifen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_007.htm#mja1bc0775bbd3451450d183be28eeb3eb" class="navnav">2.7.1 Die while-Schleife</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_007.htm#mj6e1455d87e650c79a9c4af1df370cf26" class="navnav">2.7.2 Die do-while-Schleife</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_007.htm#mjdcbb2e90942d428b2c033d90ed115f3b" class="navnav">2.7.3 Die for-Schleife</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_007.htm#mj0a12edb4c2de73996536d2a0cfa93253" class="navnav">2.7.4 Schleifenbedingungen und Vergleiche mit ==</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_007.htm#mj86b3106463107c046e4f10288be23d6f" class="navnav">2.7.5 Ausbruch planen mit break und Wiedereinstieg mit »continue«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_007.htm#mjb66a4e86916302730701a5ea728c4602" class="navnav">2.7.6 »break« und »continue« mit Marken *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_02_008.htm#mjc2d5868bd7bba72c8f470a1eff29b8f8" class="navnav">2.8 Methoden einer Klasse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_008.htm#mj03b21193a0b840663819e08cdcf6aa9a" class="navnav">2.8.1 Bestandteil einer Methode</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_008.htm#mj6cd639c6b783b1a61957698d1c4d5428" class="navnav">2.8.2 Signatur-Beschreibung in der Java-API</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_008.htm#mje562fc58793dd3e128a981b070731e31" class="navnav">2.8.3 Aufruf einer Methode</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_008.htm#mjd30f308b95326a708d51f03f631ca749" class="navnav">2.8.4 Methoden ohne Parameter deklarieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_008.htm#mj2836d5713aaa7620f0e534af0f44159c" class="navnav">2.8.5 Statische Methoden (Klassenmethoden)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_008.htm#mj9b0d4e5b321975f9fc5fd010a7b19af8" class="navnav">2.8.6 Parameter, Argument und Wertübergabe</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_008.htm#mje82aa3de4956da1e1f98332c14f73c54" class="navnav">2.8.7 Methoden vorzeitig mit return beenden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_008.htm#mj8f915a85179c256c6ea97f1a4c2c6640" class="navnav">2.8.8 Nicht erreichbarer Quellcode bei Methoden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_008.htm#mjd33fee2b0c0e1f589dc7bed1badb5329" class="navnav">2.8.9 Rückgabewerte</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_008.htm#mj021ec31631b9b7c44011343c7fbe8def" class="navnav">2.8.10 Methoden überladen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_008.htm#mjf8e7549c7c3a573dcfba78077f9cf7e1" class="navnav">2.8.11 Vorgegebener Wert für nicht aufgeführte Argumente *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_008.htm#mj93af18e3273e580bb7a4395eeec2f1f8" class="navnav">2.8.12 Finale lokale Variablen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_008.htm#mje1fd0b8e4f3262cd2aa633ff59abaab5" class="navnav">2.8.13 Rekursive Methoden *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_008.htm#mja99d7594870ad07a0d98217193f32790" class="navnav">2.8.14 Die Türme von Hanoi *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_02_009.htm#mj5080aed8bdb6bf2ecab222e8a24e2514" class="navnav">2.9 Zum Weiterlesen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mje6cf7db9d2efcd52e5d81fc832f8b139" name="mje6cf7db9d2efcd52e5d81fc832f8b139"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">2.2</span> Anweisungen formen Programme  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2><a id="mj41f7748a6816ed4f9e4936292f838c48" name="mj41f7748a6816ed4f9e4936292f838c48"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">2.2.1</span> Was sind Anweisungen?  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Java zählt zu den imperativen Programmiersprachen, in denen der Programmierer die Abarbeitungsschritte seiner Algorithmen durch <span class="ckursiv">Anweisungen</span> (engl. <span class="ckursiv">statements</span>) vorgibt. Anweisungen können unter anderem sein:</p>
+<ul class="gp">
+<li>Ausdrucksanweisungen, etwa für Zuweisungen oder Methodenaufrufe</li>
+</ul>
+<ul class="gp">
+<li>Fallunterscheidungen, zum Beispiel mit <span class="clisting">if</span></li>
+</ul>
+<ul class="gp">
+<li>Schleifen für Wiederholungen, etwa mit <span class="clisting">for</span> oder <span class="clisting">do</span>-<span class="clisting">while</span></li>
+</ul><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Diese Befehlsform ist für Programmiersprachen gar nicht selbstverständlich, da es Sprachen gibt, die zu einer Problembeschreibung selbstständig eine Lösung finden. Ein Vertreter dieser Art Sprachen ist Prolog. Die Schwierigkeit hierbei besteht darin, die Aufgabe so präzise zu beschreiben, dass das System eine Lösung finden kann. Auch die Datenbanksprache SQL ist keine imperative Programmiersprache, denn wie das Datenbankmanagement-System zu unserer Abfrage die Ergebnisse ermittelt, müssen und können wir weder vorgeben noch sehen.</p>
+</td>
+</tr>
+</table><br><a id="mjf3869f794db9bf16bbaf9a79668c17d3" name="mjf3869f794db9bf16bbaf9a79668c17d3"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">2.2.2</span> Klassendeklaration  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Programme setzen sich aus Anweisungen zusammen. In Java können jedoch nicht einfach Anweisungen in eine Datei geschrieben und dem Compiler übergeben werden. Sie müssen zunächst in einen Rahmen gepackt werden. Dieser Rahmen heißt <span class="ckursiv">Kompilationseinheit</span> (<span class="ckursiv">Compilation Unit)</span> und deklariert eine Klasse mit ihren Methoden und Variablen.</p>
+<p>Die nächsten Programmcodezeilen werden am Anfang etwas befremdlich wirken (wir erklären die Elemente später genauer). Die folgende Datei erhält den (frei wählbaren) Namen <span class="ckursiv">Application.java</span>:</p>
+<p class="tabunter"><strong>Listing 2.1    </strong>Application.java</p>
+<div class="listing"><pre class="prettyprint">public class Application
+{
+  public static void main( String[] args )
+  {
+    // Hier ist der Anfang unserer Programme
+    // Jetzt ist hier Platz für unsere eigenen Anweisungen
+    // Hier enden unsere Programme
+  }
+}</pre></div>
+<p>Hinter den beiden Schrägstrichen <span class="clisting">//</span> befindet sich ein Kommentar. Er gilt bis zum Ende der Zeile und dient dazu, Erläuterungen zu den Quellcodezeilen hinzuzufügen, die den Code verständlicher machen.</p>
+<p><div class="eclipse"><img src="common/eclipseicon.gif" align="top" width="53" height="23" alt="Eclipse" title="Eclipse"></div>Eclipse zeigt Schlüsselwörter, Literale und Kommentare farbig an. Diese Farbgebung lässt sich unter <span class="kapitalchen">Window</span> 
+    •
+   <span class="kapitalchen">Preferences</span> ändern.</p>
+<p>Java ist eine objektorientierte Programmiersprache, die Programmlogik außerhalb von Klassen nicht erlaubt. Aus diesem Grund deklariert die Datei »Application.java« mit dem Schlüsselwort <span class="clisting">class</span> eine Klasse <span class="clisting">Application</span>, um später eine Methode mit der Programmlogik anzugeben. Der Klassenname darf grundsätzlich beliebig sein, doch besteht die Einschränkung, dass in einer mit <span class="clisting">public</span> deklarierten Klasse der Klassenname so lauten muss wie der Dateiname. Alle Schlüsselwörter in Java beginnen mit Kleinbuchstaben, und Klassennamen beginnen üblicherweise mit Großbuchstaben.</p>
+<p>In den geschweiften Klammern der Klasse folgen Deklarationen von Methoden, also Unterprogrammen, die eine Klasse anbietet. Eine Methode ist eine Sammlung von Anweisungen unter einem Namen.</p><a id="mjd13c9e060033d31199f1482b71660888" name="mjd13c9e060033d31199f1482b71660888"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">2.2.3</span> Die Reise beginnt am main()  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Wir programmieren hier eine besondere Methode, die sich <span class="clisting">main()</span> nennt. Die Schlüsselwörter davor und die Angabe in dem Paar runder Klammern hinter dem Namen müssen wir einhalten. Die Methode <span class="clisting">main()</span> ist für die Laufzeitumgebung etwas ganz Besonderes, denn beim Aufruf des Java-Interpreters mit einem Klassennamen wird unsere Methode als Erstes ausgeführt. [Na ja, so ganz präzise ist das auch nicht. In einem <span class="clisting">static</span>-Block könnten wir auch einen Funktionsaufruf setzen, doch das wollen wir hier einmal nicht annehmen. <span class="clisting">static</span>-Blöcke werden beim Laden der Klassen in die virtuelle Maschine ausgeführt. Andere Initialisierungen sind dann auch schon gemacht.
+]  Demnach werden genau die Anweisungen ausgeführt, die innerhalb der geschweiften Klammern stehen. Halten wir uns fälschlicherweise nicht an die Syntax für den Startpunkt, so kann der Interpreter die Ausführung nicht beginnen, und wir haben einen semantischen Fehler produziert, obwohl die Methode selbst korrekt gebildet ist. Innerhalb von <span class="clisting">main()</span> befindet sich ein Parameter mit dem Namen <span class="clisting">args</span>. Der Name ist willkürlich gewählt, wir werden allerdings immer <span class="clisting">args</span> verwenden.</p>
+<p><div class="eclipse"><img src="common/eclipseicon.gif" align="top" width="53" height="23" alt="Eclipse" title="Eclipse"></div>Eclipse gibt im Falle eines Fehlers sehr viele Hinweise. Im folgenden Beispiel fehlt die schließende Klammer. Ein Fehler im Quellcode wird von Eclipse mit einer gekringelten roten Linie angezeigt. Als weiterer Indikator wird (unter Umständen erst beim Speichern) ein kleines rundes Kreuz an der Fehlerzeile angezeigt. Gleichzeitig findet sich im Schieberegler ein kleiner roter Block. Im <span class="kapitalchen">Package Explorer</span> findet sich ebenfalls ein Hinweis auf Fehler.</p>
+<div class="bildbox">
+<p><a name="IDAGZYD"></a><a onClick="OpenWin('bilder/eclipse_error.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleineclipse_error.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div><a id="mjb81c2e28c2fe110a0b7a2ef9da7d10a4" name="mjb81c2e28c2fe110a0b7a2ef9da7d10a4"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">2.2.4</span> Der erste Methodenaufruf: println()  <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>In Java gibt es eine große Klassenbibliothek, die es Entwicklern erlaubt, Dateien anzulegen, Fenster zu öffnen, auf Datenbanken zuzugreifen, Web-Services aufzurufen und vieles mehr. Am untersten Ende der Klassenbibliothek stehen Methoden, die eine gewünschte Operation ausführen.</p>
+<p>Eine einfache Methode ist <span class="clisting">println()</span>. Sie gibt Meldungen auf dem Bildschirm (der Konsole) aus. Innerhalb der Klammern von <span class="clisting">println()</span> können wir <span class="ckursiv">Argumente</span> angeben. Die <span class="clisting">println()</span>-Methode erlaubt zum Beispiel <span class="ckursiv">Zeichenketten</span> (ein anderes Wort ist <span class="ckursiv">String</span>) als Argumente, die dann auf der Konsole erscheinen. Ein String ist eine Folge von Buchstaben, Ziffern oder Sonderzeichen in doppelten Anführungszeichen.</p>
+<p>Implementieren [»Implementieren« stammt vom lateinischen Wort »implere« ab, was für »erfüllen« und »ergänzen« steht.
+]  wir damit eine vollständige Java-Klasse mit einem <span class="ckursiv">Methodenaufruf</span>, die über <span class="clisting">println()</span> etwas auf dem Bildschirm ausgibt:</p>
+<p class="tabunter"><strong>Listing 2.2    </strong>Application.java</p>
+<div class="listing"><pre class="prettyprint">class Application
+{
+  public static void main( String[] args )
+  {
+    // Start des Programms
+
+   <span class="cfett"> System.out.println( "Hallo Javanesen" );
+
+    // Ende des Programms
+  }
+}</span></pre></div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Der Begriff »Methode« ist die korrekte Bezeichnung für ein Unterprogramm in Java &#8211; die <span class="ckursiv">Java Language Specification</span> (JLS) verwendet den Begriff »Funktion« nicht.</p>
+</td>
+</tr>
+</table><br><a id="mj17be0d5f85aa24f9db2bee70ea355e9c" name="mj17be0d5f85aa24f9db2bee70ea355e9c"></a><a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3"><span class="cfett">2.2.5</span> Atomare Anweisungen und Anweisungssequenzen  <a href="#t2t37"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Methodenaufrufe wie <span class="clisting">System.out.println()</span>, die <span class="ckursiv">leere Anweisung</span>, die nur aus einem Semikolon besteht, oder auch Variablendeklarationen (die später vorgestellt werden) nennen sich <span class="ckursiv">atomare</span> (auch <span class="ckursiv">elementare) Anweisungen</span>. Diese unteilbaren Anweisungen werden zu <span class="ckursiv">Anweisungssequenzen</span> zusammengesetzt, die Programme bilden.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Eine Anweisungssequenz:</p>
+<div class="listing"><pre class="prettyprint">System.out.println( "Wer morgens total zerknittert aufsteht, " );
+System.out.println( "hat am Tag die besten Entfaltungsmöglichkeiten." );
+;
+System.out.println();
+;</pre></div>
+<p class="BStandard">Leere Anweisungen (also die Zeilen mit dem Semikolon) gibt es im Allgemeinen nur bei Endloswiederholungen.</p>
+</td>
+</tr>
+</table><br><p>Die Laufzeitumgebung von Java führt jede einzelne Anweisung der Sequenz in der angegebenen Reihenfolge hintereinander aus. Anweisungen und Anweisungssequenzen dürfen nicht irgendwo stehen, sondern nur an bestimmen Stellen, etwa innerhalb eines Methodenkörpers.</p><a id="mje4439fc88c3da817f3de3838c4d83baa" name="mje4439fc88c3da817f3de3838c4d83baa"></a><a name="t36"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t37"></a><h3 class="t3"><span class="cfett">2.2.6</span> Mehr zu print(), println() und printf() für Bildschirmausgaben  <a href="#t2t38"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t36"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die meisten Methoden verraten durch ihren Namen, was sie leisten, und für eigene Programme ist es sinnvoll, aussagekräftige Namen zu verwenden. Wenn die Java-Entwickler die Ausgabemethode statt <span class="clisting">println()</span> einfach <span class="clisting">glubschi()</span> genannt hätten, bliebe uns der Sinn der Methode verborgen. <span class="clisting">println()</span> zeigt jedoch durch den Wortstamm »print« an, dass etwas geschrieben wird. Die Endung <span class="clisting">ln</span> (kurz für <span class="ckursiv">line</span>) bedeutet, dass noch ein Zeilenvorschubzeichen ausgegeben wird. Umgangssprachlich heißt das: Eine neue Ausgabe beginnt in der nächsten Zeile. Neben <span class="clisting">println()</span> existiert die Bibliotheksmethode <span class="clisting">print()</span>, die keinen Zeilenvorschub anhängt.</p>
+<p>Die <span class="clisting">printXXX()</span>-Methoden [Abkürzung für Methoden, die mit <span class="clisting">print</span> beginnen, also <span class="clisting">print()</span> und <span class="clisting">println()</span>.
+]  können in Klammern unterschiedliche Argumente bekommen. Ein Argument ist ein Wert, den wir der Methode beim Aufruf mitgeben. Auch wenn wir einer Methode keine Argumente übergeben, muss beim Aufruf hinter dem Methodennamen ein Klammernpaar folgen. Dies ist konsequent, da wir so wissen, dass es sich um einen Methodenaufruf handelt und um nichts anderes. Andernfalls führt es zu Verwechslungen mit Variablen.</p>
+<h4 class="t4">Überladene Methoden</h4>
+<p>Java erlaubt Methoden, die gleich heißen, denen aber unterschiedliche Dinge übergeben werden können; diese Methoden nennen wir <span class="ckursiv">überladen</span>. Die <span class="clisting">printXXX()</span>-Methoden sind zum Beispiel überladen und akzeptieren neben dem Argumenttyp <span class="clisting">String</span> auch Typen wie einzelne Zeichen, Wahrheitswerte oder Zahlen &#8211; oder auch gar nichts:</p>
+<p class="tabunter"><strong>Listing 2.3    </strong>OverloadedPrintln.java</p>
+<div class="listing"><pre class="prettyprint">public class OverloadedPrintln
+{
+  public static void main( String[] args )
+  {
+    System.out.println(<span class="cfett"> "Verhaften Sie die üblichen Verdächtigen!"</span> );
+    System.out.println(<span class="cfett"> true</span> );
+    System.out.println(<span class="cfett"> &#8211;273</span> );
+    System.out.println();                // Gibt eine Leerzeile aus
+    System.out.println(<span class="cfett"> 1.6180339887498948</span> );
+  }
+}</pre></div>
+<p>Die Ausgabe ist:</p>
+<div class="listing"><pre class="prettyprint">Verhaften Sie die üblichen Verdächtigen!
+true
+&#8211;273
+
+1.618033988749895</pre></div>
+<p>In der letzten Zeile ist gut zu sehen, dass es Probleme mit der Genauigkeit gibt &#8211; dieses Phänomen werden wir uns noch genauer anschauen.</p>
+<p><div class="eclipse"><img src="common/eclipseicon.gif" align="top" width="53" height="23" alt="Eclipse" title="Eclipse"></div>Ist in Eclipse eine andere Ansicht aktiviert, etwa indem wir auf das Konsolenfenster klicken, bringt die Taste 
+    <span class="tastenkappe">F12</span>
+   uns wieder in den Editor zurück.</p>
+<h4 class="t4">Variable Argumentlisten</h4>
+<p>Java unterstützt seit der Version 5 variable Argumentlisten, was bedeutet, dass es möglich ist, bestimmten Methoden beliebig viele Argumente (oder auch kein Argument) zu übergeben. Die Methode <span class="clisting">printf</span><span class="clisting">()</span> erlaubt zum Beispiel variable Argumentlisten, um gemäß einer Formatierungsanweisung &#8211; einem String, der immer als erstes Argument übergeben werden muss &#8211; die nachfolgenden Methodenargumente aufzubereiten und auszugeben:</p>
+<p class="tabunter"><strong>Listing 2.4    </strong>VarArgs.java</p>
+<div class="listing"><pre class="prettyprint">public class VarArgs
+{
+  public static void main( String[] args )
+  {
+    System.out.printf(<span class="cfett"> "Was sagst du?%n"</span> );
+    System.out.printf(<span class="cfett"> "%d Kanäle und überall nur %s.%n", 220, "Katzen"</span> );
+  }
+}</pre></div>
+<p>Die Ausgabe der Anweisung ist:</p>
+<div class="listing"><pre class="prettyprint">Was sagst du?
+220 Kanäle und überall nur Katzen.</pre></div>
+<p>Die Formatierungsanweisung <span class="clisting">%n</span> setzt einen Zeilenumbruch, <span class="clisting">%d</span> ist ein Platzhalter für eine Dezimalzahl und <span class="clisting">%s</span> ein Platzhalter für eine Zeichenkette, oder etwas, was in einen String konvertiert werden soll. Weitere Platzhalter werden in Abschnitt 4.10, »Ausgaben formatieren«, vorgestellt.</p><a id="mj31d33be82ee48d560fea2597234eb467" name="mj31d33be82ee48d560fea2597234eb467"></a><a name="t37"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t38"></a><h3 class="t3"><span class="cfett">2.2.7</span> Die API-Dokumentation  <a href="#t2t39"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t37"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die wichtigste Informationsquelle für Programmierer ist die offizielle API-Dokumentation von Oracle. Zu der Methode <span class="clisting">println()</span> können wir bei der Klasse <span class="clisting">PrintStream</span> zum Beispiel erfahren, dass diese eine Ganzzahl, eine Fließkommazahl, einen Wahrheitswert, ein Zeichen oder aber eine Zeichenkette akzeptiert. Die Dokumentation ist weder Teil vom JRE noch vom JDK &#8211; dafür ist die Hilfe zu groß. Wer über eine permanente Internetverbindung verfügt, kann die Dokumentation online unter http://tutego.de/go/javaapi lesen oder sie extra von der Oracle-Seite http://www.oracle.com/technetwork/java/javase/downloads/ herunterladen und als Sammlung von HTML-Dokumenten auspacken.</p>
+<div class="bildbox">
+<p><a name="IDAECZD"></a><a onClick="OpenWin('bilder/EclipseJavaDocF2.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinEclipseJavaDocF2.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 2.2    </strong>Eclipse zeigt mithilfe der Tasten Shift + F2 in einem eingebetteten Browser-Fenster die API-Dokumentation an, wobei die JavaDoc von den Oracle-Seiten kommt. Mithilfe der F2-Taste bekommen wir ein kleines gelbes Vorschaufenster, ebenfalls mit der API-Dokumentation.</p>
+<h4 class="t4">API-Dokumentation im HTML-Help-Format *</h4>
+<p>Die Oracle-Dokumentation als Loseblattsammlung hat einen Nachteil, der sich im Programmieralltag bemerkbar macht: Sie lässt sich nur ungenügend durchsuchen. Da die Webseiten statisch sind, lässt sich nicht einfach nach Methoden forschen, die zum Beispiel auf »listener« enden. Franck Allimant (http://tutego.de/go/allimant) übersetzt regelmäßig die HTML-Dokumentation von Oracle in das Format <span class="ckursiv">Windows HTML-Help</span> (CHM-Dateien), das auch unter Unix und Mac OS X mit der Open-Source-Software http://xchm.sourceforge.net/ gelesen werden kann. Neben den komprimierten Hilfe-Dateien lassen sich auch die Sprach- und JVM-Spezifikation sowie die API-Dokumentation der Enterprise Edition und der Servlets im Speziellen beziehen.</p>
+<div class="bildbox">
+<p><a name="IDAQCZD"></a><a onClick="OpenWin('bilder/sshot-1.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinsshot-1.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 2.3    </strong>API-Dokumentation mit der Windows-Hilfe</p><a id="mj2d3ffeacbc5d2d61393972d4204f73c4" name="mj2d3ffeacbc5d2d61393972d4204f73c4"></a><a name="t38"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t39"></a><h3 class="t3"><span class="cfett">2.2.8</span> Ausdrucksanweisung  <a href="#t2t310"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t38"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Wird ein Ausdruck mit einem Semikolon zu einer Anweisung, so nennen wir das <span class="ckursiv">Ausdrucksanweisung</span> (engl. <span class="ckursiv">expression statement</span>). Neben Methodenaufrufen gibt es andere Formen von Ausdrucksanweisungen, wie etwa Zuweisungen. Doch allen ist gemeinsam, dass sie mit einem Semikolon abgeschlossen werden. [Das Semikolon dient auch nicht wie in Pascal zur Trennung von Anweisungen, sondern schließt sie immer ab.
+] </p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Nicht jeder Ausdruck kann eine Ausdrucksanweisung sein. In JavaScript ist im Quellcode einfach <span class="clisting">3+4;</span> erlaubt, in Java nicht.</p>
+</td>
+</tr>
+</table><br><p>Es lassen sich auch Methoden in dieser Form anwenden, die selbst ein Ausdruck sind und ein Ergebnis zurückgeben, beispielsweise eine Sinus-Methode. Wird mit dem Ergebnis nichts gemacht, wird der Rückgabewert verworfen. Im Fall der Sinus-Methode ist das nicht sinnvoll, denn sie macht außer der Berechnung nichts anderes.</p>
+<div class="listing"><pre class="prettyprint">System.out.println( Math.<span class="cfett">sin(0.528740)</span> ); // Methodenaufruf sin() als Ausdruck</pre></div>
+<p>Etwas wackelig ist der Begriff <span class="ckursiv">Ausdrucksanweisung</span> bei Methoden, die keine Rückgabe liefern. <span class="clisting">println()</span> ist so eine Methode. Sie gibt nichts zurück (<span class="clisting">void</span>) und ist daher auch kein Ausdruck. Daher führt Folgendes zu einem Compilerfehler:</p>
+<div class="listing"><pre class="prettyprint">System.out.println(<span class="cfett"> System.out.println()</span> );    // <img src="common/totenkopf.gif" border="0" align="bottom" alt="Fehler"> Compilerfehler!</pre></div><a id="mj641d7792a19c51b88ef2fe06bf079712" name="mj641d7792a19c51b88ef2fe06bf079712"></a><a name="t39"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t310"></a><h3 class="t3"><span class="cfett">2.2.9</span> Erste Idee der Objektorientierung  <a href="#t2t311"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t39"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>In einer objektorientierten Programmiersprache sind alle Methoden an bestimmte Objekte gebunden (daher der Begriff <span class="ckursiv">objektorientiert</span>). Betrachten wir zum Beispiel das Objekt <span class="clisting">Radio</span>: Ein Radio spielt Musik ab, wenn der Einschalter betätigt wird und ein Sender und die Lautstärke eingestellt sind. Ein Radio bietet also bestimmte Dienste (Operationen) an, wie <span class="clisting">Musik an</span>/<span class="clisting">aus</span>, <span class="clisting">lauter</span>/<span class="clisting">leiser</span>. Zusätzlich hat ein Objekt auch noch einen Zustand, zum Beispiel die <span class="clisting">Lautstärke</span> oder das <span class="clisting">Baujahr</span>. Wichtig in objektorientierten Sprachen ist, dass die Operationen und Zustände immer (und da gibt es keine Ausnahmen) an Objekte beziehungsweise Klassen gebunden sind (mehr zu dieser Unterscheidung folgt später). Der Aufruf einer Methode auf einem Objekt richtet die Anfrage genau an ein bestimmtes Objekt. Steht in einem Java-Programm nur die Anweisung <span class="clisting">lauter</span>, so weiß der Compiler nicht, wen er fragen soll, wenn es etwa drei Radio-Objekte gibt. Was ist, wenn es auch einen Fernseher mit der gleichen Operation gibt? Aus diesem Grund verbinden wir das Objekt, das etwas kann, mit der Operation. Ein Punkt trennt das Objekt von der Operation oder dem Zustand. So gehört <span class="clisting">println()</span> zu einem Objekt <span class="clisting">out</span>, das die Bildschirmausgabe übernimmt. Dieses Objekt <span class="clisting">out</span> wiederum gehört zu der Klasse <span class="clisting">System</span>.</p>
+<h4 class="t4">System.out und System.err</h4>
+<p>Das Laufzeitsystem bietet uns zwei Ausgabekanäle: einen für normale Ausgaben und einen, in den wir Fehler leiten können. Der Vorteil ist, dass über diese Unterteilung die Fehler von der herkömmlichen Ausgabe getrennt werden können. Standardausgaben wandern in <span class="clisting">System.out</span>, und Fehlerausgaben werden in <span class="clisting">System.err</span> weitergeleitet. <span class="clisting">out</span> und <span class="clisting">err</span> sind vom gleichen Typ, sodass die <span class="clisting">printXXX()</span>-Methoden bei beiden gleich sind:</p>
+<div class="listing"><pre class="prettyprint">System.<span class="cfett">out</span>.println( "Das ist eine normale Ausgabe" );
+System.<span class="cfett">err</span>.println( "Das ist eine Fehlerausgabe" );</pre></div>
+<p>Die Objektorientierung wird hierbei noch einmal besonders deutlich. Das <span class="clisting">out</span>- und das <span class="clisting">err</span>-Objekt sind zwei Objekte, die das Gleiche können, nämlich mit <span class="clisting">println()</span> etwas auszugeben. Doch ist es nicht möglich, ohne explizite Objektangabe die Methode <span class="clisting">println()</span> in den Raum zu rufen und von der Laufzeitumgebung zu erwarten, dass diese weiß, ob die Anfrage an <span class="clisting">System.out</span> oder an <span class="clisting">System.err</span> geht.</p>
+<div class="bildbox">
+<p><a name="IDAOGZD"></a><a onClick="OpenWin('bilder/eclipse_systemouterr.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleineclipse_systemouterr.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 2.4    </strong>Eclipse stellt normale Ausgaben schwarz und Fehlerausgaben rot dar. 
+Damit ist es leicht, zu erkennen, welche Ausgabe in welchen Kanal geschickt wurde.</p><a id="mj5892f57ef257e41d40b817935ca8595f" name="mj5892f57ef257e41d40b817935ca8595f"></a><a name="t310"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t311"></a><h3 class="t3"><span class="cfett">2.2.10</span> Modifizierer  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t310"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Deklaration einer Klasse oder Methode kann einen oder mehrere <span class="ckursiv">Modifizierer</span> (engl. <span class="ckursiv">modifier</span>) enthalten, die zum Beispiel die Nutzung einschränken oder parallelen Zugriff synchronisieren.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Im folgenden Programm kommen drei Modifizierer vor, die fett und unterstrichen sind:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfettu">public</span> class Application
+{
+  <span class="cfettu">public static</span> void main( String[] args )
+  {
+    System.out.println( "Hallo Welt" );
+  }
+}</pre></div>
+</td>
+</tr>
+</table><br><p>Der Modifizierer <span class="clisting">public</span> ist ein <span class="ckursiv">Sichtbarkeitsmodifizierer</span>. Er bestimmt, ob die Klasse beziehungsweise die Methode für andere sichtbar ist oder nicht. Der Modifizierer <span class="clisting">static</span> zwingt den Programmierer nicht dazu, vor dem Methodenaufruf ein Objekt der Klasse zu bilden. Anders gesagt, die Eigenschaft, ob sich eine Methode nur über ein konkretes Objekt aufrufen lässt oder eine Eigenschaft der Klasse ist, sodass für den Aufruf kein Objekt der Klasse nötig wird, bestimmt dieser Modifizierer. Wir arbeiten in den ersten beiden Kapiteln nur mit statischen Methoden und werden ab Kapitel 3, »Klassen und Objekte«, nicht-statische Methoden einführen.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Der Name des Modifizierers <span class="clisting">static</span> kommt aus C(++). Dort hat <span class="clisting">static</span> einen weiten Bereich an Anwendungen. Nun lässt sich darüber streiten, ob der Begriff für Java gut gewählt ist oder nicht, da er in Java lediglich »nur einmal pro Klasse« ausdrücken soll. Wir sollten also nicht versuchen, so sehr die Bedeutung »nur einmal« aus dem Wort »statisch« herauszulesen.</p>
+</td>
+</tr>
+</table><br><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="2.2 Anweisungen formen Programme"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_02_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_02_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

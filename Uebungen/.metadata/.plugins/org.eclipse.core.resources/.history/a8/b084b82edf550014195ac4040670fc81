@@ -1,0 +1,34 @@
+package ch05.Pi;
+
+public class PiCalculator {
+	public static double approximiere_pi(double tropfenzahl) {
+		  double pi = 0;
+		  double innerhalb = 0;
+		  double gesamt = tropfenzahl;
+		  double difference;
+		  int len = 0;
+		 
+		  while (gesamt > 0) { // generiere Tropfen und addiere je nach Zugehörigkeit
+		    double dotx = Math.random();
+		    double doty = Math.random();
+		 
+		    if (dotx*dotx + doty*doty <= 1) {
+		      // Punkt liegt innerhalb des Kreises
+		      innerhalb++;
+		      difference = Math.PI-pi;
+		      if (Double.toString(difference).length() > l ) {
+		    	  l++;
+		    	  
+		    	  System.out.println(difference)
+		      }
+		    } else {
+		      // Punkt liegt außerhalb des Kreises
+		    }
+		 
+		    gesamt--;
+		  }
+		 
+		  pi = 4*innerhalb/tropfenzahl;
+		  return pi;
+		}
+}

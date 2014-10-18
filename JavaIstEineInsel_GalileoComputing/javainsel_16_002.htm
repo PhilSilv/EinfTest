@@ -1,0 +1,632 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 16.2 Dateien mit wahlfreiem Zugriff</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 16.2 Dateien mit wahlfreiem Zugriff">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 16.2 Dateien mit wahlfreiem Zugriff">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_05_001.htm#mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_08_001.htm#mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_09_001.htm#mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_11_001.htm#mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_16_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_16_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853" class="navnav">16 Dateien, Verzeichnisse und Dateizugriffe</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_16_001.htm#mjd6008557aa9be9bf1209e47489cff0d2" class="navnav">16.1 Datei und Verzeichnis</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_16_001.htm#mj0b9011e2b23f362c0152f88eb136a174" class="navnav">16.1.1 Dateien und Verzeichnisse mit der Klasse »File«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_16_001.htm#mj02644f11527598bc2a7360994d7d47f4" class="navnav">16.1.2 Verzeichnis oder Datei? Existiert es?</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_16_001.htm#mjcf65f538320d14909c81468ec08de088" class="navnav">16.1.3 Verzeichnis- und Dateieigenschaften/-attribute</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_16_001.htm#mj3284ca1fad8ede2e3aa520ccb88cdbcc" class="navnav">16.1.4 Umbenennen und Verzeichnisse anlegen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_16_001.htm#mjb254a6ef4e0728db75482e89242d8788" class="navnav">16.1.5 Verzeichnisse listen und Dateien filtern</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_16_001.htm#mja5f5b5f1143b0eed225e00a7a301e9d4" class="navnav">16.1.6 Dateien berühren, neue Dateien anlegen, temporäre Dateien</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_16_001.htm#mj886c661425d18af833f8d5d0f1cc8384" class="navnav">16.1.7 Dateien und Verzeichnisse löschen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_16_001.htm#mj244d4be704c79bc7d4051abaf86e85d2" class="navnav">16.1.8 Verzeichnisse nach Dateien iterativ durchsuchen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_16_001.htm#mjd52658ef0bb1fb7b401cea3e0343c864" class="navnav">16.1.9 Wurzelverzeichnis, Laufwerksnamen, Plattenspeicher *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_16_001.htm#mj5d5da76dfd1ee3363dd666f798d282f0" class="navnav">16.1.10 URL- und URI-Objekte aus einem File-Objekt ableiten *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_16_001.htm#mjc95249f916b790ee66ce28de5d1978e2" class="navnav">16.1.11 Mit Locking Dateien sperren *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj3f2982f7e7e4e572ca2fe2629f44de89" class="navh">16.2 Dateien mit wahlfreiem Zugriff</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjcdde7623b23768f467423d8f40e3e0e6" class="navh">16.2.1 Ein »RandomAccessFile« zum Lesen und Schreiben öffnen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj546239fd6f92a053eec33898f401db90" class="navh">16.2.2 Aus dem »RandomAccessFile« lesen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj0462b8a9edeb91400409bc1a918a2780" class="navh">16.2.3 Schreiben mit »RandomAccessFile«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjf3d9881212e666d2d5f250b9fcf79e16" class="navh">16.2.4 Die Länge des »RandomAccessFile«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj55f695d2348f9c33b438b486827153d1" class="navh">16.2.5 Hin und her in der Datei</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_16_003.htm#mj325ce728d5d8837ced017cfde43738a6" class="navnav">16.3 Zum Weiterlesen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj3f2982f7e7e4e572ca2fe2629f44de89" name="mj3f2982f7e7e4e572ca2fe2629f44de89"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">16.2</span> Dateien mit wahlfreiem Zugriff  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Dateien können auf zwei unterschiedliche Arten gelesen und modifiziert werden: zum einen über einen Datenstrom, der Bytes wie in einem Medien-Stream verarbeitet, zum anderen über <span class="ckursiv">wahlfreien Zugriff</span> (engl. <span class="ckursiv">random access</span>). Während der Datenstrom eine strenge Sequenz erzwingt, ist dies beim wahlfreien Zugriff egal, da innerhalb der Datei beliebig hin und her gesprungen werden kann und ein Dateizeiger verwaltet wird, den wir setzen können. Da wir es mit Dateien zu tun haben, heißt das Ganze dann Random Access File, und die Klasse, die wahlfreien Zugriff anbietet, ist <span class="clisting">java.io.RandomAccessFile</span>.</p>
+<div class="bildbox">
+<p><a name="IDAXD0D"></a><a onClick="OpenWin('bilder/randomaccessfileuml.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinrandomaccessfileuml.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div><a id="mjcdde7623b23768f467423d8f40e3e0e6" name="mjcdde7623b23768f467423d8f40e3e0e6"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">16.2.1</span> Ein »RandomAccessFile« zum Lesen und Schreiben öffnen  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse deklariert zwei Konstruktoren, um mit einem Dateinamen oder <span class="clisting">File</span>-Objekt ein <span class="clisting">RandomAccessFile</span>-Objekt anzulegen. Im Konstruktor bestimmt der zweite Parameter eine Zeichenkette für den Zugriffsmodus; damit lässt sich eine Datei lesend oder schreibend öffnen. Die Angabe vermeidet Fehler, da eine zum Lesen geöffnete Datei nicht versehentlich überschrieben werden kann.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 16.1    </strong>Zwei Modi für den Konstruktor von »RandomAccessFile«</p>
+</caption>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">r</span></p>
+</td>
+<td class="tabellentext">
+<p>Die Datei wird zum Lesen geöffnet. Wenn sie nicht vorhanden ist, wird ein Fehler ausgelöst. Der Versuch, auf diese Datei schreibend zuzugreifen, wird mit einer Exception bestraft.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">rw</span></p>
+</td>
+<td class="tabellentext">
+<p>Die Datei wird zum Lesen oder Schreiben geöffnet. Eine existierende Datei wird dabei geöffnet, und hinten können die Daten angehängt werden, ohne dass die Datei gelöscht wird. Existiert die Datei nicht, wird sie neu angelegt, und ihre Startgröße ist null. Soll die Datei gelöscht werden, so müssen wir dies ausdrücklich über <span class="clisting">delete()</span> der <span class="clisting">File</span>-Klasse selbst tun.</p>
+</td>
+</tr>
+</table><br><p>Zusätzlich lässt sich bei <span class="clisting">rw</span> noch ein <span class="clisting">s</span> oder <span class="clisting">d</span> anhängen; sie stehen für Möglichkeiten, beim Schreiben die Daten mit dem Dateisystem zu synchronisieren.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.io.<span class="cfett">RandomAccessFile</span>
+implements DataOutput, DataInput, Closeable</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">RandomAccessFile( String name, String mode ) throws FileNotFoundException
+RandomAccessFile( File file, String mode ) throws FileNotFoundException</span>
+Öffnet die Datei. Ob die Datei zum Lesen oder Schreiben vorbereitet ist, bestimmt der String <span class="clisting">mode</span> mit gültigen Belegungen »r« oder »rw«. Ist der Modus falsch gesetzt, zeigt eine <span class="clisting">IllegalArgumentException</span> dies an. Löst eine <span class="clisting">FileNotFoundException [</span>Eingedeutscht »DöösIschNetDoo«.
+]  aus, falls die Datei nicht geöffnet werden kann.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void close()</span>
+Schließt eine geöffnete Datei wieder.</li>
+</ul><a id="mj546239fd6f92a053eec33898f401db90" name="mj546239fd6f92a053eec33898f401db90"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">16.2.2</span> Aus dem »RandomAccessFile« lesen  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Um Daten aus einer mit einem <span class="clisting">RandomAccessFile</span> verwalteten Datei zu bekommen, nutzen wir eine der <span class="clisting">readXXX()</span>-Methoden. Sie lesen direkt das Byte-Feld aus der Datei oder mehrere Bytes, die zu einem primitiven Datentyp zusammengesetzt sind. <span class="clisting">readChar()</span>etwa liest hintereinander 2 Byte und verknüpft diese zu einem <span class="clisting">char</span>.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.io.<span class="cfett">RandomAccessFile</span>
+implements DataOutput, DataInput, Closeable</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">int read() throws IOException</span>
+Liest genau ein Byte und liefert es als <span class="clisting">int</span> zurück.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">int read( byte[] b ) throws IOException</span>
+Liest <span class="clisting">b.length()</span> viele Byte und speichert sie im Feld <span class="clisting">b</span>.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">int read( byte[] b, int off, int len ) throws IOException</span>
+Liest <span class="clisting">len</span> Byte aus der Datei und schreibt sie in das Feld <span class="clisting">b</span> ab der Position <span class="clisting">off</span>. Wurde mehr als ein, aber weniger als <span class="clisting">len</span> Bytes gelesen, wird die gelesene Größe als Rückgabewert zurückgegeben.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">final boolean readBoolean() throws IOException</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">final byte readByte()</span>, <span class="clisting">final short readShort()</span>, <span class="clisting">final int readInt()</span>, <span class="clisting">final long readLong() throws IOException</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">final char readChar() throws IOException</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">final double readDouble(), final float readFloat()</span>
+Liest einen primitiven Datentyp.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">final int readUnsignedByte() throws IOException</span>
+Liest ein als vorzeichenlos interpretiertes Byte.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">final int readUnsignedShort() throws IOException</span>
+Liest zwei als vorzeichenlos interpretierte Bytes.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">final void readFully( byte[] b ) throws IOException</span>
+Versucht, den gesamten Puffer <span class="clisting">b</span> zu füllen.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">final void readFully( byte[] b, int off, int len ) throws IOException</span>
+Liest <span class="clisting">len</span> Bytes und speichert sie im Puffer <span class="clisting">b</span> ab dem Index <span class="clisting">off</span>.</li>
+</ul>
+<p>Zum Schluss bleiben zwei Methoden, die eine Zeichenkette liefern:</p>
+<ul class="gp">
+<li><span class="clisting">final String readLine() throws IOException</span>
+Liest eine Textzeile, die das Zeilenendezeichen <span class="clisting">\r</span> oder <span class="clisting">\n</span> beziehungsweise eine Kombination <span class="clisting">\r\n</span> abschließt. Die letzte Zeile muss nicht so abgeschlossen sein, denn ein Dateiende zählt als Zeilenende. <span class="clisting">readLine()</span> interpretiert die Zeichen nicht als Unicode, sondern übernimmt die Zeichen einfach als ASCII-Bytes. (Ohne die Konvertierung verschiedener Codepages, etwa von einer Datei in einem ungewohnten IBM-Format, liest <span class="clisting">readLine()</span> nicht die korrekten entsprechenden Unicode-Zeilen heraus. Diese Byte-in-Char-Umwandlung müsste manuell vorgenommen werden.) Auch weil <span class="clisting">RandomAccessFile</span> nicht puffert, bietet sich aus Geschwindigkeitsgründen eine zeilenweise Verarbeitung von ASCII-Dateien über <span class="clisting">readLine()</span> nicht an, und die passende Klasse <span class="clisting">Scanner</span> oder <span class="clisting">BufferedReader</span> sollte Verwendung finden.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">final String readUTF()</span>
+Liest einen modifizierten UTF-kodierten String und gibt einen Unicode-String zurück. Ein UTF-String fasst entweder 1, 2 oder 3 Byte zu einem Unicode-Zeichen zusammen. Der übernächste Abschnitt erklärt die Kodierung genauer.</li>
+</ul>
+<h4 class="t4">Rückgabe &#8211;1 und EOFException *</h4>
+<p>Die Methoden liefern nicht alle einen Fehler, wenn die Datei schon fertig abgearbeitet wurde und keine Daten mehr anliegen. Im Fall von <span class="clisting">int read()</span>, <span class="clisting">int read(byte[])</span> oder <span class="clisting">int read(byte[], int, int)</span> gibt es einfach den Rückgabewert &#8211;1 und keine Exception. Ähnliches gilt für <span class="clisting">readLine().</span> Die Methode liefert <span class="clisting">null</span> am Dateiende. Für die anderen Lese-Methoden gilt, dass sie eine bestimmte Anzahl Bytes erzwingen, etwa <span class="clisting">readLong()</span> 8 &#8211; oder auch nur 1 Byte für <span class="clisting">readByte()</span> &#8211;, sodass im Fall eines Dateiendes eine <span class="clisting">EOFException</span> folgt. Bis auf wenige Ausnahmen gibt es kaum weitere Einsatzgebiete von <span class="clisting">EOFException</span> in der Java-Bib-liothek.</p>
+<h4 class="t4">Die UTF-8-Kodierung *</h4>
+<p><span class="clisting">writeUTF()</span> und <span class="clisting">readUTF()</span> sind zwei Operationen, die die Schnittstellen <span class="clisting">DataOutput</span> und <span class="clisting">DataInput</span> vorschreiben. Neben <span class="clisting">RandomAccessFile</span> implementiert <span class="clisting">DataOutputStream</span> die Schnittstelle <span class="clisting">DataOutput</span> und <span class="clisting">DataInputStream</span> die Schnittstelle <span class="clisting">DataInput</span>.</p>
+<p>Java verwaltet Unicode-Zeichen über den Datentyp <span class="clisting">char</span>, der (immer noch [Eine Anspielung, da Java seit Version 5 Unicode 4 mit 32-Bit-Zeichen unterstützt und wir widerlich für die Umsetzung tricksen müssen.
+] ) 16 Bit lang ist. In unseren Breiten stammen die meisten Zeichen aus den herkömmlichen 8 Bit des Latin-1-Zeichensatzes. Würden die Zeichen als Unicode (also 2 Byte) versendet, bestände der 16-Bit-Datenstrom im Wesentlichen zur Hälfte aus Nullen. Aus diesem Grund gibt es eine alternative Kodierung, die jedes 16-Bit-Unicode-Zeichen platzsparend schreibt und in Abhängigkeit von der Belegung 1, 2 oder 3 Byte lang ist. Die Kodierung der Zeichen richtet sich nach der Belegung der Bits wie folgt:</p>
+<ul class="gp">
+<li><span class="clisting">'\u0001'</span> bis <span class="clisting">'\u007F'</span>: Die Zeichen werden direkt mit einem Byte geschrieben. Die westlichen Texte, die zum Großteil in 7-Bit-ASCII verfasst sind, lassen sich somit kompakt schreiben.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">'\u0080'</span> bis <span class="clisting">'\u07FF'</span>: Die Zeichen werden mit 2 Byte kodiert.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">'\u0800'</span> bis <span class="clisting">'\uFFFF'</span>: Die Zeichen werden mit 3 Byte kodiert.</li>
+</ul>
+<p>Die Kodierung, die Java wählt, ist an UTF-8 angelehnt und wird im Folgenden einfach <span class="ckursiv">UTF-8-Kodierung</span> genannt. Das modifizierte UTF-8-Format [http://tutego.de/go/modifiedutf8
+]  von Java kodiert etwa &#8211; anders als es der Unicode-Standard im Kapitel »Unicode Encoding Forms« beschreibt &#8211; das Zeichen <span class="clisting">'\u0000'</span> in 2 Byte, was laut Unicode-Standard in einem Byte geschrieben würde.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Würden die Zeichenfolgen lediglich mit der vorgestellten Kodierung geschrieben, wüsste der Zeichenleser nicht, wann das Ende der Zeichenfolge erreicht ist. Daher beginnt <span class="clisting">writeUTF()</span> mit einer Längenkennung. Zum Lesen von Zeilen ist somit immer <span class="clisting">readUTF()</span> nötig, und eine Methode <span class="clisting">readLine()</span> ist unpassend.</p>
+</td>
+</tr>
+</table><br><a id="mj0462b8a9edeb91400409bc1a918a2780" name="mj0462b8a9edeb91400409bc1a918a2780"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">16.2.3</span> Schreiben mit »RandomAccessFile«  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Da <span class="clisting">RandomAccessFile</span> die Schnittstellen <span class="clisting">DataOutput</span> und <span class="clisting">DataInput</span> implementiert, werden zum einen die <span class="clisting">readXXX()</span>-Methoden wie bisher vorgestellt implementiert und zum anderen eine Reihe von Schreibmethoden der Form <span class="clisting">writeXXX()</span>. Diese sind analog zu den Lese-methoden: <span class="clisting">write(byte[] b)</span>, <span class="clisting">write(int b)</span>, <span class="clisting">write(byte[] b, int off, int len)</span>, <span class="clisting">write-Boolean(boolean v)</span>, <span class="clisting">writeByte(int v)</span>, <span class="clisting">writeBytes(String s)</span>, <span class="clisting">writeChar(int v)</span>, <span class="clisting">writeChars(String s)</span>, <span class="clisting">writeDouble(double v)</span>, <span class="clisting">writeFloat(float v)</span>, <span class="clisting">writeInt(int v)</span>, <span class="clisting">writeLong(long v)</span>, <span class="clisting">writeShort(int v)</span> und <span class="clisting">writeUTF(String str)</span>. Der Rückgabetyp ist <span class="clisting">void</span>, und die Methoden können eine <span class="clisting">IOException</span> auslösen.</p><a id="mjf3d9881212e666d2d5f250b9fcf79e16" name="mjf3d9881212e666d2d5f250b9fcf79e16"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">16.2.4</span> Die Länge des »RandomAccessFile«  <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Mit zwei Methoden greifen wir auf die Länge der Datei zu: einmal schreibend verändernd und einmal lesend.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.io.<span class="cfett">RandomAccessFile</span>
+implements DataOutput, DataInput, Closeable</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">void setLength( long newLength ) throws IOException</span>
+Setzt die Größe der Datei auf <span class="clisting">newLength</span>. Ist die Datei kleiner als <span class="clisting">newLength</span>, wird sie mit unbestimmten Daten vergrößert; wenn die Datei größer war als die zu setzende Länge, wird die Datei abgeschnitten. Dies bedeutet, dass der Dateiinhalt mit <span class="clisting">setLength(0)</span> leicht zu löschen ist.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">long length() throws IOException</span>
+Liefert die Länge der Datei. Schreibzugriffe erhöhen den Wert, und <span class="clisting">setLength()</span> modifiziert ebenfalls die Länge.</li>
+</ul><a id="mj55f695d2348f9c33b438b486827153d1" name="mj55f695d2348f9c33b438b486827153d1"></a><a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3"><span class="cfett">16.2.5</span> Hin und her in der Datei  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die bisherigen Lesemethoden setzen den Datenzeiger automatisch eine Position weiter. Wir können den Datenzeiger jedoch auch manuell an eine selbst gewählte Stelle setzen und damit durch die Datei navigieren.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Erzeuge eine Datei, und setze an die Stelle 1.000 das Byte 0xFF:</p>
+<p class="tabunter"><strong>Listing 16.14    </strong>com/tutego/insel/io/raf/CreateBigFile.java, main()</p>
+<div class="listing"><pre class="prettyprint">RandomAccessFile file = new RandomAccessFile("c:/test.bin", "rw" );
+file.seek( 1000 );
+file.write( &#8211;1 );
+file.close();</pre></div>
+<p class="BStandard">Da <span class="clisting">skipBytes()</span> den Dateizeiger nicht »hinter« die Datei stellen kann, funktioniert die Lösung nur mit <span class="clisting">seek()</span>.</p>
+</td>
+</tr>
+</table><br><p>Die nachfolgenden Lese- oder Schreibzugriffe setzen dann dort an. Die im Folgenden beschriebenen Methoden haben etwas mit diesem Dateizeiger und seiner Position zu tun:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.io.<span class="cfett">RandomAccessFile</span>
+implements DataOutput, DataInput, Closeable</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">long getFilePointer() throws IOException</span>
+Liefert die momentane Position des Dateizeigers. Das erste Byte steht an der Stelle null.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void seek( long pos ) throws IOException</span>
+Setzt die Position des Dateizeigers auf <span class="clisting">pos</span>. Diese Angabe ist absolut und kann daher nicht negativ sein. Falls doch, wird eine Ausnahme ausgelöst. <span class="clisting">file.seek(file.length());</span> setzt den Zeiger auf das Ende der Datei.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">int skipBytes( int n ) throws IOException</span>
+Im Gegensatz zu <span class="clisting">seek()</span> positioniert <span class="clisting">skipBytes()</span> relativ. <span class="clisting">n</span> ist die Anzahl, um die der Dateizeiger bewegt wird. Ist <span class="clisting">n</span> negativ, werden keine Bytes übersprungen. Eine relative Positionierung mit positivem und negativem <span class="clisting">n</span> für ein <span class="clisting">RandomAccessFile raf</span> erreicht <span class="clisting">raf.seek(raf.getFilePointer() + n)</span>. Die Summe darf aber nicht negativ sein, sonst gibt es von <span class="clisting">seek()</span> eine <span class="clisting">IOException</span>. Die Rückgabe gibt die tatsächlich gesprungenen Bytes zurück, was nicht mit <span class="clisting">n</span> identisch sein muss!</li>
+</ul>
+<p>Setzt <span class="clisting">seek()</span> den Zeiger weiter, als es möglich ist, wird die Datei dadurch nicht automatisch größer. Sie verändert jedoch ihre Größe, wenn Daten geschrieben werden.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="16.2 Dateien mit wahlfreiem Zugriff"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_16_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_16_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

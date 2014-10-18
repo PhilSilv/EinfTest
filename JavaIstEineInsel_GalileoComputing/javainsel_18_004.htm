@@ -1,0 +1,1463 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 18.4 Java Architecture for XML Binding (JAXB)</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 18.4 Java Architecture for XML Binding (JAXB)">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 18.4 Java Architecture for XML Binding (JAXB)">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_05_001.htm#mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_08_001.htm#mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_09_001.htm#mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_11_001.htm#mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_18_003.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_18_005.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9" class="navnav">18 Die eXtensible Markup Language (XML)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_18_001.htm#mj237c96552ea1a4c3a1a589527471c062" class="navnav">18.1 Auszeichnungssprachen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_001.htm#mj4bf69140239c3ccfb8083eff33d6e100" class="navnav">18.1.1 Die Standard Generalized Markup Language (SGML)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_001.htm#mj8d9f98f3ed036fdd6da7807b17781c09" class="navnav">18.1.2 Extensible Markup Language (XML)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_18_002.htm#mjcd2666b7c695592d37265e354d2a00c5" class="navnav">18.2 Eigenschaften von XML-Dokumenten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_002.htm#mj773e6fbc6cd573178cb691276f14000d" class="navnav">18.2.1 Elemente und Attribute</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_002.htm#mja84996a84fdc9a2d987cb566797a4e08" class="navnav">18.2.2 Beschreibungssprache für den Aufbau von XML-Dokumenten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_002.htm#mj4333546676a25875787fd18c3d254cfe" class="navnav">18.2.3 Schema &#8211; eine Alternative zu DTD</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_002.htm#mj3c7cfffeea42d17ec6d4e502c45a3f53" class="navnav">18.2.4 Namensraum (Namespace)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_002.htm#mj62e6bcc878e81e95702076b2539f77ac" class="navnav">18.2.5 XML-Applikationen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_18_003.htm#mj2c1eef25d6c5d71726e5dacc6cb108f3" class="navnav">18.3 Die Java-APIs für XML</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_003.htm#mjf8d3130b29ce805bd7b524fbca11a802" class="navnav">18.3.1 Das Document Object Model (DOM)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_003.htm#mj7cb0e2ca0f72fe23591a4e92dac73a41" class="navnav">18.3.2 Simple API for XML Parsing (SAX)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_003.htm#mj8870c3cd8e4b420b6edc4321a1fc513d" class="navnav">18.3.3 Pull-API StAX</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_003.htm#mjc7e7a85232c1e44ad9998ebe18b8e910" class="navnav">18.3.4 Java Document Object Model (JDOM)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_003.htm#mj9b8b8f0ee81828759f5bfacf01d63061" class="navnav">18.3.5 JAXP als Java-Schnittstelle zu XML</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_003.htm#mjadaf4a5fb065c42826aec8f00788f8d0" class="navnav">18.3.6 DOM-Bäume einlesen mit JAXP *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mja6850a6000c1851e0c5247871971601d" class="navh">18.4 Java Architecture for XML Binding (JAXB)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj57b18ee2f86e3548766ce5bcf5668f81" class="navh">18.4.1 Bean für JAXB aufbauen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj04094f0a2770094b2b07b5d2cc435a76" class="navh">18.4.2 JAXBContext und die Marshaller</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj5fb6a31746fde33e516fb3c447fb5876" class="navh">18.4.3 Ganze Objektgraphen schreiben und lesen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjb62739dc1bf14d196c3ffc52932f7360" class="navh">18.4.4 Validierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjb3a737e291d8682c25fa9733ed78be51" class="navh">18.4.5 Weitere JAXB-Annotationen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjafd88dfe49de9d1fbe3d33655874e33c" class="navh">18.4.6 Beans aus XML-Schema-Datei generieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_18_005.htm#mja0bb01e44ea2953efb971874596be219" class="navnav">18.5 Serielle Verarbeitung mit StAX</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_005.htm#mje0378fcae4ad61132cf333148d3dac73" class="navnav">18.5.1 Unterschiede der Verarbeitungsmodelle</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_005.htm#mjc334a0292e78cc60f631d89b5b1af283" class="navnav">18.5.2 XML-Dateien mit dem Cursor-Verfahren lesen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_005.htm#mj393a8666323d5cfed19cf9bc56c0896f" class="navnav">18.5.3 XML-Dateien mit dem Iterator-Verfahren verarbeiten *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_005.htm#mjaff1d38fd26ccd588bd3da8e8ad308a2" class="navnav">18.5.4 Mit Filtern arbeiten *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_005.htm#mj15d0d171e564cb7b811b0a17ddc1cc2b" class="navnav">18.5.5 XML-Dokumente schreiben</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_18_006.htm#mjceff54f01bc1d65b05bddc3222f86495" class="navnav">18.6 Serielle Verarbeitung von XML mit SAX *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_006.htm#mj5a524e0508926cdfa745b209cff80816" class="navnav">18.6.1 Schnittstellen von SAX</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_006.htm#mjb2c389a8849ed9575dcc02189925c512" class="navnav">18.6.2 SAX-Parser erzeugen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_006.htm#mj47a0b5f111c2c8aff3fa875397e87f1f" class="navnav">18.6.3 Operationen der Schnittstelle »ContentHandler«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_006.htm#mje940d87629addf069b86bff51b361470" class="navnav">18.6.4 ErrorHandler und EntityResolver</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_18_007.htm#mja3b868c348f3f738e42cfdbea9cbc8f6" class="navnav">18.7 XML-Dateien mit JDOM verarbeiten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_007.htm#mj77135e597d8d54fe840a04842c68e0ce" class="navnav">18.7.1 JDOM beziehen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_007.htm#mja4fd7db4300f6529b10c873ec9a4a439" class="navnav">18.7.2 Paketübersicht *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_007.htm#mjf2413ed9023819537d4eb80713d718fd" class="navnav">18.7.3 Die Document-Klasse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_007.htm#mjd234254e691d54903d0af054d16e5378" class="navnav">18.7.4 Eingaben aus der Datei lesen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_007.htm#mjb14de35f00d79df6e8ec64c512a43bfa" class="navnav">18.7.5 Das Dokument im XML-Format ausgeben</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_007.htm#mj17ab80b9ab3664c2eee70dcf38ed8c12" class="navnav">18.7.6 Der Dokumenttyp *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_007.htm#mj0d2717e8c295b1ff3c20745aea125165" class="navnav">18.7.7 Elemente</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_007.htm#mj271080a85d75ee1810532901af462d33" class="navnav">18.7.8 Zugriff auf Elementinhalte</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_007.htm#mj3fecdb875aa7ff97650a6669e9e5224d" class="navnav">18.7.9 Liste mit Unterelementen erzeugen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_007.htm#mjea442487bfa31d02e66b7fc903cafdae" class="navnav">18.7.10 Neue Elemente einfügen und ändern</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_007.htm#mjf1e272ceae3e4c21e59dbc898afd5894" class="navnav">18.7.11 Attributinhalte lesen und ändern</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_007.htm#mjec16e854326f8b45f103ad33caf2681b" class="navnav">18.7.12 XPath</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_18_008.htm#mjae77a41021c1f5b42aebe4c77feb10dd" class="navnav">18.8 Transformationen mit XSLT *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_008.htm#mjeb34698c85951c9bf3d4ef4567832616" class="navnav">18.8.1 Templates und XPath als Kernelemente von XSLT</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_008.htm#mjf773d26cac37a605d443b7bde4602b2b" class="navnav">18.8.2 Umwandlung von XML-Dateien mit JDOM und JAXP</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_18_009.htm#mjfae1480f2969fabf0ee2cade12877730" class="navnav">18.9 XML-Schema-Validierung *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_009.htm#mja91b6ae6be97d96101b8fa28df390e00" class="navnav">18.9.1 SchemaFactory und Schema</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_009.htm#mje7366a9f6e72187c570b0bd76ad9e928" class="navnav">18.9.2 Validator</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_009.htm#mjc42d33ecf9649ecc4d3e84119eb9aa91" class="navnav">18.9.3 Validierung unterschiedlicher Datenquellen durchführen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_18_010.htm#mj534267b3a104b554a24f5af79f86f323" class="navnav">18.10 Zum Weiterlesen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mja6850a6000c1851e0c5247871971601d" name="mja6850a6000c1851e0c5247871971601d"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">18.4</span> Java Architecture for XML Binding (JAXB)  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Java Architecture for XML Binding (JAXB) ist eine API zum Übertragen von Objektzuständen auf XML-Dokumente und umgekehrt. Anders als eine manuelle Abbildung von Java-Objekten auf XML-Dokumente oder das Parsen von XML-Strukturen und Übertragen der XML-Elemente auf Geschäftsobjekte arbeitet JAXB automatisch. Die Übertragungsregeln definieren Annotationen, die Entwickler selbst an die JavaBeans setzen können, aber JavaBeans werden gleich zusammen mit den Annotationen von einem Werkzeug aus deiner XML-Schema-Datei generiert.</p>
+<p>Java 6 integriert JAXB 2.0, und das JDK 6 Update 4 &#8211; sehr ungewöhnlich für ein Update &#8211; aktualisiert auf JAXB 2.1.</p><a id="mj57b18ee2f86e3548766ce5bcf5668f81" name="mj57b18ee2f86e3548766ce5bcf5668f81"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">18.4.1</span> Bean für JAXB aufbauen  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Wir wollen einen <span class="clisting">Player</span> deklarieren, und JAXB soll ihn anschließend in ein XML-Dokument übertragen:</p>
+<p class="tabunter"><strong>Listing 18.6    </strong>com/tutego/insel/xml/jaxb/Player.java, Player</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">@XmlRootElement</span>
+class Player
+{
+  private String name;
+  private Date   birthday;
+
+  public String getName()
+  {
+    return name;
+  }
+
+  public void setName( String name )
+  {
+    this.name = name;
+  }
+
+  public void setBirthday( Date birthday )
+  {
+    this.birthday = birthday;
+  }
+  public Date getBirthday()
+  {
+    return birthday;
+  }
+}</pre></div>
+<p>Die Klassen-Annotation <span class="clisting">@XmlRootElement</span> ist an der JavaBean nötig, wenn die Klasse das Wurzelelement eines XML-Baums bildet. Die Annotation stammt aus dem Paket <span class="clisting">javax.xml.bind.annotation</span>.</p><a id="mj04094f0a2770094b2b07b5d2cc435a76" name="mj04094f0a2770094b2b07b5d2cc435a76"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">18.4.2</span> JAXBContext und die Marshaller  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Ein kleines Testprogramm baut eine Person auf und bildet sie dann in XML ab &#8211; die Ausgabe der Abbildung kommt auf dem Bildschirm:</p>
+<p class="tabunter"><strong>Listing 18.7    </strong>com/tutego/insel/xml/xml/jaxb/PlayerMarshaller.java, main()</p>
+<div class="listing"><pre class="prettyprint">Player johnPeel = new Player();
+johnPeel.setName( "John Peel" );
+johnPeel.setBirthday( new GregorianCalendar(1939,Calendar.AUGUST,30).getTime() );
+<span class="cfett">
+JAXBContext context = JAXBContext.newInstance( Player.class );
+Marshaller m = context.createMarshaller();
+m.setProperty( Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE );
+m.marshal( johnPeel, System.out );</span></pre></div>
+<p>Nach dem Lauf kommt auf dem Schirm:</p>
+<div class="listing"><pre class="prettyprint">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;player&gt;
+    &lt;birthday&gt;1939-08-30T00:00:00+01:00&lt;/birthday&gt;
+    &lt;name&gt;John Peel&lt;/name&gt;
+&lt;/player&gt;</pre></div>
+<p>Alles bei JAXB beginnt mit der zentralen Klasse <span class="clisting">JAXBContext</span>. Die statische Methode <span class="clisting">JAXBContext.newInstance()</span> erwartet standardmäßig eine Aufzählung der Klassen, die JAXB behandeln soll. Der <span class="clisting">JAXBContext</span> erzeugt den <span class="clisting">Marshaller</span> zum Schreiben und <span class="clisting">Unmarshaller</span> zum Lesen. Die Fabrikmethode <span class="clisting">createMarshaller()</span> liefert einen Schreiberling, der mit <span class="clisting">marshal()</span> das Wurzelobjekt in einen Datenstrom schreibt. Das zweite Argument von <span class="clisting">marshal()</span> ist unter anderem ein <span class="clisting">OutputStream</span> (wie <span class="clisting">System.out</span> in unserem Beispiel), <span class="clisting">Writer</span> oder <span class="clisting">File</span>-Objekt.</p>
+<p>JAXB beachtet standardmäßig alle Bean-Properties, also <span class="clisting">birthday</span> und <span class="clisting">name</span>, und nennt die XML-Elemente nach den Properties.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class javax.xml.bind.<span class="cfett">JAXBContext</span></pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">static JAXBContext newInstance( Class... classesToBeBound ) throws JAXBException</span>
+Liefert ein Exemplar vom <span class="clisting">JAXBContext</span> mit Klassen, die als Wurzelklassen für JAXB verwendet werden können.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">abstract Marshaller createMarshaller()</span>
+Erzeugt einen <span class="clisting">Marshaller</span>, der Java-Objekte in XML-Dokumente konvertieren kann.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">abstract Unmarshaller createUnmarshaller()</span>
+Erzeugt einen <span class="clisting">Unmarshaller</span> der XML-Dokumente in Java-Objekte konvertiert.</li>
+</ul><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class javax.xml.bind.<span class="cfett">Marshaller</span></pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">void marshal( Object jaxbElement, File output )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void marshal( Object jaxbElement, OutputStream os )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void marshal( Object jaxbElement, Writer writer )</span>
+Schreibt den Objektgraph von <span class="clisting">jaxbElement</span> in eine Datei oder einen Ausgabestrom.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void marshal( Object jaxbElement, Node node )</span>
+Erzeugt vom Objekt einen DOM-Knoten. Der kann dann in ein XML-Dokument gesetzt werden.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void marshal( Object jaxbElement, XMLEventWriter writer )
+void marshal( Object jaxbElement, XMLStreamWriter writer )</span>
+Erzeugt für ein <span class="clisting">jaxbElement</span> einen Informationsstrom für den <span class="clisting">XMLEventWriter</span> beziehungsweise <span class="clisting">XMLStreamWriter</span>. Die StAX-Klassen werden später genauer vorgestellt.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void setProperty( String name, Object value )</span>
+Setzt eine Eigenschaft auf der <span class="clisting">Marshaller</span>-Implementierung. So setzt das Paar <span class="clisting">Marshaller.JAXB_FORMATTED_OUTPUT</span>, <span class="clisting">Boolean.TRUE</span> eine Einrückung.</li>
+</ul><a id="mj5fb6a31746fde33e516fb3c447fb5876" name="mj5fb6a31746fde33e516fb3c447fb5876"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">18.4.3</span> Ganze Objektgraphen schreiben und lesen  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>JAXB bildet nicht nur das zu schreibende Objekt ab, sondern auch rekursiv alle referenzierten Unterobjekte. Wir wollen den Spieler dazu in einen Raum setzen und den Raum in XML abbilden. Dazu muss der Raum die Annotation <span class="clisting">@XmlRootElement</span> bekommen und bei <span class="clisting">Player</span> kann sie entfernt werden, wenn nur der Raum selbst, aber keine <span class="clisting">Player</span> als Wurzelobjekte zum Marshaller kommen:</p>
+<p class="tabunter"><strong>Listing 18.8    </strong>com/tutego/insel/xml/xml/jaxb/Room.java, Room</p>
+<div class="listing"><pre class="prettyprint">@XmlRootElement(<span class="cfett"> namespace = "http://tutego.com/"</span> )
+public class Room
+{
+  private List&lt;Player&gt; players = new ArrayList&lt;Player&gt;();
+
+ <span class="cfett"> @XmlElement( name = "player" )</span>
+  public List&lt;Player&gt; getPlayers()
+  {
+    return players;
+  }
+
+  public void setPlayers( List&lt;Player&gt; players )
+  {
+
+    this.players = players;
+  }
+}</pre></div>
+<p>Zwei Annotationen kommen vor: Da <span class="clisting">Room</span> der Start des Objektgraphen ist, trägt es <span class="clisting">@XmlRootElement</span>. Als Erweiterung ist das Element <span class="clisting">namespace</span> für den Namensraum gesetzt, da bei eigenen XML-Dokumenten immer ein Namensraum genutzt werden soll. Weiterhin ist eine Annotation <span class="clisting">@XmlElement</span> am Getter <span class="clisting">getPlayers()</span> platziert, um den Namen des XML-Elements zu überschreiben, damit das XML-Element nicht <span class="clisting">&lt;player</span><span class="cfett">s</span><span class="clisting">&gt;</span> heißt, sondern <span class="clisting">&lt;player&gt;</span>.</p>
+<p>Kommen wir abschließend zu einem Beispiel, das einen Raum mit zwei Spielern aufbaut und diesen Raum dann in eine XML-Datei schreibt. Statt allerdings <span class="clisting">JAXBContext</span> direkt zu nutzen und einen <span class="clisting">Marshaller</span> zum Schreiben und <span class="clisting">Unmarshaller</span> zum Lesen zu erfragen, kommt im zweiten Beispiel die Utility-Klasse <span class="clisting">JAXB</span> zum Einsatz, die ausschließlich statische überladene <span class="clisting">marshal()</span>- und <span class="clisting">unmarshal()</span>-Methoden anbietet:</p>
+<p class="tabunter"><strong>Listing 18.9    </strong>com/tutego/insel/xml/jaxb/RoomMarshaller.javal, main()</p>
+<div class="listing"><pre class="prettyprint">Player john = new Player();
+john.setName( "John Peel" );
+
+Player tweet = new Player();
+tweet.setName( "Zwitscher Zoe" );
+
+Room room = new Room();
+room.setPlayers( Arrays.asList( john, tweet ) );
+
+File file = new File( "room.xml" );<span class="cfett">
+JAXB.marshal( room, file );
+
+Room room2 = JAXB.unmarshal( file, Room.class );</span>
+System.out.println( room2.getPlayers().get( 0 ).getName() ); // John Peel
+
+file.deleteOnExit();</pre></div>
+<p>Falls etwas beim Schreiben oder Lesen misslingt, werden die vorher geprüften Ausnahmen in einer <span class="clisting">DataBindingException</span> ummantelt, die eine <span class="clisting">RuntimeException</span> ist.</p>
+<p>Die Ausgabe ist:</p>
+<div class="listing"><pre class="prettyprint">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;ns2:room xmlns:ns2="http://tutego.com/"&gt;
+    &lt;player&gt;
+        &lt;name&gt;John Peel&lt;/name&gt;
+    &lt;/player&gt;
+    &lt;player&gt;
+        &lt;name&gt;Zwitscher Zoe&lt;/name&gt;
+    &lt;/player&gt;
+&lt;/ns2:room&gt;</pre></div>
+<p>Da beim Spieler das Geburtsdatum nicht gesetzt war (<span class="clisting">null</span> wird referenziert), wird es auch nicht in XML abgebildet.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class javax.xml.bind.<span class="cfett">JAXB</span></pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">static void marshal( Object jaxbObject, File xml )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static void marshal( Object jaxbObject, OutputStream xml )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static void marshal( Object jaxbObject, Result xml )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static void marshal( Object jaxbObject, String xml )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static void marshal( Object jaxbObject, URI xml )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static void marshal( Object jaxbObject, URL xml )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static void marshal( Object jaxbObject, Writer xml )</span>
+Schreibt das XML-Dokument in die angegebene Ausgabe. Im Fall von <span class="clisting">URI</span>/<span class="clisting">URL</span> wird ein HTTP-POST gestartet. Ist der Parametertyp <span class="clisting">String</span>, wird er als URL gesehen und führt ebenfalls zu einem HTTP-Zugriff. <span class="clisting">Result</span> ist ein Typ für eine XML-Transformation und wird später vorgestellt.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static &lt;T&gt; T unmarshal( File xml, Class&lt;T&gt; type )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static &lt;T&gt; T unmarshal( InputStream xml, Class&lt;T&gt; type )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static &lt;T&gt; T unmarshal( Reader xml, Class&lt;T&gt; type )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static &lt;T&gt; T unmarshal( Source xml, Class&lt;T&gt; type )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static &lt;T&gt; T unmarshal( String xml, Class&lt;T&gt; type )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static &lt;T&gt; T unmarshal( URI xml, Class&lt;T&gt; type )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static &lt;T&gt; T unmarshal( URL xml, Class&lt;T&gt; type )</span>
+Rekonstruiert aus der gegebenen XML-Quelle den Java Objektgraph.</li>
+</ul><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Performance-Tipp   </span>Den <span class="clisting">JAXBContext</span> aufzubauen, kostet Zeit und Speicher. Er sollte daher für wiederholte Operationen gespeichert werden. Noch eine Information: <span class="clisting">Marshaller</span> und <span class="clisting">Unmarshaller</span> sind nicht thread-sicher; es darf keine zwei Threads geben, die gleichzeitig den <span class="clisting">Marshaller</span>/<span class="clisting">Unmarshaller</span> nutzen.</p>
+</td>
+</tr>
+</table><br><a id="mjb62739dc1bf14d196c3ffc52932f7360" name="mjb62739dc1bf14d196c3ffc52932f7360"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">18.4.4</span> Validierung  <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Beim Schreiben und auch beim Lesen von XML-Dokumenten kann JAXB diese gegen ein XML-Schema validieren:</p>
+<ul class="gp">
+<li>Falsche XML-Dokumente sollen nicht eingelesen werden. Wenn die Schema-Datei zum Beispiel vorschreibt, eine Zahl (etwa für die Bohrtiefe) darf nur im Wertebereich von 0 bis 10.000 liegen, und in einer XML-Datei taucht dann ein Wert von 10.600 auf, dann wäre die XML-Datei nach diesem Schema nicht valide. JAXB sollte sie ablehnen.</li>
+</ul>
+<ul class="gp">
+<li>Fasche Werte in JavaBeans dürfen nicht zu nicht-validen XML-Dokumenten führen. JavaBeans bestehen aus einfachen Settern und Gettern, und die Prüfungen im XML-Schema gehen weit über das hinaus, was üblicherweise eine JavaBean prüft. So kann eine Schema-Definition etwa vorschreiben, dass eine Zeichenkette nach einem ganz speziellen regulären Ausdruck geschrieben wird. In der Regel sind die Setter aber nicht so implementiert, dass sie die Strings direkt prüfen. JAXB sollte es auch nicht erlauben, dass JavaBeans mit falschen Strings geschrieben werden und zu nicht-validen XML-Dokumenten führen kann.</li>
+</ul>
+<p>Zentral bei der Validierung ist eine XML-Schema-Datei. Doch wo kommt diese her? Wurden aus der Schema-Datei die JavaBeans generiert, ist logischerweise die Schema-Beschreibung schon da. Sind die JavaBeans aber zuerst da, gibt es erst einmal keine Schema-Datei. Über unterschiedliche Wege lässt sich eine passende Schema-Datei entwickeln:</p>
+<ul class="gp">
+<li><span class="cfett">Per Hand</span>: Die XML-Schema-Datei wird per Hand selbstständig ohne Tool entwickelt.</li>
+</ul>
+<ul class="gp">
+<li><span class="cfett">Über die XML-Dokumente</span>: Ein Tool analysiert XML-Dateien und erzeugt aufgrund der erkannten Strukturen eine XML-Schema-Datei. Für dieses Verfahren gibt es eine Reihe von Tools, und einige sind auch online verfügbar, etwa <span class="ckursiv">http://tutego.de/go/xml-2-xsd</span>.</li>
+</ul>
+<ul class="gp">
+<li><span class="cfett">Mit schemagen</span>: Das JDK bringt ein Tool mit dem Namen <span class="ckursiv">schemagen</span> mit, was auf JAXB-annotierte Beans angesetzt wird und die Schema-Datei generiert.</li>
+</ul>
+<h4 class="t4">Mit »schemagen« aus JAXB-Beans eine Schema-Datei generieren</h4>
+<p>Das Tool <span class="ckursiv">schemagen</span> befindet sich wie alle anderen JDK-Tools im <span class="ckursiv">bin</span>-Verzeichnis. Das Kommandozeilentool erwartet die Angabe einer Quellcodeklasse oder einer compilierten Klasse und spuckt die Schema-Beschreibungen aus:</p>
+<div class="listing"><pre class="prettyprint">C:\Insel\programme\2_16_XML\src&gt;schemagen com.tutego.insel.xml.jaxb.Room -cp <img src="common/umbruch.gif" border="0" alt="Umbruch">
+  "c:\Program Files\Java\jdk1.6.0\lib\tools.jar"
+Note: Writing C:\Insel\programme\18_XML\src\schema1.xsd
+Note: Writing C:\Insel\programme\18_XML\src\schema2.xsd</pre></div>
+<p>Der Schalter <span class="clisting">-cp</span> muss (bisher) auf <span class="ckursiv">tools.jar</span> stehen.</p>
+<p>Zwei Schema-Dateien erzeugt das Tool, und sie sehen so aus:</p>
+<p class="tabunter"><strong>Listing 18.10    </strong>schema1.xsd</p>
+<div class="listing"><pre class="prettyprint">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;xs:schema version="1.0" targetNamespace="http://tutego.com/"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"&gt;
+
+  &lt;xs:import schemaLocation="schema2.xsd" /&gt;
+
+  &lt;xs:element name="room" type="room" /&gt;
+
+&lt;/xs:schema&gt;</pre></div>
+<p class="tabunter"><strong>Listing 18.11    </strong>schema2.xsd</p>
+<div class="listing"><pre class="prettyprint">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"&gt;
+
+  &lt;xs:element name="player" type="player" /&gt;
+
+  &lt;xs:complexType name="room"&gt;
+    &lt;xs:sequence&gt;
+      &lt;xs:element ref="player" minOccurs="0" maxOccurs="unbounded" /&gt;
+    &lt;/xs:sequence&gt;
+  &lt;/xs:complexType&gt;
+
+  &lt;xs:complexType name="player"&gt;
+    &lt;xs:sequence&gt;
+      &lt;xs:element name="birthday" type="xs:dateTime" minOccurs="0" /&gt;
+      &lt;xs:element name="name" type="xs:string" minOccurs="0" /&gt;
+    &lt;/xs:sequence&gt;
+  &lt;/xs:complexType&gt;
+&lt;/xs:schema&gt;</pre></div>
+<p>Ein genaues Verständnis des Schemas ist nicht nötig.</p>
+<div class="bildbox">
+<p><a name="IDAPC1D"></a><a onClick="OpenWin('bilder/RoomXMLSchema.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinRoomXMLSchema.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 18.1    </strong>Visualisierung des Schemas</p>
+<h4 class="t4">Schema-Validierung mit JAXB</h4>
+<p>Wir wollen die Validierungsmöglichkeiten von JAXB für unsere bekannte Raum-Datei ausprobieren und bewusst zwei Fehler einbauen:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellenkopf"><span class="cfett">Valide XML-Datei (nach Schema)</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Nicht-valide XML-Datei (nach Schema)</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p class="tabunter"><strong>Listing 18.12    </strong>room.xml</p>
+<div class="listing"><pre class="prettyprint">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;ns2:room xmlns:ns2=
+"http://tutego.com/"&gt;
+  &lt;player&gt;
+    &lt;name&gt;John Peel&lt;/name&gt;
+  &lt;/player&gt;
+  &lt;player&gt;
+    &lt;name&gt;Zwitscher Zoe&lt;/name&gt;
+  &lt;/player&gt;
+&lt;/ns2:room&gt;</pre></div>
+</td>
+<td class="tabellentext">
+<p class="tabunter"><strong>Listing 18.13    </strong>room-invalid.xml</p>
+<div class="listing"><pre class="prettyprint">&lt;?xml version="1.0" encoding="UTF-8"?&gt;<span class="cfett">
+&lt;room&gt;</span>
+  &lt;player&gt;
+    &lt;name&gt;John Peel&lt;/name&gt;
+  &lt;/player&gt;
+  &lt;player&gt;
+    &lt;name&gt;Zwitscher Zoe&lt;/name&gt;
+   <span class="cfett"> &lt;name&gt;Heini Hayward&lt;/name&gt;</span>
+  &lt;/player&gt;<span class="cfett">
+&lt;/room&gt;</span></pre></div>
+</td>
+</tr>
+</table><br><p>Das Java-Programm aus dem vorigen Abschnitt schrieb eine korrekte XML-Datei <span class="ckursiv">room.xml</span>. In <span class="ckursiv">room-invalid.xml</span> fehlt einmal der Namensraum, und dann sind zwei Namen angegeben, obwohl die Schema-Datei nur einen Namen erlaubt.</p>
+<p>Damit JAXB den Fehler erkennt, muss es mit der neuen Schema-Datei verbunden werden. JAXP hat eine eigene API für Validierungen, die dafür eingesetzt wird (mehr zu Schema-Validierung später in Abschnitt 18.9, »XML-Schema Validierung *«):</p>
+<p class="tabunter"><strong>Listing 18.14    </strong>com/tutego/insel/xml/jaxb/ValidatingRoomUnmarshaller, main()</p>
+<div class="listing"><pre class="prettyprint">File file = new File( "invalid-room.xml" );
+JAXBContext context = JAXBContext.newInstance( Room.class );
+Unmarshaller unmarshaller = context.createUnmarshaller();<span class="cfett">
+SchemaFactory sf = SchemaFactory.newInstance( W3C_XML_SCHEMA_NS_URI );
+Schema schema = sf.newSchema( ValidatingRoomUnmarshaller.class.getResource(</span> <img src="common/umbruch.gif" border="0" alt="Umbruch"><span class="cfett">
+"/schema1.xsd" ) );
+unmarshaller.setSchema( schema );</span>
+Room room = (Room) unmarshaller.unmarshal( file );
+System.out.println( room.getPlayers() );</pre></div>
+<p>Es wird ein Exemplar eines <span class="clisting">Schema</span>-Objekts erzeugt und dieses über <span class="clisting">setSchema()</span> beim <span class="clisting">Unmarshaller</span> gesetzt (Achtung: <span class="clisting">JAXB.unmarshal(file, Room.class)</span> wird nicht funktionieren!).</p>
+<p>Schon der erste Fehler in <span class="ckursiv">invalid-room.xml</span> führt zum Abbruch:</p>
+<div class="listing"><pre class="prettyprint">Exception in thread "main" javax.xml.bind.UnmarshalException
+ &#8211; with linked exception:
+[org.xml.sax.SAXParseException; systemId: file:/C:/Insel/programme/18_XML/ <img src="common/umbruch.gif" border="0" alt="Umbruch">
+invalid-room.xml; lineNumber: 2; columnNumber: 7; cvc-elt.1:<span class="cfett"> Cannot find the declaration of element 'room'</span>.]</pre></div>
+<p>Ist der Fehler behoben, kommt das zweite Problem hoch, nämlich dass es zwei Namen gibt:</p>
+<div class="listing"><pre class="prettyprint">Exception in thread "main" javax.xml.bind.UnmarshalException <img src="common/umbruch.gif" border="0" alt="Umbruch">
+ &#8211; with linked exception:
+[org.xml.sax.SAXParseException; systemId: file:/C:/Insel/programme/18_XML/ <img src="common/umbruch.gif" border="0" alt="Umbruch">
+invalid-room.xml; lineNumber: 8; columnNumber: 11; cvc-complex-type.2.4.d: <img src="common/umbruch.gif" border="0" alt="Umbruch"><span class="cfett">
+  Invalid content was found starting with element 'name'. No child element is</span> <img src="common/umbruch.gif" border="0" alt="Umbruch"><span class="cfett">
+  expected at this point</span><span class="cfett">.</span>]</pre></div>
+<p>Erst wenn der Fehler behoben wurde, gibt es keine Ausnahme mehr und JAXB gibt Ruhe.</p><a id="mjb3a737e291d8682c25fa9733ed78be51" name="mjb3a737e291d8682c25fa9733ed78be51"></a><a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3"><span class="cfett">18.4.5</span> Weitere JAXB-Annotationen *  <a href="#t2t37"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>XML-Schemas können recht komplex werden, sodass auch die Anzahl der JAXB-Annotationen und Möglichkeiten hoch ist. Im Folgenden sollen verschiedene JAXB-Annotationen ihre Wirkung auf die XML-Ausgaben zeigen.</p>
+<h4 class="t4">Zugriff über Setter/Getter oder Attribute</h4>
+<p>JAXB kann sich die Werte über JavaBean-Properties &#8211; also Setter/Getter &#8211; setzen und lesen und/oder direkt auf die Attribute zugreifen. Der Attributzugriff ist vergleichbar mit der Standard-Serialisierung, der Zugriff über die Property ist von der JavaBeans Persistence über <span class="clisting">java.beans.XMLEncoder</span>/<span class="clisting">java.beans.XMLDecoder</span> realisiert. Welchen Weg JAXB gehen soll, bestimmt die Annotation <span class="clisting">XmlAccessorType</span>, die üblicherweise an der Klasse festgemacht wird. Drei Werte sind interessant:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">@XmlAccessorType( XmlAccessType.FIELD )</span></p>
+</td>
+<td class="tabellentext">
+<p>jedes nicht-statische Attribut</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">@XmlAccessorType( XmlAccessType.PROPERTY )</span></p>
+</td>
+<td class="tabellentext">
+<p>jede JavaBean-Property</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">@XmlAccessorType( XmlAccessType.PUBLIC_MEMBER )</span></p>
+</td>
+<td class="tabellentext">
+<p>nur jede öffentliche JavaBean-Property oder jedes öffentliche Attribut</p>
+</td>
+</tr>
+</table><br><p>Die Standardbelegung ist <span class="clisting">AccessType.PUBLIC_MEMBER</span>.</p>
+<h4 class="t4">@Transient</h4>
+<p>Die Annotation <span class="clisting">@Transient</span> nimmt ein Element aus der XML-Abbildung aus. Das ist nützlich für den <span class="clisting">XmlAccessType.FIELD</span> oder <span class="clisting">XmlAccessType.PROPERTY</span>, da dann auch private Eigenschaften geschrieben werden, was allerdings nicht in jedem Fall erwünscht ist:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">class Person
+{</span>
+ <span class="clisting">@XmlTransient public int id;</span>
+ <span class="clisting">public String firstname;</span>
+ <span class="clisting">public String lastname;
+}</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">&lt;person&gt;</span>
+ <span class="clisting">&lt;firstname&gt;Christian&lt;/firstname&gt;</span>
+ <span class="clisting">&lt;lastname&gt;Ullenboom&lt;/lastname&gt;
+&lt;/person&gt;</span></p>
+</td>
+</tr>
+</table><br><h4 class="t4">Werte als Attribute schreiben @XmlAttribute</h4>
+<p>Üblicherweise schreibt JAXB jeden Wert in ein eigenes XML-Element. Soll der Wert als Attribut geschrieben werden, kommt die Annotation <span class="clisting">@XmlAttribute</span> zum Einsatz:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">class Person
+{</span>
+ <span class="clisting">public String name;</span>
+ <span class="clisting">public @XmlAttribute int id;
+}</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">&lt;person id="123"&gt;</span>
+ <span class="clisting">&lt;name&gt;Christian&lt;/name&gt;
+&lt;/person&gt;</span></p>
+</td>
+</tr>
+</table><br><h4 class="t4">Reihenfolge der Elemente ändern</h4>
+<p>Ist die Reihenfolge der XML-Elemente wichtig, so lässt sich mit dem <span class="clisting">propOrder</span> die Reihenfolge der Eigenschaften bestimmen:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">class Person
+{</span>
+ <span class="clisting">public String lastname, firstname;
+}</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">&lt;person&gt;</span>
+ <span class="clisting">&lt;lastname&gt;Ullenboom&lt;/lastname&gt;</span>
+ <span class="clisting">&lt;firstname&gt;Christian&lt;/firstname&gt;
+&lt;/person&gt;</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="cfett">@XmlType(</span>
+ <span class="cfett">propOrder = { "firstname", "lastname"</span><span class="clisting">
+)
+class Person
+{</span>
+ <span class="clisting">public String lastname, firstname;
+}</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">&lt;person&gt;</span>
+ <span class="clisting">&lt;firstname&gt;Christian&lt;/firstname&gt;</span>
+ <span class="clisting">&lt;lastname&gt;Ullenboom&lt;/lastname&gt;
+&lt;/person&gt;</span></p>
+</td>
+</tr>
+</table><br><h4 class="t4">Einzelner Wert ohne eigenes XML-Element</h4>
+<p>Gibt es nur ein Element in der Klasse, so kann <span class="clisting">@XmlValue</span> es direkt ohne Unterelement in den Rumpf setzen:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">class Person
+{</span>
+ <span class="clisting">public int id;
+}</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">&lt;person&gt;</span>
+ <span class="clisting">&lt;id&gt;123&lt;/id&gt;
+&lt;/person&gt;</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">class Person
+{</span>
+ <span class="clisting">public</span> <span class="cfett">@XmlValue</span> <span class="clisting">int id;
+}</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">&lt;person&gt;123&lt;/person&gt;</span></p>
+</td>
+</tr>
+</table><br><h4 class="t4">Kompakte Listendarstellung</h4>
+<p>Die Datenstruktur Liste wird in JAXB üblicherweise so abgebildet, dass jedes Listenelement einzeln in ein XML-Element kommt. Die Annotation <span class="clisting">@XmlList</span> weist JAXB an, Elemente einer Sammlung mit Leerzeichen zu trennen. Das funktioniert gut bei IDs, aber natürlich nicht mit allgemeinen Zeichenketten, die Leerzeichen enthalten:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">class Person
+{</span>
+  <span class="clisting">public List&lt;String&gt; emails;
+}</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">&lt;person&gt;</span>
+ <span class="clisting">&lt;emails&gt;muh@kuh.de&lt;/emails&gt;</span>
+ <span class="clisting">&lt;emails&gt;zick@zack.com&lt;/emails&gt;
+&lt;/person&gt;</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">class Person
+{</span>
+ <span class="clisting">public</span> <span class="cfett">@XmlList</span> <span class="clisting">List&lt;String&gt; emails;
+}</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">&lt;person&gt;</span>
+  <span class="clisting">&lt;emails&gt;muh@kuh.de zick@zack.com&lt;/emails&gt;
+&lt;/person&gt;</span></p>
+</td>
+</tr>
+</table><br><h4 class="t4">Elemente zusätzlich einpacken</h4>
+<p>Die Annotation <span class="clisting">@XmlElementWrapper</span> dient dazu, ein zusätzliches XML-Element zu erzeugen. In der Regel wird das für Sammlungen angewendet, wie auch das folgende Beispiel zeigt:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">class Person
+{</span>
+  <span class="clisting">public List&lt;String&gt; emails;
+}</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">&lt;person&gt;</span>
+  <span class="clisting">&lt;emails&gt;muh@kuh.de&lt;/emails&gt;</span>
+  <span class="clisting">&lt;emails&gt;zick@zack.com&lt;/emails&gt;
+&lt;/person&gt;</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">class Person
+{</span>
+ <span class="cfett">@XmlElementWrapper(name = "emails")</span>
+ <span class="cfett">@XmlElement(name = "email")</span>
+ <span class="clisting">public List&lt;String&gt; emails;
+}</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">&lt;person&gt;</span>
+  <span class="clisting">&lt;emails&gt;</span>
+    <span class="clisting">&lt;email&gt;muh@kuh.de&lt;/email&gt;</span>
+    <span class="clisting">&lt;email&gt;zick@zack.com&lt;/email&gt;</span>
+  <span class="clisting">&lt;/emails&gt;
+&lt;/person&gt;</span></p>
+</td>
+</tr>
+</table><br><h4 class="t4">Anpassen der XML-Abbildung</h4>
+<p>Nicht immer passt die Standard-Abbildung eines Datentyps gut. Für Farben sollen zum Beispiel nicht die Rot-, Grün- und Blau-Werte einzeln geschrieben werden, sondern alles kompakt in einem String. Auch die Standard-Abbildung für Datumswerte trifft nicht jeden Geschmack:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">class Person
+{</span>
+ <span class="clisting">public Date birthday;
+}</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">&lt;person&gt;</span>
+  <span class="clisting">&lt;birthday&gt;1973-03-12T00:00:00+01:00&lt;/birthday&gt;
+&lt;/person&gt;</span></p>
+</td>
+</tr>
+</table><br><p>Für Aufgaben dieser Art erlaubt die Annotation <span class="clisting">@XmlJavaTypeAdapter</span> die Angabe einer Konverterklasse, die einmal den Weg vom Objekt in eine Stringrepräsentation für das XML-Element und dann vom String in das Objekt zurück beschreibt:</p>
+<div class="listing"><pre class="prettyprint">class Person
+{
+ <span class="cfett"> @XmlJavaTypeAdapter( DateAdapter.class )</span>
+  public Date birthday;
+}</pre></div>
+<p>Die eigene Klasse <span class="clisting">DateAdapter</span> erweitert die vorgegebene JAXB-Klasse <span class="clisting">XmlAdapter</span> und überschreibt zwei Methoden für beide Konvertierungswege:</p>
+<div class="listing"><pre class="prettyprint">class DateAdapter<span class="cfett"> extends XmlAdapter&lt;String, Date&gt;</span>
+{
+  private final static DateFormat formatter = new SimpleDateFormat( 
+    "dd/MM/yyyy" );
+
+ <span class="cfett"> public Date unmarshal( String date ) throws ParseException</span> {
+    return formatter.parse( date );
+  }
+
+
+ <span class="cfett"> public String marshal( Date date )</span>  {
+    return formatter.format( date );
+  }
+}</pre></div>
+<p>Damit bekommt die Ausgabe das gewünschte Format:</p>
+<div class="listing"><pre class="prettyprint">&lt;person&gt;
+    &lt;birthday&gt;12/03/1973&lt;/birthday&gt;
+&lt;/person&gt;</pre></div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">abstract class javax.xml.bind.annotation.adapters.<span class="cfett">XmlAdapter</span>&lt;ValueType,BoundType&gt;</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">abstract ValueType marshal( BoundType v )</span>
+Konvertiert <span class="clisting">v</span> in einen Werttyp, der dann in eine XML-Repräsentation überführt wird.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">abstract BoundType unmarshal( ValueType v )</span>
+Überführt den Wert in den XML-Typ.</li>
+</ul>
+<p><span class="clisting">ValueType</span> und <span class="clisting">BoundType</span> sind Typvariablen, aber ungewöhnlicher Weise sind es keine einfachen Großbuchstaben.</p>
+<h4 class="t4">Der spezielle Datentyp »XMLGregorianCalendar«</h4>
+<p>Neben der Möglichkeit, Datumswerte mit einem <span class="clisting">@XmlJavaTypeAdapter/XmlAdapter</span> zu übersetzen, bietet JAXB den speziellen Datentyp <span class="clisting">XMLGregorianCalendar</span>. Die Abbildung in XML ist kompakter:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">class Person
+{</span>
+ <span class="clisting">public</span> <span class="cfett">XMLGregorianCalendar</span> <span class="clisting">birthday;
+}</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">&lt;person&gt;</span>
+ <span class="clisting">&lt;birthday&gt;1973-03-12&lt;/birthday&gt;
+&lt;/person&gt;</span></p>
+</td>
+</tr>
+</table><br><p><span class="clisting">XMLGregorianCalendar</span> wird auch automatisch von dem Werkzeug <span class="clisting">xjc</span> genutzt, wenn in der XML-Schema-Datei ein Datum vorkommt. Nicht ganz einfach ist die Erzeugung eines <span class="clisting">XMLGregorianCalendar</span>-Objekts und die Belegung &#8211; hier gibt es noch Potenzial für Verbesserungen:</p>
+<div class="listing"><pre class="prettyprint">Person p = new Person();
+GregorianCalendar c = new GregorianCalendar( 1973, Calendar.MARCH, 12 );<span class="cfett">
+XMLGregorianCalendar gc = DatatypeFactory.newInstance().newXMLGregorianCalendar( c );
+gc.setTimezone( DatatypeConstants.FIELD_UNDEFINED );
+gc.setTime( DatatypeConstants.FIELD_UNDEFINED,</span>
+           <span class="cfett"> DatatypeConstants.FIELD_UNDEFINED,</span>
+           <span class="cfett"> DatatypeConstants.FIELD_UNDEFINED );</span>
+p.birthday = gc;</pre></div>
+<p>Die Klasse <span class="clisting">DatatypeFactory</span> bietet weitere statische Methoden für Mapper-Objekte, die XML in Objekte überführen oder umgekehrt.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">abstract class javax.xml.datatype.<span class="cfett">DatatypeFactory</span></pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">static DatatypeFactory newInstance()</span>
+Liefert eine DatatypeFactory-Implementierung.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">abstract XMLGregorianCalendar newXMLGregorianCalendar()</span>
+Liefert einen <span class="clisting">XMLGregorianCalendar</span>, bei dem alle Werte undefiniert sind.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">abstract XMLGregorianCalendar newXMLGregorianCalendar( GregorianCalendar cal )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">XMLGregorianCalendar newXMLGregorianCalendarDate( int year, int month, int day, int timezone )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">XMLGregorianCalendar newXMLGregorianCalendarTime( int hours, int minutes, int seconds, int timezone )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">XMLGregorianCalendar newXMLGregorianCalendarTime( int hours, int minutes, int seconds, BigDecimal fractionalSecond, int timezone )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">XMLGregorianCalendar newXMLGregorianCalendar( int year, int month, int day, int hour, int minute, int second, int millisecond, int timezone )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">abstract XMLGregorianCalendar newXMLGregorianCalendar( BigInteger year, int month, int day, int hour, int minute, int second, BigDecimal fractionalSecond, int timezone )</span>
+Liefert ein <span class="clisting">XMLGregorianCalendar</span>-Objekt mit unterschiedlichen Vorbelegungen.</li>
+</ul>
+<ul class="gp">
+<li>Weiterhin gibt es <span class="clisting">newDuration()</span>-Methoden, die <span class="clisting">javax.xml.datatype.Duration</span>-Objekte liefern. Die <span class="clisting">Duration</span>-Objekte können auf <span class="clisting">XMLGregorianCalendar</span> aufaddiert werden bzw. repräsentieren in XML-Schema-Dateien den Typ <span class="clisting">xs:duration</span>.</li>
+</ul><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Eine XML-Schema-Datei soll für das Element <span class="clisting">period</span> eine <span class="clisting">Dauer</span> definieren:</p>
+<div class="listing"><pre class="prettyprint">&lt;xs:element name="period" type="xs:duration"/&gt;</pre></div>
+<p class="BStandard">Angewendet kann es so aussehen, um die Dauer von einem Jahr und einem Monat anzugeben:</p>
+<div class="listing"><pre class="prettyprint">&lt;period&gt;P1Y1M&lt;/period&gt;</pre></div>
+<p class="BStandard">Werden aus Schema-Dateien die Java-Beans automatisch generiert, wird <span class="clisting">Duration</span> für <span class="clisting">xs:duration</span> eingesetzt.</p>
+</td>
+</tr>
+</table><br><h4 class="t4">Hierarchien einsetzen</h4>
+<p>Die XML-Abbildung von Objekten, die in Klassenbeziehungen organisiert sind, bedarf einer besonderen Vorbereitung. Nehmen wir an, <span class="clisting">Player</span> und <span class="clisting">Key</span> seien zwei Klassen, die von <span class="clisting">GameObject</span> abgeleitet sind (eine Schnittstelle wäre für JAXB auch möglich). Ziel ist es, Spieler und Schlüssel in einen Raum zu setzen:</p>
+<div class="listing"><pre class="prettyprint">abstract class GameObject {
+  public String name;
+}
+<span class="cfett">
+@XmlRootElement</span> public class Player extends GameObject { }
+<span class="cfett">
+@XmlRootElement</span> public class Key extends GameObject {
+  public int id;
+}</pre></div>
+<p>Zunächst gilt, dass die konkreten Klassen die Annotation <span class="clisting">@XmlRootElement</span> tragen müssen. Ein Beispielraum soll einen Spieler und einen Schlüssel beherbergen:</p>
+<div class="listing"><pre class="prettyprint">Player player= new Player();
+player.name = "Chris";
+
+Key key = new Key();
+key.name = "Entretenimiento";
+key.id = 12;
+
+Room room = new Room();
+room.objects.add( key );
+room.objects.add( player );</pre></div>
+<p>Der Raum referenziert in einer Liste allgemeine Objekte vom Typ <span class="clisting">GameObject</span>. Nun reicht im <span class="clisting">Room</span> ein einfaches</p>
+<div class="listing"><pre class="prettyprint">public List&lt;GameObject&gt; objects = new ArrayList&lt;GameObject&gt;();</pre></div>
+<p>zum Halten der Objektverweise aber nicht aus! Beim Verarbeiten würde JAXB die Information fehlen, welches Element denn tatsächlich in der Liste ist, denn ein <span class="clisting">Player</span> sollte ja etwa durch <span class="clisting">&lt;player&gt;</span> beschrieben sein und ein Schlüssel durch <span class="clisting">&lt;key&gt;</span>. Die Abbildung kann nicht <span class="clisting">&lt;objects&gt;</span> lauten, denn beim Lesen muss ein konkreter Untertyp rekonstruiert werden; wenn JAXB beim Lesen ein <span class="clisting">&lt;objects&gt;</span> sieht, weiß es erst einmal nicht, ob ein <span class="clisting">Player</span> oder ein <span class="clisting">Key</span> zu erzeugen und in die Liste zu hängen ist. Das Ziel ist aber die folgende Abbildung:</p>
+<div class="listing"><pre class="prettyprint">&lt;room&gt;
+ <span class="cfett"> &lt;key&gt;</span>
+    &lt;name&gt;Entretenimiento&lt;/name&gt;
+    &lt;id&gt;12&lt;/id&gt;
+ <span class="cfett"> &lt;/key&gt;</span>
+ <span class="cfett"> &lt;player&gt;</span>
+    &lt;name&gt;Chris&lt;/name&gt;
+ <span class="cfett"> &lt;/player&gt;</span>
+&lt;/room&gt;</pre></div>
+<p>Die Lösung liegt in der Anwendung der Annotationen <span class="clisting">@XmlElementRefs</span> und <span class="clisting">@XmlElementRef</span>. Ersteres ist ein Container und das Zweite bestimmt den Typ, der in der Liste zu erwarten ist:</p>
+<div class="listing"><pre class="prettyprint">@XmlRootElement public class Room
+{
+ <span class="cfett"> @XmlElementRefs(</span>
+ <span class="cfett"> {</span>
+   <span class="cfett"> @XmlElementRef( type = Player.class ),</span>
+   <span class="cfett"> @XmlElementRef( type = Key.class ),</span>
+ <span class="cfett"> } )</span>
+  public List&lt;GameObject&gt; objects = new ArrayList&lt;GameObject&gt;();
+}</pre></div>
+<p>Mit diesem Hinweis berücksichtigt JAXB den Typ der Kinder und schreibt nicht einfach <span class="clisting">&lt;objects&gt;</span>. Die Elementtypen in der Sammlung sind von uns mit <span class="clisting">@XmlRootElement</span> annotiert und geben den Namen der XML-Elemente »player« und »key« vor (wir hätten natürlich mit so etwas wie <span class="clisting">@XmlRootElement(name="sportsman")</span> den XML-Elementnamen überschreiben können).</p><a id="mjafd88dfe49de9d1fbe3d33655874e33c" name="mjafd88dfe49de9d1fbe3d33655874e33c"></a><a name="t36"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t37"></a><h3 class="t3"><span class="cfett">18.4.6</span> Beans aus XML-Schema-Datei generieren  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t36"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Da es für existierende XML-Dateien mühselig ist, die annotierten JavaBeans von Hand aufzubauen, gibt es einen Generator. Der <span class="ckursiv">Java Architecture for XML Binding Compiler</span>, kurz <span class="clisting">xjc</span>, ist Teil ab JDK 6 und kann von der Kommandozeile, Ant-Skript oder auch von Entwicklungsumgebungen [Für Eclipse gibt es dazu das Zusatz-Plugin https://jaxb-workshop.dev.java.net/plugins/eclipse/xjc-plugin.html &#8211; NetBeans integriert <span class="clisting">xjc</span> direkt.
+]  aufgerufen werden. Er nimmt eine XML-Schema-Datei und generiert die Java-Klassen und eine ObjectFactory, die als &#8211; wie der Name schon sagt &#8211; Fabrik für die gemappten Objekte aus den XML-Elementen fungiert.</p>
+<h4 class="t4">Die Geocoding API von Yahoo!</h4>
+<p>Für ein Beispiel wählen wir die »Yahoo! Maps Web Services-Geocoding API«. Mit ihr lassen sich zu einer Adresse in den USA die Latitude (geografische Breite) und Longitude (geografische Länge) ermitteln (im nächsten Schritt könnte dann ein Kartendienst die Adresse mithilfe der Geodaten anzeigen).</p>
+<p>Der Online-Dienst arbeitet über den REST-Stil, das heißt, eine URL enthält die Parameter der Anfrage. Die Webseite von Yahoo! gibt in einem Beispiel für eine URL vor:</p>
+<p><span class="ckursiv">http://local.yahooapis.com/MapsService/V1/geocode?appid=YD-9G7bey8_JXxQP6rxl.fBFG
+gCdNjoDMACQA--&amp;street=701+First+Ave&amp;city=Sunnyvale&amp;state=CA</span></p>
+<p>Der Kartenserver antwortet mit einer XML-Datei (zum Verdeutlichung hübsch formatiert):</p>
+<div class="listing"><pre class="prettyprint">&lt;?xml version="1.0"?&gt;
+&lt;ResultSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="urn:yahoo:maps"
+           xsi:schemaLocation="urn:yahoo:maps
+             http://api.local.yahoo.com/MapsService/V1/GeocodeResponse.xsd"&gt;
+  &lt;Result precision="address"&gt;
+    &lt;Latitude&gt;37.416397&lt;/Latitude&gt;
+    &lt;Longitude&gt;-122.025055&lt;/Longitude&gt;
+    &lt;Address&gt;701 1st Ave&lt;/Address&gt;
+    &lt;City&gt;Sunnyvale&lt;/City&gt;
+    &lt;State&gt;CA&lt;/State&gt;
+    &lt;Zip&gt;94089-1019&lt;/Zip&gt;
+    &lt;Country&gt;US&lt;/Country&gt;
+  &lt;/Result&gt;
+&lt;/ResultSet&gt;</pre></div>
+<p>Für unser Beispiel wollen wir das XML-Dokument, das der Yahoo! Maps Web Service liefert, nicht von Hand auseinanderpflücken, sondern JAXB soll uns eine gefüllte JavaBean mit allen Informationen liefern.</p>
+<h4 class="t4">»xjc« aufrufen</h4>
+<p>Im ersten Schritt wechseln wir auf die Kommandozeile und testen, ob entweder das <span class="ckursiv">bin</span>-Verzeichnis vom JDK im Suchpfad ist, oder wir wechseln direkt in das <span class="ckursiv">bin</span>-Verzeichnis, sodass wir <span class="clisting">xjc</span> direkt aufrufen können, und folgende Ausgabe erscheint:</p>
+<div class="listing"><pre class="prettyprint">$<span class="cfett"> xjc</span>
+grammar is not specified
+
+Usage: xjc [-options ...] &lt;schema file/URL/dir/jar&gt; ... [-b &lt;bindinfo&gt;] ...
+If dir is specified, all schema files in it will be compiled.
+If jar is specified, /META-INF/sun-jaxb.episode binding file will be compiled.
+Options:
+  -nv                :  do not perform strict validation of the input schema(s)
+  -extension         :  allow vendor extensions &#8211; do not strictly follow the
+                        Compatibility Rules and App E.2 from the JAXB Spec
+  -b &lt;file/dir&gt;      : specify external bindings files (each &lt;file&gt; must have 
+                       its own -b)
+                       If a directory is given, **/*.xjb is searched
+  -d &lt;dir&gt;           : generated files will go into this directory
+  -p &lt;pkg&gt;           : specifies the target package
+  -httpproxy &lt;proxy&gt; : set HTTP/HTTPS proxy. Format is 
+                       [user[:password]@]proxyHost:proxyPort
+  -httpproxyfile &lt;f&gt; : Works like -httpproxy but takes the argument in a file to 
+                       protect password
+  -classpath &lt;arg&gt;   : specify where to find user class files
+  -catalog &lt;file&gt;    : specify catalog files to resolve external entity references
+                       support TR9401, XCatalog, and OASIS XML Catalog format.
+  -readOnly          : generated files will be in read-only mode
+  -npa               : suppress generation of package level 
+                       annotations (**/package-info.java)
+  -no-header         : suppress generation of a file header with timestamp
+  -target 2.0        : behave like XJC 2.0 and generate code that doesnt use 
+                       any 2.1 features.
+  -xmlschema         : treat input as W3C XML Schema (default)
+  -relaxng           : treat input as RELAX NG (experimental,unsupported)
+  -relaxng-compact   : treat input as RELAX NG compact syntax (experimental, 
+                       unsupported)
+  -dtd               : treat input as XML DTD (experimental,unsupported)
+  -wsdl              : treat input as WSDL and compile schemas inside it 
+                       (experimental,unsupported)
+  -verbose           : be extra verbose
+  -quiet             : suppress compiler output
+  -help              : display this help message
+  -version           : display version information
+
+Extensions:
+  -Xlocator          : enable source location support for generated code
+  -Xsync-methods     : generate accessor methods with the 'synchronized' keyword
+  -mark-generated    : mark the generated code as @javax.annotation.Generated
+  -episode &lt;FILE&gt;    : generate the episode file for separate compilation</pre></div>
+<p>Eigentlich ist bis auf die Angabe der Schema-Quelle (aus einer Datei oder die URL) keine weitere Angabe nötig. Es ist aber praktisch, zwei Optionen zu setzen: <span class="clisting">-p</span> bestimmt das Java-Paket für die generierten Klassen und <span class="clisting">-d</span> das Ausgabeverzeichnis, wo der Generator die erzeugten Dateien ablegt. Yahoo! bietet die Schema-Datei unter <span class="ckursiv">http://local.yahooapis.com/MapsService/V1/GeocodeResponse.xsd</span> an, die sich direkt bei <span class="clisting">xjc</span> angeben lässt:</p>
+<div class="listing"><pre class="prettyprint">$<span class="cfett"> xjc -d "c:/" -p com.tutego.insel.xml.jaxb.yahoo.geocoding </span><img src="common/umbruch.gif" border="0" alt="Umbruch"><span class="cfett">
+  http://local.yahooapis.com/MapsService/V1/GeocodeResponse.xsd</span>
+parsing a schema...
+compiling a schema...
+com\tutego\insel\xml\jaxb\yahoo\geocoding\ObjectFactory.java
+com\tutego\insel\xml\jaxb\yahoo\geocoding\ResultSet.java
+com\tutego\insel\xml\jaxb\yahoo\geocoding\ResultType.java
+com\tutego\insel\xml\jaxb\yahoo\geocoding\package-info.java</pre></div>
+<p>Das Tool generiert die Klasse <span class="clisting">ResultSet</span> und <span class="clisting">ResultType</span> für den komplexen Typ aus dem XML-Schema sowie <span class="clisting">package-info.java</span>, um eine Paket-Annotation festmachen zu können, und <span class="clisting">ObjectFactory</span>, die zwei einfache Fabrikmethoden enthält, um ein <span class="clisting">ResultSet</span>- und <span class="clisting">ResultType</span>-Objekt aufbauen zu können.</p>
+<p>Die von <span class="clisting">xjc</span> nach <span class="ckursiv">c:/</span> geschriebenen Java-Klassen müssen nun in das Java-Projekt geschoben werden. Dann kann ein Java-Programm den Service mit einer URL ansprechen, einen <span class="clisting">Unmarshaller</span> aufbauen und sich das Ergebnis-XML in eine JavaBean konvertieren lassen.</p>
+<div class="listing"><pre class="prettyprint">JAXBContext context = JAXBContext.newInstance( ObjectFactory.class );
+Unmarshaller unmarshaller = context.createUnmarshaller();
+
+// http://developer.yahoo.com/maps/rest/V1/geocode.html
+String url = "http://local.yahooapis.com/MapsService/V1/geocode?" +
+             "appid=YD-9G7bey8_JXxQP6rxl.fBFGgCdNjoDMACQA--&amp;" +
+             "street=701+First+Ave&amp;city=Sunnyvale&amp;state=CA";
+ResultSet results = (ResultSet) unmarshaller.unmarshal( new URL(url) );
+
+ResultType result = results.getResult().get( 0 );
+System.out.printf( "Longitude = %s, Latitude= %s%n", result.getLongitude(), <img src="common/umbruch.gif" border="0" alt="Umbruch">
+  result.getLatitude() );</pre></div>
+<p>Die Bildschirmausgabe zeigt die geografische Länge und Breite der Yahoo!-Konzernzentrale:</p>
+<div class="listing"><pre class="prettyprint">Longitude = &#8211;122.025055, Latitude= 37.416397</pre></div>
+<h4 class="t4">Konflikte in der Schema-Datei *</h4>
+<p>Der Yahoo!-Service ist zwar nett, aber gerne hätte ich anderes OX-Mapping von anderen XML-Dokumenten gezeigt. [Die Google Keyhole Markup Language (KML) Version 2.1 funktioniert auch. Die Schema-Datei http://code.google.com/intl/de/apis/kml/schema/kml21.xsd macht keine Probleme. Seidem KML aber beim Open Geospatial Consortium liegt, gibt es für Version 2.2 und das Schema http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd Übersetzungsprobleme.
+]  Leider haben viele XML-Schemas ein Problem, sodass sie nicht direkt vom Schema-Compiler verarbeitet werden können. Ein Beispiel zeigt das Dilemma:</p>
+<div class="listing"><pre class="prettyprint">&lt;container&gt;
+ &lt;head&gt;<span class="cfett">&lt;content title="Titel"/&gt;</span>&lt;/head&gt;
+ &lt;body&gt;<span class="cfett">&lt;content doc="doc.txt"/&gt;</span>&lt;/body&gt;
+&lt;/container&gt;</pre></div>
+<p>In der hierarchischen Struktur heißt das in <span class="clisting">&lt;head&gt;</span> und <span class="clisting">&lt;body&gt;</span> vorkommende XML-Element gleich, nämlich <span class="clisting">content</span>. Die Schema-Datei kann widerspruchslos definieren, dass die beiden XML-Elemente gleich heißen, aber unterschiedliche Attribute erlauben, sozusagen dass Head-Content und das Body-Content. Allein durch ihre Hierarchie, also dadurch, dass sie einmal unter <span class="clisting">head</span> und einmal unter <span class="clisting">body</span> liegen, sind sie eindeutig bestimmt. Der Schema-Compiler von Java bekommt aber Probleme, da er diese hierarchische Information in eine flache bringt. Er kann einfach eine Klasse <span class="clisting">Head</span> und <span class="clisting">Body</span> aufbauen, aber bei <span class="clisting">&lt;content&gt;</span> steht er vor einem Problem. Da die Schema-Definitionen unterschiedlich sind, müssten zwei verschiedene Java-Klassen unter dem gleichen Namen <span class="clisting">Content</span> generiert werden. Das geht nicht, und <span class="clisting">xjc</span> und bricht mit Fehlern ab.</p>
+<p>Fehler diese Art gibt es leider häufig, und sind der Grund, warum aus vielen Schemas nicht einfach JavaBeans generiert werden kann. Erfolglos ohne weitere Einstellungen sind beispielsweise DocBook, Office Open XML, SVG, MathML und weitere. Doch was könnte die Lösung sein? <span class="clisting">jxc</span> sieht Konfigurationsdateien vor, die das Mapping anpassen können. In diesen Mapping-Dokumenten identifiziert ein XPath-Ausdruck die problematische Stelle und gibt einen Substitutionstyp an. Die Spezifikation unter <span class="ckursiv">https://jaxb.dev.java.net/spec-download.html</span> weist Interessierte in die richtige Richtung.</p>
+<h4 class="t4">JAXB Plugins</h4>
+<p>Auf der Webseite <span class="ckursiv">https://jaxb2-commons.dev.java.net/</span> gibt es eine Reihe nützlicher zusätzlicher Plugins für JAXB. Darunter:</p>
+<ul class="gp">
+<li><span class="cfett">Camelcase Always Plugin</span>: Sind die Elementnamen großgeschrieben, so wird JAXB automatisch großgeschriebene Properties umsetzen, sodass etwa aus <span class="clisting">NAME</span> der Setter/Getter <span class="clisting">setNAME()</span> und <span class="clisting">getNAME()</span> entsteht. Das Plugin verhindert dies und nennt die Setter/Getter wie gewohnt <span class="clisting">setName()</span> und <span class="clisting">getName()</span>.</li>
+</ul>
+<ul class="gp">
+<li><span class="cfett">Value-Constructor Plugin</span>: Jede JavaBean bekommt von <span class="clisting">xjc</span> nur einen Standard-Konstruktor. Dieses Plugin gibt einen weiteren Konstruktor hinzu, der alle Attribute direkt initialisiert.</li>
+</ul>
+<ul class="gp">
+<li><span class="cfett">Default Value Plugin</span>: Ein XML-Schema kann mit <span class="clisting">defaultValue</span> vordefinierte Initialbelegungen für Attribute angeben. <span class="clisting">xjc</span> ignoriert diese. Das Plugin wertet diese Vorbelegungen aus und initialisiert die Attribute der JavaBean gemäß den Werten.</li>
+</ul>
+<ul class="gp">
+<li><span class="cfett">Property Change Listener Injector Plugin</span>: Eine über <span class="clisting">xjc</span> generierte JavaBean schreibt einen bei <span class="clisting">setXXX()</span> übergebenen Wert direkt in das private Attribut durch. Mit dem Plugin wird ein <span class="clisting">VetoableChangeListener</span> eingeführt, der gegen Wertänderungen votieren kann.</li>
+</ul><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="18.4 Java Architecture for XML Binding (JAXB)"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_18_003.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_18_005.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

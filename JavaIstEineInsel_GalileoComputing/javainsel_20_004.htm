@@ -1,0 +1,886 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 20.4 Geometrische Objekte</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 20.4 Geometrische Objekte">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 20.4 Geometrische Objekte">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_05_001.htm#mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_08_001.htm#mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_09_001.htm#mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_11_001.htm#mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_20_003.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_20_005.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa" class="navnav">20 Grafikprogrammierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_20_001.htm#mj0b6314b6f10d983ddef5d00966d99f1e" class="navnav">20.1 Grundlegendes zum Zeichnen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_001.htm#mjd2e34b0d8796cabb2342454e6e81fb29" class="navnav">20.1.1 Die paint()-Methode für das AWT-Frame</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_001.htm#mja24005ce84f031f74ed78fd92dd27a56" class="navnav">20.1.2 Zeichnen von Inhalten auf ein JFrame</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_001.htm#mj5c1a24233f893de97b190b13044ea7f2" class="navnav">20.1.3 Auffordern zum Neuzeichnen mit »repaint()«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_001.htm#mjb75d86c6baba384b7db6c355df649e4b" class="navnav">20.1.4 Java 2D-API</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_20_002.htm#mj6ab5adb8c4ee61a2595d19419db66fa6" class="navnav">20.2 Einfache Zeichenmethoden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_002.htm#mj00532e6ba996d57f8d141f1e1810454f" class="navnav">20.2.1 Linien</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_002.htm#mj033deb2589e5c716a36d13aec9e67031" class="navnav">20.2.2 Rechtecke</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_002.htm#mjf45337ebd521b61f5b3491dc05f1540f" class="navnav">20.2.3 Ovale und Kreisbögen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_002.htm#mj9a2a1ec184eed3ff77b69aa6cd7557e1" class="navnav">20.2.4 Polygone und Polylines</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_20_003.htm#mjdf3e66c04aa595687745bcfd0bd68276" class="navnav">20.3 Zeichenketten schreiben und Fonts</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_003.htm#mj7b1f73176737f58ab6d30a3e29f9e652" class="navnav">20.3.1 Zeichenfolgen schreiben</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_003.htm#mj8d62457ab2e3bf9f532507320e9fef0c" class="navnav">20.3.2 Die Font-Klasse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_003.htm#mj71653b2ace9bbdae4ca92e3ea28dde77" class="navnav">20.3.3 Einen neuen Font aus einem gegebenen Font ableiten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_003.htm#mj759dcba307b5389773a7c91fa283b86d" class="navnav">20.3.4 Zeichensätze des Systems ermitteln *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_003.htm#mjdae768bb3fa8f15a823b8ba67776a0e2" class="navnav">20.3.5 Neue TrueType-Fonts in Java nutzen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_003.htm#mj109c2be8526524ac3a9664b28499ac10" class="navnav">20.3.6 Font-Metadaten durch FontMetrics *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj8f56d039c43274ff5216ba94cef550b1" class="navh">20.4 Geometrische Objekte</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj1b17eb5ffccc2a086d1f58a41301eca8" class="navh">20.4.1 Die Schnittstelle Shape</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj39007fefcea7a6972382f3b9d3145ff5" class="navh">20.4.2 Kreisförmiges</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj7dc308fc56ca053379e4626b302062a1" class="navh">20.4.3 Kurviges *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj5fdf6c9575c830555ab08b93f47ff019" class="navh">20.4.4 Area und die konstruktive Flächengeometrie *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj232d157f4cbc07a99523a83bcb6dd096" class="navh">20.4.5 Pfade *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj77f1da5cccbf02d6af4fb72f9864d9da" class="navh">20.4.6 Punkt in einer Form, Schnitt von Linien, Abstand Punkt/Linie *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_20_005.htm#mj39cebc7db18c5020b9bc97ef0af55c70" class="navnav">20.5 Das Innere und Äußere einer Form</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_005.htm#mj66dee545b61b16bbcc8b726e662c09d4" class="navnav">20.5.1 Farben und die Paint-Schnittstelle</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_005.htm#mjf976cd2fc969884fad90dab47f853d61" class="navnav">20.5.2 Farben mit der Klasse »Color«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_005.htm#mj2a52836e0690ebe20831790d3766b062" class="navnav">20.5.3 Die Farben des Systems über SystemColor *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_005.htm#mj099a779c1ebce4eb51bc794f4e5bd2ed" class="navnav">20.5.4 Composite und Xor *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_005.htm#mj40e338e3b80e6ab79fbc5447fae0300a" class="navnav">20.5.5 Dicke und Art der Linien von Formen bestimmen über »Stroke« *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_20_006.htm#mj4c12381d5bacf8fb6ee31448d26890bb" class="navnav">20.6 Bilder</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mj173615a4c416ec276851213a24dd4be2" class="navnav">20.6.1 Eine Übersicht über die Bilder-Bibliotheken</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mjba60f99ac6f4a3cd9177b59abea0c6ba" class="navnav">20.6.2 Bilder mit »ImageIO« lesen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mj7fe19a5b7fd9823e5ff4f8729749225b" class="navnav">20.6.3 Ein Bild zeichnen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mj3d7ff912a37f3af72eca322fea16dcbe" class="navnav">20.6.4 Programm-Icon/Fenster-Icon setzen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mjaebdd1a3040bd8901b1bd49df5495a5a" class="navnav">20.6.5 Splash-Screen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mjd84fb329d6d62f3c77b26c3445372c24" class="navnav">20.6.6 Bilder im Speicher erzeugen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mjdd8fc80751b1bc88bfa58847b9fae351" class="navnav">20.6.7 Pixel für Pixel auslesen und schreiben *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mj133115d4eac3734a7b62458792f9142b" class="navnav">20.6.8 Bilder skalieren *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mj23f219adf8635dfd786fc80edaa2070e" class="navnav">20.6.9 Schreiben mit ImageIO</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mjcaff18d32bfd6c2bb1d2e0d486fe9197" class="navnav">20.6.10 Asynchrones Laden mit getImage() und dem MediaTracker *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_20_007.htm#mj18a6025debf68eba85c78d9de97f7e75" class="navnav">20.7 Zum Weiterlesen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj8f56d039c43274ff5216ba94cef550b1" name="mj8f56d039c43274ff5216ba94cef550b1"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">20.4</span> Geometrische Objekte  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Die Java-Bibliothek repräsentiert geometrische Formen durch eine Schnittstelle <span class="clisting">Shape</span>. Konkrete Formen sind etwa Linien, Polygone oder Kurven, die die Bibliothek durch konkrete Implementierungen der Schnittstelle realisiert. Für uns gibt es damit zwei Möglichkeiten, Zeichenoperationen zu tätigen: einmal, indem wir Objekte aufbauen und diese dann zeichnen lassen, und zweitens über die speziellen Zeichenmethoden von <span class="clisting">Graphics</span>, wie die bekannten Methoden <span class="clisting">drawLine()</span> und <span class="clisting">drawRect()</span>. Objekte bieten den Vorteil, dass sie sich in einer Datenstruktur sammeln lassen und die <span class="clisting">Shape</span>-Objekte auch noch mit einer ganzen Reihe interessanter Methoden aufwarten.</p>
+<p>Beginnen wir mit einem Programm, das eine Linie als Form-Objekt zeichnet:</p>
+<p class="tabunter"><strong>Listing 20.7    </strong>com/tutego/insel/ui/g2d/First2Ddemo.java, First2DDemo</p>
+<div class="listing"><pre class="prettyprint">class First2DDemo extends JPanel
+{
+  @Override
+  protected void paintComponent( Graphics g )
+  {
+    Graphics2D g2 = (Graphics2D) g;
+
+    g2.setRenderingHint( RenderingHints.KEY_ANTIALIASING,
+                         RenderingHints.VALUE_ANTIALIAS_ON);
+
+   <span class="cfett"> g2.draw( new Line2D.Double( 10, 10, getWidth()</span> &#8211;<span class="cfett"> 10, 70 ) );</span>
+  }
+
+  public static void main( String[] args )
+  {
+    JFrame f = new JFrame();
+    f.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+    f.setSize( 200, 120 );
+    f.add( new First2DDemo() );
+    f.setVisible( true );
+  }
+}</pre></div>
+<p>Die Klasse <span class="clisting">Line2D</span><span class="clisting">.Double</span> definiert das Linien-Objekt, das <span class="clisting">draw()</span> zeichnet (und <span class="clisting">fill()</span> füllen würde). Die Methode <span class="clisting">draw(Shape)</span>, die es nur auf dem <span class="clisting">Graphics2D</span>-Objekt und nicht bei der Basisklasse <span class="clisting">Graphics</span> gibt, nimmt ein beliebiges <span class="clisting">Shape</span>-Objekt und zeichnet es nach den aktuellen Einstellungen wie Muster oder Farbe. Da normalerweise die Ausgabe nicht weichgezeichnet ist, wir dies aber wünschen, setzen wir einen <span class="clisting">setRenderingHint()</span>. Die Argumente und die Methoden werden später näher beschrieben.</p>
+<div class="bildbox">
+<p><a name="IDAFSWC"></a><a onClick="OpenWin('bilder/365_java_14_009.gif','Abbildung',800,800)"><img border="0" src="bilderklein/klein365_java_14_009.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 20.5    </strong>Eine weiche Linie</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">abstract class java.awt.<span class="cfett">Graphics2D</span>
+extends Graphics</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">abstract void draw( Shape s )</span>
+Zeichnet die Form im aktuellen <span class="clisting">Graphics2D</span>-Kontext. Die Attribute umfassen Clipping, Transformation, Zeichen, Zusammensetzung und Stift-(Stroke-)Attribute.</li>
+</ul><a id="mj1b17eb5ffccc2a086d1f58a41301eca8" name="mj1b17eb5ffccc2a086d1f58a41301eca8"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">20.4.1</span> Die Schnittstelle Shape  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die geometrischen Objekte, die die Schnittstelle <span class="clisting">java.awt.Shape</span> implementieren, sind unter anderem:</p>
+<ul class="gp">
+<li><span class="clisting">Line2D</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">RectangularShape</span> mit den Unterklassen <span class="clisting">Arc2D</span>, <span class="clisting">Ellipse2D</span>, <span class="clisting">Rectangle2D</span> und <span class="clisting">RoundRectangle2D</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Polygon</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">QuadCurve2D</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">CubicCurve2D</span></li>
+</ul>
+<p>Fast alle Klassen sind abstrakt, und innen liegende Unterklassen implementieren die äußere Klasse mit den Genauigkeiten <span class="clisting">float</span> und <span class="clisting">double</span>. Ein Beispiel für <span class="clisting">Line2D</span> haben wir im oberen Programm <span class="clisting">First2DDemo</span> schon aufgeführt; die öffentliche konkrete innere Klasse mit der Genauigkeit <span class="clisting">double</span> heißt <span class="clisting">Line2D.Double</span>.</p>
+<div class="bildbox">
+<p><a name="IDAIVWC"></a><a onClick="OpenWin('bilder/shapeuml.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinshapeuml.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p>Die Klassen <span class="clisting">Rectangle2D</span>, <span class="clisting">RoundRectangle2D</span>, <span class="clisting">Arc2D</span> und <span class="clisting">Ellipse2D</span> erben alle von der Klasse <span class="clisting">RectangularShape</span> und sind dadurch Objekte, die von einer (mitunter virtuellen) rechteckigen Box umgeben sind. <span class="clisting">RectangularShape</span> selbst ist abstrakt, gibt aber Methoden vor, die das umrahmende Rechteck verändern und abfragen.</p>
+<p>Die Schnittstelle <span class="clisting">java.awt.Shape</span> deklariert Operationen, die die Unterklassen passend implementieren:</p>
+<ul class="gp">
+<li><span class="clisting">contains()</span>: Testet, ob ein Punkt in der Form ist.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">getBounds()</span>, <span class="clisting">getBounds2D()</span>: Liefert den kleinsten Rahmen, der die Form vollständig enthält.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">getPathItererator()</span>: Liefert einen <span class="clisting">PathIterator</span>, der die äußeren Pfade entlangläuft.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">intersects()</span>: Testet, ob ein Rechteck diese Form schneidet.</li>
+</ul>
+<div class="bildbox">
+<p><a name="IDAJWWC"></a><a onClick="OpenWin('bilder/getbounds.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingetbounds.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 20.6    </strong>»getBounds()« am Beispiel einiger Formen</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Es gibt in der Java-Bibliothek zwar Klassen wie <span class="clisting">Point</span> sowie <span class="clisting">Point2D.Float</span> und <span class="clisting">Point2D.Double</span>, die <span class="clisting">Point2D</span> erweitern, aber dies sind keine <span class="clisting">Shape</span>-Objekte und können nicht gezeichnet werden. Die Typen repräsentieren x-/y-Koordinaten und finden sich nur als Parametertyp, etwa zum Aufbau von Linien, Kurven oder Gradienten. Auch für Text gibt es keine spezielle <span class="clisting">Shape</span>-Implementierung. Um Text zu zeichnen, wird weiterhin die Mehtode <span class="clisting">drawString(string, x, y)</span> verwendet, allerdings sind die Koordinaten <span class="clisting">Graphis2D</span>-taugliche Fließkommazahlen vom Typ <span class="clisting">float</span>.</p>
+</td>
+</tr>
+</table><br><a id="mj39007fefcea7a6972382f3b9d3145ff5" name="mj39007fefcea7a6972382f3b9d3145ff5"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">20.4.2</span> Kreisförmiges  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse <span class="clisting">java.awt.geom.Arc2D</span> kümmert sich um Kreisbögen. Diese Bögen werden wie bei <span class="clisting">drawArc()</span> in ein Rechteck eingepasst und haben einen Start- und Endwert. Zusätzlich kommt ein Parameter für den Typ des Bogens hinzu. Es gibt drei Typen:</p>
+<ul class="gp">
+<li><span class="clisting">Arc2D.OPEN</span>: eine einfache Kreislinie</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Arc2D.CHORD</span>: Start- und Endpunkt des Bogens werden durch eine Linie verbunden.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Arc2D.PIE</span>: Start- und Endpunkt des Bogens werden mit dem Mittelpunkt des Kreises verbunden.</li>
+</ul>
+<div class="bildbox">
+<p><a name="IDACYWC"></a><a onClick="OpenWin('bilder/arcchortpie.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinarcchortpie.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Listing 20.8    </strong>com/tutego/insel/ui/graphics/PanelWithArc.java, paintComponent()</p>
+<div class="listing"><pre class="prettyprint">@Override protected void paintComponent( Graphics g )
+{
+  Shape arc =  //       x,   y,  w,  h, start, extend, type
+    new Arc2D.Double( 100, 100, 60, 60,    30,    120, Arc2D.PIE );
+
+  ((Graphics2D)g).draw( arc );
+}</pre></div><a id="mj7dc308fc56ca053379e4626b302062a1" name="mj7dc308fc56ca053379e4626b302062a1"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">20.4.3</span> Kurviges *  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse <span class="clisting">QuadCurve2D</span> beschreibt <span class="ckursiv">quadratische Kurvensegmente</span>. Dies sind Kurven, die durch zwei Endpunkte und durch dazwischenliegende Kontrollpunkte gegeben sind. <span class="clisting">CubicCurve2D</span> beschreibt <span class="ckursiv">kubische Kurvensegmente</span>, die durch zwei Endpunkte und zwei Kontrollpunkte definiert sind. Kubische Kurvensegmente werden auch <span class="ckursiv">Bézier-Kurven</span> genannt.</p><a id="mj5fdf6c9575c830555ab08b93f47ff019" name="mj5fdf6c9575c830555ab08b93f47ff019"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">20.4.4</span> Area und die konstruktive Flächengeometrie *  <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Klasse <span class="clisting">Area</span> definiert eine neue Form, die sich aus der Verknüpfung anderer Formen ergibt. Die Verknüpfungen sind Addition (Vereinigung), Subtraktion, Schnitt und Xor. Eine Zipfelmütze lässt sich auf diese Weise durch ein <span class="clisting">Shape</span> mit dreieckiger Form, vereinigt mit einem Kreis, sehen. Die wichtigsten Methoden sind:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.awt.geom.<span class="cfett">Area</span>
+implements Cloneable, Shape</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">Area()</span>, <span class="clisting">Area( Shape s )</span>
+Baut eine neue Geometrie auf, entweder leer oder mit einer vorgegebenen Form.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void add( Area rhs )</span>
+Bildet eine Vereinigung der aktuellen Form mit der Form <span class="clisting">rhs</span>.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void exclusiveOr( Area rhs )</span>
+Bildet eine Xor-Verknüpfung mit der Form <span class="clisting">rhs</span>.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void intersect( Area rhs )</span>
+Bilden den Schnitt mit <span class="clisting">rhs</span>.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void subtract( Area rhs )</span>
+Zieht von der aktuellen Form die Form <span class="clisting">rhs</span> ab.</li>
+</ul>
+<div class="bildbox">
+<p><a name="IDAJ1WC"></a><a onClick="OpenWin('bilder/areaoperations.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinareaoperations.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p>Weitere Methoden sind <span class="clisting">transform()</span>, <span class="clisting">reset()</span>, <span class="clisting">contains()</span>, <span class="clisting">getBounds()</span> und ein paar weitere. Die Verknüpfungen werden auch <span class="ckursiv">CAG (Constructive Area Geometry)</span>, zu Deutsch <span class="ckursiv">konstruktive Flächengeometrie</span>, genannt. Bei den Signaturen der CAG-Methoden ist zu bemerken, dass der Parametertyp <span class="clisting">Area</span> und nicht <span class="clisting">Shape</span> ist.</p><a id="mj232d157f4cbc07a99523a83bcb6dd096" name="mj232d157f4cbc07a99523a83bcb6dd096"></a><a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3"><span class="cfett">20.4.5</span> Pfade *  <a href="#t2t37"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Ein Pfad besteht aus zusammengesetzten Segmenten, die miteinander verbunden sind. Die Segmente bestehen nicht wie bei Polygonen ausschließlich aus Linien, sondern können auch quadratische oder kubische Kurven sein. Die Klasse <span class="clisting">GeneralPath</span> hängt Schritt für Schritt die Segmente mit den Methoden <span class="clisting">lineTo()</span>, <span class="clisting">curveTo()</span>, <span class="clisting">quadTo()</span> an und den Umriss anderer Formen mit <span class="clisting">append()</span>. Da der Startpunkt automatisch bei (0,0) liegt, setzt <span class="clisting">move()</span> ihn zum Start &#8211; oder auch später &#8211; um.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" rowspan="2">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Zeichnen einer Linie als Pfad mit der 2D-API:</p>
+<div class="listing"><pre class="prettyprint">protected void paintComponent( Graphics g )
+{
+  Graphics2D g2 = (Graphics2D) g;
+
+  GeneralPath p = new GeneralPath();
+  p.moveTo( 10f, 10f );
+  p.lineTo( 100f, 20f );
+  g2.setColor( Color.BLACK );
+  g2.draw( p );
+}</pre></div>
+</td>
+</tr>
+</table><br><p>Natürlich hätten wir in diesem Fall auch ein <span class="clisting">Line2D</span>-Objekt nehmen können. Doch dieses Beispiel zeigt einfach, wie ein Pfad aufgebaut ist. Zunächst bewegen wir den Zeichenstift mit <span class="clisting">moveTo()</span> auf eine Position, und anschließend zeichnen wir eine Linie mit <span class="clisting">lineTo()</span>. Ist der Pfad einmal gezogen, zeichnet <span class="clisting">draw()</span> die Form, und <span class="clisting">fill()</span> füllt das Objekt aus.</p>
+<div class="bildbox">
+<p><a name="IDAS4WC"></a><a onClick="OpenWin('bilder/generalpathuml.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleingeneralpathuml.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p>Um eine Kurve zu einem Punkt zu ziehen, nehmen wir <span class="clisting">quadTo()</span> oder für Bézier-Kurven <span class="clisting">curveTo()</span>. Die Methoden erwarten Argumente vom Typ <span class="clisting">float</span>.</p>
+<h4 class="t4">Windungsregel</h4>
+<p>Eine wichtige Eigenschaft der Pfade für gefüllte Objekte ist die <span class="ckursiv">Windungsregel</span> (engl. <span class="ckursiv">winding rule</span>). Diese Regel kann entweder <span class="clisting">WIND_NON_ZERO</span> oder <span class="clisting">WIND_EVEN_ODD</span> sein. Wenn Zeichenoperationen aus einer Form herausführen und wir uns dann wieder in der Figur befinden, sagt <span class="clisting">WIND_EVEN_ODD</span> aus, dass dann innen und außen umgedreht wird. Wenn wir also zwei Rechtecke durch einen Pfad ineinander positionieren und der Pfad gefüllt wird, bekommt die Form in der Mitte ein Loch. Die Konstanten aus dem <span class="clisting">GeneralPath</span>-Objekt (genauer gesagt sind sie aus der Oberklasse <span class="clisting">Path2D</span> geerbt) werden der Methode <span class="clisting">setWindingRule()</span> übergeben:</p>
+<div class="listing"><pre class="prettyprint">generalPath.setWindingRule( GeneralPath.WIND_NON_ZERO );</pre></div>
+<h4 class="t4">Windungsbeispiel</h4>
+<p>Das folgende Programm zeichnet zwei Rechtecke: ein blaues mit <span class="clisting">GeneralPath.WIND_ NON_ZERO</span> und ein rotes mit <span class="clisting">GeneralPath.WIND_EVEN_ODD</span>. Mit der Konstanten <span class="clisting">WIND_NON_ZERO</span> bei <span class="clisting">setWindingRule()</span> wird das innere Rechteck mit ausgefüllt. Ausschlaggebend dafür, ob das innere Rechteck gezeichnet wird, ist die Anzahl der Schnittpunkte nach außen &#8211; »außen« heißt in diesem Fall unendlich viele Schnittpunkte. Diese Regel wird aber nur dann wichtig, wenn wir mit nichtkonvexen Formen arbeiten. Solange sich die Linien nicht schneiden, ist dies kein Problem:</p>
+<p class="tabunter"><strong>Listing 20.9    </strong>com/tutego/insel/ui/g2d/WindDemo.java, paintComponent()</p>
+<div class="listing"><pre class="prettyprint">protected void paintComponent( Graphics g )
+{
+  Graphics2D g2 = (Graphics2D) g;
+  g2.setRenderingHint( RenderingHints.KEY_ANTIALIASING,
+                       RenderingHints.VALUE_ANTIALIAS_ON);
+  g2.clearRect( 0, 0, getSize().width-1, getSize().height-1 );
+  g2.setColor( Color.YELLOW );
+  g2.fill( new Rectangle( 70, 70, 130, 50 ) );
+  GeneralPath p;
+
+  // Erstes Rechteck
+  p = makeRect( 100, 80, 50, 50 );
+  p.setWindingRule( GeneralPath.WIND_NON_ZERO );
+  g2.setColor( Color.BLUE );
+  g2.fill( p );
+
+  // Zweites Rechteck
+  p =  makeRect( 200, 80, 50, 50 );
+  p.setWindingRule( GeneralPath.WIND_EVEN_ODD );
+  g2.setColor( Color.RED );
+  g2.fill( p );
+}</pre></div>
+<p>Die eigene statische Methode <span class="clisting">makeRect()</span> definiert den Pfad für die Rechtecke mit den Mittelpunktkoordinaten <span class="clisting">x</span> und <span class="clisting">y</span>. Das erste Rechteck besitzt die Breite <span class="clisting">width</span> sowie die Höhe <span class="clisting">height</span>, und das innere Rechteck ist halb so groß:</p>
+<p class="tabunter"><strong>Listing 20.10    </strong>com/tutego/insel/ui/g2d/WindDemo.java, makeRect()</p>
+<div class="listing"><pre class="prettyprint">static GeneralPath makeRect( int x, int y, int width, int height )
+{
+  GeneralPath p = new GeneralPath();
+
+  p.moveTo( x + width/2, y &#8211; height/2 );
+  p.lineTo( x + width/2, y + height/2 );
+  p.lineTo( x &#8211; width/2, y + height/2 );
+  p.lineTo( x &#8211; width/2, y &#8211; height/2 );
+
+//    p.closePath();
+
+  p.moveTo( x + width/4, y &#8211; height/4 );
+  p.lineTo( x + width/4, y + height/4 );
+  p.lineTo( x &#8211; width/4, y + height/4 );
+  p.lineTo( x &#8211; width/4, y &#8211; height/4 );
+
+  return p;
+}</pre></div>
+<p>Mit <span class="clisting">moveTo()</span> bewegen wir uns zum ersten Punkt. Die anschließenden <span class="clisting">lineTo()</span>-Direktiven formen das Rechteck. Die Form muss nicht geschlossen werden, da dies mit <span class="clisting">fill()</span> automatisch geschieht. Mit <span class="clisting">closePath()</span> können wir jedoch noch zusätzlich schließen; wenn wir das Objekt zeichnen, ist dies selbstverständlich notwendig. Dieses Beispiel macht durch das innere Rechteck deutlich, dass die Figuren eines <span class="clisting">GeneralPath</span>-Objekts nicht zusammenhängend sein müssen. Das innere Rechteck wird genauso gezeichnet wie das äußere.</p>
+<div class="bildbox">
+<p><a name="IDAUDXC"></a><a onClick="OpenWin('bilder/365_java_14_011.gif','Abbildung',800,800)"><img border="0" src="bilderklein/klein365_java_14_011.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 20.7    </strong>Die Windungsregeln WIND_NO_ZERO und WIND_EVEN_ODD</p><a id="mj77f1da5cccbf02d6af4fb72f9864d9da" name="mj77f1da5cccbf02d6af4fb72f9864d9da"></a><a name="t36"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t37"></a><h3 class="t3"><span class="cfett">20.4.6</span> Punkt in einer Form, Schnitt von Linien, Abstand Punkt/Linie *  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t36"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die unterschiedlichen Klassen für die geometrischen Formen besitzen Methoden, um zum Beispiel festzustellen, ob ein Punkt in einer Form liegt.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">interface java.awt.<span class="cfett">Shape</span></pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">boolean contains( int x, int y )</span>, <span class="clisting">boolean contains( Point2D p )</span>
+Liefert <span class="clisting">true</span>, wenn der Punkt in der Form liegt.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">boolean contains( int x, int y, int w, int h )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">boolean contains( Rectangle2D r )</span>
+Liefert <span class="clisting">true</span>, wenn das beschriebene Rechteck komplett in der Form liegt.</li>
+</ul>
+<p>Besonders praktisch ist die Methode <span class="clisting">contains()</span> für Polygone. [Ob ein Punkt im Polygon ist, entscheidet der Gerade/Ungerade-Test (http://en.wikipedia.org/wiki/Point_in_ polygon).
+]  Sie arbeitet aber nur korrekt für Punkte innerhalb der eingeschlossenen Fläche. Bei Abfrage von Punkten, die den Eckpunkten entsprechen, kommen immer sehr willkürliche Werte heraus &#8211; und genauso bei der Abfrage, ob die Punkte auf der Linie zum Innenraum gehören oder nicht.</p>
+<p>Die Klasse <span class="clisting">Point2D</span> berechnet den Abstand zweier Punkte mit den Methoden:</p>
+<ul class="gp">
+<li><span class="clisting">double distance(double PX, double PY)</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static double distance(double X1, double Y1, double X2, double Y2)</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">double distance(Point2D pt)</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">double distanceSq(double PX, double PY)</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static double distanceSq(double X1, double Y1, double X2, double Y2)</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">double distanceSq(Point2D pt)</span></li>
+</ul>
+<p>Verwandte Methoden zur Berechnung des Abstands eines Punktes zur Line bietet auch <span class="clisting">Line2D</span>:</p>
+<ul class="gp">
+<li><span class="clisting">double ptLineDist(double PX, double PY)</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static double ptLineDist(double X1, double Y1, double X2, double Y2, double PX, double PY)</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">double ptLineDist(Point2D pt)</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">double ptLineDistSq(double PX, double PY)</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static double ptLineDistSq(double X1, double Y1, double X2, double Y2, double PX, double PY)</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">double ptLineDistSq(Point2D pt)</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">double ptSegDist(double PX, double PY)</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static double ptSegDist(double X1, double Y1, double X2, double Y2, double PX, double PY)</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">double ptSegDist(Point2D pt)</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">double ptSegDistSq(double PX, double PY)</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static double ptSegDistSq(double X1, double Y1, double X2, double Y2, double PX, double PY)</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">double ptSegDistSq(Point2D pt)</span></li>
+</ul>
+<p>Die <span class="clisting">relativeCCW()</span>-Methoden von <span class="clisting">Line2D</span> können herausfinden, ob der Punkt rechts oder links einer Linie liegt. Ob sich zwei Linien schneiden, ermitteln zwei überladene <span class="clisting">Line2D</span>-Methoden <span class="clisting">intersectsLine()</span>. Neben der Objektmethode testet die mit acht Parametern gesegnete statische Methode <span class="clisting">linesIntersect()</span>, ob zwei Liniensegmente sich schneiden. Zwei allgemeine <span class="clisting">intersects()</span>-Methoden deklariert die Schnittstelle <span class="clisting">Shape</span>, doch bei diesen Methoden aus <span class="clisting">Line2D</span> geht es darum, ob eine Form ein Rechteck schneidet. <span class="clisting">intersectsLine()</span> bietet auch <span class="clisting">Rectangle2D</span> und meldet damit, ob ein Rechteck eine Linie schneidet.</p>
+<p>Genau das Gegenteil vom Schnitt ist die Vereinigung. So legt die Methode <span class="clisting">union()</span> von <span class="clisting">Rectangle2D</span> zwei Rechtecke zusammen, wobei ein neues Rechteck entsteht, welches die äußersten Koordinaten der beiden Ursprungsrechtecke besitzt. Die Methode <span class="clisting">outcode()</span> ist ebenfalls interessant, da sie über eine Bit-Maske in der Rückgabe angibt, wo ein außerhalb des Rechtecks befindlicher Punkt steht, also etwa <span class="clisting">OUT_BOTTOM</span>, <span class="clisting">OUT_LEFT</span>, <span class="clisting">OUT_RIGHT</span>, <span class="clisting">OUT_TOP</span>.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="20.4 Geometrische Objekte"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_20_003.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_20_005.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

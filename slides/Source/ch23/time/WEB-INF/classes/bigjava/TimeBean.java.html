@@ -1,0 +1,35 @@
+<html><body>
+<pre style="margin: 0em;background: #ededed"><span style="color: #0073ff; font-weight: bold;">  1  </span><span style="font-family: monospace"></span><span style="color: #cc0066;">package</span> bigjava;</pre>
+<pre style="margin: 0em;background: #ededed"><span style="color: #0073ff; font-weight: bold;">  2  </span><span style="font-family: monospace"></span></pre>
+<pre style="margin: 0em;background: #ededed"><span style="color: #0073ff; font-weight: bold;">  3  </span><span style="font-family: monospace"></span><span style="color: #cc0066;">import</span> java.text.DateFormat;</pre>
+<pre style="margin: 0em;background: #ededed"><span style="color: #0073ff; font-weight: bold;">  4  </span><span style="font-family: monospace"></span><span style="color: #cc0066;">import</span> java.util.Date;</pre>
+<pre style="margin: 0em;background: #ededed"><span style="color: #0073ff; font-weight: bold;">  5  </span><span style="font-family: monospace"></span><span style="color: #cc0066;">import</span> java.util.TimeZone;</pre>
+<pre style="margin: 0em;background: #ededed"><span style="color: #0073ff; font-weight: bold;">  6  </span><span style="font-family: monospace"></span><span style="color: #cc0066;">import</span> javax.faces.bean.ManagedBean;</pre>
+<pre style="margin: 0em;background: #ededed"><span style="color: #0073ff; font-weight: bold;">  7  </span><span style="font-family: monospace"></span><span style="color: #cc0066;">import</span> javax.faces.bean.SessionScoped;</pre>
+<pre style="margin: 0em;background: #ededed"><span style="color: #0073ff; font-weight: bold;">  8  </span><span style="font-family: monospace"></span></pre>
+<pre style="margin: 0em;background: #ededed"><span style="color: #0073ff; font-weight: bold;">  9  </span><span style="font-family: monospace">@</span>ManagedBean</pre>
+<pre style="margin: 0em;background: #ededed"><span style="color: #0073ff; font-weight: bold;"> 10  </span><span style="font-family: monospace">@</span>SessionScoped</pre>
+<pre style="margin: 0em;background: #ededed"><span style="color: #0073ff; font-weight: bold;"> 11  </span><span style="font-family: monospace"></span><span style="color: #cc0066;">public</span> <span style="color: #cc0066;">class</span> TimeBean</pre>
+<pre style="margin: 0em;background: #ededed"><span style="color: #0073ff; font-weight: bold;"> 12  </span><span style="font-family: monospace">{</span></pre>
+<pre style="margin: 0em;background: #ededed"><span style="color: #0073ff; font-weight: bold;"> 13  </span><span style="font-family: monospace">   </span><span style="color: #cc0066;">private</span> DateFormat timeFormatter;</pre>
+<pre style="margin: 0em;background: #ededed"><span style="color: #0073ff; font-weight: bold;"> 14  </span><span style="font-family: monospace"></span></pre>
+<pre style="margin: 0em;background: #ededed"><span style="color: #0073ff; font-weight: bold;"> 15  </span><span style="font-family: monospace">   /**</span><span style="color: #0073ff; font-family: serif; "></span></pre>
+<pre style="margin: 0em;background: #ededed"><span style="color: #0073ff; font-weight: bold;"> 16  </span><span style="font-family: monospace">      </span><span style="color: #0073ff; font-family: serif; ">Initializes the formatter.</span></pre>
+<pre style="margin: 0em;background: #ededed"><span style="color: #0073ff; font-weight: bold;"> 17  </span><span style="font-family: monospace">   </span><span style="color: #0073ff; font-family: serif; "></span><span style="font-family: monospace">*/</span></pre>
+<pre style="margin: 0em;"><span style="background: #ededed"><span style="color: #0073ff; font-weight: bold;"> 18  </span></span><span style="font-family: monospace">   </span><span style="color: #cc0066;">public</span> TimeBean()</pre>
+<pre style="margin: 0em;"><span style="background: #ededed"><span style="color: #0073ff; font-weight: bold;"> 19  </span></span><span style="font-family: monospace">   {</span></pre>
+<pre style="margin: 0em;"><span style="background: #ededed"><span style="color: #0073ff; font-weight: bold;"> 20  </span></span><span style="font-family: monospace">      </span>timeFormatter = DateFormat.getTimeInstance();</pre>
+<pre style="margin: 0em;"><span style="background: #ededed"><span style="color: #0073ff; font-weight: bold;"> 21  </span></span><span style="font-family: monospace">   }</span></pre>
+<pre style="margin: 0em;background: #ededed"><span style="color: #0073ff; font-weight: bold;"> 22  </span><span style="font-family: monospace"></span></pre>
+<pre style="margin: 0em;background: #ededed"><span style="color: #0073ff; font-weight: bold;"> 23  </span><span style="font-family: monospace">   /**</span><span style="color: #0073ff; font-family: serif; "></span></pre>
+<pre style="margin: 0em;background: #ededed"><span style="color: #0073ff; font-weight: bold;"> 24  </span><span style="font-family: monospace">      </span><span style="color: #0073ff; font-family: serif; ">Read-only time property.</span></pre>
+<pre style="margin: 0em;background: #ededed"><span style="color: #0073ff; font-weight: bold;"> 25  </span><span style="font-family: monospace">      @return</span><span style="color: #0073ff; font-family: serif; "> the formatted time</span></pre>
+<pre style="margin: 0em;background: #ededed"><span style="color: #0073ff; font-weight: bold;"> 26  </span><span style="font-family: monospace">   </span><span style="color: #0073ff; font-family: serif; "></span><span style="font-family: monospace">*/</span></pre>
+<pre style="margin: 0em;"><span style="background: #ededed"><span style="color: #0073ff; font-weight: bold;"> 27  </span></span><span style="font-family: monospace">   </span><span style="color: #cc0066;">public</span> String getTime()</pre>
+<pre style="margin: 0em;"><span style="background: #ededed"><span style="color: #0073ff; font-weight: bold;"> 28  </span></span><span style="font-family: monospace">   {</span></pre>
+<pre style="margin: 0em;"><span style="background: #ededed"><span style="color: #0073ff; font-weight: bold;"> 29  </span></span><span style="font-family: monospace">      </span>Date time = <span style="color: #cc0066;">new</span> Date();</pre>
+<pre style="margin: 0em;"><span style="background: #ededed"><span style="color: #0073ff; font-weight: bold;"> 30  </span></span><span style="font-family: monospace">      </span>String timeString = timeFormatter.format(time);</pre>
+<pre style="margin: 0em;"><span style="background: #ededed"><span style="color: #0073ff; font-weight: bold;"> 31  </span></span><span style="font-family: monospace">      </span><span style="color: #cc0066;">return</span> timeString;</pre>
+<pre style="margin: 0em;"><span style="background: #ededed"><span style="color: #0073ff; font-weight: bold;"> 32  </span></span><span style="font-family: monospace">   }</span></pre>
+<pre style="margin: 0em;background: #ededed"><span style="color: #0073ff; font-weight: bold;"> 33  </span><span style="font-family: monospace">}</span></pre>
+</body></html>

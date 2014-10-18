@@ -1,0 +1,8 @@
+String-1:
+	helloName, makeAbba, makeTags, makeOutWord, 	extraEnd, firstHalf, withoutEnd, nonStart, left2, right2, 	middleTwo, nTwice, middleThree
+Logic-1: 	2 Aufgaben nach Wahl
+Logic-2: 	2 Aufgaben nach Wahl
+String-3: 	2 Aufgaben nach Wahl
+Array-1: 	2 Aufgaben nach Wahl
+Array-2: 	2 Aufgaben nach Wahl
+Array-3: 	2 Aufgaben nach Wahl

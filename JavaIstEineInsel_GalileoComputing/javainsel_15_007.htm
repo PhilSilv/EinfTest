@@ -1,0 +1,1207 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 15.7 Formatieren und Parsen von Datumsangaben</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 15.7 Formatieren und Parsen von Datumsangaben">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 15.7 Formatieren und Parsen von Datumsangaben">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_05_001.htm#mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_08_001.htm#mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_09_001.htm#mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_11_001.htm#mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_15_006.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_15_008.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497" class="navnav">15 Raum und Zeit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_15_001.htm#mj56e29327c75de6981fd89512388c0c8f" class="navnav">15.1 Weltzeit *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_15_002.htm#mj0fe2d6f0bfbcf5a0a17c81b25d0f4fbc" class="navnav">15.2 Wichtige Datum-Klassen im Überblick</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_002.htm#mjbf39546ea1acf5c2f9b227b54e7be9bc" class="navnav">15.2.1 Der 1.1.1970</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_002.htm#mj889c312abeda1d12246dcfd217ebb2ac" class="navnav">15.2.2 System.currentTimeMillis()</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_002.htm#mj29b9f9ad13628232071d64f22d8c5634" class="navnav">15.2.3 Einfach Zeitumrechnungen durch »TimeUnit«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_15_003.htm#mj66490aa7267a02fe487213e3202c3b11" class="navnav">15.3 Sprachen der Länder</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_003.htm#mjda24c291ae8fd4d5b601c37673adfe8b" class="navnav">15.3.1 Sprachen und Regionen über Locale-Objekte</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_15_004.htm#mj96ec8d1bc0e71c464c41b370dd1db21b" class="navnav">15.4 Internationalisierung und Lokalisierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_004.htm#mj9ed528ba76447565da0f8433f52174c9" class="navnav">15.4.1 ResourceBundle-Objekte und Ressource-Dateien</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_004.htm#mj08ee310dd4405080165441ab4edcbe4e" class="navnav">15.4.2 Ressource-Dateien zur Lokalisierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_004.htm#mj116132335bcc3c3fb740980dfa671a32" class="navnav">15.4.3 Die Klasse »ResourceBundle«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_004.htm#mj399962cb4a4b4e463a60d66bff8e2260" class="navnav">15.4.4 Ladestrategie für ResourceBundle-Objekte</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_15_005.htm#mj5664d06e45cf81294c55e16b4a0ffcfc" class="navnav">15.5 Die Klasse »Date«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_005.htm#mjb78932b990bf17464470e394450303da" class="navnav">15.5.1 Objekte erzeugen und Methoden nutzen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_005.htm#mj772a95b70d86a84afde750261a01c74c" class="navnav">15.5.2 Date-Objekte nicht immutable</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_15_006.htm#mjaed5eff4013d1faae60bd2e671a3ef7d" class="navnav">15.6 Calendar und GregorianCalendar</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_006.htm#mjc847dc8174500ca8af5a1d55532eb22f" class="navnav">15.6.1 Die abstrakte Klasse »Calendar«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_006.htm#mja3490a64c6913ed57fc8c579070ca4a2" class="navnav">15.6.2 Der gregorianische Kalender</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_006.htm#mj03f22e8d591046fd5eacb99580ae11cb" class="navnav">15.6.3 »Calendar« nach »Date« und Millisekunden fragen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_006.htm#mj670526851594fcb988f77b26256ce0ef" class="navnav">15.6.4 Ostertage *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_15_006.htm#mjbf7d3b89b1020fa31b9083f9957c81fb" class="navnav">15.6.5 Abfragen und Setzen von Datumselementen über Feldbezeichner</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj46511cda4895a1e383a7ac83f74bc82e" class="navh">15.7 Formatieren und Parsen von Datumsangaben</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjb1b2e8ad9e53664d52ad5f89e7779eb6" class="navh">15.7.1 Ausgaben mit »printf()«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjad1f28a3f317aa895ddd6dea7d84b156" class="navh">15.7.2 Mit »DateFormat« und »SimpleDateFormat« formatieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjcab2b0858767ea6f1c23afab81b9ed3a" class="navh">15.7.3 Parsen von Datumswerten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_15_008.htm#mj9f5339eca996c857fca493cc1d13e59e" class="navnav">15.8 Zum Weiterlesen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj46511cda4895a1e383a7ac83f74bc82e" name="mj46511cda4895a1e383a7ac83f74bc82e"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">15.7</span> Formatieren und Parsen von Datumsangaben  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Nachdem wir die <span class="clisting">Calendar</span>-Exemplare dazu benutzt haben, Datumswerte zu verwalten, wollen wir nun untersuchen, wie Formatierungsklassen dazu landestypische Ausgaben erzeugen. Unsere eigenen Ausgaben haben wir ja schon gemacht, doch geht es noch besser, weil die Java-Bibliothek für viele Länder selbstständig die richtigen Ausgaben durchführt.</p><a id="mjb1b2e8ad9e53664d52ad5f89e7779eb6" name="mjb1b2e8ad9e53664d52ad5f89e7779eb6"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">15.7.1</span> Ausgaben mit »printf()«  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die <span class="clisting">format()</span>- bzw. <span class="clisting">printf()</span>-Methoden sind in Java sehr flexibel und können auch Datumswerte ausgeben. Das können sie allerdings nicht so gut wie Klassen rund um <span class="clisting">DateFormat</span>, doch kann es ausreichen, wenn Datumswerte nicht lokalisiert behandelt werden müssen:</p>
+<p class="tabunter"><strong>Listing 15.13    </strong>com/tutego/insel/date/DateFormatWithPrintf.java, main()</p>
+<div class="listing"><pre class="prettyprint">Calendar cal = Calendar.getInstance();
+System.out.printf( "<span class="cfett">%tR</span>%n", cal );                 // 06:17
+System.out.printf( "<span class="cfett">%tT</span>%n", cal );                 // 06:17:05
+System.out.printf( "<span class="cfett">%tD</span>%n", cal );                 // 09/25/07
+System.out.printf( "<span class="cfett">%tF</span>%n", cal );                 // 2007-09-25
+System.out.printf( Locale.CHINA, "<span class="cfett">%tD</span>%n", cal );   // 09/25/07 (!)
+System.out.printf( Locale.GERMANY, "<span class="cfett">%tD</span>%n", cal ); // 09/25/07 (!)</pre></div>
+<p>Das Ergebnis ist zweistellig, daher nicht ganz Jahr-2000-fest. [Im November 1999 wurde ein Algorithmus zur Lösung des Jahr-2000-Problems patentiert, der einfach aussagt, dass zweistellige Jahreszahlen unter 30 zu 20XX und alle Jahreszahlen &gt;30 zu 19XX zu ergänzen sind. Das Patent konnte allerdings erfolgreich angefochten werden.
+]  Besonders beim letzten Beispiel ist abzulesen, dass die <span class="clisting">Locale</span>-Angabe für Datumswerte generell nicht funktioniert (chinesische Datumsangaben beginnen mit dem Jahr). Die Abkürzungen <span class="clisting">%tR</span>, <span class="clisting">%tT</span>, <span class="clisting">%tD</span> und <span class="clisting">%tF</span> sind mit festen Reihenfolgenden definiert, die die API-Dokumentation zeigt. So ist <span class="clisting">%tD</span> nichts anderes als eine Abkürzung für <span class="clisting">%tm/%td/%ty</span>.</p><a id="mjad1f28a3f317aa895ddd6dea7d84b156" name="mjad1f28a3f317aa895ddd6dea7d84b156"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">15.7.2</span> Mit »DateFormat« und »SimpleDateFormat« formatieren  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Eine Klasse, die die Ausgabe und das Einlesen der Datum-Felder übernimmt, ist <span class="clisting">DateFormat</span>. Da <span class="clisting">DateFormat</span> abstrakt ist, ist erst eine implementierende Unterklasse einsatzbereit. Natürlich liegt eine solche Klasse auch vor: <span class="clisting">SimpleDateFormat</span>. Die Klasse bietet reichhaltige Methoden zur Zerlegung von Datum-Zeichenketten sowie Methoden zur Ausgabe unter verschiedenen Sprachen und Formatierungen an.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext" rowspan="2">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Ausgabe des Datums ohne zusätzliche Formatierungsanweisungen mit der Klasse <span class="clisting">SimpleDateFormat</span> und einmal mit der <span class="clisting">printf()</span>-Methode:</p>
+<div class="listing"><pre class="prettyprint">Calendar cal  = Calendar.getInstance();
+Date     time = cal.getTime();
+DateFormat formatter = new SimpleDateFormat();
+System.out.println( formatter.format( time ) ); // 26.04.10 18:11
+System.out.printf( "%tT%n", cal );              // 18:11:11
+System.out.printf( "%tT%n", time );             // 18:11:11
+System.out.printf( "%tT%n", time.getTime() );   // 18:11:11</pre></div>
+<p class="BStandard">Formatiert <span class="clisting">printf()</span> ein Datum, kann es als <span class="clisting">Calendar</span>-, <span class="clisting">Date</span>- oder <span class="clisting">Long</span>-Objekt angegeben werden. Bei <span class="clisting">format()</span> ist nur <span class="clisting">Date</span> erlaubt; ist es ein <span class="clisting">Calendar</span>, folgt eine »java.lang.IllegalArgumentException: Cannot format given Object as a Date«.</p>
+</td>
+</tr>
+</table><br><p>Um das Datum zu formatieren, müssen wir zunächst ein Exemplar von <span class="clisting">SimpleDateFormat</span> erzeugen. Dieses bekommt dann eventuell Formatierungsanweisungen (über eine andere Methode oder über einen weiteren Konstruktor) und formatiert mit der <span class="clisting">format()</span>-Methode das Datum.</p>
+<div class="bildbox">
+<p><a name="IDAGR2D"></a><a onClick="OpenWin('bilder/dateformatsimpledateformatuml.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleindateformatsimpledateformatuml.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.text.<span class="cfett">SimpleDateFormat</span>
+extends DateFormat</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">SimpleDateFormat()</span>
+Erzeugt ein neues <span class="clisting">SimpleDateFormat</span>-Objekt in der voreingestellten Sprache.</li>
+</ul><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">abstract class java.text.<span class="cfett">DateFormat</span>
+extends Format
+implements Cloneable</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">final String format( Date date )</span>
+Formatiert das Datum <span class="clisting">date</span> in einen Datum/Zeit-String. Ein <span class="clisting">Calendar</span>-Objekt ist bisher nicht erlaubt. Wer es dennoch versucht, wird eine »java.lang.IllegalArgumentException: Cannot format given Object as a Date« ernten. Zur Erinnerung: Es liefert <span class="clisting">cal.getTime()</span> vom <span class="clisting">Calendar</span>-Objekt <span class="clisting">cal</span> ein passendes <span class="clisting">Date</span>-Objekt.</li>
+</ul>
+<h4 class="t4">Vorgefertigte Formatierungen</h4>
+<p>Wir haben im vorigen Beispiel gesehen, dass das Ausgabeformat auf Monat, Tag, Jahr, Leerzeichen, Stunde, Minute festgelegt ist. Nun bietet die <span class="clisting">DateFormat</span>-Klasse drei statische Fabrikmethoden für vorgefertigte Formatierungen:</p>
+<ul class="gp">
+<li><span class="clisting">DateFormat getDateInstance()</span>: Formatierung nur für Datum</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">DateFormat getTimeInstance()</span>: Formatierung nur für Zeit</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">DateFormat getDateTimeInstance()</span>: Formatierung für Datum und Zeit</li>
+</ul>
+<p>Optional lassen sich den Methoden Argumente für Präzisionen mitgeben, und zwar <span class="clisting">DateFormat.SHORT</span>, <span class="clisting">DateFormat.MEDIUM</span>, <span class="clisting">DateFormat.LONG</span> oder <span class="clisting">DateFormat.FULL</span>. Diese ermöglichen es, dass sich die Zeit beziehungsweise das Datum auf vier Arten formatieren lässt:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 15.2    </strong>Konstanten aus »DateFormat« und ihre Wirkung</p>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Konstante</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beispiel für Datum</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beispiel für Zeit</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">DateFormat.SHORT</span></p>
+</td>
+<td class="tabellentext">
+<p>24.12.06</p>
+</td>
+<td class="tabellentext">
+<p>21:54</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">DateFormat.MEDIUM</span></p>
+</td>
+<td class="tabellentext">
+<p>24.12.2006</p>
+</td>
+<td class="tabellentext">
+<p>21:54:46</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">DateFormat.LONG</span></p>
+</td>
+<td class="tabellentext">
+<p>24. Dezember 2006</p>
+</td>
+<td class="tabellentext">
+<p>21:54:20 GMT+02:00</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">DateFormat.FULL</span></p>
+</td>
+<td class="tabellentext">
+<p>Sonntag, 24. Dezember 2006</p>
+</td>
+<td class="tabellentext">
+<p>21.54 Uhr GMT+02:00</p>
+</td>
+</tr>
+</table><br><p>Den statischen Methoden lässt sich weiterhin ein <span class="clisting">Locale</span>-Objekt übergeben, sodass sie für eine bestimmte Landessprache formatieren:</p>
+<p class="tabunter"><strong>Listing 15.14    </strong>com/tutego/insel/date/DateTimeInstance.java, main()</p>
+<div class="listing"><pre class="prettyprint">Date d = new Date();
+
+DateFormat df;<span class="cfett">
+df = DateFormat.getDateTimeInstance( /* dateStyle */ DateFormat.FULL,</span>
+                                    <span class="cfett"> /* timeStyle */ DateFormat.MEDIUM );</span>
+out.println(<span class="cfett"> df.format(d)</span> ); // Dienstag, 25. September 2007 17:28:03
+<span class="cfett">
+df = DateFormat.getDateTimeInstance( DateFormat.FULL, DateFormat.MEDIUM, 
+  Locale.ITALY );</span>
+out.println( df.format(d) ); // martedì 25 settembre 2007 17.28.03
+<span class="cfett">
+df = DateFormat.getDateTimeInstance( DateFormat.SHORT, DateFormat.FULL, 
+  Locale.CANADA_FRENCH );</span>
+out.println( df.format(d) ); // 07-09-25 17 h 28 CEST</pre></div>
+<p>Die statischen Methoden, die das vordefinierte <span class="clisting">DateFormat</span> erzeugen, sind:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">abstract class java.text.<span class="cfett">DateFormat</span>
+extends Format
+implements Cloneable</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">static final DateFormat getDateInstance()
+static final DateFormat getTimeInstance()
+static final DateFormat getDateTimeInstance()</span>
+Liefert einen Datum-/Zeit-Formatierer mit dem vorgegebenen Stil aus der Standardumgebung.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static final DateFormat getDateInstance( int dateStyle )
+static final DateFormat getTimeInstance( int style )</span>
+Liefert einen Datum-/Zeit-Formatierer mit dem Stil <span class="clisting">style</span> und der Standardsprache.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static final DateFormat getDateInstance( int style, Locale aLocale )
+static final DateFormat getTimeInstance( int style, Locale aLocale )</span>
+Liefert einen Datum-/Zeit-Formatierer mit dem Stil <span class="clisting">style</span> und der Sprache <span class="clisting">aLocale</span>.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static final DateFormat getDateTimeInstance( int dateStyle, int timeStyle )</span>
+Gibt einen Datum-/Zeit-Formatierer für die gesetzte Sprache im angegebenen Formatierungsstil zurück.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static final DateFormat getDateTimeInstance( int dateStyle, int timeStyle, Locale aLocale )</span>
+Gibt einen Datum-/Zeit-Formatierer für die Sprache <span class="clisting">aLocale</span> im angegebenen Formatierungsstil zurück.</li>
+</ul>
+<h4 class="t4">Eine noch individuellere Ausgabe *</h4>
+<p>Um das Ausgabeformat zu individualisieren, kann ein Formatierungsstring die Ausgabe anpassen. Diese Formatierungsanweisung, in der alle ASCII-Zeichen eine bestimmte Bedeutung haben, wird entweder dem Konstruktor der Klasse <span class="clisting">SimpleDateFormat</span> übergeben oder kann mit der <span class="clisting">applyPattern()</span>-Methode geändert werden:</p>
+<p class="tabunter"><strong>Listing 15.15    </strong>com/tutego/insel/date/SimpleDateFormatPattern.java, main()</p>
+<div class="listing"><pre class="prettyprint">DateFormat dfmt =<span class="cfett"> new SimpleDateFormat( "E.', den' dd.MM.yy 'um' hh:mm:ss" )</span>;
+System.out.println( dfmt.format(new Date()) );   // Mi., den 21.03.07 um 09:14:20
+
+SimpleDateFormat sdfmt = new SimpleDateFormat();
+sdfmt.<span class="cfett">applyPattern( "EEEE', 'dd. MMMM yyyy hh:mm" )</span>;
+System.out.println( sdfmt.format(new Date()) ); // Mittwoch, 21. März 2007 09:14</pre></div>
+<p>Die folgende Tabelle zeigt die erlaubten Symbole mit ihren Sonderbedeutungen. Mehrfach wiederholte Zeichen werden, wenn möglich, durch die Langform der jeweiligen Angabe ersetzt. Diese Symbole sind sprachunabhängig.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 15.3    </strong>Symbole im Formatierungsstring zur Steuerung der Ausgabe bei »SimpleDateFormat«</p>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Symbol</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Bedeutung</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Präsentation</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beispiel</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">G</span></p>
+</td>
+<td class="tabellentext">
+<p>Ära</p>
+</td>
+<td class="tabellentext">
+<p>Text</p>
+</td>
+<td class="tabellentext">
+<p>AD</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">yy</span></p>
+</td>
+<td class="tabellentext">
+<p>Jahr zweistellig</p>
+</td>
+<td class="tabellentext">
+<p>Nummer</p>
+</td>
+<td class="tabellentext">
+<p>07</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">yyyy</span></p>
+</td>
+<td class="tabellentext">
+<p>Jahr vierstellig</p>
+</td>
+<td class="tabellentext">
+<p>Nummer</p>
+</td>
+<td class="tabellentext">
+<p>2007</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">M</span></p>
+</td>
+<td class="tabellentext">
+<p>Monat im Jahr</p>
+</td>
+<td class="tabellentext">
+<p>Nummer</p>
+</td>
+<td class="tabellentext">
+<p>7</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">MM</span></p>
+</td>
+<td class="tabellentext">
+<p>Monat im Jahr mit 0</p>
+</td>
+<td class="tabellentext">
+<p>Nummer</p>
+</td>
+<td class="tabellentext">
+<p>07</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">MMM</span></p>
+</td>
+<td class="tabellentext">
+<p>Monat im Jahr kurz</p>
+</td>
+<td class="tabellentext">
+<p>Text</p>
+</td>
+<td class="tabellentext">
+<p>Sep</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">MMMM</span></p>
+</td>
+<td class="tabellentext">
+<p>Monat im Jahr lang</p>
+</td>
+<td class="tabellentext">
+<p>Text</p>
+</td>
+<td class="tabellentext">
+<p>September</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">d</span></p>
+</td>
+<td class="tabellentext">
+<p>Tag im Monat</p>
+</td>
+<td class="tabellentext">
+<p>Nummer</p>
+</td>
+<td class="tabellentext">
+<p>26</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">h</span></p>
+</td>
+<td class="tabellentext">
+<p>Stunde (1&#8211;12)</p>
+</td>
+<td class="tabellentext">
+<p>Nummer</p>
+</td>
+<td class="tabellentext">
+<p>9</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">H</span></p>
+</td>
+<td class="tabellentext">
+<p>Stunde am Tag (0&#8211;23)</p>
+</td>
+<td class="tabellentext">
+<p>Nummer</p>
+</td>
+<td class="tabellentext">
+<p>0</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">m</span></p>
+</td>
+<td class="tabellentext">
+<p>Minute der Stunde</p>
+</td>
+<td class="tabellentext">
+<p>Nummer</p>
+</td>
+<td class="tabellentext">
+<p>13</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">s</span></p>
+</td>
+<td class="tabellentext">
+<p>Sekunde der Minute</p>
+</td>
+<td class="tabellentext">
+<p>Nummer</p>
+</td>
+<td class="tabellentext">
+<p>22</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">S</span></p>
+</td>
+<td class="tabellentext">
+<p>Millisekunde</p>
+</td>
+<td class="tabellentext">
+<p>Nummer</p>
+</td>
+<td class="tabellentext">
+<p>257</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">E</span></p>
+</td>
+<td class="tabellentext">
+<p>Tag der Woche kurz</p>
+</td>
+<td class="tabellentext">
+<p>Text</p>
+</td>
+<td class="tabellentext">
+<p>Mi</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">EEEE</span></p>
+</td>
+<td class="tabellentext">
+<p>Tag der Woche lang</p>
+</td>
+<td class="tabellentext">
+<p>Text</p>
+</td>
+<td class="tabellentext">
+<p>Mittwoch</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">D</span></p>
+</td>
+<td class="tabellentext">
+<p>Tag im Jahr</p>
+</td>
+<td class="tabellentext">
+<p>Nummer</p>
+</td>
+<td class="tabellentext">
+<p>304</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">F</span></p>
+</td>
+<td class="tabellentext">
+<p>Tag der Woche im Monat</p>
+</td>
+<td class="tabellentext">
+<p>Nummer</p>
+</td>
+<td class="tabellentext">
+<p>3</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">w</span></p>
+</td>
+<td class="tabellentext">
+<p>Woche im Jahr</p>
+</td>
+<td class="tabellentext">
+<p>Nummer</p>
+</td>
+<td class="tabellentext">
+<p>12</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">W</span></p>
+</td>
+<td class="tabellentext">
+<p>Woche im Monat</p>
+</td>
+<td class="tabellentext">
+<p>Nummer</p>
+</td>
+<td class="tabellentext">
+<p>3</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">a</span></p>
+</td>
+<td class="tabellentext">
+<p>am- und pm-Text</p>
+</td>
+<td class="tabellentext">
+<p>Text</p>
+</td>
+<td class="tabellentext">
+<p>AM</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">k</span></p>
+</td>
+<td class="tabellentext">
+<p>Stunde am Tag (1&#8211;24)</p>
+</td>
+<td class="tabellentext">
+<p>Nummer</p>
+</td>
+<td class="tabellentext">
+<p>24</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">K</span></p>
+</td>
+<td class="tabellentext">
+<p>Stunde (0&#8211;11)</p>
+</td>
+<td class="tabellentext">
+<p>Nummer</p>
+</td>
+<td class="tabellentext">
+<p>0</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">z</span></p>
+</td>
+<td class="tabellentext">
+<p>Allgemeine Zeitzone</p>
+</td>
+<td class="tabellentext">
+<p>Text</p>
+</td>
+<td class="tabellentext">
+<p>GMT+02:00</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">Z</span></p>
+</td>
+<td class="tabellentext">
+<p>Zeitzone nach RFC 822</p>
+</td>
+<td class="tabellentext">
+<p>Text</p>
+</td>
+<td class="tabellentext">
+<p>+0200</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">'</span></p>
+</td>
+<td class="tabellentext">
+<p>Zeichen für unbehandelten Text</p>
+</td>
+<td class="tabellentext">
+<p>Trennzeichen</p>
+</td>
+<td class="tabellentext">
+<p>Hallo Welt</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">''</span></p>
+</td>
+<td class="tabellentext">
+<p>einzelnes Hochkomma</p>
+</td>
+<td class="tabellentext">
+<p>Literal</p>
+</td>
+<td class="tabellentext">
+<p>'</p>
+</td>
+</tr>
+</table><br><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 15.4    </strong>Symbole im Formatierungsstring zur Steuerung der Ausgabe</p>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Formatierungsstring</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Ergebnis</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">yyyy.MM.dd G 'um' hh:mm:ss z</span></p>
+</td>
+<td class="tabellentext">
+<p>2004.07.23 n. Chr. um 09:15:53 CEST</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">EEE, MMM d, ''yy</span></p>
+</td>
+<td class="tabellentext">
+<p>Fr, Jul 23, '04</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">H:mm a</span></p>
+</td>
+<td class="tabellentext">
+<p>9:16 AM</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">hh 'o''clock' a, zzzz</span></p>
+</td>
+<td class="tabellentext">
+<p>09 o'clock AM, Zentraleuropäische Sommerzeit</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">K:mm a, z</span></p>
+</td>
+<td class="tabellentext">
+<p>9:17 AM, CEST</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">yyyy. MMMMM. dd GGG hh:mm aaa</span></p>
+</td>
+<td class="tabellentext">
+<p>2004. Juli. 23 n. Chr. 09:18 AM</p>
+</td>
+</tr>
+</table><br><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.text.<span class="cfett">SimpleDateFormat</span>
+extends DateFormat</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">SimpleDateFormat()</span>
+Erzeugt ein neues <span class="clisting">SimpleDateFormat</span>-Objekt in der eingestellten Sprache.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">SimpleDateFormat( String pattern )</span>
+Erzeugt ein <span class="clisting">SimpleDateFormat</span>-Objekt mit dem vorgegebenen Formatierungsstring in der voreingestellten Sprache.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">SimpleDateFormat( String pattern, Locale locale )</span>
+Erzeugt ein <span class="clisting">SimpleDateFormat</span>-Objekt mit dem vorgegebenen Formatierungsstring in der Sprache <span class="clisting">locale</span>.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">SimpleDateFormat( String pattern, DateFormatSymbols formatSymbols )</span>
+Erzeugt ein <span class="clisting">SimpleDateFormat</span>-Objekt mit dem vorgegebenen Formatierungsstring und einem Objekt <span class="clisting">formatSymbols</span>, das die formatierungstypischen Informationen sammelt.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void applyPattern( String pattern )</span>
+Setzt den Formatierungsstring.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">String toPattern()</span>
+Liefert den aktuell eingestellten Formatierungsstring.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">String toLocalizedPattern()</span>
+Liefert einen übersetzten Formatierungsstring. Substituiert einige Formatierungssymbole.</li>
+</ul><a id="mjcab2b0858767ea6f1c23afab81b9ed3a" name="mjcab2b0858767ea6f1c23afab81b9ed3a"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">15.7.3</span> Parsen von Datumswerten  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Mit der Klasse <span class="clisting">DateFormat</span> zerlegt <span class="clisting">parse()</span> Strings, die ein Datum darstellen. Die Methode liefert ein <span class="clisting">Date</span>-Objekt zurück und kann so zum Beispiel den Zeit-String »Mon Aug 08 15:02:00 CEST 2005« parsen und ein Datumsobjekt liefern, was <span class="clisting">new Date(1123506132484)</span> gleichkommt. Da <span class="clisting">parse()</span> allzu leicht schiefgehen kann, muss der Aufruf entweder in einen <span class="clisting">try</span>-<span class="clisting">catch</span>-Block oder der Fehler muss anderweitig weitergeleitet werden.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Parse eine einfache Datums-Repräsentation. Erzeuge dann vom Datumsobjekt eine String-Repräsentation, und parse diese wieder:</p>
+<p class="tabunter"><strong>Listing 15.16    </strong>com/tutego/insel/date/FormatAndParseDate.java, main()</p>
+<div class="listing"><pre class="prettyprint">try
+{
+  DateFormat formatter = DateFormat.getDateTimeInstance();
+  Date d  = formatter.<span class="cfett">parse</span>( "24.12.2007 16:59:12" );
+  System.out.println( d );                  // Mon Dec 24 16:59:12 CET 2007
+  String s = formatter.<span class="cfett">format</span>( new Date() );
+  System.out.println( formatter.<span class="cfett">parse</span>(s) ); // Wed Mar 21 21:29:02 CET 2007
+}
+catch ( ParseException e ) { e.printStackTrace(); }</pre></div>
+</td>
+</tr>
+</table><br><p>Die Methode <span class="clisting">parse()</span> ist sehr empfindlich, wenn einige Felder nicht angegeben werden. Nach der Dokumentation sollte zwar ein Fehlen der Stunden nichts ausmachen, aber leider ist dann doch immer eine <span class="clisting">ParseException</span> sicher, auch wenn nur die Sekunden fehlen. Trotz dieser Unzulänglichkeiten ist die Klasse <span class="clisting">SimpleDateFormat</span> sehr komplex und nicht leicht zu durchschauen.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Parse ein Datum, das das Format »Tag-Monat-Jahr« hat, wobei das Jahr vierstellig sein soll und der Monat zweistellig.</p>
+<div class="listing"><pre class="prettyprint">DateFormat formatter = new SimpleDateFormat( "dd-MM-yyyy " );
+Date date = formatter.parse( "12-03-2008" );</pre></div>
+</td>
+</tr>
+</table><br><p>Jetzt haben wir ein Datum in ein <span class="clisting">Date</span>-Objekt umgewandelt. Es taucht aber wieder das Problem auf, dass <span class="clisting">Date</span> an kein spezielles Land und an keine Zeitzone angepasst ist, sondern die GMT in Englisch repräsentiert.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">abstract class java.text.<span class="cfett">DateFormat</span>
+extends Format
+implements Cloneable, Serializable</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">Date parse( String source ) throws ParseException</span>
+Zerlegt einen Datums- oder einen Zeit-String.</li>
+</ul>
+<h4 class="t4">parse() &#8211; der Nachsichtige</h4>
+<p>Unsinnige Werte meckert <span class="clisting">parse()</span> standardmäßig nicht an, wie die folgenden Zeilen darlegen:</p>
+<div class="listing"><pre class="prettyprint">DateFormat formatter = new SimpleDateFormat( "dd-MM-yyyy" );
+System.out.println( formatter.parse(<span class="cfett"> "29-02-2008"</span> ) ); // Fri Feb 29 00:00:00 CET 2008
+System.out.println( formatter.parse(<span class="cfett"> "29-02-2007"</span> ) ); // Thu Mar 01 00:00:00 CET 2007
+System.out.println( formatter.parse(<span class="cfett"> "33-02-2008"</span> ) ); // Tue Mar 04 00:00:00 CET 2008</pre></div>
+<p>An den beiden letzten Beispielen lässt sich ablesen, dass das Datum auf den nächsten Monat »rollt«. Um das abzusichern, bietet <span class="clisting">DateFormat</span> eine Methode <span class="clisting">setLenient(boolean)</span>, die den »Mildmodus« mit <span class="clisting">setLenient(false)</span> ausschaltet.</p>
+<div class="listing"><pre class="prettyprint">DateFormat formatter = new SimpleDateFormat( "dd-MM-yyyy" );<span class="cfett">
+formatter.setLenient( false );</span>
+System.out.println( formatter.parse(<span class="cfett"> "29-02-2007"</span> ) );</pre></div>
+<p>Jetzt gibt es für den 29.02.2007 eine <span class="clisting">ParseException</span> mit dem Text Unparseable date: "<span class="clisting">29-02-2007</span>". Der 29.02.2008 ist in Ordnung, weil 2008 ein Schaltjahr ist.</p>
+<h4 class="t4">Parsen und Formatieren ab bestimmten Positionen *</h4>
+<p>Von den Methoden <span class="clisting">format()</span> und <span class="clisting">parse()</span> gibt es zwei Varianten, mit denen Teile eines Strings ausgegeben oder formatiert werden können. Zur Kapselung der Position dient ein neues Objekt <span class="clisting">ParsePosition</span>. Dieses Klasse nutzt <span class="clisting">format()</span> intern, um beim Parse-Prozess die aktuelle Position zu verwalten.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">abstract class java.text.<span class="cfett">DateFormat</span>
+extends Format
+implements Cloneable, Serializable</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">abstract Date parse( String source, ParsePosition pos ) throws ParseException</span>
+Zerlegt einen Datums- oder einen Zeit-String und beginnt beim Parsen ab einer vorgegebenen Position.</li>
+</ul>
+<div class="bildbox">
+<p><a name="IDAKV3D"></a><a onClick="OpenWin('bilder/365_java_10_003.gif','Abbildung',800,800)"><img border="0" src="bilderklein/klein365_java_10_003.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="15.7 Formatieren und Parsen von Datumsangaben"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_15_006.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_15_008.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

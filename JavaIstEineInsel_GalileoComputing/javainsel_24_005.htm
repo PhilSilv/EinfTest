@@ -1,0 +1,996 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 24.5 Mit Java an eine Datenbank andocken</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 24.5 Mit Java an eine Datenbank andocken">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 24.5 Mit Java an eine Datenbank andocken">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_05_001.htm#mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_08_001.htm#mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_09_001.htm#mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_11_001.htm#mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_24_004.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_24_006.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e" class="navnav">24 Datenbankmanagement mit JDBC</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_24_001.htm#mj46b0e8fa332b9e0acf5ed6af17d2a98c" class="navnav">24.1 Relationale Datenbanken</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_24_001.htm#mj730fbb58b95658985bdf55faaf870ede" class="navnav">24.1.1 Das relationale Modell</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_24_002.htm#mj05bbe3339ed38c4aecd367ec359c4011" class="navnav">24.2 Datenbanken und Tools</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_24_002.htm#mjbde658104f14f417b3b4026c8a516112" class="navnav">24.2.1 HSQLDB</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_24_002.htm#mj83f5c6e2a6546d41e3d96f09f2df7988" class="navnav">24.2.2 Weitere Datenbanken *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_24_002.htm#mjf391fa2ec3e39509ffe767172cf5fcd1" class="navnav">24.2.3 Eclipse-Plugins zum Durchschauen von Datenbanken</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_24_003.htm#mjacfd2982d1bc7ec7b735d6cc83e831c3" class="navnav">24.3 JDBC und Datenbanktreiber</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_24_003.htm#mj674c2677f9a0d94718423ae8515f4dd6" class="navnav">24.3.1 Treibertypen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_24_003.htm#mj3f8210be26360e4dcda3364640cbb4ac" class="navnav">24.3.2 JDBC-Versionen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_24_004.htm#mj91d692811d093eb803581b01fc7c2470" class="navnav">24.4 Eine Beispielabfrage</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_24_004.htm#mjf081014dce64c0e3ce5a3178431d4c1c" class="navnav">24.4.1 Schritte zur Datenbankabfrage</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_24_004.htm#mjb144bb9453ebab6ed4d4bb530f6ceedf" class="navnav">24.4.2 Client für HSQLDB-Datenbank</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_24_004.htm#mj8ff92b2e4af1f98e8f70e3333c1efe60" class="navnav">24.4.3 Datenbankbrowser und eine Beispielabfrage unter NetBeans</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj702febb6f56ff7a8e37de22bd9cf1943" class="navh">24.5 Mit Java an eine Datenbank andocken</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjed26d6ea70f78ea0b6886989e8d08497" class="navh">24.5.1 Der Treiber-Manager *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjfbb9e1a46286412b9fb7b5d5a5fd94a5" class="navh">24.5.2 Den Treiber laden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjb3b384c32a0671eee394cba2f6f8f585" class="navh">24.5.3 Eine Aufzählung aller Treiber *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj3074ce37f4db44a8403afd35d15edc77" class="navh">24.5.4 Log-Informationen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj03527ad663e5581d49039e4e85fd3ab6" class="navh">24.5.5 Verbindung zur Datenbank auf- und abbauen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_24_006.htm#mj37eccda88499af8132476a4f3e1a86d3" class="navnav">24.6 Datenbankabfragen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_24_006.htm#mj3879a5685c19a2059be50483fc31944e" class="navnav">24.6.1 Abfragen über das Statement-Objekt</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_24_006.htm#mj6b68298c787ba3d5c2b1ea39f1e422c9" class="navnav">24.6.2 Ergebnisse einer Abfrage in ResultSet</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_24_006.htm#mjf920d17473c93942bbff9291c1f0da69" class="navnav">24.6.3 Java und SQL-Datentypen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_24_006.htm#mj3cd8803a2f729fc42d74f686a789a7b2" class="navnav">24.6.4 Date, Time und Timestamp</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_24_006.htm#mj70fc11a9e1ca2c1047870001be8ee0ae" class="navnav">24.6.5 Unicode in der Spalte korrekt auslesen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_24_006.htm#mj9b0a0e779463df5ee4b63cec109c01bc" class="navnav">24.6.6 Eine SQL-NULL und »wasNull()« bei ResultSet</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_24_006.htm#mj22a3553644e56e14b8af78d5d675caea" class="navnav">24.6.7 Wie viele Zeilen hat ein ResultSet? *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_24_007.htm#mj2f886a8014f645ac5deff4f2c94c19b5" class="navnav">24.7 Elemente einer Datenbank hinzufügen und aktualisieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_24_007.htm#mj4e2ac0d32e076fb920e6089590d6658a" class="navnav">24.7.1 Batch-Updates</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_24_007.htm#mjb559f5c207402678b402e7eb2fd27d16" class="navnav">24.7.2 Die Ausnahmen bei JDBC, SQLException und Unterklassen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_24_008.htm#mjdeb4eefa360476894b8cd02a4767f015" class="navnav">24.8 Vorbereitete Anweisungen (Prepared Statements)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_24_008.htm#mj21a84cbc818859400d45a5a2ca0056d7" class="navnav">24.8.1 PreparedStatement-Objekte vorbereiten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_24_008.htm#mj1093b21c3826515f12836b2a96e40fb2" class="navnav">24.8.2 Werte für die Platzhalter eines PreparedStatement</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_24_009.htm#mj17d275b71ed1cf7b6f2b9511c8b63c58" class="navnav">24.9 Transaktionen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_24_010.htm#mj4196eb216f99ab87f1ac411675a84b55" class="navnav">24.10 Metadaten *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_24_010.htm#mjeb02c102a6e0267cbf9d4a82ea1863e6" class="navnav">24.10.1 Metadaten über die Tabelle</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_24_010.htm#mj8879a02cb8c93b9e031e804f2dc26f49" class="navnav">24.10.2 Informationen über die Datenbank</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_24_011.htm#mjcd37546d4104f15c1fddf5dd76b609f9" class="navnav">24.11 Vorbereitete Datenbankverbindungen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_24_011.htm#mje8cf023c0edbf05c7abf8b7fb05c055a" class="navnav">24.11.1 DataSource</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_24_011.htm#mjab3ae70dca81655d04e3a51518572f0b" class="navnav">24.11.2 Gepoolte Verbindungen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_24_012.htm#mj81a6a694df1f066c377ff8fb43a7c10e" class="navnav">24.12 Einführung in SQL</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_24_012.htm#mjaeee8aa7b0f37920b1c0483882d7dbe4" class="navnav">24.12.1 Ein Rundgang durch SQL-Abfragen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_24_012.htm#mj742c314205f73a7aaf949054b2cf39d9" class="navnav">24.12.2 Datenabfrage mit der Data Query Language (DQL)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_24_012.htm#mj113a759c40aa0e495bb554ff0ef2d865" class="navnav">24.12.3 Tabellen mit der Data Definition Language (DDL) anlegen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_24_013.htm#mj0d4cee59cc677a4f9634f88e7c6f2aed" class="navnav">24.13 Zum Weiterlesen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj702febb6f56ff7a8e37de22bd9cf1943" name="mj702febb6f56ff7a8e37de22bd9cf1943"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">24.5</span> Mit Java an eine Datenbank andocken  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Zum Aufbau einer Datenbankverbindung und zur Herstellung einer <span class="clisting">Connection</span> gibt es zwei Möglichkeiten:</p>
+<ul class="gp">
+<li><span class="cfett">Direkt über den</span> <span class="cfett">DriverManager</span>: Die Verbindungsdaten stehen im Quellcode (entweder direkt, oder sie werden über Konfigurationsdateien bestimmt). Diesen Weg zeigte bisher das Beispiel.</li>
+</ul>
+<ul class="gp">
+<li><span class="cfett">Über einen zentralen Namensdienst</span>: Im JNDI ist eine vorkonfigurierte Datenquelle (<span class="clisting">DataSource</span>) abgelegt, die wir entnehmen und über die wir eine Verbindung aufbauen.</li>
+</ul>
+<p>Im Java-Enterprise-Bereich ist das übliche Vorgehen der zweite Weg über eine <span class="clisting">DataSource</span>. Wir wollen uns doch zunächst mit dem <span class="clisting">DriverManager</span> beschäftigen, bevor wir zur <span class="clisting">DataSource</span> und zum JNDI kommen.</p>
+<p>Alle verwendeten Klassen und Schnittstellen für den Datenbankteil liegen unter <span class="clisting">java.sql.*</span>. Im Fall des Namensdienstes sind Klassen/Schnittstellen aus dem Paket <span class="clisting">javax.naming</span> nötig.</p><a id="mjed26d6ea70f78ea0b6886989e8d08497" name="mjed26d6ea70f78ea0b6886989e8d08497"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">24.5.1</span> Der Treiber-Manager *  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Alle Datenbanktreiber werden an einer zentralen Stelle, dem <span class="ckursiv">Treiber-Manager</span>, gesammelt. Die Zentrale ist in Java durch die Klasse <span class="clisting">DriverManager</span> gegeben. Die Methoden der Klasse sind statisch, da sich ein Exemplar dieser Klasse nicht erzeugen lässt; der Konstruktor ist privat. Die wichtigste Methode des Treiber-Managers ist statisch und heißt <span class="clisting">getConnection()</span>, mit der wir eine Verbindung zur Datenbank aufbauen können. Es lassen sich aber auch alle angemeldeten Treiber erfragen.</p><a id="mjfbb9e1a46286412b9fb7b5d5a5fd94a5" name="mjfbb9e1a46286412b9fb7b5d5a5fd94a5"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">24.5.2</span> Den Treiber laden  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Vor der Ausführung der JDBC-Befehle muss ein passender Datenbanktreiber geladen werden. Der Datenbanktreiber ist eine Java-Klasse, die beim Treiber-Manager angemeldet sein muss.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Seit Java 6 werden die Treiberklassen &#8211; soweit vom Treiberproduzenten vorbereitet &#8211; automatisch geladen. Der Entwickler muss den Namen der Treiberklassen nicht mehr kennen. Intern funktioniert das über Service Provider. Für eigene automatisch zu ladende Klassen ist <span class="clisting">java.util.ServiceLoader</span> einen Blick wert.</p>
+</td>
+</tr>
+</table><br><p>Vor Java 6 und bei nicht vorbereiteten Datenbanken ist die Treiberklasse von Hand einzubinden. Zwei Möglichkeiten sind populär:</p>
+<ul class="gp">
+<li>Die Property <span class="clisting">jdbc.drivers</span> enthält den Namen des Datenbanktreibers. Auf der Kommandozeile lässt sich die Variable mit dem Schalter <span class="clisting">-D</span> einfach setzen:</li>
+</ul>
+<blockquote>
+<div class="listing"><pre class="prettyprint"><span class="clisting">$</span> <span class="cfett">java -Djdbc.drivers</span><span class="cfett">=org.hsqldb.jdbcDriver &lt;Javaklasse&gt;</span></pre></div>
+</blockquote>
+<ul class="gp">
+<li>Die zweite Möglichkeit bietet der Aufruf von <span class="clisting">Class.forName(driverclassname)</span>, die eine Treiberklasse lädt. Sie trägt sich automatisch beim Treiber-Manager ein.</li>
+</ul><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">final class java.lang.<span class="cfett">Class</span>&lt;T&gt;
+implements Serializable, GenericDeclaration, Type, AnnotatedElement</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">static Class forName( String className ) throws ClassNotFoundException</span>
+Sucht, lädt und bindet die Klasse mit dem qualifizierten Namen <span class="clisting">className</span> ins Laufzeitsystem ein. Die statische Methode liefert ein <span class="clisting">Class</span>-Objekt zurück, falls sie die Klasse laden kann, andernfalls quittiert sie einen Fehler mit einer <span class="clisting">ClassNotFoundException</span>.</li>
+</ul>
+<p>Die Programmzeilen für das manuelle Laden der Klasse <span class="clisting">org.hsqldb.jdbcDriver</span> sind somit:</p>
+<p class="tabunter"><strong>Listing 24.3    </strong>com/tutego/insel/jdbc/DriverManagerDemo.java, Ausschnitt</p>
+<div class="listing"><pre class="prettyprint">try
+{
+  Class.forName( "org.hsqldb.jdbcDriver" );
+}
+catch ( ClassNotFoundException e )
+{
+  // Blöd: Treiber konnte nicht geladen werden.
+  e.printStackTrace();
+}</pre></div>
+<p>Da wir die Klasse nur laden, aber die Referenz auf den Klassen-Deskriptor nicht benötigen, belassen wir es bei einem Aufruf und beachten den Rückgabewert nicht. Diese <span class="clisting">Class.forName()</span> löst eine <span class="clisting">ClassNotFoundException</span> aus, falls die Klasse nicht gefunden wurde, der Treiber also nicht geladen werden konnte.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Der JDBC-ODBC-Treiber ist schon initialisiert und muss nicht mit <span class="clisting">Class.forName("sun.jdbc.odbc.JdbcOdbcDriver</span><span class="clisting">");</span> geladen werden.</p>
+</td>
+</tr>
+</table><br><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 24.2    </strong>Übersicht der jeweiligen voll qualifizierten Klassennamen für den JDBC-Treiber</p>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Datenbank</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Klassenname für den JDBC-Treiber</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Adabas D</p>
+</td>
+<td class="tabellentext">
+<p>de.sag.jdbc.adabasd.Adriver</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Borland JDataStore</p>
+</td>
+<td class="tabellentext">
+<p>com.borland.datastore.jdbc.DataStoreDriver</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Borland Interbase</p>
+</td>
+<td class="tabellentext">
+<p>interbase.interclient.Driver</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>DB2/Derby</p>
+</td>
+<td class="tabellentext">
+<p>com.ibm.db2.jcc.DB2Driver</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Informix</p>
+</td>
+<td class="tabellentext">
+<p>com.informix.jdbc.IfxDriver</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>IDS Server</p>
+</td>
+<td class="tabellentext">
+<p>ids.sql.IDSDriver</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Microsoft SQL Server</p>
+</td>
+<td class="tabellentext">
+<p>com.microsoft.jdbc.sqlserver.SQLServerDriver</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>mSQL</p>
+</td>
+<td class="tabellentext">
+<p>COM.imaginary.sql.msql.MsqlDriver</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>MySQL</p>
+</td>
+<td class="tabellentext">
+<p>com.mysql.jdbc.Driver</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Oracle</p>
+</td>
+<td class="tabellentext">
+<p>oracle.jdbc.driver.OracleDriver</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Pointbase</p>
+</td>
+<td class="tabellentext">
+<p>com.pointbase.jdbc.jdbcUniversalDriver</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>PostgreSQL</p>
+</td>
+<td class="tabellentext">
+<p>org.postgresql.Driver</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Sybase</p>
+</td>
+<td class="tabellentext">
+<p>com.sybase.jdbc2.jdbc.SybDriver</p>
+</td>
+</tr>
+</table><br><a id="mjb3b384c32a0671eee394cba2f6f8f585" name="mjb3b384c32a0671eee394cba2f6f8f585"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">24.5.3</span> Eine Aufzählung aller Treiber *  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die statische Methode <span class="clisting">DriverManager.getDrivers()</span> liefert eine Aufzählung der angemeldeten Treiber. Die folgenden Zeilen geben einfach den Klassennamen aus &#8211; die Treiber implementieren nicht unbedingt eine sinnvolle <span class="clisting">toString()</span>-Methode, sodass wir uns mit dem Klassennamen begnügen:</p>
+<p class="tabunter"><strong>Listing 24.4    </strong>com/tutego/insel/jdbc/DriverManagerDemo.java, Ausschnitt</p>
+<div class="listing"><pre class="prettyprint">for ( Enumeration&lt;Driver&gt; e = DriverManager.getDrivers(); e.hasMoreElements(); )
+  System.out.println( e.nextElement().getClass().getName() );</pre></div>
+<p>Die Elemente, die durch die <span class="clisting">Enumeration</span> ausgelesen werden, sind Treiberobjekte vom Typ <span class="clisting">Driver</span>. Jeder Datenbanktreiber implementiert diese Schnittstelle. Mit dem manuell geladenen Treiber <span class="clisting">org.hsqldb.jdbcDriver</span> und dem Standard-JDBC-ODBC-Treiber verbunden ist die Ausgabe:</p>
+<div class="listing"><pre class="prettyprint">sun.jdbc.odbc.JdbcOdbcDriver
+org.hsqldb.jdbcDriver</pre></div><a id="mj3074ce37f4db44a8403afd35d15edc77" name="mj3074ce37f4db44a8403afd35d15edc77"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">24.5.4</span> Log-Informationen *  <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Zu Testzwecken bietet es sich an, Informationen des Treibers und der Datenbank in einen speziellen Ausgabekanal zu schreiben. Wir können die Log-Informationen so umlenken, dass sie in den Standardausgabestrom geschrieben werden. Das macht die statische Methode <span class="clisting">setLogWriter()</span>, die einen <span class="clisting">PrintWriter</span> als Parameter erwartet:</p>
+<p class="tabunter"><strong>Listing 24.5    </strong>com/tutego/insel/jdbc/DriverManagerDemo.java, Ausschnitt</p>
+<div class="listing"><pre class="prettyprint">DriverManager.setLogWriter( new PrintWriter( System.out ) );
+Class.forName( "org.hsqldb.jdbcDriver" );</pre></div>
+<p>Da damit die Log-Ausgaben in den Standard-Ausgabekanal kommen, ist die Ausgabe für das Laden des HSQLDB-Treibers:</p>
+<div class="listing"><pre class="prettyprint">JdbcOdbcDriver class loaded
+registerDriver: driver[className=sun.jdbc.odbc.JdbcOdbcDriver,sun.jdbc.odbc.JdbcOdbcDriver@173a10f]
+DriverManager.initialize: jdbc.drivers = null
+JDBC DriverManager initialized
+registerDriver: driver[className=org.hsqldb.jdbcDriver,org.hsqldb.jdbcDriver@530daa]</pre></div>
+<p>Nicht nur Treiber und SQL-Klassen nutzen den Log-Stream, auch wir können Zeichenketten ausgeben. Dazu dient die statische Methode <span class="clisting">println()</span>, die als Parameter nur einen String annimmt. <span class="clisting">println()</span> ist so implementiert, dass bei einem nicht gesetzten Log-Stream die Ausgabe unterbleibt.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.sql.<span class="cfett">DriverManager</span></pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">static void setLogWriter( PrintWriter out )</span>
+Setzt den Log-Writer und startet damit das Logging. Mit dem Argument <span class="clisting">null</span> wird das Logging wieder ausgeschaltet.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static PrintWriter getLogWriter()</span>
+Liefert den angemeldeten Log-Writer.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static void println( String message )</span>
+Schreibt eine Meldung in den Log-Stream.</li>
+</ul><a id="mj03527ad663e5581d49039e4e85fd3ab6" name="mj03527ad663e5581d49039e4e85fd3ab6"></a><a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3"><span class="cfett">24.5.5</span> Verbindung zur Datenbank auf- und abbauen  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Nach dem Laden des Treibers können wir eine Verbindung zur Datenbank mithilfe des <span class="clisting">Connection</span>-Objekts aufbauen, das <span class="clisting">DriverManager</span><span class="clisting">.getConnection()</span> zurückgibt. Der Methode wird eine Datenbank-URL mitgegeben und optional Benutzername und Passwort.</p>
+<h4 class="t4">Die Datenquelle angeben</h4>
+<p>Alle Datenquellen sind durch eine besondere URL qualifiziert, die folgendes Format besitzt:</p>
+<p><span class="ckursiv">jdbc:Subprotokoll:Datenquellenname</span></p>
+<p>Die Datenbank definieren jeweils unterschiedliche Subprotokolle, und die Angabe des Servernamens ist auch immer individuell:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 24.3    </strong>Protokoll-URLs  einiger Datenbanken</p>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Datenbank</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Subprotokoll</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beispiel</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Derby</p>
+</td>
+<td class="tabellentext">
+<p>derby:net</p>
+</td>
+<td class="tabellentext">
+<p>jdbc:derby:net://host:1527/</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>IBM DB2</p>
+</td>
+<td class="tabellentext">
+<p>db2</p>
+</td>
+<td class="tabellentext">
+<p>jdbc:db2://database</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>HSQLDB</p>
+</td>
+<td class="tabellentext">
+<p>hsqldb</p>
+</td>
+<td class="tabellentext">
+<p>jdbc:hsqldb:file:database</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Interbase</p>
+</td>
+<td class="tabellentext">
+<p>interbase</p>
+</td>
+<td class="tabellentext">
+<p>jdbc:interbase://host/dabase.gdb</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>MySQL</p>
+</td>
+<td class="tabellentext">
+<p>Mysql</p>
+</td>
+<td class="tabellentext">
+<p>jdbc:mysql://host/database</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>ODBC-Datenquellen</p>
+</td>
+<td class="tabellentext">
+<p>Odbc</p>
+</td>
+<td class="tabellentext">
+<p>jdbc:odbc:database</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Oracle Thin</p>
+</td>
+<td class="tabellentext">
+<p>oracle:thin</p>
+</td>
+<td class="tabellentext">
+<p>jdbc:oracle:thin:@host:1243:database</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Sybase</p>
+</td>
+<td class="tabellentext">
+<p>sybase:Tds</p>
+</td>
+<td class="tabellentext">
+<p>jdbc:sybase:Tds:host:1234/database</p>
+</td>
+</tr>
+</table><br><h4 class="t4">Verbindung aufnehmen</h4>
+<p>Der Aufruf von <span class="clisting">DriverManager.getConnection()</span> liefert &#8211; wenn alles gut geht &#8211; ein <span class="clisting">Connection</span>-Objekt, das die Verbindung mit der Datenbank repräsentiert.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Verbinde mit einer Datenbank, die den Namen »TutegoDB« trägt (im Fall von ODBC wurde der Name im Datenquellen-Administrator festgelegt und hat nichts mit dem Dateinamen zu tun):</p>
+<div class="listing"><pre class="prettyprint">con = DriverManager.getConnection( "jdbc:hsqldb:file:TutegoDB;shutdown=true",
+                                   "sa",
+                                   "" );</pre></div>
+</td>
+</tr>
+</table><br><p>Die statische Methode <span class="clisting">getConnection()</span> erwartet bis zu drei Parameter: Die URL der Datenbank, zu der die Verbindung aufgenommen werden soll, ist der Pflichtparameter. Der Anmeldename und das Passwort sind optional und können auch leere Strings (<span class="clisting">""</span>) sein, wenn eine Authentifizierung keine Rolle spielt.</p>
+<p>Meldet <span class="clisting">getConnection()</span> keinen Fehler, so liefert sie uns eine geöffnete Datenbankverbindung.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.sql.<span class="cfett">DriverManager</span></pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">static Connection getConnection( String url ) throws SQLException</span>
+Versucht, eine Verbindung zur Datenbank aufzubauen. Die Klasse <span class="clisting">DriverManager</span> sucht dabei einen passenden Treiber aus der Liste der registrierten JDBC-Treiber für die Datenbank.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static Connection getConnection( String url, String user, String password )</span>
+  <span class="clisting">throws SQLException</span>
+Versucht, eine Verbindung zur Datenbank aufzubauen. <span class="clisting">user</span> und <span class="clisting">password</span> werden für die Verbindung zur Datenbank verwendet.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static Connection getConnection( String url, Properties info )</span>
+  <span class="clisting">throws SQLException</span>
+Versucht, eine Verbindung zur Datenbank aufzubauen. Im <span class="clisting">Properties</span>-Objekt können die Felder <span class="clisting">user</span> und <span class="clisting">password</span> sowie weitere Informationen vorhanden sein.</li>
+</ul>
+<div class="bildbox">
+<p><a name="IDAMDXD"></a><a onClick="OpenWin('bilder/drivermanageruml.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleindrivermanageruml.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<h4 class="t4">Verbindung beenden</h4>
+<p>Da eine Verbindung zu schließen ist (und nicht der <span class="clisting">DriverManager</span>), finden wir eine Methode <span class="clisting">close()</span> beim <span class="clisting">Connection</span>-Objekt. Verbindungen zu schließen, ist immens wichtig, sodass dieser Teil im Allgemeinen im <span class="clisting">finally</span>-Block steht:</p>
+<p class="tabunter"><strong>Listing 24.6    </strong>com/tutego/insel/jdbc/FirstSqlAccess.java, Ausschnitt</p>
+<div class="listing"><pre class="prettyprint">Connection con = null;
+
+try
+{
+  con = DriverManager.getConnection( ... );
+  ...
+}
+catch ( SQLException e )
+{
+  e.printStackTrace();
+}<span class="cfett">
+finally
+{</span>
+ <span class="cfett"> if ( con != null )</span>
+   <span class="cfett"> try { con.close(); } catch ( SQLException e ) { e.printStackTrace(); }
+}</span></pre></div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">interface java.sql.<span class="cfett">Connection</span>
+extends Wrapper</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">void close() throws SQLException</span>
+Schließt die Verbindung zur Datenbank. Auch hier kann eine <span class="clisting">SQLException</span> auftauchen.</li>
+</ul>
+<h4 class="t4">Wartezeit einstellen</h4>
+<p>Wenn wir uns mit der Datenbank verbinden, lässt sich noch eine Wartezeit in Sekunden einstellen, die angibt, wie lange der Treiber für die Verbindung mit der Datenbank warten darf. Gesetzt wird dieser Wert mit <span class="clisting">setLoginTimeout()</span> und entsprechend mit <span class="clisting">getLoginTimeout()</span> ausgelesen. Standardmäßig ist dieser Wert 0.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.sql.<span class="cfett">DriverManager</span></pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">static void setLoginTimeout( int seconds )</span>
+Setzt die Zeit, die maximal gewartet wird, wenn der Treiber sich mit einer Datenbank verbindet.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static int getLoginTimeout()</span>
+Liefert die Wartezeit in Sekunden.</li>
+</ul>
+<h4 class="t4">Wie der Treiber gefunden wird &#8211; hinter den Kulissen von »getConnection()« *</h4>
+<p>Es lohnt sich, einmal hinter die Kulissen der Methode <span class="clisting">getConnection()</span> zu blicken. Das <span class="clisting">DriverManager</span>-Objekt wird veranlasst, die Verbindung zu öffnen. Dabei versucht es, einen passenden Treiber aus der Liste der JDBC-Treiber auszuwählen. Sein Treiber verwaltet die Klasse <span class="clisting">DriverManager</span> in einem privaten Objekt <span class="clisting">DriverInfo</span>. Dieses enthält ein Treiber-Objekt (<span class="clisting">Driver</span>), ein Objekt (<span class="clisting">securityContext</span>) und den Klassennamen (<span class="clisting">className</span>).</p>
+<p>Bei <span class="clisting">getConnection()</span> geht der <span class="clisting">DriverManager</span> die Liste der <span class="clisting">DriverInfo</span>-Objekte ab und versucht, sich über die <span class="clisting">connect()</span>-Methode anzumelden. Bemerkt der Treiber, dass er mit der URL nicht viel anfangen kann, gibt er <span class="clisting">null</span> zurück, und <span class="clisting">getConnection()</span> versucht es mit dem nächsten Treiber. Ging alles daneben, und konnte keiner der angemeldeten Treiber etwas mit dem Subprotokoll anfangen, bekommen wir eine <span class="clisting">SQLException("No suitable driver", "08001")</span>.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="24.5 Mit Java an eine Datenbank andocken"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_24_004.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_24_006.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

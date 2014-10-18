@@ -1,0 +1,1216 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 5.5 Objekte anlegen und zerstören</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 5.5 Objekte anlegen und zerstören">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 5.5 Objekte anlegen und zerstören">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_08_001.htm#mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_09_001.htm#mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_11_001.htm#mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_05_004.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_05_006.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="javainsel_05_001.htm#mj005cd8e604aefc3ae72b92880fcee5c6" class="navnav">5 Eigene Klassen schreiben</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_05_001.htm#mj5e65ec67d9eb2305d2615016264efb64" class="navnav">5.1 Eigene Klassen mit Eigenschaften deklarieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_001.htm#mjcee55258f36e0664b9176ee9cd55196c" class="navnav">5.1.1 Attribute deklarieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_001.htm#mja8308749ed5bc547761cab48fd9fd23d" class="navnav">5.1.2 Methoden deklarieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_001.htm#mj7b6528799a055d50c516a9a6ce03234c" class="navnav">5.1.3 Die this-Referenz</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_05_002.htm#mjf5b3fff9748ae6323d1923016a906a8f" class="navnav">5.2 Privatsphäre und Sichtbarkeit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_002.htm#mj650376808746f63dbf94baaac0b3fcde" class="navnav">5.2.1 Für die Öffentlichkeit: public</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_002.htm#mj421fe84a059e68f00c9258e052efc416" class="navnav">5.2.2 Kein Public Viewing &#8211; Passwörter sind privat</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_002.htm#mjdb680cba3cfe3cb70471e03ced889467" class="navnav">5.2.3 Wieso nicht freie Methoden und Variablen für alle?</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_002.htm#mjd1a57903246651aa57bac01f46f16748" class="navnav">5.2.4 Privat ist nicht ganz privat: Es kommt darauf an, wer&#8217;s sieht *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_002.htm#mjadcdcfde5f010b9466c139b9b2061e4d" class="navnav">5.2.5 Zugriffsmethoden für Attribute deklarieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_002.htm#mj27d0c712d6a0b77771ea8729293a2fae" class="navnav">5.2.6 Setter und Getter nach der JavaBeans-Spezifikation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_002.htm#mjba3d0b97b59d4c00207b68330dc3ad14" class="navnav">5.2.7 Paketsichtbar</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_002.htm#mjefcaab87f441a3115bcea2e82c31d358" class="navnav">5.2.8 Zusammenfassung zur Sichtbarkeit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_05_003.htm#mjd51d5220468ee4a1f2a07b6796bb393b" class="navnav">5.3 Statische Methoden und statische Attribute</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_003.htm#mje56c1ef6befa9bebe6b70186d680d63b" class="navnav">5.3.1 Warum statische Eigenschaften sinnvoll sind</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_003.htm#mj7cfa3f33ec5dcd7e8c2aca7814ca4a80" class="navnav">5.3.2 Statische Eigenschaften mit static</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_003.htm#mjaf8db1dace632ead0a730ca50227a08e" class="navnav">5.3.3 Statische Eigenschaften über Referenzen nutzen? *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_003.htm#mj93916b1122a23b38d603c49e8c23ae86" class="navnav">5.3.4 Warum die Groß- und Kleinschreibung wichtig ist *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_003.htm#mj9745692d3b4d9195979f26881f24175f" class="navnav">5.3.5 Statische Variablen zum Datenaustausch *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_003.htm#mj5ff2708264298f2c098c7fa6f1ed8002" class="navnav">5.3.6 Statische Eigenschaften und Objekteigenschaften *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_05_004.htm#mja567f6e018aa38d0058d35e1803b2bd2" class="navnav">5.4 Konstanten und Aufzählungen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_004.htm#mjd8be12f49f6de8d40f91a3c1ed07ecd5" class="navnav">5.4.1 Konstanten über öffentliche statische finale Variablen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_004.htm#mjc4395a2f846baa2b3ff3387a18986f46" class="navnav">5.4.2 Typ(un)sichere Aufzählungen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_004.htm#mja2ff5a4ba845df2de7de3833743667c6" class="navnav">5.4.3 Aufzählungen mit »enum«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mja0dd46a19d4008a93c3a54831bd5386d" class="navh">5.5 Objekte anlegen und zerstören</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj415e65e884cf12aea272c84b0a833206" class="navh">5.5.1 Konstruktoren schreiben</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj191926dee50dc48898c3c71ad4454d3c" class="navh">5.5.2 Der vorgegebene Konstruktor (engl. »default constructor«)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj10809df0d7ff9feb8f7942bb9c23e0e5" class="navh">5.5.3 Parametrisierte und überladene Konstruktoren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjeba4c88cb0236221c5b762dfdea3a132" class="navh">5.5.4 Copy-Konstruktor</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj2e1c2363c979aed81150e04d7f06afd6" class="navh">5.5.5 Einen anderen Konstruktor der gleichen Klasse mit »this()« aufrufen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj10ff17c8792a477f4633c412382e068f" class="navh">5.5.6 Ihr fehlt uns nicht &#8211; der Garbage-Collector</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj975e7c7e428f38a991ecb081f96e90cc" class="navh">5.5.7 Private Konstruktoren, Utility-Klassen, Singleton, Fabriken</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_05_006.htm#mjbe710643b3883f498c80f347751ac52a" class="navnav">5.6 Klassen- und Objektinitialisierung *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_006.htm#mj8bdf9677560ee64466724ec5d65423ec" class="navnav">5.6.1 Initialisierung von Objektvariablen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_006.htm#mj2781d1c908a54becfd6d5996eac112b7" class="navnav">5.6.2 Statische Blöcke als Klasseninitialisierer</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_006.htm#mj8151bb0849ace5d6e286b168aa468d9c" class="navnav">5.6.3 Initialisierung von Klassenvariablen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_006.htm#mj93db64c027de8387756ef445b5c1d073" class="navnav">5.6.4 Eincompilierte Belegungen der Klassenvariablen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_006.htm#mj80d4784164ee6ec88529af0dc09c0199" class="navnav">5.6.5 Exemplarinitialisierer (Instanzinitialisierer)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_006.htm#mj37081734f2a6f13a87371c0a6c2c818c" class="navnav">5.6.6 Finale Werte im Konstruktor und in statischen Blöcken setzen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_05_007.htm#mjd6495c652f2f2a6f6c1e2ac552ddf331" class="navnav">5.7 Assoziationen zwischen Objekten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_007.htm#mj827634ee23918b851afc993bec620517" class="navnav">5.7.1 Unidirektionale 1:1-Beziehung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_007.htm#mj9c8c7b30633d3cc76b8277277622d3e7" class="navnav">5.7.2 Bidirektionale 1:1-Beziehungen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_007.htm#mjd5082a1e2f2bbc199ccf24bdba5eb65d" class="navnav">5.7.3 Unidirektionale 1:n-Beziehung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_05_008.htm#mjf275cae4069cb07f60b602bcbea532c8" class="navnav">5.8 Vererbung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_008.htm#mjf017bb7a74c678fbdf843629b9781be8" class="navnav">5.8.1 Vererbung in Java</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_008.htm#mj04665ed002c9fa34418c2d0d8cc53f97" class="navnav">5.8.2 Spielobjekte modellieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_008.htm#mjf2b165b1e9385d011c0d5792532cfd0e" class="navnav">5.8.3 Die implizite Basisklasse »java.lang.Object«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_008.htm#mj42d2ad5de0265855ce32171a4bb7acaf" class="navnav">5.8.4 Einfach- und Mehrfachvererbung *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_008.htm#mj00156fc6ce7a12313715f065a9119155" class="navnav">5.8.5 Die Sichtbarkeit »protected«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_008.htm#mj23635ff54d83b3c53bdfc96dbf5f6f83" class="navnav">5.8.6 Konstruktoren in der Vererbung und »super()«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_05_009.htm#mjbd3c8b043ebc90220d949191218a7221" class="navnav">5.9 Typen in Hierarchien</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_009.htm#mj72e27b656ca33b6c872637c4209d0cef" class="navnav">5.9.1 Automatische und explizite Typanpassung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_009.htm#mjd97d9fef18bfca626033f7a8c53c2314" class="navnav">5.9.2 Das Substitutionsprinzip</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_009.htm#mjaf183bf5ba882c17eb18fb7dddbebc0e" class="navnav">5.9.3 Typen mit dem binären Operator »instanceof «testen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_05_010.htm#mj530675a29a46e99d1439817af2844707" class="navnav">5.10 Methoden überschreiben</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_010.htm#mjdc5bd8d9c9007f13c21f00a2fa95bdbc" class="navnav">5.10.1 Methoden in Unterklassen mit neuem Verhalten ausstatten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_010.htm#mj792df8e32f49fef687f4edbef6067b02" class="navnav">5.10.2 Mit »super« an die Eltern</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_010.htm#mj8c03d0b5f6c28323310c16b245875509" class="navnav">5.10.3 Finale Klassen und finale Methoden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_010.htm#mj997ffec8aa1bb149470ca2e874054115" class="navnav">5.10.4 Kovariante Rückgabetypen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_010.htm#mj3af86bc3f6025b10611cfcd62bd1670d" class="navnav">5.10.5 Array-Typen und Kovarianz *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_05_011.htm#mj179b2932e63e07c3658cec0c7e376385" class="navnav">5.11 Dynamisches Binden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_011.htm#mjc036e412c6d3646ea98a10f05a0bae63" class="navnav">5.11.1 Gebunden an »toString()«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_011.htm#mjfe413b04b37621547090a78cd5fb2f54" class="navnav">5.11.2 Implementierung von »System.out.println(Object)«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_011.htm#mj3b9279a804c54e2bbe5aa4b2b8b4cee3" class="navnav">5.11.3 Nicht dynamisch gebunden bei privaten, statischen und finalen Methoden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_011.htm#mjf2938bb5b101c91204b001121dbee1ac" class="navnav">5.11.4 Dynamisch gebunden auch bei Konstruktoraufrufen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_011.htm#mje4cf152d80f523f52875ea1e8b9a41ff" class="navnav">5.11.5 Eine letzte Spielerei mit Javas dynamischer Bindung und überschatteten Attributen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_05_012.htm#mj32c7e3f8f7365a86c4bcd11b0fde766a" class="navnav">5.12 Abstrakte Klassen und abstrakte Methoden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_012.htm#mj4976e2fb9af553c2864cb4e04c34a7b7" class="navnav">5.12.1 Abstrakte Klassen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_012.htm#mj0dad6b7ebd81c6a20b2ae7b0ce26456a" class="navnav">5.12.2 Abstrakte Methoden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_05_013.htm#mjfac44aa7eeb458fddc00bde8886194c9" class="navnav">5.13 Schnittstellen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_013.htm#mj0df1e3f7371a557bce922743775ec7be" class="navnav">5.13.1 Schnittstellen deklarieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_013.htm#mj1db69466438ff5e185f95e83f910e178" class="navnav">5.13.2 Implementieren von Schnittstellen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_013.htm#mj71d8701af59f1e9c6d377298701b3d3d" class="navnav">5.13.3 Markierungsschnittstellen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_013.htm#mjda7c7677ce960626e25240c2eec899f5" class="navnav">5.13.4 Ein Polymorphie-Beispiel mit Schnittstellen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_013.htm#mj7e38de0dde8ca35e495fea8be6b50f9d" class="navnav">5.13.5 Die Mehrfachvererbung bei Schnittstellen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_013.htm#mj97d20b849f890ef012d5d0de8b7b49d6" class="navnav">5.13.6 Keine Kollisionsgefahr bei Mehrfachvererbung *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_013.htm#mj6add6a3a81e0233b226a28bb9a7172ca" class="navnav">5.13.7 Erweitern von Interfaces &#8211; Subinterfaces</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_013.htm#mj978990f92232692e5997f2806abb4cd5" class="navnav">5.13.8 Konstantendeklarationen bei Schnittstellen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_013.htm#mj5eafea4c42fac6e5f1da6ea613e0292b" class="navnav">5.13.9 Initialisierung von Schnittstellenkonstanten *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_013.htm#mj03dd446f2805e920115595bc775916fb" class="navnav">5.13.10 Abstrakte Klassen und Schnittstellen im Vergleich</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_05_014.htm#mj1b008761e7e60dd49fcab7bf8de0d2cd" class="navnav">5.14 Dokumentationskommentare mit JavaDoc</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_014.htm#mj73579bedbce03e903a0b17dafef33215" class="navnav">5.14.1 Einen Dokumentationskommentar setzen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_014.htm#mj2af1671fd24a3eec2a34b1443a19369b" class="navnav">5.14.2 Mit dem Werkzeug javadoc eine Dokumentation erstellen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_014.htm#mj070291c7a074a5f5be4fce22cfa08ba8" class="navnav">5.14.3 HTML-Tags in Dokumentationskommentaren *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_014.htm#mj769808fd6db0127c9a729fd0d9ba8ae2" class="navnav">5.14.4 Generierte Dateien</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_014.htm#mj8e31f35d329c44560c0da4dbd76c5b20" class="navnav">5.14.5 Dokumentationskommentare im Überblick *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_014.htm#mje4d1241f5450e9bf883e150d266cb7b5" class="navnav">5.14.6 JavaDoc und Doclets *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_05_014.htm#mj0eb8045dfc88d70ba4640493b2d23548" class="navnav">5.14.7 Veraltete (deprecated) Typen und Eigenschaften</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mja0dd46a19d4008a93c3a54831bd5386d" name="mja0dd46a19d4008a93c3a54831bd5386d"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">5.5</span> Objekte anlegen und zerstören  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Wenn Objekte mit dem <span class="clisting">new</span>-Operator angelegt werden, reserviert die Speicherverwaltung des Laufzeitsystems auf dem System-Heap Speicher. Wird das Objekt nicht mehr referenziert, so räumt der <span class="ckursiv">Garbage-Collector</span> (GC) in bestimmten Abständen auf und gibt den Speicher an das Laufzeitsystem zurück.</p><a id="mj415e65e884cf12aea272c84b0a833206" name="mj415e65e884cf12aea272c84b0a833206"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">5.5.1</span> Konstruktoren schreiben  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Wenn der <span class="clisting">new</span>-Operator ein Objekt anlegt, wird ein Konstruktor der Klasse automatisch aufgerufen. Mit einem eigenen Konstruktor lässt sich erreichen, dass ein Objekt nach seiner Erzeugung einen sinnvollen Anfangszustand aufweist. Dies kann bei Klassen, die Variablen beinhalten, notwendig sein, weil sie ohne vorherige Zuweisung beziehungsweise Initialisierung keinen Sinn ergäben.</p>
+<h4 class="t4">Konstruktordeklarationen</h4>
+<p>Konstruktordeklarationen sehen ähnlich wie Methodendeklarationen aus &#8211; so gibt es auch Sichtbarkeiten und Überladung &#8211;, doch bestehen zwei deutliche Unterschiede:</p>
+<ul class="gp">
+<li>Konstruktoren tragen immer denselben Namen wie die Klasse.</li>
+</ul>
+<ul class="gp">
+<li>Konstruktordeklarationen besitzen keinen Rückgabetyp, also noch nicht einmal <span class="clisting">void</span>.</li>
+</ul>
+<p>Sollte eine Klasse <span class="clisting">Dungeon</span> einen Konstruktor bekommen, schreiben wir:</p>
+<div class="listing"><pre class="prettyprint">class Dungeon
+{
+ <span class="cfett"> Dungeon()</span>                        // Konstruktor der Klasse Dungeon
+  {
+  }
+}</pre></div>
+<p>Ein Konstruktor, der keinen Parameter besitzt, nennt sich <span class="ckursiv">Standard-Konstruktor</span>, <span class="ckursiv">parameterloser Konstruktor</span> oder auch engl. <span class="ckursiv">no-arg-constructor</span> beziehungsweise <span class="ckursiv">nullary constructor</span>.</p>
+<h4 class="t4">Aufrufreihenfolge</h4>
+<p>Dass der Konstruktor während der Initialisierung und damit vor einem äußeren Methodenaufruf aufgerufen wird, soll ein kleines Beispiel zeigen:</p>
+<p class="tabunter"><strong>Listing 5.27    </strong>Dungeon.java</p>
+<div class="listing"><pre class="prettyprint">public class Dungeon
+{
+  public<span class="cfett"> Dungeon()</span>
+  {
+    System.out.println( "2. Konstruktor" );
+  }
+
+  public void play()
+  {
+    System.out.println( "4. Spielen" );
+  }
+
+  public static void main( String[] args )
+  {
+    System.out.println( "1. Vor dem Konstruktor" );
+   <span class="cfett"> Dungeon d = new Dungeon();</span>
+    System.out.println( "3. Nach dem Konstruktor" );
+    d.play();
+  }
+}</pre></div>
+<p>Die Aufrufreihenfolge auf dem Bildschirm ist:</p>
+<div class="listing"><pre class="prettyprint">1. Vor dem Konstruktor
+2. Konstruktor
+3. Nach dem Konstruktor
+4. Spielen</pre></div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>UML kennt zwar Attribute und Operationen, aber keine Konstruktoren im Java-Sinne. In einem UML-Diagramm werden Konstruktoren wie Operationen gekennzeichnet, die eben nur so heißen wie die Klasse.</p>
+</td>
+</tr>
+</table><br><div class="bildbox">
+<p><a name="IDA20EV"></a><a onClick="OpenWin('bilder/dungeon.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleindungeon.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 5.4    </strong>Die Klasse »Dungeon« mit einem Konstruktor und zwei Methoden</p><a id="mj191926dee50dc48898c3c71ad4454d3c" name="mj191926dee50dc48898c3c71ad4454d3c"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">5.5.2</span> Der vorgegebene Konstruktor (engl. »default constructor«)  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Wenn wir in unserer Klasse überhaupt keinen Konstruktor angeben, legt der Compiler automatisch einen an. Diesen Konstruktor nennt die Java Sprachdefintion (JLS) <span class="ckursiv">default constructor</span>, was wir als <span class="ckursiv">vorgegebener Konstruktor</span>  (selten auch <span class="ckursiv">Vorgabekonstruktor</span>) eindeutschen wollen.</p>
+<p>Schreiben wir nur</p>
+<div class="listing"><pre class="prettyprint">class Player
+{
+}</pre></div>
+<p>macht der Compiler daraus immer automatisch:</p>
+<div class="listing"><pre class="prettyprint">class Player
+{
+  Player() { }
+}</pre></div>
+<p>Der vorgegebene Konstruktor hat immer die gleiche Sichtbarkeit wie die Klasse. Ist also die Klasse <span class="clisting">public/private/protected</span>, wird auch der automatisch eingeführte Konstruktor <span class="clisting">public/private/protected</span> sein. Ist die Klasse paketsichtbar, ist es auch der Konstruktor.</p>
+<h4 class="t4">Vorgegebener und expliziter Standard-Konstruktor</h4>
+<p>Ob ein parameterloser Konstruktor vom Compiler oder Entwickler angelegt wurde, ist ein Implementierungsdetail, das für Nutzer der Klasse irrelevant ist. Daher ist es im Grunde egal, ob wir einen Standard-Konstruktor selbst anlegen oder ob wir uns einen vorgegebenen Konstruktor vom Compiler generieren lassen: Im Bytecode lässt sich das nicht mehr unterscheiden. Selbst die JavaDoc-API-Dokumentation von einer <span class="clisting">public class C1 {}</span> und <span class="clisting">public class C2 { public C2(){} }</span> wäre strukturell gleich.</p>
+<div class="bildbox">
+<p><a name="IDAR2EV"></a><a onClick="OpenWin('bilder/constructorBytecode1.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinconstructorBytecode1.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<div class="bildbox">
+<p><a name="IDAS2EV"></a><a onClick="OpenWin('bilder/constructorBytecode2.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinconstructorBytecode2.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 5.5    </strong>Kein Unterschied im Bytecode der Klassen C1 und C2</p>
+<p>In der Begriffswelt der Insel heißt ein parameterloser Konstruktor immer <span class="ckursiv">Standard-Konstruktor</span>, was natürlich den Unterschied verschwimmen lässt, ob der Standard-Konstruktor von Hand angelegt wurde oder als (impliziter) vorgegebener Konstruktor vom Compiler eingeführt wurde. Um das noch klarer zu unterscheiden, können wir diesen Umstand mit <span class="ckursiv">vorgegebener (Standard-)Konstruktor</span> und <span class="ckursiv">expliziter Standard-Konstruktor</span> weiter präzisieren.</p>
+<p>Auch wenn der Compiler einen vorgegebenen Konstruktor anlegt, ist es oft sinnvoll, einen eigenen Standard-Konstruktor anzugeben, auch wenn der Rumpf leer ist. Ein Grund ist, ihn mit JavaDoc zu dokumentieren, ein anderer Grund ist, die Sichtbarkeit explizit zu wählen, etwa wenn die Kasse <span class="clisting">public</span> ist, aber der Konstruktor nur die Paketsichtbarkeit haben soll.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Begrifflichkeit   </span>In der Java-Language Specification gibt es bei den Konstruktoren nur die Trennungen in <span class="ckursiv">no-arg-constructor</span> (parameterloser Konstruktor) und <span class="ckursiv">default constructor</span> (vorgegebener Konstruktor), aber den Begriff »standard constructor« gibt es nicht. Viele Autoren übersetzen die englische Bezeichnung »default constructor« (unseren vorgegebenen Konstruktor) einfach nur mit »Standard-Konstruktor«.</p>
+</td>
+</tr>
+</table><br><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Begrifflichkeit II   </span>Einige Autoren nennen nur den vom Entwickler explizit geschriebenen parameterlosen Konstruktor »Standard-Konstruktor« und trennen dies sprachlich von dem Konstruktor, den der Compiler generiert hat, den sie weiterhin »Default-Konstruktor« nennen. </p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p class="BStandard">Beide werden dann zusammengefasst einfach »parameterlose Konstruktoren« genannt. Wenn also etwa die Frage gestellt wird, ob die Deklaration <span class="clisting">class C { }</span> einen Standard-Konstruktor enthält, ist die Begrifflichkeit des Autors zu prüfen. Wenn der Autor nur den ausprogrammierten parameterlosen Konstruktor »Standard-Konstruktor« genannt hat, so hätte die Klasse <span class="clisting">C</span> nach seiner Definition <span class="ckursiv">keinen</span> »Standard-Konstruktor«. Nach der Insel-Definition hätte die Klasse zwar einen vorgegebenen (Standard-)Konstruktor, aber keinen expliziten Standard-Konstruktor.</p>
+</td>
+</tr>
+</table><br><a id="mj10809df0d7ff9feb8f7942bb9c23e0e5" name="mj10809df0d7ff9feb8f7942bb9c23e0e5"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">5.5.3</span> Parametrisierte und überladene Konstruktoren  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Der Standard-Konstruktor hatte keine Parameter, und daher hatten wir ihn auch <span class="ckursiv">parameterlosen Konstruktor</span> genannt. Ein Konstruktor kann aber wie eine Methode auch eine Parameterliste besitzen: Er heißt dann <span class="ckursiv">parametrisierter Konstruktor</span> oder <span class="ckursiv">allgemeiner Konstruktor</span>. Konstruktoren können wie Methoden überladen, also mit unterschiedlichen Parameterlisten deklariert sein. Dies soll auch für den Spieler gelten:</p>
+<ul class="gp">
+<li><span class="clisting">Player( String name )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Player( String name, String item )</span></li>
+</ul>
+<p>Der <span class="clisting">Player</span> soll sich mit einem Namen und alternativ auch mit einem Gegenstand initialisieren lassen:</p>
+<p class="tabunter"><strong>Listing 5.28    </strong>com/tutego/insel/game/v6/Player.java, Player</p>
+<div class="listing"><pre class="prettyprint">public class Player
+{
+  public String name;
+  public String item;
+
+ <span class="cfett"> public Player( String name )</span>
+  {
+    this.name = name;
+  }
+
+ <span class="cfett"> public Player( String name, String item )</span>
+  {
+    this.name = name;
+    this.item = item;
+  }
+}</pre></div>
+<div class="bildbox">
+<p><a name="IDAMAFV"></a><a onClick="OpenWin('bilder/v6player.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinv6player.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p>Die Nutzung kann so aussehen:</p>
+<p class="tabunter"><strong>Listing 5.29    </strong>com/tutego/insel/game/v6/Playground.java, main()</p>
+<div class="listing"><pre class="prettyprint">Player spuderman = new Player( "Spuderman" ) ;
+System.out.println( spuderman.name ); // Spuderman
+System.out.println( spuderman.item ); // null
+
+Player holk      = new Player( "Holk", "green color" );
+System.out.println( holk.name );      // Holk
+System.out.println( holk.item );      // green color</pre></div>
+<h4 class="t4">Wann der Compiler keinen vorgegebenen Konstruktor einfügt</h4>
+<p>Wenn es mindestens einen ausprogrammierten Konstruktor gibt, gibt der Compiler keinen eigenen Standard-Konstruktor mehr vor. Wenn wir also nur parametrisierte Konstruktoren haben &#8211; wie in unserem obigen Beispiel &#8211; führt der Versuch, bei unserer Spieler-Klasse ein Objekt einfach mit dem Standard-Konstruktor über <span class="clisting">new Player()</span> zu erzeugen, zu einem Übersetzungsfehler, da es eben keinen vom Compiler generierten Standard-Konstruktor gibt:</p>
+<div class="listing"><pre class="prettyprint">Player p = new Player();        // <img src="common/totenkopf.gif" border="0" align="bottom" alt="Fehler"> The constructor Player() is undefined</pre></div>
+<p>Dass der Compiler keinen vorgegebenen Konstruktor anlegt, hat seinen guten Grund: Es ließe sich sonst ein Objekt anlegen, ohne dass vielleicht wichtige Variablen initialisiert worden wären. So ist das bei unserem Spieler. Die parametrisierten Konstruktoren erzwingen, dass beim Erzeugen ein Spielername angegeben werden muss, sodass nach dem Aufbau auf jeden Fall ein Spielername vorhanden ist. Wenn wir es ermöglichen wollen, dass Entwickler neben den parametrisierten Konstruktoren auch einen parameterlosen Standard-Konstruktor nutzen können, müssten wir diesen per Hand hinzufügen.</p>
+<h4 class="t4">Wie ein nützlicher Konstruktor aussehen kann</h4>
+<p>Besitzt ein Objekt eine Reihe von Attributen, so wird ein Konstruktor in der Regel diese Attribute initialisieren wollen. Wenn wir eine Unmenge von Attributen in einer Klasse haben, sollten wir dann auch endlos viele Konstruktoren schreiben? Besitzt eine Klasse Attribute, die durch <span class="clisting">setXXX()</span>-Methoden gesetzt und durch <span class="clisting">getXXX()</span>-Methoden gelesen werden, so ist es nicht unbedingt nötig, dass diese Attribute im Konstruktor gesetzt werden. Ein Standard-Konstruktor, der das Objekt in einen Initialzustand setzt, ist angebracht; anschließend können die Zustände mit den Zugriffsmethoden verändert werden. Das sagt auch die JavaBean-Konvention. Praktisch sind sicherlich auch Konstruktoren, die die häufigsten Initialisierungsszenarien abdecken. Das Punkt-Objekt der Klasse <span class="clisting">java.awt.Point</span> lässt sich mit dem Standard-Konstruktor erzeugen, aber auch mit einem parametrisierten, der gleich die Koordinatenwerte entgegennimmt.</p>
+<p>Wenn ein Objekt Attribute besitzt, die nicht über <span class="clisting">setXXX()</span>-Methoden modifiziert werden können, diese Werte aber bei der Objekterzeugung wichtig sind, so bleibt uns nichts anderes übrig, als die Werte im Konstruktor einzufügen (eine <span class="clisting">setXXX()</span>-Methode, die nur einmalig eine Schreiboperation zulässt, ist nicht wirklich schön). So arbeiten zum Beispiel Werteobjekte, die einmal im Konstruktor einen Wert bekommen und ihn beibehalten. In der Java-Bibliothek gibt es eine Reihe solcher Klassen, die keinen Standard-Konstruktor besitzen, und nur einige parametrisierte, die Werte erwarten. Die im Konstruktor übergebenen Werte initialisieren das Objekt, und es behält diese Werte sein ganzes Leben lang. Zu den Klassen gehören zum Beispiel <span class="clisting">Integer</span>, <span class="clisting">Double</span>, <span class="clisting">Color</span>, <span class="clisting">File</span> oder <span class="clisting">Font</span>.</p><a id="mjeba4c88cb0236221c5b762dfdea3a132" name="mjeba4c88cb0236221c5b762dfdea3a132"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">5.5.4</span> Copy-Konstruktor  <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Ein Konstruktor ist außerordentlich praktisch, wenn er ein typgleiches Objekt über seinen Parameter entgegennimmt und aus diesem Objekt die Startwerte für seinen eigenen Zustand nimmt. Ein solcher Konstruktor heißt <span class="ckursiv">Copy-Konstruktor</span>.</p>
+<p>Dazu ein Beispiel: Die Klasse <span class="clisting">Player</span> bekommt einen Konstruktor, der einen anderen Spieler als Parameter entgegennimmt. Auf diese Weise lässt sich ein schon initialisierter Spieler als Vorlage für die Attributwerte nutzen. Alle Eigenschaften des existierenden Spielers können so auf den neuen Spieler übertragen werden. Die Implementierung kann so aussehen:</p>
+<p class="tabunter"><strong>Listing 5.30    </strong>com/tutego/insel/game/v7/Player.java, Player</p>
+<div class="listing"><pre class="prettyprint">public class Player
+{
+  public String name;
+  public String item;
+
+  public Player()
+  {
+  }
+
+  public<span class="cfett"> Player( Player player )</span>
+ <span class="cfett"> {</span>
+   <span class="cfett"> name = player.name;</span>
+   <span class="cfett"> item = player.item;</span>
+ <span class="cfett"> }</span>
+}</pre></div>
+<div class="bildbox">
+<p><a name="IDARDFV"></a><a onClick="OpenWin('bilder/v7player.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinv7player.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p>Die statische <span class="clisting">main()</span>-Methode soll jetzt einen neuen Spieler <span class="clisting">patric</span> erzeugen und anschließend wiederum einen neuen Spieler <span class="clisting">tryk</span> mit den Werten von <span class="clisting">patric</span> initialisieren:</p>
+<p class="tabunter"><strong>Listing 5.31    </strong>com/tutego/insel/game/v7/Playground.java, main()</p>
+<div class="listing"><pre class="prettyprint">Player patric = new Player();
+patric.name = "Patric Circle";
+patric.item = "Knoten";
+
+Player tryk = new Player( patric );
+System.out.println( tryk.name );  // Patric Circle
+System.out.println( tryk.item );  // Knoten</pre></div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Wenn die Klasse <span class="clisting">Player</span> neben dem parametrisierten Konstruktor <span class="clisting">Player(Player)</span> einen zweiten, <span class="clisting">Player(Object)</span>, deklarieren würde, käme es bei einer Verwendung durch <span class="clisting">new Player(patric)</span> auf den ersten Blick zu einem Konflikt, denn beide Konstruktoren würden passen. Der Java-Compiler löst das so, dass er immer den spezifischsten Konstruktor aufruft, also <span class="clisting">Player(Player)</span> und nicht <span class="clisting">Player(Object)</span>. Das gilt auch für <span class="clisting">new Player(null)</span> &#8211; auch hier wird der Konstruktor <span class="clisting">Player(Player)</span> bemüht. Während diese Frage für den Alltag nicht so bedeutend ist, müssen sich Kandidaten der Java-Zertifizierung »Sun Certified Java Programmer« auf eine solche Frage einstellen. Im Übrigen gilt bei den Methoden das gleiche Prinzip.</p>
+</td>
+</tr>
+</table><br><a id="mj2e1c2363c979aed81150e04d7f06afd6" name="mj2e1c2363c979aed81150e04d7f06afd6"></a><a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3"><span class="cfett">5.5.5</span> Einen anderen Konstruktor der gleichen Klasse mit »this()« aufrufen  <a href="#t2t37"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Mitunter werden zwar verschiedene Konstruktoren angeboten, aber nur in einem Konstruktor verbirgt sich die tatsächliche Initialisierung des Objekts. Nehmen wir unser Beispiel mit dem Konstruktor, der einen Spieler als Vorlage über einen Parameter nimmt, aber auch einen anderen Konstruktor, der den Namen und den Gegenstand direkt entgegennimmt:</p>
+<p class="tabunter"><strong>Listing 5.32    </strong>com/tutego/insel/game/v8/Player.java, Player</p>
+<div class="listing"><pre class="prettyprint">public class Player
+{
+  public String name;
+  public String item;
+
+  public Player( Player player )
+  {
+   <span class="cfett"> name = player.name;</span>
+   <span class="cfett"> item = player.item;</span>
+  }
+
+  public Player( String name, String item )
+  {
+   <span class="cfett"> this.name = name;</span>
+   <span class="cfett"> this.item = item;</span>
+  }
+}</pre></div>
+<p>Zu erkennen ist, dass beide Konstruktoren die Objektvariablen initialisieren und letztlich das Gleiche machen. Schlauer ist es, wenn der Konstruktor <span class="clisting">Player(Player)</span> den Konstruktor <span class="clisting">Player(String, String)</span> der eigenen Klasse aufruft. Dann muss nicht gleicher Programmcode für die Initialisierung mehrfach ausprogrammiert werden. Java lässt eine solche Konstruktorverkettung mit dem Schlüsselwort <span class="clisting">this</span> zu:</p>
+<p class="tabunter"><strong>Listing 5.33    </strong>com/tutego/insel/game/v9/Player.java, Player</p>
+<div class="listing"><pre class="prettyprint">public class Player
+{
+  public String name;
+  public String item;
+
+  public Player()
+  {
+   <span class="cfett"> this( "", "" );</span>
+  }
+
+  public Player( Player player )
+  {
+   <span class="cfett"> this( player.name, player.item );</span>
+  }
+
+  public<span class="cfett"> Player( String name, String item )</span>
+  {
+    this.name = name;
+    this.item = item;
+  }
+}</pre></div>
+<div class="bildbox">
+<p><a name="IDAPIFV"></a><a onClick="OpenWin('bilder/playerplayerss.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinplayerplayerss.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p>Der Gewinn gegenüber der vorherigen Lösung ist, dass es nur eine zentrale Stelle gibt, die im Fall von Änderungen angefasst werden müsste. Nehmen wir an, wir hätten zehn Konstruktoren für alle erdenklichen Fälle in genau diesem Stil implementiert. Tritt der unerwünschte Fall ein, dass wir auf einmal in jedem Konstruktor etwas initialisieren müssen, so muss der Programmcode &#8211; etwa ein Aufruf der Methode <span class="clisting">init()</span> &#8211; in jeden der Konstruktoren eingefügt werden. Dieses Problem umgehen wir einfach, indem wir die Arbeit auf einen speziellen Konstruktor verschieben. Ändert sich nun das Programm in der Weise, dass beim Initialisieren überall zusätzlicher Programmcode ausgeführt werden muss, dann ändern wir eine Zeile in dem konkreten, von allen benutzten Konstruktor. Damit fällt für uns wenig Änderungsarbeit an &#8211; unter softwaretechnischen Gesichtspunkten ein großer Vorteil. Überall in den Java-Bibliotheken lässt sich diese Technik wiedererkennen.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Das Schlüsselwort <span class="clisting">this</span> ist in Java mit zwei Funktionen belegt: Zum einen »zeigt« es als Referenz auf das aktuelle Objekt, und zum anderen formt es einen Aufruf zu einem anderen Konstruktor der gleichen Klasse.</p>
+</td>
+</tr>
+</table><br><h4 class="t4">Einschränkungen von »this()« *</h4>
+<p>Beim Aufruf eines anderen Konstruktors mittels <span class="clisting">this()</span> gibt es zwei wichtige Beschränkungen:</p>
+<ul class="gp">
+<li>Der Aufruf von <span class="clisting">this()</span> muss die erste Anweisung des Konstruktors sein.</li>
+</ul>
+<ul class="gp">
+<li>Als Parameter von <span class="clisting">this()</span> können keine Objektvariablen übergeben werden. Insbesondere Eigenschaften aus der Oberklasse sind noch nicht präsent. Möglich sind aber statische finale Variablen (Konstanten).</li>
+</ul>
+<p>Die erste Einschränkung besagt, dass das Erzeugen eines Objekts immer das Erste ist, was ein Konstruktor leisten muss. Nichts darf vor der Initialisierung ausgeführt werden. Die zweite Einschränkung hat damit zu tun, dass die Objektvariablen erst <span class="ckursiv">nach</span> dem Aufruf von <span class="clisting">this()</span> initialisiert werden, sodass ein Zugriff unsinnig wäre &#8211; die Werte wären im Allgemeinen null:</p>
+<p class="tabunter"><strong>Listing 5.34    </strong>Stereo.java</p>
+<div class="listing"><pre class="prettyprint">public class Stereo
+{
+  static         final int STANDARD = 1000;
+  /*non-static*/ final int standard = 1000;
+  public int watt;
+
+  public Stereo()
+  {
+    // this( standard );
+    // Führt auskommentiert zum Compilerfehler:
+    // Cannot refer to an instance field standard while explicitly invoking 
+    // a constructor
+
+   this( STANDARD );
+  }
+
+
+  public Stereo( int watt )
+  {
+    this.watt = watt;
+  }
+}</pre></div>
+<p>Da Objektvariablen bis zu einem bestimmten Punkt noch nicht initialisiert sind (was der nächste Abschnitt erklärt), lässt uns der Compiler nicht darauf zugreifen &#8211; nur statische Variablen sind als Übergabeparameter erlaubt. Daher ist der Aufruf <span class="clisting">this(standard)</span> nicht gültig, da <span class="clisting">standard</span> eine Objektvariable ist; <span class="clisting">this(STANDARD)</span> ist jedoch in Ordnung, weil <span class="clisting">STANDARD</span> eine statische Variable ist.</p><a id="mj10ff17c8792a477f4633c412382e068f" name="mj10ff17c8792a477f4633c412382e068f"></a><a name="t36"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t37"></a><h3 class="t3"><span class="cfett">5.5.6</span> Ihr fehlt uns nicht &#8211; der Garbage-Collector  <a href="#t2t38"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t36"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Glücklicherweise werden wir beim Programmieren von der lästigen Aufgabe befreit, Speicher von Objekten freizugeben. Wird ein Objekt nicht mehr referenziert, findet der Garbage-Col-lector [Lange Tradition hat der Garbage-Collector unter LISP und unter Smalltalk, aber auch Visual Basic benutzt einen GC.
+]  dieses Objekt und kümmert sich um alles Weitere &#8211; der Entwicklungsprozess wird dadurch natürlich vereinfacht. Der Einsatz eines GC verhindert zwei große Probleme:</p>
+<ul class="gp">
+<li>Ein Objekt kann gelöscht werden, aber die Referenz existiert noch (engl. <span class="ckursiv">dangling pointer</span>).</li>
+</ul>
+<ul class="gp">
+<li>Kein Zeiger verweist auf ein bestimmtes Objekt, dieses existiert aber noch im Speicher (engl. <span class="ckursiv">memory leak</span>).</li>
+</ul><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Konstruktoren sind besondere Anweisungsblöcke, die die Laufzeitumgebung immer im Zuge der Objekterzeugung aufruft. Sprachen wie C++ kennen auch das Konzept eines Dekonstruktors, also eines besonderen Anweisungsblocks, der immer dann aufgerufen wird, wenn die Laufzeitumgebung erkennt, dass das Objekt nicht mehr benötigt wird. Allgemeine Dekonstruktoren kennt Java nicht. Es gibt jedoch mit der <span class="clisting">finalize()</span>-Methode (sie wird in Abschnitt 9.3.6, »Aufräumen mit finalize()«, vorgestellt) eine Möglichkeit, die an einen Dekonstruktor erinnert, allerdings mit einigen Einschränkungen.</p>
+</td>
+</tr>
+</table><br><h4 class="t4">Prinzipielle Arbeitsweise des Müllaufsammlers</h4>
+<p>Der Garbage-Collector (GC) erscheint hier als ominöses Ding, das die Objekte clever verwaltet. Doch was ist der GC? Implementiert wird er als unabhängiger Thread mit niedriger Priorität. Er verwaltet die Wurzelobjekte, von denen aus das gesamte Geflecht der lebendigen Objekte (der so genannte Objektgraph) erreicht werden kann. Dazu gehören die Wurzel des Thread-Gruppen-Baums und die lokalen Variablen aller aktiven Methodenaufrufe (Stack aller Threads). In regelmäßigen Abständen markiert der GC nicht benötigte Objekte und entfernt sie.</p>
+<p>Dank der <span class="ckursiv">HotSpot</span>-Technologie, die schon seit Java 1.3 fester Bestandteil der JVM ist, geschieht das Anlegen von Objekten unter der Java VM von Oracle sehr schnell. HotSpot verwendet einen generationenorientierten GC, der ausnutzt, dass zwei Gruppen von Objekten mit deutlich unterschiedlicher Lebensdauer existieren. Die meisten Objekte sterben sehr jung, die wenigen überlebenden Objekte werden hingegen sehr alt. Die Strategie dabei ist, dass Objekte im »Kindergarten« erzeugt werden, der sehr oft nach toten Objekten durchsucht wird und in der Größe beschränkt ist. Überlebende Objekte kommen nach einiger Zeit aus dem Kindergarten in eine andere Generation, die nur selten vom GC durchsucht wird. Damit folgt der GC der Philosophie von Auffenberg, der meinte: »Verbesserungen müssen zeitig glücken; im Sturm kann man nicht mehr die Segel flicken.« Das heißt, der GC arbeitet ununterbrochen und räumt auf. Er beginnt nicht erst mit der Arbeit, wenn es zu spät und der Speicher schon voll ist.</p>
+<h4 class="t4">Die manuelle Nullung und Speicherlecks</h4>
+<p>Im folgenden Szenario wird der GC das nicht mehr benötigte Objekt hinter der Referenzvariablen <span class="clisting">ref</span> entfernen können, wenn die Laufzeitumgebung den inneren Block verlässt:</p>
+<div class="listing"><pre class="prettyprint">{
+  {
+    StringBuffer ref = new StringBuffer();
+  }
+  // StringBuffer ref ist frei für den GC
+}</pre></div>
+<p>In fremden Programmen sind mitunter Anweisungen wie die folgende zu lesen:</p>
+<div class="listing"><pre class="prettyprint">ref = null;</pre></div>
+<p>Oftmals sind sie unnötig, denn wie im Fall unseres Blocks weiß der GC, wann der letzte Verweis vom Objekt genommen wurde. Anders sieht das aus, wenn die Lebensdauer der Variablen größer ist, etwa bei einer Objekt- oder sogar bei einer statischen Variablen oder wenn sie in einem Feld referenziert wird. Wenn dann das referenzierte Objekt nicht mehr benötigt wird, sollte die Variable (oder der Feldeintrag) mit <span class="clisting">null</span> belegt werden, da andernfalls der GC das Objekt aufgrund der starken Referenzierung nicht wegräumen würde. Zwar findet der GC jedes nicht mehr referenzierte Objekt, aber die Fähigkeit zur Devination [Wahrsagen
+] , Speicherlecks durch unbenutzte, aber referenzierte Objekte aufzuspüren, hat er nicht.</p><a id="mj975e7c7e428f38a991ecb081f96e90cc" name="mj975e7c7e428f38a991ecb081f96e90cc"></a><a name="t37"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t38"></a><h3 class="t3"><span class="cfett">5.5.7</span> Private Konstruktoren, Utility-Klassen, Singleton, Fabriken  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t37"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Ein Konstruktor kann privat sein, was verhindert, dass von außen ein Exemplar dieser Klasse gebildet werden kann. Was auf den ersten Blick ziemlich beschränkt erscheint, erweist sich als ziemlich clever, wenn damit die Exemplarbildung bewusst verhindert werden soll. Sinnvoll ist das etwa bei den so genannten <span class="ckursiv">Utility-Klassen</span>. Das sind Klassen, die nur statische Methoden besitzen, also Hilfsklassen sind. Beispiele für diese Hilfsklassen gibt es zur Genüge, zum Beispiel <span class="clisting">Math</span>. Warum sollte es hier Exemplare geben? Für den Aufruf von <span class="clisting">max()</span> ist das nicht nötig. Also wird die Bildung von Objekten erfolgreich mit einem privaten Konstruktor unterbunden.</p>
+<p>Wenn ein Konstruktor privat ist, bedeutet das noch lange nicht, dass keine Exemplare mehr erzeugt werden können. Ein privater Konstruktor besagt nur, dass er von außen nicht sichtbar ist &#8211; aber die Klasse selbst kann ihn ebenso wie private Methoden »sehen« und zur Objekterzeugung nutzen. Objektmethoden kommen dafür nicht in Frage, da ähnlich wie beim Henne-Ei-Problem ja vorher ein Objekt nötig wäre. Es bleiben somit die statischen Methoden als Erzeuger.</p>
+<h4 class="t4">Singleton</h4>
+<p>Ein <span class="ckursiv">Singleton</span> stellt sicher, dass es von einer Klasse nur ein Exemplar gibt. [Nicht in der gesamten JVM, das ist nicht möglich. Zu diesem Problem kommen wir noch in Abschnitt 11.2, »Klassenlader (Class Loader)«.
+]  Nützlich ist das für Dinge, die es nur genau einmal in einer Applikation geben soll, etwa einen Logger für Protokollierungen:</p>
+<p class="tabunter"><strong>Listing 5.35    </strong>Logger.java</p>
+<div class="listing"><pre class="prettyprint">public final class Logger
+{
+  private static Logger logger;
+
+ <span class="cfett"> private Logger()</span>
+  {
+  }
+
+  public static synchronized Logger getInstance()
+  {
+    if ( logger == null )
+      logger = new Logger();
+    return logger;
+  }
+
+  public void log( String s )
+  {
+    System.out.println( s );
+  }
+}</pre></div>
+<p>Interessant sind einmal der private Konstruktor und zum anderen die statische Anfrage-Methode <span class="clisting">getInstance()</span>. Gibt es noch kein Exemplar des Loggers, erzeugt <span class="clisting">getInstance()</span> eines und weist es der Klassenvariablen zu. <span class="clisting">synchronized</span> schützt bei parallelen Zugriffen, sodass nur ein Thread die Methode betreten kann und ein potenziell anderer Thread so lange warten muss, bis der erste Thread die Methode wieder verlassen hat:</p>
+<p class="tabunter"><strong>Listing 5.36    </strong>LoggerUser.java</p>
+<div class="listing"><pre class="prettyprint">public class LoggerUser
+{
+  public static void main( String[] args )
+  {
+   <span class="cfett"> Logger.getInstance().log( "Log mich!" );</span>
+  }
+}</pre></div>
+<h4 class="t4">Fabrikmethoden</h4>
+<p>Eine <span class="ckursiv">Fabrikmethode</span> geht noch einen Schritt weiter als ein Singleton. Sie erzeugt nicht exakt ein Exemplar, sondern unter Umständen auch mehrere. Die grundlegende Idee jedoch ist, dass der Anwender nicht über einen Konstruktor ein Exemplar erzeugt, sondern im Allgemeinen über eine statische Methode. Dies hat den Vorteil, dass die statische Fabrikmethode</p>
+<ul class="gp">
+<li>alte Objekte aus einem Cache wiedergeben kann,</li>
+</ul>
+<ul class="gp">
+<li>den Erzeugungsprozess auf Unterklassen verschieben kann und</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">null</span> zurückgeben darf.</li>
+</ul>
+<p>Ein Konstruktor erzeugt immer ein Exemplar der eigenen Klasse. Eine Rückgabe wie <span class="clisting">null</span> kann ein Konstruktor nicht liefern, denn bei <span class="clisting">new</span> wird immer ein neues Objekt gebaut. Fehler könnten nur über eine Exception angezeigt werden.</p>
+<p>In der Java-Bibliothek gibt es eine Unmenge an Beispielen für Fabrikmethoden. Durch eine Namenskonvention sind sie leicht zu erkennen: Meistens heißen sie <span class="clisting">getInstance()</span>. Eine Suche in der API-Dokumentation fördert gleich 90 solcher Methoden zutage. Viele sind parametrisiert, um genau anzugeben, was die Fabrik für Objekte erzeugen soll. Nehmen wir zum Beispiel die statischen Fabrikmethoden vom <span class="clisting">java.util.Calendar</span>:</p>
+<ul class="gp">
+<li><span class="clisting">Calendar.getInstance()</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Calendar.getInstance( java.util.Locale )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Calendar.getInstance( java.util.TimeZone )</span></li>
+</ul>
+<p>Die nicht parametrisierte Methode gibt ein Standard-<span class="clisting">Calendar</span>-Objekt zurück. <span class="clisting">Calendar</span> ist aber selbst eine abstrakte Basisklasse. Innerhalb der <span class="clisting">getInstance()</span>-Methode befindet sich Quellcode wie der folgende:</p>
+<div class="listing"><pre class="prettyprint">static Calendar getInstance()
+{
+  return new GregorianCalendar();
+}</pre></div>
+<p>Im Rumpf der Erzeugermethode <span class="clisting">getInstance()</span> wird bewusst die Unterklasse <span class="clisting">GregorianCalendar</span> ausgewählt, die <span class="clisting">Calendar</span> erweitert. Das ist möglich, da durch Vererbung eine Ist-eine-Art-von-Beziehung gilt und <span class="clisting">GregorianCalendar</span> ein <span class="clisting">Calendar</span> ist. Der Aufrufer von <span class="clisting">getIn-stance()</span> bekommt das nicht mit, und er empfängt wie gewünscht ein <span class="clisting">Calendar</span>-Objekt. Mit dieser Möglichkeit kann <span class="clisting">getInstance()</span> testen, in welchem Land die JVM läuft, und abhängig davon die passende <span class="clisting">Calendar</span>-Implementierung auswählen.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="5.5 Objekte anlegen und zerstören"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_05_004.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_05_006.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

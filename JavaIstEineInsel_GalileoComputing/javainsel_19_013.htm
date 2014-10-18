@@ -1,0 +1,1327 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 19.13 Kontrollfelder, Optionsfelder, Kontrollfeldgruppen</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 19.13 Kontrollfelder, Optionsfelder, Kontrollfeldgruppen">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 19.13 Kontrollfelder, Optionsfelder, Kontrollfeldgruppen">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_05_001.htm#mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_08_001.htm#mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_09_001.htm#mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_11_001.htm#mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_19_012.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_19_014.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e" class="navnav">19 Grafische Oberflächen mit Swing</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_19_001.htm#mjfa06652549698f439b5fb52fb7e3c138" class="navnav">19.1 Das Abstract Window Toolkit und Swing</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_001.htm#mj272658c21a2307aa6588f1ca0db3b133" class="navnav">19.1.1 SwingSet-Demos</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_001.htm#mj43be406e9d78844f158cea6874452e0e" class="navnav">19.1.2 Abstract Window Toolkit (AWT)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_001.htm#mj420cfff41af1b0d05949c3f8c14cedfb" class="navnav">19.1.3 Java Foundation Classes</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_001.htm#mjdd44bb755cd9ac44a7d7f2738d916490" class="navnav">19.1.4 Was Swing von AWT unterscheidet</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_19_002.htm#mj7d884bbf3212cb4f5c0fc7cdd5d1b0be" class="navnav">19.2 Mit NetBeans zur ersten Oberfläche</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_002.htm#mj535919b210743cf3ddf6a9ca64af8e49" class="navnav">19.2.1 Projekt anlegen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_002.htm#mjaeba456fb05ced9bdf89be5ade8bb9e5" class="navnav">19.2.2 Gui-Klasse hinzufügen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_002.htm#mj72ae989b33dd788a33ef641321f36036" class="navnav">19.2.3 Programm starten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_002.htm#mj8e6cc962d9a87313914889002d59cca6" class="navnav">19.2.4 Grafische Oberfläche aufbauen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_002.htm#mja651647a9ef535158f6e2cf4e09bff85" class="navnav">19.2.5 Swing-Komponenten-Klassen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_002.htm#mj6264612c402e325ae9fe4d958380964d" class="navnav">19.2.6 Funktionalität geben</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_19_003.htm#mjb74bdb3bf5ccf0da5832acdaa5430db7" class="navnav">19.3 Fenster unter grafischen Oberflächen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_003.htm#mj6ee2c84afdbd3308eae62e58c0779add" class="navnav">19.3.1 Swing-Fenster mit javax.swing.JFrame darstellen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_003.htm#mja4fe28ffc7da829ebfb0c42d8d174590" class="navnav">19.3.2 Fenster schließbar machen &#8211; setDefaultCloseOperation()</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_003.htm#mj2d73877504b4993cf7803c900500c877" class="navnav">19.3.3 Sichtbarkeit des Fensters</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_003.htm#mj80359234a28dc7da1c9b0ceddd22b027" class="navnav">19.3.4 Größe und Position des Fensters verändern</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_003.htm#mj1b19df0c4ccb86ec695adf68a8105268" class="navnav">19.3.5 Fenster- und Dialog-Dekoration, Transparenz *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_003.htm#mj738ca259417411494401f4b5a12eee01" class="navnav">19.3.6 Dynamisches Layout während einer Größenänderung *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_19_004.htm#mj60ce3a2ffc3e9bb53ce771e1be6ab815" class="navnav">19.4 Beschriftungen (JLabel)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_004.htm#mj751f9766a98c76671e0007e5a9d9032f" class="navnav">19.4.1 Mehrzeiliger Text, HTML in der Darstellung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_19_005.htm#mjf840b5b26b3d17378f356327ff528f45" class="navnav">19.5 Icon und ImageIcon für Bilder auf Swing-Komponenten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_005.htm#mjb0524728faeb9590a2319950d413d15c" class="navnav">19.5.1 Die Klasse ImageIcon</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_005.htm#mj92faae8ec0cf53b23b30358c63638154" class="navnav">19.5.2 Die Schnittstelle Icon und eigene Icons *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_19_006.htm#mj13c2de22b2eb83ba23bd597ce9d2f3a9" class="navnav">19.6 Es tut sich was &#8211; Ereignisse beim AWT</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_006.htm#mj6aa67dbe1c77bcf0a760b610ea19d50c" class="navnav">19.6.1 Swings Ereignisquellen und Horcher (Listener)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_006.htm#mj2af8b45ef995b839f9addd08d61be4fa" class="navnav">19.6.2 Listener implementieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_006.htm#mjfd9ddfd2d8dff57716dea89215a82373" class="navnav">19.6.3 Listener bei dem Ereignisauslöser anmelden/abmelden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_006.htm#mja4072a23e8d51fb3fc6c0bb3bc79a5c2" class="navnav">19.6.4 Aufrufen der Listener im AWT-Event-Thread</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_006.htm#mjfd5ad124eb56e6196d02ce556c483ccb" class="navnav">19.6.5 Adapterklassen nutzen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_006.htm#mj75cd7da960d1d0fbba242e7543dd4e29" class="navnav">19.6.6 Innere Mitgliedsklassen und innere anonyme Klassen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_006.htm#mjc58c74b343fd4c076b5c6dbdab46d022" class="navnav">19.6.7 Ereignisse etwas genauer betrachtet *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_19_007.htm#mj55c593e7d35424fc28bc55300ff96ee1" class="navnav">19.7 Schaltflächen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_007.htm#mj9241ccf572ee0550ef5d590db21dff5f" class="navnav">19.7.1 Normale Schaltflächen (JButton)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_007.htm#mj39cc450d19be45d80ba49d142980e887" class="navnav">19.7.2 Der aufmerksame »ActionListener«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_007.htm#mjc8dbf0122e83947382646a91e2a08007" class="navnav">19.7.3 Schaltflächen-Ereignisse vom Typ »ActionEvent«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_007.htm#mjaa0cd2b4503a75a1381ccae320e736b5" class="navnav">19.7.4 Basisklasse »AbstractButton«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_007.htm#mj1ceba9e430c34c912c4b4a970d2369c5" class="navnav">19.7.5 Wechselknopf (JToggleButton)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_19_008.htm#mjb369784f1df9ede1d7b8a18ae8e56873" class="navnav">19.8 Swing Action *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_19_009.htm#mjafc9b008f384b6e36a9333e93d18b089" class="navnav">19.9 JComponent und Component als Basis aller Komponenten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_009.htm#mj9f032d2dc1afe125b86be7c47cc6876f" class="navnav">19.9.1 Hinzufügen von Komponenten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_009.htm#mjb80a87a461a469f5d4d7cefd15ed3e03" class="navnav">19.9.2 Tooltips (Kurzhinweise)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_009.htm#mja25309002e8dae51e44f42662fd6c67a" class="navnav">19.9.3 Rahmen (Border) *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_009.htm#mj08ce6c18ea03e456804cbc46515f009f" class="navnav">19.9.4 Fokus und Navigation *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_009.htm#mj17e040d1bddf7477e0bd85585ddb9b5f" class="navnav">19.9.5 Ereignisse jeder Komponente *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_009.htm#mj8c1c457ac678d230dd735a7f230dd539" class="navnav">19.9.6 Die Größe und Position einer Komponente *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_009.htm#mjcb2c94e0dfbdaf602928c77527ef2d71" class="navnav">19.9.7 Komponenten-Ereignisse *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_009.htm#mj61154eee8e57cd4403e9425af2886139" class="navnav">19.9.8 Undurchsichtige (opake) Komponente *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_009.htm#mj7bc3f598e9d15f5cb489ebbf5a5b2f78" class="navnav">19.9.9 Properties und Listener für Änderungen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_19_010.htm#mj91f6c49fa5739cba996b952bc67a18a0" class="navnav">19.10 Container</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_010.htm#mj5c3ca432ef021d9c5cd26a5441702e99" class="navnav">19.10.1 Standardcontainer (JPanel)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_010.htm#mj66f472599b8b53fe93ea7adde5f179c3" class="navnav">19.10.2 Bereich mit automatischen Rollbalken (JScrollPane)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_010.htm#mj33a05a32a77e41ed7ae2d11ebb9574f5" class="navnav">19.10.3 Reiter (JTabbedPane)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_010.htm#mjccb665dace2b75d358f46648c72bf44d" class="navnav">19.10.4 Teilungs-Komponente (JSplitPane)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_19_011.htm#mj3bf712331be49e8cbc1dae33786af8ac" class="navnav">19.11 Alles Auslegungssache: die Layoutmanager</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_011.htm#mjcc748f11c95bf11e5cdbcf817effe0f6" class="navnav">19.11.1 Übersicht über Layoutmanager</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_011.htm#mj3fa918bbfaffd52c0bf411b5c911dce1" class="navnav">19.11.2 Zuweisen eines Layoutmanagers</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_011.htm#mj42ba8a39481e5f2a22ead946732b32f5" class="navnav">19.11.3 Im Fluss mit FlowLayout</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_011.htm#mj536dab7b7c7ac9a816d4d7278ffd9f1d" class="navnav">19.11.4 BoxLayout</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_011.htm#mjead66e4e46c4a5e186413da02f52d178" class="navnav">19.11.5 Mit BorderLayout in alle Himmelsrichtungen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_011.htm#mjdd384fd914807960d765446590fa3ae5" class="navnav">19.11.6 Rasteranordnung mit GridLayout</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_011.htm#mjbce2a36beed319dac0bd3d9717ee2f11" class="navnav">19.11.7 Der GridBagLayoutmanager *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_011.htm#mj87e03da9c885b072772869cdbaad0470" class="navnav">19.11.8 Null-Layout *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_011.htm#mj5bad0996a19845440b0b7ae1f37c9e19" class="navnav">19.11.9 Weitere Layoutmanager</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_19_012.htm#mjd5a463dd0013d8399ce3ec96ba0997f0" class="navnav">19.12 Rollbalken und Schieberegler</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_012.htm#mj21810bfcb0d496e6fe68ebd3e95aa2c3" class="navnav">19.12.1 Schieberegler (JSlider)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_012.htm#mj0674b9dab9bf5941ad0e46f15f799050" class="navnav">19.12.2 Rollbalken (JScrollBar) *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj04181d261495498cb9f183a6327c6e0a" class="navh">19.13 Kontrollfelder, Optionsfelder, Kontrollfeldgruppen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj2721ba12d1970cb13863fdd31b8c8646" class="navh">19.13.1 Kontrollfelder (JCheckBox)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjfc449ca2eebf01ce424e832228ecd2a8" class="navh">19.13.2 ItemSelectable, ItemListener und das ItemEvent</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj43810aa1240cd64b6fb6198331e55f04" class="navh">19.13.3 Sich gegenseitig ausschließende Optionen (JRadioButton)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_19_014.htm#mjf073e715eb17e7ccbaf2283264d9505a" class="navnav">19.14 Fortschritte bei Operationen überwachen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_014.htm#mj6ce9b58a7304df9d1175e5aeb0faa90e" class="navnav">19.14.1 Fortschrittsbalken (JProgressBar)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_014.htm#mj5c95d7dafa228754af77ae3647570fa2" class="navnav">19.14.2 Dialog mit Fortschrittsanzeige (ProgressMonitor)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_19_015.htm#mjab5121f6521a326286246845b4433fe0" class="navnav">19.15 Menüs und Symbolleisten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_015.htm#mjd6d3574b310a8efdf7c23cb5f0307506" class="navnav">19.15.1 Die Menüleisten und die Einträge</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_015.htm#mj7eef952eee30dc092523f8e4722e0790" class="navnav">19.15.2 Menüeinträge definieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_015.htm#mjfe98634d6ca9b4354321bf09d6793635" class="navnav">19.15.3 Einträge durch Action-Objekte beschreiben</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_015.htm#mje9c95c0c73e96e8b665882cc33ce33a2" class="navnav">19.15.4 Mit der Tastatur: Mnemonics und Shortcut</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_015.htm#mj128bafaa5d3f8e1c85a7e08d181878a5" class="navnav">19.15.5 Der Tastatur-Shortcut (Accelerator)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_015.htm#mj42ad5d32f8b24beff81ebf1cef124564" class="navnav">19.15.6 Tastenkürzel (Mnemonics)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_015.htm#mj996bb5c9104f9e8e209ead9ca864f681" class="navnav">19.15.7 Symbolleisten alias Toolbars</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_015.htm#mj052daff91f7c4de080f0ad3371f00158" class="navnav">19.15.8 Popup-Menüs</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_19_016.htm#mja85628d88938f5fc859de8cfcc010a77" class="navnav">19.16 Das Model-View-Controller-Konzept</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_19_017.htm#mj24cb1da1365544731f253f2f0b5a8032" class="navnav">19.17 Auswahlmenüs, Listen und Spinner</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_017.htm#mj9d5e8827b5e0eba2df8f6bd0f85f45e0" class="navnav">19.17.1 Auswahlmenü (JComboBox)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_017.htm#mj6f7241af7cf9f6e3215edcedf2b76829" class="navnav">19.17.2 Zuordnung einer Taste mit einem Eintrag *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_017.htm#mjf20fe592e13f2df64b99cf6899a57b77" class="navnav">19.17.3 Datumsauswahl</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_017.htm#mja9cce4d06f15831f19d2fc9969356712" class="navnav">19.17.4 Listen (JList)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_017.htm#mj986cf39d521ab837afb96c829f4a32bf" class="navnav">19.17.5 Drehfeld (JSpinner) *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_19_018.htm#mj5d7a5ff93bc0a2c9493f9a53b010e1cc" class="navnav">19.18 Textkomponenten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_018.htm#mj8c45354807a33025f76bb032f90312af" class="navnav">19.18.1 Text in einer Eingabezeile</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_018.htm#mjc1ac3b3b8c63689761adf386dbb6552c" class="navnav">19.18.2 Die Oberklasse der Text-Komponenten (JTextComponent)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_018.htm#mjb7a9fe6ba4353b52725e7fc3788c5a6a" class="navnav">19.18.3 Geschützte Eingaben (JPasswordField)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_018.htm#mj96e7a1b5588dee0daa95de1cb1d9327d" class="navnav">19.18.4 Validierende Eingabefelder (JFormattedTextField)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_018.htm#mjcf36ecd72996f6d1103fe68e3b029b51" class="navnav">19.18.5 Einfache mehrzeilige Textfelder (JTextArea)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_018.htm#mj89391158e54ebd288d9e444d7cb4fc42" class="navnav">19.18.6 Editor-Klasse (JEditorPane) *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_19_019.htm#mj4d8b3bc0b550304f97713fa1788ff0f6" class="navnav">19.19 Tabellen (JTable)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_019.htm#mj69a564b2139e46804996a3c4b3d7bdbc" class="navnav">19.19.1 Ein eigenes Tabellen-Model</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_019.htm#mj3760905670820bf7b850d2069c414017" class="navnav">19.19.2 Basisklasse für eigene Modelle (AbstractTableModel)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_019.htm#mjdde88744a35bb5d139792c34feefe1af" class="navnav">19.19.3 Vorgefertigtes Standard-Modell (DefaultTableModel)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_019.htm#mj17dcd3f3bdca6dca2ecea7aac7d6b53c" class="navnav">19.19.4 Ein eigener Renderer für Tabellen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_019.htm#mja50f1747db02a70850292b55f777e86f" class="navnav">19.19.5 Zell-Editoren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_019.htm#mjd33c571fa46934c4021bf91bcc99ed72" class="navnav">19.19.6 Größe und Umrandung der Zellen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_019.htm#mjcaf088ef812960d190c71d389fb6a92d" class="navnav">19.19.7 Spalteninformationen*</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_019.htm#mj95a26d3b857b813dd6c767a202703217" class="navnav">19.19.8 Tabellenkopf von Swing-Tabellen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_019.htm#mjf6c8a89e4903b421a57ee8abe8e420ba" class="navnav">19.19.9 Selektionen einer Tabelle *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_019.htm#mja6e89fe02669f01b7bd5b44b5331f5d0" class="navnav">19.19.10 Automatisches Sortieren und Filtern mit RowSorter *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_19_020.htm#mjce75f100ae59b2107cf79bbf409cb83d" class="navnav">19.20 Bäume (JTree)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_020.htm#mj6f30ef4c6078172827fc9147c825b627" class="navnav">19.20.1 JTree und sein TreeModel und TreeNode</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_020.htm#mj50cba3a7aa0a7f887eb4e3dc963ffeea" class="navnav">19.20.2 Selektionen bemerken</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_020.htm#mj4f65501ff674f3bf5d0c079ec3f57fef" class="navnav">19.20.3 Das TreeModel von JTree *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_19_021.htm#mjcb8fd8cdf14fb8f1a201abd9352404a7" class="navnav">19.21 JRootPane und JDesktopPane *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_021.htm#mjb74a44cf8456a01d6cb50b9c2ce55d65" class="navnav">19.21.1 Wurzelkomponente der Top-Level-Komponenten (JRootPane)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_021.htm#mj59977851db4cf6bd05e243e06d75c439" class="navnav">19.21.2 JDesktopPane und die Kinder JInternalFrame</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_021.htm#mj14eb3e33dbf2de8a3bd0de4b6158cacb" class="navnav">19.21.3 JLayeredPane</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_19_022.htm#mj32dd8622b398d78221a2d633455a73e6" class="navnav">19.22 Dialoge und Window-Objekte</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_022.htm#mj24f6c65ed77c4aadd4d490bf49dbda9d" class="navnav">19.22.1 JWindow und JDialog</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_022.htm#mjc35653090382a7ec2be3f90e485c781f" class="navnav">19.22.2 Modal oder nicht-modal</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_022.htm#mj21fe751bea4d0c14e49439682c3cc3f7" class="navnav">19.22.3 Standarddialoge mit JOptionPane</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_022.htm#mj91c89e1c3c85f08649cdbdfca59a935e" class="navnav">19.22.4 Der Dateiauswahldialog</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_022.htm#mjfca6d9221e3437cb27ff7ca98a74491a" class="navnav">19.22.5 Der Farbauswahldialog JColorChooser *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_19_023.htm#mjecc1617e1c3e58a3c3a7301469605d81" class="navnav">19.23 Flexibles Java-Look-and-Feel</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_023.htm#mjc360adaeb0fffac09ac8e7e16e306364" class="navnav">19.23.1 Look and Feel global setzen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_023.htm#mj91b5fcca522af3a0a848cc404aebd700" class="navnav">19.23.2 UIManager</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_023.htm#mj54281266da04777974d8ce31a6207572" class="navnav">19.23.3 Windowsoptik mit JGoodies Looks verbessern *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_19_024.htm#mj5a456f391c45589cadbaa158a26529de" class="navnav">19.24 Swing-Komponenten neu erstellen oder verändern *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_19_025.htm#mj1ca6fd10773b77b80965b5ade491f81d" class="navnav">19.25 Die Zwischenablage (Clipboard)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_025.htm#mj91b2aff0c3f3e3174889ab50adfff1a7" class="navnav">19.25.1 Clipboard-Objekte</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_025.htm#mjd62e44c4e5c525e47eb77d07e4b13c15" class="navnav">19.25.2 Auf den Inhalt zugreifen mit »Transferable«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_025.htm#mj1c33804dae85c7e33f0ebd35aa782840" class="navnav">19.25.3 DataFlavor ist das Format der Daten in der Zwischenablage</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_025.htm#mj3e46c7da5f7e3f7ff413b784dbd52374" class="navnav">19.25.4 Einfügungen in der Zwischenablage erkennen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_025.htm#mj5b7885a27be66584ac21c35db25c653e" class="navnav">19.25.5 Drag </a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_19_026.htm#mjff97f42688ce8483476fd5597042a972" class="navnav">19.26 AWT, Swing und die Threads</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_026.htm#mj4ec987d811a5434aca55369d82ce9477" class="navnav">19.26.1 Ereignisschlange (EventQueue) und AWT-Event-Thread</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_026.htm#mjec8f5833dcf9f3af8eb9d0e28d2d6b71" class="navnav">19.26.2 Swing ist nicht thread-sicher</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_026.htm#mj0e59640539e3090b90a654f7efba1425" class="navnav">19.26.3 »invokeLater()« und »invokeAndWait()«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_026.htm#mjddb02e4498cff2c871b80fd4339dc06f" class="navnav">19.26.4 SwingWorker</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_026.htm#mjd961bb6b801540564b908381e7b2d866" class="navnav">19.26.5 Eigene Ereignisse in die Queue setzen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_19_026.htm#mj970c61ea5e72cbef2088af95e3e9928e" class="navnav">19.26.6 Auf alle Ereignisse hören *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_19_027.htm#mje3e5b4b4ce8439d1223c2d7d608e6c17" class="navnav">19.27 Barrierefreiheit mit der Java Accessibility API</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_19_028.htm#mj79c85d5db74179c5469765e70471f560" class="navnav">19.28 Zeitliches Ausführen mit dem javax.swing.Timer</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_19_029.htm#mjdbdd3564afac4277d8f350e747537e4c" class="navnav">19.29 Zum Weiterlesen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj04181d261495498cb9f183a6327c6e0a" name="mj04181d261495498cb9f183a6327c6e0a"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">19.13</span> Kontrollfelder, Optionsfelder, Kontrollfeldgruppen  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Ein Kontrollfeld ist eine Komponente mit einem Zustand: »ein« oder »aus«. Der Zustand wird meistens als Rechteck oder Kreis neben einer Zeichenkette dargestellt. Kontrollfelder dienen dem Benutzer meistens als Auswahl von Optionen. Bei einer Pizza-Bestellung kann etwa ein Optionsfeld die Beläge anbieten. Hier würde ich dann immer Pilze, Paprika und Zwiebeln wählen.</p>
+<div class="bildbox">
+<p><a name="IDADX0D"></a><a onClick="OpenWin('bilder/abstractbuttonuml.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinabstractbuttonuml.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p>In Swing sind zwei Klassen als besondere Schaltflächen vorgesehen, sodass der Benutzer aus einer Reihe von Optionen wählen kann: <span class="clisting">JCheckBox</span> und <span class="clisting">JRadioButton</span>. Beide sind Unterklassen von <span class="clisting">AbstractButton</span> und haben daher die schon erwähnten Möglichkeiten für HTML-Text, unterschiedliche Grafiken, Abstand und so weiter.</p><a id="mj2721ba12d1970cb13863fdd31b8c8646" name="mj2721ba12d1970cb13863fdd31b8c8646"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">19.13.1</span> Kontrollfelder (JCheckBox)  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die <span class="clisting">JCheckBox</span> ist als Schaltfläche so flexibel wie ein <span class="clisting">JButton</span> und lässt sich verschiedene Grafiken für den eingeschalteten und ausgeschalteten Zustand zuweisen. Dazu dienen die Methoden <span class="clisting">setIcon()</span> und <span class="clisting">setSelectedIcon()</span>. Diese Methoden kommen alle aus der Oberklasse <span class="clisting">AbstractButton</span>. Im Konstruktor lässt sich als zweites Argument ein Wahrheitswert angeben, der bestimmt, ob das Feld am Anfang gesetzt ist oder nicht.</p>
+<p>Ändert sich der Zustand eines Felds (Selektion oder Deselektion), wird ein <span class="clisting">ItemEvent</span> an alle registrierten <span class="clisting">ItemListener</span> weitergeleitet. Nach dem Anlegen des Objekts kann die Methode <span class="clisting">setState(boolean)</span> den Status verändern. Das Argument <span class="clisting">true</span> markiert die Option des Kontrollfelds. <span class="clisting">getState()</span> liefert den aktuellen Status des Kontrollfelds.</p>
+<div class="bildbox">
+<p><a name="IDAVA1D"></a><a onClick="OpenWin('bilder/jcheckboxdemo.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinjcheckboxdemo.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 19.14    </strong>Kontrollkästchen für unsere Helden</p>
+<p class="tabunter"><strong>Listing 19.24    </strong>com/tutego/insel/ui/swing/JCheckBoxDemo.java, main()</p>
+<div class="listing"><pre class="prettyprint">JFrame f = new JFrame( "Tolle Fernsehserien" );
+f.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+
+Icon unchecked = new ImageIcon( JCheckBoxDemo.class.getResource( <img src="common/umbruch.gif" border="0" alt="Umbruch">
+  "/images/cancel.png" ) );
+Icon checked   = new ImageIcon( JCheckBoxDemo.class.getResource( <img src="common/umbruch.gif" border="0" alt="Umbruch">
+  "/images/ok.png" ) );
+<span class="cfett">
+JCheckBox cb1 = new JCheckBox( "Ein Colt für alle Fälle", true );
+cb1.setIcon( unchecked );
+cb1.setSelectedIcon( checked );</span>
+f.add( cb1, BorderLayout.PAGE_START );
+<span class="cfett">
+JCheckBox cb2 = new JCheckBox( "MacGyver", false );
+cb2.setIcon( unchecked );
+cb2.setSelectedIcon( checked );</span>
+f.add( cb2, BorderLayout.PAGE_END );
+
+// We listen to our heros
+<span class="cfett">
+ItemListener herosListener = new ItemListener() {</span>
+ <span class="cfett"> @Override public void itemStateChanged( ItemEvent e ) {</span>
+   <span class="cfett"> System.out.print( ((JCheckBox) e.getItem()).getText() );</span>
+   <span class="cfett"> System.out.println( e.getStateChange() == ItemEvent.SELECTED ?</span>
+                       <span class="cfett"> " selected" : " unselected" );</span>
+ <span class="cfett"> }
+};
+
+cb1.addItemListener( herosListener );
+cb2.addItemListener( herosListener );
+</span>
+f.pack();
+f.setVisible( true );</pre></div><a id="mjfc449ca2eebf01ce424e832228ecd2a8" name="mjfc449ca2eebf01ce424e832228ecd2a8"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">19.13.2</span> ItemSelectable, ItemListener und das ItemEvent  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>In Swing gibt es eine Schnittstelle <span class="clisting">ItemSelectable</span>, die alle Swing-Klassen implementieren, bei denen Einträge selektiert werden können:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">interface java.awt.<span class="cfett">ItemSelectable</span></pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">void addItemListener( ItemListener l )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void removeItemListener( ItemListener l )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Object[] getSelectedObjects()</span></li>
+</ul>
+<p>Folgende GUI-Komponenten implementieren diese Schnittstelle:</p>
+<ul class="gp">
+<li>alle von <span class="clisting">AbstractButton</span> abgeleiteten Schaltflächen, insbesondere <span class="clisting">JCheckBox</span>, <span class="clisting">JRadioButton</span>, <span class="clisting">JCheckBoxMenuItem</span>, <span class="clisting">JRadioButtonMenuItem</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">JComboBox</span></li>
+</ul>
+<h4 class="t4">ItemListener</h4>
+<p>Die Schnittstelle <span class="clisting">ItemListener</span> wird von allen Objekten implementiert, die an einem Auswahlereignis interessiert sind. Wird ein Element ausgewählt, wird die Methode <span class="clisting">itemStateChanged()</span> aufgerufen.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">interface java.awt.event.<span class="cfett">ItemListener</span>
+extends EventListener</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">void itemStateChanged( ItemEvent e )</span>
+Wird aufgerufen, wenn ein Eintrag selektiert oder deselektiert wird.</li>
+</ul>
+<h4 class="t4">ItemEvent an ItemListener</h4>
+<p>Dem Listener wird in <span class="clisting">itemStateChanged()</span> ein <span class="clisting">ItemEvent</span>-Objekt übergeben, das Zugriff auf die Komponente oder den Zustand liefert.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.awt.event.<span class="cfett">ItemEvent</span>
+extends AWTEvent</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">ItemSelectable getItemSelectable()</span>
+Gibt ein <span class="clisting">ItemSelectable</span>-Objekt von der Komponente zurück, die das Ereignis ausgelöst hat.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Object getItem()</span>
+Gibt das vom Ereigniserzeuger initialisierte Item zurück. Der Typ kann je nach Komponente unterschiedlich sein. (Die API-Dokumentation ist mit der Erläuterung <span class="ckursiv">»The item whose selection state has changed«</span> relativ unspezifisch. Bei einer <span class="clisting">JCheckBox</span> ist es jedenfalls nicht der String.)</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">int getStateChange()</span>
+Gibt den Status des Eintrags zurück. Die Klasse deklariert dazu die Konstanten <span class="clisting">ItemEvent.SELECTED</span> und <span class="clisting">ItemEvent.DESELECTED</span>.</li>
+</ul>
+<p>Innerhalb der Methode <span class="clisting">itemStateChanged()</span> bezieht wie üblich <span class="clisting">getSource()</span> den Auslöser des Ereignisses. Es gibt aber noch einen zweiten Weg über die Methode <span class="clisting">getItemSelectable()</span>. Das hat den Vorteil, dass die Rückgabe ein <span class="clisting">ItemSelectable</span> ist, wobei eine Typanpassung entfallen kann, wenn etwa über die <span class="clisting">ItemSelectable</span>-Methode <span class="clisting">getSelectedObjects()</span> die selektierten Objekte erfragt werden sollen.</p>
+<p>Ob nun eine Selektion oder Deselektion stattfand beziehungsweise wie der aktuelle Zustand ist, lässt sich wiederum über unterschiedliche Wege ermitteln. Die Objektmethoden <span class="clisting">getStateChange()</span> von <span class="clisting">ItemEvent</span> erfragen den Wechsel (Selektion oder Deselektion). Der Rückgabewert ist eine Ganzzahl, und wir sollten ihn mit den Konstanten <span class="clisting">ItemEvent.SELECTED</span> und <span class="clisting">ItemEvent.DESELECTED</span> vergleichen. Der andere Weg geht über die Komponente selbst: Im Fall einer <span class="clisting">JCheckBox</span> &#8211; und jeder allgemeinen Schaltflächen-Art, die Unterklasse von <span class="clisting">AbstractButton</span> ist &#8211; ermittelt <span class="clisting">isSelected()</span> den aktuellen Zustand.</p>
+<div class="bildbox">
+<p><a name="IDAMH1D"></a><a onClick="OpenWin('bilder/itemeventitemlisteneruml.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinitemeventitemlisteneruml.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div><a id="mj43810aa1240cd64b6fb6198331e55f04" name="mj43810aa1240cd64b6fb6198331e55f04"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">19.13.3</span> Sich gegenseitig ausschließende Optionen (JRadioButton)  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Wir müssen unterscheiden, ob sich Kontrollkästchen gegenseitig ausschließen oder nicht. Falls sie sich ausschließen, kann nur ein Kontrollfeld markiert sein. Bei sich nicht ausschließenden Feldern gibt es keine Beschränkung. Sind die Kontrollkästchen in einer Gruppe (<span class="ckursiv">Kontrollfeldgruppe</span>) organisiert, werden sie auch <span class="ckursiv">Optionsfelder</span> genannt. Der Name sagt es bereits: Eine Option kann gesetzt werden oder nicht &#8211; bei einem Druckdialog etwa ein Ausdruck in Farbe oder in Schwarzweiß.</p>
+<p>Sich gegenseitig ausschließende Eingaben können die Swing-Komponenten <span class="clisting">JRadioButton</span> und <span class="clisting">JComboBox</span> realisieren. In diesem Abschnitt wollen wir uns mit <span class="clisting">JRadioButton</span> beschäftigen.</p>
+<h4 class="t4">Die ButtonGroup</h4>
+<p>Um die sich gegenseitig ausschließenden Auswahlknöpfe von den standardmäßig rechteckig gezeichneten <span class="clisting">JCheckBox</span>-Objekten unterscheiden zu können, werden diese üblicherweise rund gezeichnet. Ohne Vorbereitung schließt sich ein <span class="clisting">JRadioButton</span> vom anderen allerdings nicht aus; hierfür wird ein spezielles <span class="clisting">ButtonGroup</span>-Objekt verwendet, das die Selektionen überwacht. Werden die <span class="clisting">JRadioButton</span>-Objekte erzeugt, lassen sie sich später einer <span class="clisting">ButtonGroup</span> hinzufügen, sodass nur jeweils ein Element ausgewählt sein kann. Wir selbst müssen nicht durch Listener oder Ähnliches diesen Vorgang verfolgen. Die <span class="clisting">ButtonGroup</span> deselektiert also automatisch ein Feld, wenn ein anderes angewählt wird.</p>
+<p>Erzeugen wir zwei <span class="clisting">JRadioButton</span>-Objekte und fügen sie in eine <span class="clisting">ButtonGroup</span> ein. <span class="clisting">setSelected()</span> setzt den Radioauswahlknopf, der als Erstes ausgewählt ist.</p>
+<div class="bildbox">
+<p><a name="IDAOJ1D"></a><a onClick="OpenWin('bilder/jradiobuttondemo.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinjradiobuttondemo.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 19.15    </strong>Beispiel für ein Optionsfeld</p>
+<p class="tabunter"><strong>Listing 19.25    </strong>com/tutego/insel/ui/swing/JRadioButtonDemo.java, main()</p>
+<div class="listing"><pre class="prettyprint">JFrame f = new JFrame();
+f.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+
+JRadioButton rb1 = new JRadioButton( "schwarz " );
+f.add( rb1, BorderLayout.PAGE_START );
+JRadioButton rb2 = new JRadioButton( "weiß" );
+f.add( rb2, BorderLayout.PAGE_END );
+
+rb1.setSelected( true );
+
+// Set radio buttons on the ButtonGroup
+
+ButtonGroup g = new ButtonGroup();
+g.add( rb1 );
+g.add( rb2 );
+
+f.pack();
+f.setVisible( true );</pre></div>
+<p>Das Hinzufügen ist nicht vergleichbar mit Thread-Gruppen, wo ein Thread beim Erzeugen schon gleich in eine Thread-Gruppe hineinpositioniert werden muss und die Gruppe auch später nie mehr ändern kann.</p>
+<h4 class="t4">Verschiedene Komponenten über einen ItemListener</h4>
+<p>Wird ein <span class="clisting">ItemListener</span> auf unterschiedliche Komponenten gleichzeitig angewendet, so ist es klug, mittels <span class="clisting">getSource()</span> den Typ der Komponente zu erfragen und dann mit dem <span class="clisting">instanceof</span>-Operator weiter zu untergliedern:</p>
+<div class="listing"><pre class="prettyprint">public void itemStateChanged( ItemEvent e )
+{
+  Object comp = e.getSource();
+  if ( comp instanceof JCheckBox )
+    ...
+  else if ( comp instanceof JRadioButton )
+    ...
+  else if ( comp instanceof JComboBox )
+    ...
+}</pre></div><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="19.13 Kontrollfelder, Optionsfelder, Kontrollfeldgruppen"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_19_012.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_19_014.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

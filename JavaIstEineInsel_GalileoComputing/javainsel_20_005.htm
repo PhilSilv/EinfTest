@@ -1,0 +1,1445 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 20.5 Das Innere und Äußere einer Form</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 20.5 Das Innere und Äußere einer Form">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 20.5 Das Innere und Äußere einer Form">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_05_001.htm#mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_08_001.htm#mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_09_001.htm#mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_11_001.htm#mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_20_004.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_20_006.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa" class="navnav">20 Grafikprogrammierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_20_001.htm#mj0b6314b6f10d983ddef5d00966d99f1e" class="navnav">20.1 Grundlegendes zum Zeichnen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_001.htm#mjd2e34b0d8796cabb2342454e6e81fb29" class="navnav">20.1.1 Die paint()-Methode für das AWT-Frame</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_001.htm#mja24005ce84f031f74ed78fd92dd27a56" class="navnav">20.1.2 Zeichnen von Inhalten auf ein JFrame</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_001.htm#mj5c1a24233f893de97b190b13044ea7f2" class="navnav">20.1.3 Auffordern zum Neuzeichnen mit »repaint()«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_001.htm#mjb75d86c6baba384b7db6c355df649e4b" class="navnav">20.1.4 Java 2D-API</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_20_002.htm#mj6ab5adb8c4ee61a2595d19419db66fa6" class="navnav">20.2 Einfache Zeichenmethoden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_002.htm#mj00532e6ba996d57f8d141f1e1810454f" class="navnav">20.2.1 Linien</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_002.htm#mj033deb2589e5c716a36d13aec9e67031" class="navnav">20.2.2 Rechtecke</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_002.htm#mjf45337ebd521b61f5b3491dc05f1540f" class="navnav">20.2.3 Ovale und Kreisbögen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_002.htm#mj9a2a1ec184eed3ff77b69aa6cd7557e1" class="navnav">20.2.4 Polygone und Polylines</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_20_003.htm#mjdf3e66c04aa595687745bcfd0bd68276" class="navnav">20.3 Zeichenketten schreiben und Fonts</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_003.htm#mj7b1f73176737f58ab6d30a3e29f9e652" class="navnav">20.3.1 Zeichenfolgen schreiben</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_003.htm#mj8d62457ab2e3bf9f532507320e9fef0c" class="navnav">20.3.2 Die Font-Klasse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_003.htm#mj71653b2ace9bbdae4ca92e3ea28dde77" class="navnav">20.3.3 Einen neuen Font aus einem gegebenen Font ableiten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_003.htm#mj759dcba307b5389773a7c91fa283b86d" class="navnav">20.3.4 Zeichensätze des Systems ermitteln *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_003.htm#mjdae768bb3fa8f15a823b8ba67776a0e2" class="navnav">20.3.5 Neue TrueType-Fonts in Java nutzen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_003.htm#mj109c2be8526524ac3a9664b28499ac10" class="navnav">20.3.6 Font-Metadaten durch FontMetrics *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_20_004.htm#mj8f56d039c43274ff5216ba94cef550b1" class="navnav">20.4 Geometrische Objekte</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_004.htm#mj1b17eb5ffccc2a086d1f58a41301eca8" class="navnav">20.4.1 Die Schnittstelle Shape</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_004.htm#mj39007fefcea7a6972382f3b9d3145ff5" class="navnav">20.4.2 Kreisförmiges</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_004.htm#mj7dc308fc56ca053379e4626b302062a1" class="navnav">20.4.3 Kurviges *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_004.htm#mj5fdf6c9575c830555ab08b93f47ff019" class="navnav">20.4.4 Area und die konstruktive Flächengeometrie *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_004.htm#mj232d157f4cbc07a99523a83bcb6dd096" class="navnav">20.4.5 Pfade *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_004.htm#mj77f1da5cccbf02d6af4fb72f9864d9da" class="navnav">20.4.6 Punkt in einer Form, Schnitt von Linien, Abstand Punkt/Linie *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj39cebc7db18c5020b9bc97ef0af55c70" class="navh">20.5 Das Innere und Äußere einer Form</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj66dee545b61b16bbcc8b726e662c09d4" class="navh">20.5.1 Farben und die Paint-Schnittstelle</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjf976cd2fc969884fad90dab47f853d61" class="navh">20.5.2 Farben mit der Klasse »Color«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj2a52836e0690ebe20831790d3766b062" class="navh">20.5.3 Die Farben des Systems über SystemColor *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj099a779c1ebce4eb51bc794f4e5bd2ed" class="navh">20.5.4 Composite und Xor *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj40e338e3b80e6ab79fbc5447fae0300a" class="navh">20.5.5 Dicke und Art der Linien von Formen bestimmen über »Stroke« *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_20_006.htm#mj4c12381d5bacf8fb6ee31448d26890bb" class="navnav">20.6 Bilder</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mj173615a4c416ec276851213a24dd4be2" class="navnav">20.6.1 Eine Übersicht über die Bilder-Bibliotheken</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mjba60f99ac6f4a3cd9177b59abea0c6ba" class="navnav">20.6.2 Bilder mit »ImageIO« lesen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mj7fe19a5b7fd9823e5ff4f8729749225b" class="navnav">20.6.3 Ein Bild zeichnen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mj3d7ff912a37f3af72eca322fea16dcbe" class="navnav">20.6.4 Programm-Icon/Fenster-Icon setzen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mjaebdd1a3040bd8901b1bd49df5495a5a" class="navnav">20.6.5 Splash-Screen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mjd84fb329d6d62f3c77b26c3445372c24" class="navnav">20.6.6 Bilder im Speicher erzeugen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mjdd8fc80751b1bc88bfa58847b9fae351" class="navnav">20.6.7 Pixel für Pixel auslesen und schreiben *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mj133115d4eac3734a7b62458792f9142b" class="navnav">20.6.8 Bilder skalieren *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mj23f219adf8635dfd786fc80edaa2070e" class="navnav">20.6.9 Schreiben mit ImageIO</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_20_006.htm#mjcaff18d32bfd6c2bb1d2e0d486fe9197" class="navnav">20.6.10 Asynchrones Laden mit getImage() und dem MediaTracker *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_20_007.htm#mj18a6025debf68eba85c78d9de97f7e75" class="navnav">20.7 Zum Weiterlesen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj39cebc7db18c5020b9bc97ef0af55c70" name="mj39cebc7db18c5020b9bc97ef0af55c70"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">20.5</span> Das Innere und Äußere einer Form  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Vor dem Zeichnen sammelt das Grafiksystem die Objekte in einem Kontext. Er bestimmt für die Form den Zeichenbereich (engl. <span class="ckursiv">clipping</span>), die Transformationen, die Komposition von Objekten. Die diversen <span class="clisting">drawXXX()</span>- und <span class="clisting">fillXXX()</span>-Methoden von <span class="clisting">Graphics2D</span> berücksichtigen beim Zeichnen Farb- und Texturangaben, Dicken der Umrisslinien, Linienmuster und Weiteres. Unterscheiden müssen wir zwischen zwei Eigenschaften:</p>
+<ul class="gp">
+<li><span class="ckursiv">Umrisslinie</span> <span class="ckursiv">(Stroke)</span>: Bestimmt zum Beispiel die Dicke der Umrisslinie oder das Zeichenmuster.</li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">Füllung</span> <span class="ckursiv">(Paint)</span>: Wählt dazu etwa Farbe oder Verläufe.</li>
+</ul><a id="mj66dee545b61b16bbcc8b726e662c09d4" name="mj66dee545b61b16bbcc8b726e662c09d4"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">20.5.1</span> Farben und die Paint-Schnittstelle  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Farben für das Innere geben Objekte vom Typ <span class="clisting">java.awt.Paint</span> an. <span class="clisting">Paint</span> ist eine Schnittstelle, die unter anderem folgende Klassen aus dem <span class="clisting">java.awt</span>-Paket implementieren:</p>
+<ul class="gp">
+<li><span class="clisting">Color</span>: Repräsentiert sRGB-Farben und Alpha-Werte (Transparenz).</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">GradientPaint</span><span class="clisting">, LinearGradientPaint</span><span class="clisting">, RadialGradientPaint</span>: Füllt Formen (<span class="clisting">Shape</span>-Objekte) mit Farbverläufen.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">TexturePaint</span>: Füllt Formen mit einer Textur.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">SystemColor</span>: Repräsentiert Farben, wie sie vom Benutzer in den Systemeinstellungen definiert sind.</li>
+</ul>
+<p>Zur Zuweisung eines <span class="clisting">Paint</span>-Objekts auf dem aktuellen <span class="clisting">Graphics2D</span>-Kontext dient die Methode <span class="clisting">setPaint</span><span class="clisting">(Paint)</span>. Insbesondere für Farben findet sich auch die Methode <span class="clisting">setColor()</span>. Der Grund für diesen Unterschied ist, dass <span class="clisting">Paint</span> erst später in Java 2 einzog.</p>
+<p>Die Schnittstelle <span class="clisting">Paint</span> selbst erweitert die Schnittstelle <span class="clisting">Transparency</span> und gibt auf diese Weise an, dass alles, was gezeichnet werden kann, über Transparenz-Informationen verfügt. Die einzige Methode ist <span class="clisting">getTransparency()</span>, und sie liefert Werte der Konstanten <span class="clisting">BITMASK</span>, <span class="clisting">OPAQUE</span> und <span class="clisting">TRANSLUCENT</span>.</p><a id="mjf976cd2fc969884fad90dab47f853d61" name="mjf976cd2fc969884fad90dab47f853d61"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">20.5.2</span> Farben mit der Klasse »Color«  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Der Einsatz von Farben und Transparenzen ist in Java-Programmen dank der Klasse <span class="clisting">java.awt.Color</span> einfach. Ein <span class="clisting">Color</span>-Objekt repräsentiert üblicherweise einen Wert aus dem sRGB-Farbraum (Standard-RGB), kann aber auch andere Farbräume über den Basistyp <span class="clisting">java.awt.color.ColorSpace</span> darstellen (wir werden das nicht weiter verfolgen).</p>
+<p>Die Klasse <span class="clisting">Color</span> stellt Konstanten für Standard-Farben und einige Konstruktoren sowie Anfragemethoden bereit. Außerdem gibt es Methoden, die abgewandelte <span class="clisting">Color</span>-Objekte liefern &#8211; das ist nötig, da <span class="clisting">Color</span>-Objekte wie <span class="clisting">String</span> oder <span class="clisting">File</span> immutable sind.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.awt.<span class="cfett">Color</span>
+implements Paint, Serializable</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">Color( float r, float g, float b )</span>
+Erzeugt ein <span class="clisting">Color</span>-Objekt mit den Grundfarben Rot, Grün und Blau. Die Werte müssen im Bereich 0.0 bis 1.0 liegen, sonst folgt eine <span class="clisting">IllegalArgumentException</span>.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Color( int r, int g, int b )</span>
+Erzeugt ein <span class="clisting">Color</span>-Objekt mit den Grundfarben Rot, Grün und Blau. Die Werte müssen im Bereich 0 bis 255 liegen, sonst folgt eine <span class="clisting">IllegalArgumentException</span>.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Color( int rgb )</span>
+Erzeugt ein <span class="clisting">Color</span>-Objekt aus dem <span class="clisting">rgb</span>-Wert, der die Farben Rot, Grün und Blau kodiert. Der Rotanteil befindet sich unter den Bits 16 bis 23, der Grünanteil in 8 bis 15 und der Blauanteil in 0 bis 7. Da ein Integer immer 32 Bit breit ist, ist jede Farbe durch 1 Byte (8 Bit) repräsentiert. Die Farbinformationen werden nur aus den 24 Bit genommen. Sonstige Werte werden einfach nicht betrachtet und mit einem Alpha-Wert gleich 255 überschrieben.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Color( int r, int g, int b, int a )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Color( float r, float g, float b, float a )</span>
+Erzeugt ein <span class="clisting">Color</span>-Objekt mit Alpha-Wert für Transparenz.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static Color decode( String nm ) throws NumberFormatException</span>
+Liefert die Farbe von <span class="clisting">nm</span>. Die Zeichenkette ist hexadezimal als 24-Bit-Integer kodiert, etwa <span class="clisting">#00AAFF</span>. Eine Alternative ist <span class="clisting">new Color( Integer.parseInt(colorHexString, 16) );</span>.</li>
+</ul><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Menschen unterscheiden Farben an den drei Eigenschaften Farbton, Helligkeit und Sättigung. Die menschliche Farbwahrnehmung kann etwa zweihundert Farbtöne unterscheiden. Diese werden durch die Wellenlänge des Lichts bestimmt. Die Lichtintensität und Empfindlichkeit unserer Rezeptoren lässt uns etwa fünfhundert Helligkeitsstufen unterscheiden. Bei der Sättigung handelt es sich um eine Mischung mit weißem Licht. Hier erkennen wir etwa zwanzig Stufen. Unser visuelles System kann somit ungefähr zwei Millionen (200 × 500 × 20) Farbnuancen unterscheiden.</p>
+</td>
+</tr>
+</table><br><h4 class="t4">Zufällige Farbblöcke zeichnen</h4>
+<p>Um die Möglichkeiten der Farbgestaltung einmal zu beobachten, betrachten wir die Ausgabe eines Programms, das Rechtecke mit wahllosen Farben anzeigt:</p>
+<p class="tabunter"><strong>Listing 20.11    </strong>com/tutego/insel/ui/graphics/ColorBox.java</p>
+<div class="listing"><pre class="prettyprint">package com.tutego.insel.ui.graphics;
+
+import java.awt.*;
+import java.util.Random;
+import javax.swing.*;
+
+public class ColorBox extends JPanel
+{
+  private static final long serialVersionUID = &#8211;2294685016438617741L;
+  private static final Random r = new Random();
+
+  @Override
+  protected void paintComponent( Graphics g )
+  {
+    super.paintComponent( g );
+
+    for ( int y = 12; y &lt; getHeight() &#8211; 25; y += 30 )
+      for ( int x = 12; x &lt; getWidth() &#8211; 25; x += 30 )
+      {
+        g.setColor( new Color( r.nextInt(256), r.nextInt(256), r.nextInt(256) ) );
+        g.fillRect( x, y, 25, 25 );
+        g.setColor( Color.BLACK );
+        g.drawRect( x &#8211; 1, y &#8211; 1, 25, 25 );
+      }
+  }
+
+  public static void main( String[] args )
+  {
+    JFrame f = new JFrame( "Neoplastizismus" );
+    f.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+    f.setSize( 300, 300 );
+    f.add( new ColorBox() );
+    f.setVisible( true );
+  }
+}</pre></div>
+<div class="bildbox">
+<p><a name="IDAOY0C"></a><a onClick="OpenWin('bilder/365_java_14_005.gif','Abbildung',800,800)"><img border="0" src="bilderklein/klein365_java_14_005.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 20.8    </strong>Programmierter Neoplastizismus</p>
+<p>Das Fenster der Applikation hat eine gewisse Größe, die wir mit <span class="clisting">size()</span> in der Höhe und Breite abfragen. Anschließend erzeugen wir Blöcke, die mit einer zufälligen Farbe gefüllt sind. <span class="clisting">fillRect()</span> übernimmt diese Aufgabe. Da die gefüllten Rechtecke immer in der Vordergrundfarbe gezeichnet werden, setzen wir den Zeichenstift durch die Methode <span class="clisting">setColor()</span>, die natürlich eine Objektmethode von <span class="clisting">Graphics</span> ist. Entsprechend gibt es eine korrespondierende Methode <span class="clisting">getColor()</span>, die die aktuelle Vordergrundfarbe als <span class="clisting">Color</span>-Objekt zurückgibt (diese Methode darf nicht mit den Methoden <span class="clisting">getColor(String)</span> beziehungsweise <span class="clisting">getColor(String, Color)</span> aus der Klasse <span class="clisting">Color</span> verwechselt werden).</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">abstract class java.awt.<span class="cfett">Graphics</span></pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">abstract void setColor( Color c )</span>
+Setzt die aktuelle Farbe, die dann von den Zeichenmethoden berücksichtigt wird.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">abstract Color getColor()</span>
+Liefert die aktuelle Farbe.</li>
+</ul>
+<h4 class="t4">Vordefinierte Farben</h4>
+<p>Wenn wir Farben benutzen wollen, sind schon viele Werte vordefiniert, wie <span class="clisting">Color.WHITE</span>. In der Klasse <span class="clisting">jawa.awt.Color</span> sind dazu viele Zeilen der Form</p>
+<div class="listing"><pre class="prettyprint">/**
+ * The color white.
+ */
+public  static final Color WHITE = new Color( 255, 255, 255 );</pre></div>
+<p>platziert. Die folgende Tabelle zeigt die deklarierten Konstanten inklusive Wertebelegung für die Farbtupel:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 20.1    </strong>Farbanteile für die vordefinierten Standardfarben</p>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Color-Konstante</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Rot</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Grün</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Blau</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">WHITE</span></p>
+</td>
+<td class="tabellentext">
+<p>255</p>
+</td>
+<td class="tabellentext">
+<p>255</p>
+</td>
+<td class="tabellentext">
+<p>255</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">BLACK</span></p>
+</td>
+<td class="tabellentext">
+<p>0</p>
+</td>
+<td class="tabellentext">
+<p>0</p>
+</td>
+<td class="tabellentext">
+<p>0</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">RED</span></p>
+</td>
+<td class="tabellentext">
+<p>255</p>
+</td>
+<td class="tabellentext">
+<p>0</p>
+</td>
+<td class="tabellentext">
+<p>0</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">GREEN</span></p>
+</td>
+<td class="tabellentext">
+<p>0</p>
+</td>
+<td class="tabellentext">
+<p>255</p>
+</td>
+<td class="tabellentext">
+<p>0</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">BLUE</span></p>
+</td>
+<td class="tabellentext">
+<p>0</p>
+</td>
+<td class="tabellentext">
+<p>0</p>
+</td>
+<td class="tabellentext">
+<p>255</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">YELLOW</span></p>
+</td>
+<td class="tabellentext">
+<p>255</p>
+</td>
+<td class="tabellentext">
+<p>255</p>
+</td>
+<td class="tabellentext">
+<p>0</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">MAGENTA</span></p>
+</td>
+<td class="tabellentext">
+<p>255</p>
+</td>
+<td class="tabellentext">
+<p>0</p>
+</td>
+<td class="tabellentext">
+<p>255</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">CYAN</span></p>
+</td>
+<td class="tabellentext">
+<p>0</p>
+</td>
+<td class="tabellentext">
+<p>255</p>
+</td>
+<td class="tabellentext">
+<p>255</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">PINK</span></p>
+</td>
+<td class="tabellentext">
+<p>255</p>
+</td>
+<td class="tabellentext">
+<p>175</p>
+</td>
+<td class="tabellentext">
+<p>175</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">ORANGE</span></p>
+</td>
+<td class="tabellentext">
+<p>255</p>
+</td>
+<td class="tabellentext">
+<p>200</p>
+</td>
+<td class="tabellentext">
+<p>0</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">LIGHT_GRAY</span></p>
+</td>
+<td class="tabellentext">
+<p>192</p>
+</td>
+<td class="tabellentext">
+<p>192</p>
+</td>
+<td class="tabellentext">
+<p>192</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">DARK_GRAY</span></p>
+</td>
+<td class="tabellentext">
+<p>64</p>
+</td>
+<td class="tabellentext">
+<p>64</p>
+</td>
+<td class="tabellentext">
+<p>64</p>
+</td>
+</tr>
+</table><br><p>Alle Farbnamen gibt es auch kleingeschrieben. Zwar stammt von Sun die Namenskonvention, dass Konstanten großgeschrieben werden, aber bei den Farbnamen wurde das erst in Java 1.4 nachgeholt &#8211; sieben Jahre später.</p>
+<h4 class="t4">Farbanteile zurückgeben</h4>
+<p>Mitunter müssen wir den umgekehrten Weg gehen und von einem gegebenen <span class="clisting">Color</span>-Objekt wieder die Rot-, Grün- oder Blau-Anteile extrahieren. Dies ist einfach, und die Java-Bibliothek bietet Entsprechendes an:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.awt.<span class="cfett">Color</span>
+implements Paint, Serializable</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">int getRed()</span>, <span class="clisting">int getGreen()</span>, <span class="clisting">int getBlue()</span>
+Liefert Rot-, Grün- und Blau-Anteile des Farbobjekts im Bereich von 0 bis 255.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">int getAlpha()</span>
+Gibt den Alpha-Anteil zurück.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">int getRGB()</span>
+Gibt die RGB-Farbe zurück. Die Bits 24&#8211;31 repräsentieren den Alpha-Wert, 16&#8211;23 stehen für Rot, 8&#8211;15 für Grün und 0&#8211;7 für Blau.</li>
+</ul>
+<h4 class="t4">Einen helleren oder dunkleren Farbton wählen *</h4>
+<p>Zwei besondere Methoden sind <span class="clisting">brighter()</span> und <span class="clisting">darker()</span>. Sie liefern ein Farbobjekt zurück, das jeweils eine Farbnuance heller beziehungsweise dunkler ist. Die <span class="clisting">Graphics</span>-Methode <span class="clisting">draw3DRect()</span> nutzt zum Beispiel diese beiden Methoden, um die Ränder in hellerem oder dunklerem Farbton zu zeichnen.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.awt.<span class="cfett">Color</span>
+implements Paint, Serializable</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">Color brighter()</span>
+Gibt einen helleren Farbton zurück.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Color darker()</span>
+Gibt einen dunkleren Farbton zurück.</li>
+</ul>
+<h4 class="t4">Farbveränderung mit Nullanteilen *</h4>
+<p>Bei den Farbwerten müssen wir nun die Zusammensetzung aus Rot, Grün und Blau bedenken. Ein voller Wert ist mit 255 belegt. Die Berechnung kann diesen Wert noch modifizieren. Doch ist ein Eintrag mit 0 belegt, so erkennen wir aus der Berechnung, dass der Wert bei null bleiben wird. Daher sollten wir bedenken, was bei reinen Farben (wie etwa Rot) durch ein <span class="clisting">brighter()</span> passiert. Ein reiner Rotton kann sich zwar in der Helligkeit ändern, aber ein <span class="clisting">Color.RED.brighter()</span> liefert immer noch <span class="clisting">Color.RED</span>.</p>
+<div class="listing"><pre class="prettyprint">System.out.println( Color.RED.brighter() ); // java.awt.Color[r=255,g=0,b=0]
+System.out.println( Color.RED.darker() );   // java.awt.Color[r=178,g=0,b=0]</pre></div>
+<p>Bei <span class="clisting">brighter()</span> kommen die Farben demnach nicht näher an Weiß heran, und bei <span class="clisting">darker()</span> nicht näher an Schwarz.</p>
+<p>Um also echte Helligkeitsveränderungen zu bekommen, müssen wir die Farben vorher umrechnen. Hierzu bieten sich andere Farbräume an, wie beispielsweise der HSB-Raum, in dem wir Komponenten für die Helligkeit haben. <span class="clisting">RGBtoHSB()</span> gibt ein Feld mit den Werten für Hue, Saturation und Brightness für ein Tripel von Rot-, Grün- und Blau-Werten zurück. Nach einer Veränderung der Helligkeit können wir diesen Farbraum wieder mit <span class="clisting">HSBtoRGB()</span> zurückkonvertieren.</p>
+<h4 class="t4">Farbmodelle HSB und RGB *</h4>
+<p>Zwei Farbmodelle sind in der Computergrafik geläufig. Das RGB-Modell, bei dem die Farben durch einen Rot-, Grün- und Blau-Anteil definiert werden, oder das HSB-Modell, das die Farben durch <span class="ckursiv">Farbton</span> (engl. <span class="ckursiv">hue</span>), <span class="ckursiv">Farbsättigung</span> (engl. <span class="ckursiv">saturation</span>) und <span class="ckursiv">Helligkeit</span> (engl. <span class="ckursiv">brightness</span>) definiert. Die Farbmodelle können die gleichen Farben beschreiben und ineinander umgerechnet werden.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.awt.<span class="cfett">Color</span>
+implements Paint, Serializable</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">static int HSBtoRGB( float hue, float saturation, float brightness )</span>
+Aus einem HSB-kodierten Farbwert wird ein RBG-Farbwert.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static float[] RGBtoHSB( int r, int g, int b, float[] hsbvals )</span>
+Verlangt ein Array <span class="clisting">hsbvals</span> zur Aufnahme von HSB, in dem die Werte gespeichert werden sollen. Das Array kann <span class="clisting">null</span> sein und wird somit angelegt. Das Feld wird zurückgegeben.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static Color getHSBColor( float h, float s, float b )</span>
+Erzeugt ein <span class="clisting">Color</span>-Objekt mit Werten aus dem HSB-Modell. Implementiert als <span class="clisting">return new Color(HSBtoRGB(h, s, b))</span>.</li>
+</ul><a id="mj2a52836e0690ebe20831790d3766b062" name="mj2a52836e0690ebe20831790d3766b062"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">20.5.3</span> Die Farben des Systems über SystemColor *  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Bei eigenen Java-Programmen ist es wichtig, dass diese sich so perfekt wie möglich in die Reihe der anderen Host-Programme einreihen, ohne großartig aufzufallen. Dafür muss ein Fenster die globalen Einstellungen wie den Zeichensatz und die Farben kennen. Für die Systemfarben gibt es die Klasse <span class="clisting">SystemColor</span>, die alle Farben einer grafischen Oberfläche auf symbolische Konstanten abbildet. Besonders praktisch ist dies bei Änderungen von Farben während der Laufzeit. Über diese Klasse können immer die aktuellen Werte eingeholt werden, denn ändert sich beispielsweise die Hintergrundfarbe der Laufleisten, ändert sich damit auch der RGB-Wert. Die Systemfarben sind Konstanten von <span class="clisting">SystemColor</span> und werden mit der Methode <span class="clisting">getRGB()</span> in eine Ganzzahl umgewandelt.</p>
+<p>Die Klasse deklariert die folgenden statischen finalen Variablen: [Oracle verstößt mal wieder gegen die eigenen Namenskonventionen. Die finalen Variablen &#8211; Konstanten &#8211; sollten großgeschrieben werden. Das funktioniert bei den <span class="clisting">SystemColor</span>-Objekten aber nicht, da es alle Bezeichnernamen schon in Großbuchstaben gibt, und zwar für Variablen vom Typ Byte, die Verweise in eine interne Tabelle darstellen.
+] </p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.awt.<span class="cfett">SystemColor</span>
+implements Serializable</pre></div>
+</td>
+</tr>
+</table><br><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 20.2    </strong>Konstanten der Systemfarben</p>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">SystemColor</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Welche Farbe darauf anspricht</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">desktop</span></p>
+</td>
+<td class="tabellentext">
+<p>Farbe des Desktop-Hintergrunds</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">activeCaption</span></p>
+</td>
+<td class="tabellentext">
+<p>Hintergrundfarben für Text im Fensterrahmen</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">activeCaptionText</span></p>
+</td>
+<td class="tabellentext">
+<p>Farbe für Text im Fensterrahmen</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">activeCaptionBorder</span></p>
+</td>
+<td class="tabellentext">
+<p>Rahmenfarbe für Text im Fensterrahmen</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">inactiveCaption</span></p>
+</td>
+<td class="tabellentext">
+<p>Hintergrundfarbe für inaktiven Text im Fensterrahmen</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">inactiveCaptionText</span></p>
+</td>
+<td class="tabellentext">
+<p>Farbe für inaktiven Text im Fensterrahmen</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">inactiveCaptionBorder</span></p>
+</td>
+<td class="tabellentext">
+<p>Rahmenfarbe für inaktiven Text im Fensterrahmen</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">window</span></p>
+</td>
+<td class="tabellentext">
+<p>Hintergrundfarbe der Fenster</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">windowBorder</span></p>
+</td>
+<td class="tabellentext">
+<p>Rahmenfarbe der Fenster</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">windowText</span></p>
+</td>
+<td class="tabellentext">
+<p>Textfarbe für Fenster</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">menu</span></p>
+</td>
+<td class="tabellentext">
+<p>Hintergrundfarbe für Menüs</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">menuText</span></p>
+</td>
+<td class="tabellentext">
+<p>Textfarbe für Menüs</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">text</span></p>
+</td>
+<td class="tabellentext">
+<p>Hintergrundfarbe für Textkomponenten</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">textText</span></p>
+</td>
+<td class="tabellentext">
+<p>Textfarbe für Textkomponenten</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">textHighlight</span></p>
+</td>
+<td class="tabellentext">
+<p>Hintergrundfarbe für hervorgehobenen Text</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">textHighlightText</span></p>
+</td>
+<td class="tabellentext">
+<p>Farbe des Texts, wenn dieser hervorgehoben ist</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">textInactiveText</span></p>
+</td>
+<td class="tabellentext">
+<p>Farbe für inaktiven Text</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">control</span></p>
+</td>
+<td class="tabellentext">
+<p>Hintergrundfarbe für Kontrollobjekte</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">controlText</span></p>
+</td>
+<td class="tabellentext">
+<p>Textfarbe für Kontrollobjekte</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">controlHighlight</span></p>
+</td>
+<td class="tabellentext">
+<p>normale Farbe, mit der Kontrollobjekte hervorgehoben werden</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">controlLtHighlight</span></p>
+</td>
+<td class="tabellentext">
+<p>hellere Farbe, mit der Kontrollobjekte hervorgehoben werden</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">controlShadow</span></p>
+</td>
+<td class="tabellentext">
+<p>normale Hintergrundfarbe für Kontrollobjekte</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">controlDkShadow</span></p>
+</td>
+<td class="tabellentext">
+<p>dunklerer Schatten für Kontrollobjekte</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">scrollbar</span></p>
+</td>
+<td class="tabellentext">
+<p>Hintergrundfarbe der Schieberegler</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">info</span></p>
+</td>
+<td class="tabellentext">
+<p>Hintergrundfarbe der Hilfe</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">infoText</span></p>
+</td>
+<td class="tabellentext">
+<p>Textfarbe der Hilfe</p>
+</td>
+</tr>
+</table><br><p>Um die Systemfarbe in eine brauchbare Variable zu konvertieren, gibt es die <span class="clisting">getRGB()</span>-Methoden. So erzeugt <span class="clisting">new Color(SystemColor.window.getRGB())</span> ein <span class="clisting">Color</span>-Objekt in der Farbe des Fensters.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">final class java.awt.<span class="cfett">SystemColor</span>
+implements Serializable</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">int getRGB()</span>
+Liefert den RGB-Wert der Systemfarbe als Ganzzahl kodiert.</li>
+</ul>
+<p>Um zu sehen, welche Farben auf dem laufenden System aktiv sind, formulieren wir ein Programm, das eine kleine Textzeile in der jeweiligen Farbe angibt. Da wir auf die internen Daten nicht zugreifen können, müssen wir ein Farbfeld mit <span class="clisting">SystemColor</span>-Objekten aufbauen.</p>
+<p class="tabunter"><strong>Listing 20.12    </strong>com/tutego/insel/ui/graphics/SystemColors.java</p>
+<div class="listing"><pre class="prettyprint">package com.tutego.insel.ui.graphics;
+
+import java.awt.*;
+import javax.swing.*;
+
+class SystemColors extends JPanel
+{
+  private String[] systemColorString = {
+    "desktop", "activeCaption", "activeCaptionText",
+    "activeCaptionBorder", "inactiveCaption",
+    "inactiveCaptionText", "inactiveCaptionBorder",
+    "window", "windowText", "menu", "menuText",
+    "text", "textText", "textHighlight",
+    "textHighlightText","textInactiveText",
+    "control", "controlText", "controlHighlight",
+    "controlLtHighlight", "controlShadow",
+    "controlDkShadow", "scrollbar",
+    "info", "infoText"
+  };
+  private SystemColor[] systemColor = {
+    SystemColor.desktop,
+    SystemColor.activeCaption,
+    SystemColor.activeCaptionText,
+    SystemColor.activeCaptionBorder,
+    SystemColor.inactiveCaption,
+    SystemColor.inactiveCaptionText,
+    SystemColor.inactiveCaptionBorder,
+    SystemColor.window,
+    SystemColor.windowText,
+    SystemColor.menu,
+    SystemColor.menuText,
+    SystemColor.text,
+    SystemColor.textText,
+    SystemColor.textHighlight,
+    SystemColor.textHighlightText,
+    SystemColor.textInactiveText,
+    SystemColor.control,
+    SystemColor.controlText,
+    SystemColor.controlHighlight,
+    SystemColor.controlLtHighlight,
+    SystemColor.controlShadow,
+    SystemColor.controlDkShadow,
+    SystemColor.scrollbar,
+    SystemColor.info,
+    SystemColor.infoText
+  };
+
+  @Override
+  protected void paintComponent( Graphics g )
+  {
+    super.paintComponent( g );
+    g.setFont( new Font( "Dialog", Font.BOLD, 12 ) );
+    for ( int i = 0; i &lt; systemColorString.length; i++ ) {
+      g.setColor( new Color( systemColor[i].getRGB() ) );
+      g.drawString( systemColorString[i], 20, 60 + (i*13) );
+    }
+  }
+
+  public static void main( String[] args )
+  {
+    JFrame f = new JFrame();
+    f.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+    f.setSize ( 170, 400 );
+    f.add( new SystemColors() );
+    f.setVisible( true );
+  }
+}</pre></div>
+<div class="bildbox">
+<p><a name="IDAVX1C"></a><a onClick="OpenWin('bilder/systemfarben.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinsystemfarben.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 20.9    </strong>Die Systemfarben unter einer Windows-Konfiguration</p><a id="mj099a779c1ebce4eb51bc794f4e5bd2ed" name="mj099a779c1ebce4eb51bc794f4e5bd2ed"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">20.5.4</span> Composite und Xor *  <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Ein <span class="ckursiv">Composite</span> ist eine Zusammenfügung der zu zeichnenden Elemente und des Hintergrunds. Auf dem <span class="clisting">Graphics2D</span>-Objekt setzt <span class="clisting">setComposite(Composite)</span> den Modus, wobei bisher <span class="clisting">AlphaComposite</span> die einzige direkte Implementierung der Schnittstelle <span class="clisting">Composite</span> ist. Ein <span class="clisting">AlphaComposite</span>-Objekt bestimmt, wie die Überblendung aussehen soll.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Zeichne ein Bild <span class="clisting">image</span> mit dem Alpha-Wert <span class="clisting">alpha</span>:</p>
+<div class="listing"><pre class="prettyprint">Graphics2D g2 = (Graphics2D) g;
+g2.setComposite( AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
+alpha) );
+g2.drawImage( image, 0, 0, this );</pre></div>
+</td>
+</tr>
+</table><br><h4 class="t4">Der Xor-Modus</h4>
+<p>Die zweite Einstellung, wie Farben auf das Ziel wirken, bestimmt der Xor-Modus, der ein spezieller Composite ist, mit dem Pixel, die zweimal gezeichnet werden, ihre Ursprungsfarbe wieder annehmen.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">abstract class java.awt.<span class="cfett">Graphics</span></pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">abstract void setComposite( Composite comp )</span>
+Setzt das <span class="clisting">Composite</span>-Objekt, das die Verschmelzung der folgenden Zeichenoperationen mit dem Hintergrund definiert.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">abstract void setXORMode( Color c )</span>
+Setzt die Pixel-Operation auf Xor.</li>
+</ul><a id="mj40e338e3b80e6ab79fbc5447fae0300a" name="mj40e338e3b80e6ab79fbc5447fae0300a"></a><a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3"><span class="cfett">20.5.5</span> Dicke und Art der Linien von Formen bestimmen über »Stroke« *  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Eine noch fehlende Eigenschaft ist die der <span class="ckursiv">Umrisslinie</span>, <span class="ckursiv">Stroke</span> genannt. Zu den Eigenschaften einer Umrisslinie zählen:</p>
+<ul class="gp">
+<li>die Dicke (engl. <span class="ckursiv">width</span>)</li>
+</ul>
+<ul class="gp">
+<li>die Art, wie Liniensegmente beginnen und enden (engl. <span class="ckursiv">end caps</span>)</li>
+</ul>
+<ul class="gp">
+<li>die Art, wie aufeinandertreffende Linien verbunden werden (engl. <span class="ckursiv">line joins</span>)</li>
+</ul>
+<ul class="gp">
+<li>ein Linien-Pattern (engl. <span class="ckursiv">dash attributes</span>)</li>
+</ul>
+<h4 class="t4">Die Stroke-Schnittstelle</h4>
+<p>Die Umrisseigenschaften bestimmen Objekte vom Typ <span class="clisting">java.awt.Stroke</span>; die Methode <span class="clisting">setStroke(Stroke)</span> auf dem <span class="clisting">Graphics2D</span>-Kontext setzt sie. Alle nachfolgenden Methoden wie <span class="clisting">draw()</span>, <span class="clisting">drawLine()</span> usw. berücksichtigen diese Umrisslinie anschließend.</p>
+<p>Die Schnittstelle <span class="clisting">Stroke</span> schreibt nur eine Operation vor:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">interface java.awt.<span class="cfett">Stroke</span></pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">Shape createStrokedShape( Shape p )</span>
+Liefert die Umrandung für ein <span class="clisting">Shape p.</span></li>
+</ul>
+<p>Bisher gibt es in Java nur eine Standardimplementierung der Schnittstelle: <span class="clisting">BasicStroke</span>.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Zeichne die folgenden Formen mit einer Dicke von zehn Pixeln:</p>
+<div class="listing"><pre class="prettyprint">g2.setStroke( new BasicStroke( 10 ) );</pre></div>
+</td>
+</tr>
+</table><br><h4 class="t4">Linienenden (end caps)</h4>
+<p>Besonders bei breiten Linien ist es interessant, wie eine allein stehende Linie endet. Sie kann einfach aufhören oder auch abgerundet sein. Drei Konstanten bestimmen diesen Linienende-Typ:</p>
+<ul class="gp">
+<li><span class="clisting">BasicStroke.CAP_BUTT</span>. Belässt das Ende so, wie es ist.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BasicStroke.CAP_ROUND</span>. Rundet das Ende mit einem Halbkreis ab.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BasicStroke.CAP_SQUARE</span>. Setzt einen rechteckigen Bereich an.</li>
+</ul>
+<div class="bildbox">
+<p><a name="IDAJ41C"></a><a onClick="OpenWin('bilder/basicstrokeuml.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinbasicstrokeuml.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p>Die Typen <span class="clisting">CAP_ROUND</span> und <span class="clisting">CAP_SQUARE</span> erweitern die Linie um ein Stück, das halb so groß wie die Dicke der Linie ist:</p>
+<p class="tabunter"><strong>Listing 20.13    </strong>com/tutego/insel/ui/g2d/EndCapsDemo.java, paintComponent()</p>
+<div class="listing"><pre class="prettyprint">@Override
+protected void paintComponent( Graphics g )
+{
+  Graphics2D g2 = (Graphics2D) g;
+
+  g2.setRenderingHint( RenderingHints.KEY_ANTIALIASING,
+                       RenderingHints.VALUE_ANTIALIAS_ON);
+
+  g2.setStroke( new BasicStroke( 20,
+                 <span class="cfett"> BasicStroke.CAP_BUTT</span>, BasicStroke.JOIN_MITER ) );
+  g2.drawLine( 30, 50, 200, 50 );
+
+  g2.setStroke( new BasicStroke( 20,
+                 <span class="cfett"> BasicStroke.CAP_SQUARE</span>, BasicStroke.JOIN_MITER ) );
+  g2.drawLine( 30, 150, 200, 150 );
+
+  g2.setStroke( new BasicStroke( 20,
+                 <span class="cfett"> BasicStroke.CAP_ROUND</span>, BasicStroke.JOIN_MITER ) );
+  g2.drawLine( 30, 100, 200, 100 );
+}</pre></div>
+<p>Zwar gibt es von <span class="clisting">BasicStroke</span> fünf Konstruktoren, aber nur einen einfachen, der Linienenden (immer unterschiedlich in dem Beispiel) und Linienverbindungen (hier <span class="clisting">BasicStroke.JOIN_ MITER</span>) gleichzeitig bestimmt haben möchte.</p>
+<div class="bildbox">
+<p><a name="IDAMA2C"></a><a onClick="OpenWin('bilder/365_java_14_013.gif','Abbildung',800,800)"><img border="0" src="bilderklein/klein365_java_14_013.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 20.10    </strong>Unterschiedliche Linienenden</p>
+<h4 class="t4">Linienverbindungen (line joins)</h4>
+<p>Wenn Linien nicht allein stehen, sondern etwa wie in einem Dreieck oder Rechteck verbunden sind, stellt sich die Frage, wie diese Verbindungspunkte gezeichnet werden. Das bestimmen ebenfalls drei Konstanten:</p>
+<ul class="gp">
+<li><span class="clisting">BasicStroke.JOIN_ROUND</span>: Rundet die Ecken ab.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BasicStroke.JOIN_BEVEL</span>: Zieht eine Linie zwischen den beiden äußeren Endpunkten.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">BasicStroke.JOIN_MITER</span>: Erweitert die äußeren Linien so weit, bis sie sich treffen.</li>
+</ul>
+<p class="tabunter"><strong>Listing 20.14    </strong>com/tutego/insel/ui/g2d/LineJoinsDemo.java, paintComponent()</p>
+<div class="listing"><pre class="prettyprint">@Override
+protected void paintComponent( Graphics g )
+{
+  Graphics2D g2 = (Graphics2D) g;
+
+  g2.setRenderingHint( RenderingHints.KEY_ANTIALIASING,
+                       RenderingHints.VALUE_ANTIALIAS_ON);
+
+  BasicStroke stroke = new BasicStroke( 20, <img src="common/umbruch.gif" border="0" alt="Umbruch">
+    BasicStroke.CAP_BUTT,<span class="cfett"> BasicStroke.JOIN_BEVEL</span> );
+  g2.setStroke( stroke );
+
+  Path2D shape = new GeneralPath();
+  shape.moveTo( 25, 25 ); shape.lineTo( 50, 100 ); shape.lineTo( 75, 25 );
+  g2.draw( shape );
+
+  //
+
+  stroke = new BasicStroke( 20, BasicStroke.CAP_BUTT,<span class="cfett"> BasicStroke.JOIN_MITER</span> );
+  g2.setStroke( stroke );
+
+  shape = new GeneralPath();
+  shape.moveTo( 25+100, 25 ); shape.lineTo( 50+100, 100 ); shape.lineTo( 75+100, 25 );
+  g2.draw( shape );
+
+  //
+
+  stroke = new BasicStroke( 20, BasicStroke.CAP_BUTT,<span class="cfett"> BasicStroke.JOIN_ROUND</span> );
+  g2.setStroke( stroke );
+
+  shape = new GeneralPath();
+  shape.moveTo( 25+200, 25 ); shape.lineTo( 50+200, 100 ); shape.lineTo( 75+200, 25 );
+  g2.draw( shape );
+}</pre></div>
+<div class="bildbox">
+<p><a name="IDAAE2C"></a><a onClick="OpenWin('bilder/linejoinsdemo.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinlinejoinsdemo.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 20.11    </strong>Unterschiedliche Linienverbindungen BEVEL, MITER, ROUND</p>
+<p>Falls der Typ der Linienverbindungen <span class="clisting">JOIN_MITER</span> ist, kann mit einem spitzen Winkel die Verbreiterung sehr lang werden. Die Variable <span class="clisting">miterlimit</span> beim Konstruktor kann die maximale Länge beschränken, sodass über einer gewissen Größe die beiden Linien mit <span class="clisting">JOIN_BEVEL</span> enden.</p>
+<h4 class="t4">Füllmuster (dash)</h4>
+<p>Auch die Muster, mit denen die Linien oder Kurven gezeichnet werden, lassen sich ändern. Dazu erzeugen wir vorher ein <span class="clisting">float</span>-Feld und übergeben es einem Konstruktor.</p>
+<div class="bildbox">
+<p><a name="IDAUE2C"></a><a onClick="OpenWin('bilder/basicstrokedash.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinbasicstrokedash.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p>Die folgenden Zeilen erzeugen ein Rechteck mit einem einfachen Linienmuster. Es sollen zehn Punkte gesetzt und zwei Punkte frei sein. Damit auch die Muster abgerundet werden, muss <span class="clisting">CAP_ROUND</span> gesetzt sein:</p>
+<p class="tabunter"><strong>Listing 20.15    </strong>com/tutego/insel/ui/g2d/DashDemo.java, Ausschnitt</p>
+<div class="listing"><pre class="prettyprint">float[] dash = { 10, 2 };
+BasicStroke stroke = new BasicStroke( 2,
+  BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER,
+  1,
+  dash, 0 );
+
+g2.setStroke( stroke );
+g2.draw( new Rectangle2D.Float( 50, 50, 50, 50 ) );</pre></div>
+<p>Als letztes Argument hängt am Konstruktor von <span class="clisting">BasicStroke</span> noch eine Verschiebung. Dieser Parameter bestimmt, wie viele Pixel im Muster übersprungen werden sollen. Geben wir dort für unser Beispiel etwa 10 an, so beginnt die Linie gleich mit zwei nicht gesetzten Pixeln. Eine 12 ergibt eine Verschiebung wieder an den Anfang. Bei nur einer Zahl im Feld sind der Abstand der Linien und die Breite einer Linie genauso lang, wie diese Zahl angibt. Bei gepunkteten Linien ist das Feld also 1. Hier eignet sich ein anonymes Feld ganz gut, wie die nächsten Zeilen zeigen:</p>
+<div class="listing"><pre class="prettyprint">stroke = new BasicStroke( 1,
+  BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL,
+  1, new float[]{ 1 }, 0 );</pre></div>
+<p>Bei feinen Linien sollten wir das Weichzeichnen besser ausschalten.</p>
+<div class="bildbox">
+<p><a name="IDAXF2C"></a><a onClick="OpenWin('bilder/365_java_14_015.gif','Abbildung',800,800)"><img border="0" src="bilderklein/klein365_java_14_015.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p class="tabunter"><strong>Abbildung 20.12    </strong>Zwei Linienmuster</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="20.5 Das Innere und Äußere einer Form"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_20_004.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_20_006.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

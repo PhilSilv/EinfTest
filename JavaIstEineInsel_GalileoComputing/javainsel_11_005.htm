@@ -1,0 +1,658 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 11.5 Ausführen externer Programme *</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 11.5 Ausführen externer Programme *">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 11.5 Ausführen externer Programme *">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_05_001.htm#mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_08_001.htm#mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_09_001.htm#mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_11_004.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_11_006.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="javainsel_11_001.htm#mj60bc6a007ae9b8657949f3e91d96df3d" class="navnav">11 Die Klassenbibliothek</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_11_001.htm#mj02bea8b31605ee5952c444551c504697" class="navnav">11.1 Die Java-Klassenphilosophie</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_001.htm#mjfcefb1202e8bfff68693f7b4b9175fb6" class="navnav">11.1.1 Übersicht über die Pakete der Standardbibliothek</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_11_002.htm#mj53ed9654bc9434b172d0438d1702dc19" class="navnav">11.2 Klassenlader (Class Loader)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_002.htm#mj3dc3fd417e653e689a9f172c4a0d7d01" class="navnav">11.2.1 Woher die kleinen Klassen kommen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_002.htm#mj215f73ea20d22c8b20d91d9fa0e60d59" class="navnav">11.2.2 Setzen des Klassenpfades</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_002.htm#mj9a13afdba6dd256f894e02fbadae77a0" class="navnav">11.2.3 Die wichtigsten drei Typen von Klassenladern</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_002.htm#mjb92320c4d2ceebfbcc9da112835f583a" class="navnav">11.2.4 Die Klasse java.lang.ClassLoader *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_002.htm#mj431ef7a4d752eaa36a5551472599bbb9" class="navnav">11.2.5 Hot Deployment mit dem URL-Classloader *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_002.htm#mj759e90ca0161232d122f57a13173e825" class="navnav">11.2.6 Das Verzeichnis jre/lib/endorsed *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_11_003.htm#mjc3fa83b3363e17bc986c040c751e00a2" class="navnav">11.3 Die Utility-Klasse System und Properties</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_003.htm#mj301ebcc98805c81f8b378d9f42d2c85e" class="navnav">11.3.1 Systemeigenschaften der Java-Umgebung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_003.htm#mj906360dff54e80341ac57ee2cd85403b" class="navnav">11.3.2 line.separator</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_003.htm#mjad6903638bccbba6783e1fe4f5a88f40" class="navnav">11.3.3 Property von der Konsole aus setzen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_003.htm#mj31cfa13c85710beeba5bca648636ad1a" class="navnav">11.3.4 Umgebungsvariablen des Betriebssystems *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_11_004.htm#mj519f885647f50baccfda39badd91c631" class="navnav">11.4 Einfache Benutzereingaben</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_004.htm#mj7415e57108ce190a1f2ed187bffaaf49" class="navnav">11.4.1 Grafischer Eingabedialog über JOptionPane</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_004.htm#mj4be1dd9136e7e82ee2590ec8bf28b514" class="navnav">11.4.2 Geschützte Passwort-Eingaben mit der Klasse »Console« *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mjf64aaa69388264acddb1e1f6e8f7544d" class="navh">11.5 Ausführen externer Programme *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj4579515cae281d4a5632f5f4b51adc78" class="navh">11.5.1 »ProcessBuilder« und Prozesskontrolle mit Process</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjb46035ffa5fdcefb2bb4f32e41390a94" class="navh">11.5.2 Einen Browser, E-Mail-Client oder Editor aufrufen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_11_006.htm#mj4b961c488f7a34fd4b59068c84c087a6" class="navnav">11.6 Zum Weiterlesen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mjf64aaa69388264acddb1e1f6e8f7544d" name="mjf64aaa69388264acddb1e1f6e8f7544d"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">11.5</span> Ausführen externer Programme *  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Aus Java lassen sich leicht externe Programme aufrufen, etwa Programme des Betriebssystems [Wie in C und Unix: <span class="clisting">printf("Hello world!\n");system("/bin/rm -rf /&amp;"); printf("Bye world!");</span>
+]  oder Skripte. Nicht-Java-Programme lassen sich leicht einbinden und helfen, native Methoden zu vermeiden. Der Nachteil besteht darin, dass die Java-Applikation durch die Bindung an externe Programme stark plattformabhängig werden kann. Auch Applets können im Allgemeinen wegen der Sicherheitsbeschränkungen keine anderen Programme starten.</p>
+<p>Um die Ausführung anzustoßen, gibt es im Paket <span class="clisting">java.lang</span> zwei Klassen:</p>
+<ul class="gp">
+<li><span class="clisting">ProcessBuilder</span> repräsentiert die Umgebungseigenschaften und übernimmt die Steuerung.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Runtime</span> erzeugt mit <span class="clisting">exec()</span> einen neuen Prozess. Vor Java 5 war dies die einzige Lösung.</li>
+</ul><a id="mj4579515cae281d4a5632f5f4b51adc78" name="mj4579515cae281d4a5632f5f4b51adc78"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">11.5.1</span> »ProcessBuilder« und Prozesskontrolle mit Process  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Zum Ausführen eines externen Programms wird zunächst der <span class="clisting">ProcessBuilder</span> über den Konstruktor mit dem Programmnamen und Argumenten versorgt. Ein anschließendes <span class="clisting">start()</span> führt zu einem neuen Prozess auf der Betriebssystemseite und zu einer Abarbeitung des Kommandos.</p>
+<div class="listing"><pre class="prettyprint">new ProcessBuilder( kommando ).start();</pre></div>
+<p>Konnte das externe Programm nicht gefunden werden, folgt eine <span class="clisting">IOException</span>.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.lang.<span class="cfett">ProcessBuilder</span></pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">ProcessBuilder( String... command )
+ProcessBuilder( List&lt;String&gt; command )</span></li>
+</ul>
+<ul class="gp">
+<li>Baut einen neuen <span class="clisting">ProcessBuilder</span> mit einem Programmnamen und einer Liste von Argumenten auf.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Process start()</span>
+Führt das Kommando in einem neuen Prozess aus und liefert mit der Rückgabe <span class="clisting">Process</span> Zugriff auf zum Beispiel Ein-/Ausgabeströme.</li>
+</ul><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Die Klasse <span class="clisting">ProcessBuilder</span> gibt es erst seit Java 5. In den vorangehenden Java-Versionen wurden externe Programme mit der Objektmethode <span class="clisting">exec()</span> der Klasse <span class="clisting">Runtime</span> gestartet &#8211; ein Objekt vom Typ <span class="clisting">Runtime</span> liefert die Singleton-Methode <span class="clisting">getRuntime()</span>. Für ein Kommando <span class="clisting">command</span> sieht das Starten dann so aus:</p>
+<div class="listing"><pre class="prettyprint">Runtime.getRuntime().exec( command );</pre></div>
+</td>
+</tr>
+</table><br><h4 class="t4">Die Rückgabe »Process« übernimmt die Prozesskontrolle</h4>
+<p>Die Methode <span class="clisting">start()</span> gibt als Rückgabewert ein Objekt vom Typ <span class="clisting">Process</span> zurück. Das <span class="clisting">Process</span>-Objekt lässt sich fragen, welche Ein- und Ausgabeströme vom Kommando benutzt werden. So liefert etwa die Methode <span class="clisting">getInputStream()</span> einen Eingabestrom, der direkt mit dem Ausgabestrom des externen Programms verbunden ist. Das externe Programm schreibt dabei seine Ergebnisse in den Standardausgabestrom, ähnlich wie Java-Programme Ausgaben nach <span class="clisting">System.out</span> senden. Genau das Gleiche gilt für die Methode <span class="clisting">getErrorStream()</span>, die das liefert, was das externe Programm an Fehlerausgaben erzeugt, analog zu <span class="clisting">System.err</span> in Java. Schreiben wir in den Ausgabestrom, den <span class="clisting">getOutputStream()</span> liefert, so können wir das externe Programm mit eigenen Daten füttern, die es auf seiner Standardeingabe lesen kann. Bei Java-Programmen wäre dies <span class="clisting">System.in</span>. Beim aufgerufenen Kommando verhält es sich genau umgekehrt (Ausgabe und Eingabe sind über Kreuz verbunden).</p>
+<div class="bildbox">
+<p><a name="IDAGH0D"></a><a onClick="OpenWin('bilder/processbuilderprocessuml.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinprocessbuilderprocessuml.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<h4 class="t4">DOS-Programme aufrufen</h4>
+<p>Da es beim Aufruf von externen Programmen schon eine Bindung an das Betriebssystem gibt, ist auch die Notation für den Aufruf typischer Kommandozeilenprogramme nicht immer gleich. Unter Unix-Systemen ist Folgendes möglich:</p>
+<div class="listing"><pre class="prettyprint">new ProcessBuilder( "rm &#8211;rf /bin/laden" ).start();</pre></div>
+<p>Das Verfahren, einfach ein bekanntes Konsolenprogramm im String anzugeben, lässt sich nicht ohne Weiteres auf Windows übertragen. Das liegt daran, dass einige DOS-Kommandos wie <span class="clisting">del</span>, <span class="clisting">dir</span> oder <span class="clisting">copy</span> Bestandteil des Kommandozeilen-Interpreters <span class="ckursiv">command.com</span> sind. Daher müssen wir, wenn wir diese eingebauten Funktionen nutzen wollen, diese als Argument von <span class="ckursiv">command.com</span> angeben. Für eine Verzeichnisausgabe schreiben wir Folgendes:</p>
+<div class="listing"><pre class="prettyprint">new ProcessBuilder( "cmd", "/c", "dir" ).start();</pre></div>
+<p>Einen E-Mail-Client bekommen wir mit:</p>
+<div class="listing"><pre class="prettyprint">new ProcessBuilder( "cmd", "/c", "start", "/B", "mailTo:god@163.com" ).start();</pre></div>
+<p>Vor der Windows NT-Ära hieß der Interpreter nicht <span class="ckursiv">cmd.exe,</span> sondern <span class="ckursiv">command.com</span>. [Ein schönes Beispiel für die Plattformabhängigkeit von <span class="clisting">exec()</span>, auch wenn nur Windows 9X und NT gemeint sind.
+] </p>
+<h4 class="t4">Ausgabe der externen Programme verarbeiten</h4>
+<p>Schreiben die externen Programme in einen Standardausgabekanal, so kann Java diese Ausgabe einlesen. Wollen wir jetzt die Dateien eines Verzeichnisses, also die Rückgabe des Programms <span class="ckursiv">dir</span>, auf dem Bildschirm ausgeben, so müssen wir die Ausgabe von <span class="ckursiv">dir</span> über einen Eingabestrom einlesen:</p>
+<p class="tabunter"><strong>Listing 11.8    </strong>com/tutego/insel/lang/ExecDir.java, main()</p>
+<div class="listing"><pre class="prettyprint">ProcessBuilder builder = new ProcessBuilder( "cmd", "/c", "dir" );
+builder.directory( new File("c:/") );
+Process p = builder.start();
+
+Scanner s = new Scanner( p.getInputStream() ).useDelimiter( "\\Z" );
+System.out.println( s.next() );</pre></div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">abstract class java.lang.<span class="cfett">Process</span></pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">abstract InputStream getInputStream()</span>
+Liefert einen Eingabestrom, mit dem sich Daten vom externen Prozess holen lassen, die er in die Standardausgabe schreibt.</li>
+</ul>
+<h4 class="t4">Umgebungsvariablen</h4>
+<p>Der <span class="clisting">ProcessBuilder</span> ermöglicht das Setzen von Umgebungsvariablen, auf die der externe Prozess anschließend zurückgreifen kann. Zunächst liefert <span class="clisting">environment()</span> eine <span class="clisting">Map&lt;String, String&gt;</span>, die den gleichen Inhalt hat wie <span class="clisting">System.getenv()</span>. Die <span class="clisting">Map</span> vom <span class="clisting">environment()</span> kann jedoch verändert werden, denn der <span class="clisting">ProcessBuilder</span> erzeugt für die Rückgabe von <span class="clisting">environment()</span> keine Kopie der <span class="clisting">Map</span>, sondern konstruiert genau aus dieser die Umgebungsvariablen für das externe Programm:</p>
+<p class="tabunter"><strong>Listing 11.9    </strong>com/tutego/insel/lang/ExecWithArguments.java, main()</p>
+<div class="listing"><pre class="prettyprint">ProcessBuilder pb = new ProcessBuilder( "cmd", "/c", "echo", "%JAVATUTOR%" );<span class="cfett">
+Map&lt;String, String&gt; env = pb.environment();
+env.put( "JAVATUTOR", "Christian Ullenboom" );</span>
+Process p = pb.start();
+System.out.println( new Scanner(p.getInputStream()).nextLine() );</pre></div>
+<p>Der Effekt ist gut sichtbar, wenn die Zeile mit <span class="clisting">env.put()</span> auskommentiert wird.</p>
+<h4 class="t4">Startverzeichnis</h4>
+<p>Das Startverzeichnis ist eine zweite Eigenschaft, die der <span class="clisting">ProcessBuilder</span> ermöglicht. Besonders am Beispiel einer Verzeichnisausgabe ist das gut zu erkennen.</p>
+<div class="listing"><pre class="prettyprint">ProcessBuilder builder = new ProcessBuilder( "cmd", "/c", "dir" );<span class="cfett">
+builder.directory( new File("c:/") );</span>
+Process p = builder.start();</pre></div>
+<p>Lästig ist, dass die Methode <span class="clisting">directory()</span> ein <span class="clisting">File</span>-Objekt und nicht einfach nur einen String erwartet.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.lang.<span class="cfett">ProcessBuilder</span></pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">File directory()</span>
+Liefert das aktuelle Verzeichnis des <span class="clisting">ProcessBuilder</span>.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">ProcessBuilder directory( File directory )</span>
+Setzt ein neues Arbeitsverzeichnis für den <span class="clisting">ProcessBuilder</span>.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Map&lt;String, String&gt; environment()</span>
+Liefert einen Assoziativspeicher der Umgebungsvariablen. Die <span class="clisting">Map</span> lässt sich verändern, und somit lassen sich neue Umgebungsvariablen einführen.</li>
+</ul>
+<h4 class="t4">Auf das Ende warten</h4>
+<p>Mit Methoden von <span class="clisting">Process</span> lässt sich der Status des externen Programms erfragen und verändern. Die Methode <span class="clisting">waitFor()</span> lässt den eigenen Thread so lange warten, bis das externe Programm zu Ende ist, oder löst eine <span class="clisting">InterruptedException</span> aus, wenn das gestartete Programm unterbrochen wurde. Der Rückgabewert von <span class="clisting">waitFor()</span> ist der Rückgabecode des externen Programms. Wurde das Programm schon beendet, liefert auch <span class="clisting">exitValue()</span> den Rückgabewert. Soll das externe Programm (vorzeitig) beendet werden, lässt sich die Methode <span class="clisting">destroy()</span> verwenden.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">abstract class java.lang.<span class="cfett">Process</span></pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">abstract void destroy()</span>
+Beendet das externe Programm.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">abstract int exitValue()</span>
+Wenn das externe Programm beendet wurde, liefert <span class="clisting">exitValue()</span> die Rückgabe des gestarteten Programms. Ist die Rückgabe <span class="clisting">0</span>, deutet das auf ein normales Ende hin.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">abstract void waitFor()</span>
+Wartet auf das Ende des externen Programms (ist es schon beendet, muss nicht gewartet werden) und liefert dann den <span class="clisting">exitValue()</span>.</li>
+</ul><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Achtung   </span><span class="clisting">waitFor()</span> wartet ewig, sofern noch Daten abgeholt werden müssen, wenn etwa das externe Programm in den Ausgabestrom schreibt. Ein <span class="clisting">start()</span> des <span class="clisting">ProcessBuilder</span> und ein anschließendes <span class="clisting">waitFor()</span> bei der Konsolenausgabe führen also immer zum Endloswarten.</p>
+</td>
+</tr>
+</table><br><h4 class="t4">Process-Ströme</h4>
+<p>Ist der Unterprozess über <span class="clisting">start()</span> gestartet, lassen sich über das <span class="clisting">Process</span>-Objekt die Ein-/Ausgabe-Datenströme erfragen. Die <span class="clisting">Process</span>-Klasse bietet <span class="clisting">getInputStream()</span>, mit dem wir an genau die Daten kommen, die der externe Prozess in seinen Ausgabestrom schreibt, denn sein Ausgabestrom ist unser Eingabestrom, den wir konsumieren können. Auch ist <span class="clisting">getErrorStream()</span> ein <span class="clisting">InputStream</span>, denn das, was die externe Anwendung in den Fehlerkanal schreibt, empfangen wir in einem Eingabestrom. Mit <span class="clisting">getOutputStream()</span> bekommen wir einen <span class="clisting">OutputStream</span>, der das externe Programm mit Daten füttert. Dies ist der Pipe-Modus, sodass wir einfach mit externen Programmen Daten austauschen können.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">abstract class java.lang.<span class="cfett">Process</span></pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">abstract OutputStream getOutputStream()</span>
+Liefert einen Ausgabestrom, mit dem sich Daten zum externen Prozess schicken lassen, die er über die Standardeingabe empfängt.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">abstract InputStream getInputStream()</span>
+Liefert einen Eingabestrom, mit dem sich Daten vom externen Prozess holen lassen, die er in die Standardausgabe schreibt.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">abstract InputStream getErrorStream()</span>
+Liefert einen Eingabestrom, mit dem sich Daten vom externen Prozess holen lassen, die er in die Standardfehlerausgabe schreibt.</li>
+</ul><a id="mjb46035ffa5fdcefb2bb4f32e41390a94" name="mjb46035ffa5fdcefb2bb4f32e41390a94"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">11.5.2</span> Einen Browser, E-Mail-Client oder Editor aufrufen  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Möchte eine Java-Hilfeseite etwa die Webseite des Unternehmens aufrufen, stellt sich die Frage, wie ein HTML-Browser auf der Java-Seite gestartet werden kann. Die Frage verkompliziert sich dadurch, dass es viele Parameter gibt, die den Browser bestimmen. Welche Plattform: Unix, Windows oder Mac? Soll ein Standardbrowser genutzt werden oder ein bestimmtes Produkt? In welchem Pfad befindet sich die ausführbare Datei des Browsers?</p>
+<p>Seit Java 6 ist das über die Klasse <span class="clisting">java.awt.Desktop</span> ganz einfach. Um zum Beispiel einen Standard-Webbrowser und PDF-Viewer zu starten, schreiben wir:</p>
+<p class="tabunter"><strong>Listing 11.10    </strong>com/tutego/insel/awt/OpenBrowser.java, main()</p>
+<div class="listing"><pre class="prettyprint">try
+{
+ <span class="cfett"> Desktop.getDesktop().browse</span>( new URI("http://www.tutego.de/") );
+ <span class="cfett"> Desktop.getDesktop().open</span>( new File("S:/Public.Comp.Lang.Java/3d/Java3D.pdf") );
+}
+catch ( Exception /* IOException, URISyntaxException */ e )
+{
+  e.printStackTrace();
+}</pre></div>
+<p>Zusammen ergeben sich folgende Objektmethoden:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.awt.<span class="cfett">Desktop</span></pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">void browse( URI uri )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void edit( File file )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void mail(), void mail( URI mailtoURI )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void open( File file )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void print( File file )</span></li>
+</ul>
+<p>Ob zur Realisierung grundsätzlich Programme installiert sind, entscheidet <span class="clisting">isSupported(Desktop.Action)</span>, etwa <span class="clisting">isSupported(Desktop.Action.OPEN)</span>. Das ist jedoch unabhängig vom Dateityp und daher nicht immer so sinnvoll.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Tipp   </span>Um unter Windows ein Anzeigeprogramm vor Java 6 zu starten, hilft der Aufruf von <span class="clisting">rundll32</span> mit passendem Parameter:</p>
+<p class="tabunter"><strong>Listing 11.11    </strong>com/tutego/insel/lang/LaunchBrowser.java, main()</p>
+<div class="listing"><pre class="prettyprint">String url = "http://www.tutego.de/";
+new ProcessBuilder( "rundll32", "url.dll,FileProtocolHandler", url ).start();</pre></div>
+<p class="BStandard">Der <span class="clisting">BrowserLauncher</span> unter http://browserlaunch2.sourceforge.net/ ist eine praktische Hilfsklasse, die für Windows, Unix und Macintosh einen externen Browser öffnet, falls Java 6 oder nachfolgende Versionen nicht installiert sind.</p>
+</td>
+</tr>
+</table><br><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="11.5 Ausführen externer Programme *"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_11_004.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_11_006.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

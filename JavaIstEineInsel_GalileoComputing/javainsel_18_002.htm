@@ -1,0 +1,1035 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 18.2 Eigenschaften von XML-Dokumenten</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 18.2 Eigenschaften von XML-Dokumenten">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 18.2 Eigenschaften von XML-Dokumenten">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_05_001.htm#mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_08_001.htm#mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_09_001.htm#mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_11_001.htm#mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_18_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_18_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9" class="navnav">18 Die eXtensible Markup Language (XML)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_18_001.htm#mj237c96552ea1a4c3a1a589527471c062" class="navnav">18.1 Auszeichnungssprachen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_001.htm#mj4bf69140239c3ccfb8083eff33d6e100" class="navnav">18.1.1 Die Standard Generalized Markup Language (SGML)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_001.htm#mj8d9f98f3ed036fdd6da7807b17781c09" class="navnav">18.1.2 Extensible Markup Language (XML)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mjcd2666b7c695592d37265e354d2a00c5" class="navh">18.2 Eigenschaften von XML-Dokumenten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj773e6fbc6cd573178cb691276f14000d" class="navh">18.2.1 Elemente und Attribute</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mja84996a84fdc9a2d987cb566797a4e08" class="navh">18.2.2 Beschreibungssprache für den Aufbau von XML-Dokumenten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj4333546676a25875787fd18c3d254cfe" class="navh">18.2.3 Schema &#8211; eine Alternative zu DTD</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj3c7cfffeea42d17ec6d4e502c45a3f53" class="navh">18.2.4 Namensraum (Namespace)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj62e6bcc878e81e95702076b2539f77ac" class="navh">18.2.5 XML-Applikationen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_18_003.htm#mj2c1eef25d6c5d71726e5dacc6cb108f3" class="navnav">18.3 Die Java-APIs für XML</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_003.htm#mjf8d3130b29ce805bd7b524fbca11a802" class="navnav">18.3.1 Das Document Object Model (DOM)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_003.htm#mj7cb0e2ca0f72fe23591a4e92dac73a41" class="navnav">18.3.2 Simple API for XML Parsing (SAX)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_003.htm#mj8870c3cd8e4b420b6edc4321a1fc513d" class="navnav">18.3.3 Pull-API StAX</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_003.htm#mjc7e7a85232c1e44ad9998ebe18b8e910" class="navnav">18.3.4 Java Document Object Model (JDOM)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_003.htm#mj9b8b8f0ee81828759f5bfacf01d63061" class="navnav">18.3.5 JAXP als Java-Schnittstelle zu XML</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_003.htm#mjadaf4a5fb065c42826aec8f00788f8d0" class="navnav">18.3.6 DOM-Bäume einlesen mit JAXP *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_18_004.htm#mja6850a6000c1851e0c5247871971601d" class="navnav">18.4 Java Architecture for XML Binding (JAXB)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_004.htm#mj57b18ee2f86e3548766ce5bcf5668f81" class="navnav">18.4.1 Bean für JAXB aufbauen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_004.htm#mj04094f0a2770094b2b07b5d2cc435a76" class="navnav">18.4.2 JAXBContext und die Marshaller</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_004.htm#mj5fb6a31746fde33e516fb3c447fb5876" class="navnav">18.4.3 Ganze Objektgraphen schreiben und lesen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_004.htm#mjb62739dc1bf14d196c3ffc52932f7360" class="navnav">18.4.4 Validierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_004.htm#mjb3a737e291d8682c25fa9733ed78be51" class="navnav">18.4.5 Weitere JAXB-Annotationen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_004.htm#mjafd88dfe49de9d1fbe3d33655874e33c" class="navnav">18.4.6 Beans aus XML-Schema-Datei generieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_18_005.htm#mja0bb01e44ea2953efb971874596be219" class="navnav">18.5 Serielle Verarbeitung mit StAX</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_005.htm#mje0378fcae4ad61132cf333148d3dac73" class="navnav">18.5.1 Unterschiede der Verarbeitungsmodelle</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_005.htm#mjc334a0292e78cc60f631d89b5b1af283" class="navnav">18.5.2 XML-Dateien mit dem Cursor-Verfahren lesen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_005.htm#mj393a8666323d5cfed19cf9bc56c0896f" class="navnav">18.5.3 XML-Dateien mit dem Iterator-Verfahren verarbeiten *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_005.htm#mjaff1d38fd26ccd588bd3da8e8ad308a2" class="navnav">18.5.4 Mit Filtern arbeiten *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_005.htm#mj15d0d171e564cb7b811b0a17ddc1cc2b" class="navnav">18.5.5 XML-Dokumente schreiben</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_18_006.htm#mjceff54f01bc1d65b05bddc3222f86495" class="navnav">18.6 Serielle Verarbeitung von XML mit SAX *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_006.htm#mj5a524e0508926cdfa745b209cff80816" class="navnav">18.6.1 Schnittstellen von SAX</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_006.htm#mjb2c389a8849ed9575dcc02189925c512" class="navnav">18.6.2 SAX-Parser erzeugen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_006.htm#mj47a0b5f111c2c8aff3fa875397e87f1f" class="navnav">18.6.3 Operationen der Schnittstelle »ContentHandler«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_006.htm#mje940d87629addf069b86bff51b361470" class="navnav">18.6.4 ErrorHandler und EntityResolver</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_18_007.htm#mja3b868c348f3f738e42cfdbea9cbc8f6" class="navnav">18.7 XML-Dateien mit JDOM verarbeiten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_007.htm#mj77135e597d8d54fe840a04842c68e0ce" class="navnav">18.7.1 JDOM beziehen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_007.htm#mja4fd7db4300f6529b10c873ec9a4a439" class="navnav">18.7.2 Paketübersicht *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_007.htm#mjf2413ed9023819537d4eb80713d718fd" class="navnav">18.7.3 Die Document-Klasse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_007.htm#mjd234254e691d54903d0af054d16e5378" class="navnav">18.7.4 Eingaben aus der Datei lesen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_007.htm#mjb14de35f00d79df6e8ec64c512a43bfa" class="navnav">18.7.5 Das Dokument im XML-Format ausgeben</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_007.htm#mj17ab80b9ab3664c2eee70dcf38ed8c12" class="navnav">18.7.6 Der Dokumenttyp *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_007.htm#mj0d2717e8c295b1ff3c20745aea125165" class="navnav">18.7.7 Elemente</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_007.htm#mj271080a85d75ee1810532901af462d33" class="navnav">18.7.8 Zugriff auf Elementinhalte</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_007.htm#mj3fecdb875aa7ff97650a6669e9e5224d" class="navnav">18.7.9 Liste mit Unterelementen erzeugen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_007.htm#mjea442487bfa31d02e66b7fc903cafdae" class="navnav">18.7.10 Neue Elemente einfügen und ändern</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_007.htm#mjf1e272ceae3e4c21e59dbc898afd5894" class="navnav">18.7.11 Attributinhalte lesen und ändern</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_007.htm#mjec16e854326f8b45f103ad33caf2681b" class="navnav">18.7.12 XPath</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_18_008.htm#mjae77a41021c1f5b42aebe4c77feb10dd" class="navnav">18.8 Transformationen mit XSLT *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_008.htm#mjeb34698c85951c9bf3d4ef4567832616" class="navnav">18.8.1 Templates und XPath als Kernelemente von XSLT</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_008.htm#mjf773d26cac37a605d443b7bde4602b2b" class="navnav">18.8.2 Umwandlung von XML-Dateien mit JDOM und JAXP</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_18_009.htm#mjfae1480f2969fabf0ee2cade12877730" class="navnav">18.9 XML-Schema-Validierung *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_009.htm#mja91b6ae6be97d96101b8fa28df390e00" class="navnav">18.9.1 SchemaFactory und Schema</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_009.htm#mje7366a9f6e72187c570b0bd76ad9e928" class="navnav">18.9.2 Validator</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_18_009.htm#mjc42d33ecf9649ecc4d3e84119eb9aa91" class="navnav">18.9.3 Validierung unterschiedlicher Datenquellen durchführen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_18_010.htm#mj534267b3a104b554a24f5af79f86f323" class="navnav">18.10 Zum Weiterlesen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mjcd2666b7c695592d37265e354d2a00c5" name="mjcd2666b7c695592d37265e354d2a00c5"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">18.2</span> Eigenschaften von XML-Dokumenten  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2><a id="mj773e6fbc6cd573178cb691276f14000d" name="mj773e6fbc6cd573178cb691276f14000d"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">18.2.1</span> Elemente und Attribute  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Der Inhalt eines XML-Dokuments besteht aus strukturierten <span class="ckursiv">Elementen</span>, die hierarchisch geschachtelt sind. Dazwischen befindet sich der Inhalt, der aus weiteren Elementen (daher »hierarchisch«) und reinem Text bestehen kann. Die Elemente können <span class="ckursiv">Attribute</span> enthalten, die zusätzliche Informationen in einem Element ablegen:</p>
+<p class="tabunter"><strong>Listing 18.1    </strong>party.xml</p>
+<div class="listing"><pre class="prettyprint">&lt;?xml version="1.0"?&gt;
+&lt;party datum="31.12.01"&gt;
+  &lt;gast name="Albert Angsthase"&gt;
+    &lt;getraenk&gt;Wein&lt;/getraenk&gt;
+    &lt;getraenk&gt;Bier&lt;/getraenk&gt;
+    &lt;zustand ledig="true" nuechtern="false"/&gt;
+  &lt;/gast&gt;
+&lt;/party&gt;</pre></div>
+<p>Die Groß- und Kleinschreibung der Namen für Elemente und Attribute ist für die Unterscheidung wichtig. Ein Attribut besteht aus einem Attributnamen und einem Wert. Der Attributwert steht immer in einfachen oder doppelten Anführungszeichen, und das Gleichheitszeichen weist den Wert dem Attributnamen zu.</p>
+<h4 class="t4">Verwendung von Tags</h4>
+<p>Gemäß der <span class="ckursiv">Reference Concrete Syntax</span> geben Elemente in spitzen Klammern die Tags an. Elemente existieren in zwei Varianten: Falls das Element einen Wert einschließt, besteht es aus einem Anfangs-Tag und einem End-Tag.</p>
+<p><span class="ckursiv">Element = öffnendes Tag + Inhalt + schließendes Tag</span></p>
+<p>Der Anfangs-Tag gibt den Namen des Tags vor und enthält die Attribute. Der End-Tag hat den gleichen Namen wie der Anfangs-Tag und wird durch einen Schrägstrich nach der ersten Klammer gekennzeichnet. Zwischen dem Anfangs- und dem End-Tag befindet sich der Inhalt des Elements.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Das Element <span class="clisting">&lt;getraenk&gt;</span> mit dem Wert <span class="clisting">Wein</span>:</p>
+<div class="listing"><pre class="prettyprint">&lt;getraenk&gt;Wein&lt;/getraenk&gt;</pre></div>
+</td>
+</tr>
+</table><br><p>Ein Element, das keine Inhalte einschließt, besteht aus nur einem Tag mit einem Schrägstrich vor der schließenden spitzen Klammer. Diese Tags haben entweder Attribute als Inhalt, oder das Auftreten des Tags ist Bestandteil des Inhalts.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Das Element <span class="clisting">&lt;zustand&gt;</span> mit den Attributen <span class="clisting">ledig</span> und <span class="clisting">nuechtern</span>:</p>
+<div class="listing"><pre class="prettyprint">&lt;zustand ledig="true" nuechtern="false" /&gt;</pre></div>
+</td>
+</tr>
+</table><br><h4 class="t4">Bedeutung der Tags</h4>
+<p>Durch die freie Namensvergabe in XML-Dokumenten ist eine formatierte Darstellung eines Dokuments nicht möglich. Anders als bei HTML gibt es keine festgelegte Menge von Tags, die den Inhalt nach bestimmten Kriterien formatieren. Falls das XML-Dokument in einem Browser dargestellt werden soll, sind zusätzliche Beschreibungen in Form von Formatvorlagen (Stylesheets) für die Darstellung in HTML notwendig.</p>
+<h4 class="t4">Wohlgeformt</h4>
+<p>Ein XML-Dokument muss einige Bedingungen erfüllen, damit es <span class="ckursiv">wohlgeformt</span> ist. Wenn es nicht wohlgeformt ist, ist es auch kein XML-Dokument. Damit ein XML-Dokument wohlgeformt ist, muss jedes Element aus einem Anfangs- und einem End-Tag oder nur aus einem abgeschlossenen Tag bestehen. Hierarchische Elemente müssen in umgekehrter Reihenfolge ihrer Öffnung wieder geschlossen werden. Die Anordnung der öffnenden und schließenden Tags legt die Struktur eines XML-Dokuments fest. Jedes XML-Dokument muss ein Wurzelelement enthalten, das alle anderen Elemente einschließt.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Das Wurzelelement heißt <span class="clisting">&lt;party&gt;</span> und schließt das Element <span class="clisting">&lt;gast&gt;</span> ein:</p>
+<div class="listing"><pre class="prettyprint">&lt;party datum="31.12.01"&gt;
+  &lt;gast name="Albert Angsthase"&gt;&lt;/gast&gt;
+&lt;/party&gt;</pre></div>
+</td>
+</tr>
+</table><br><h4 class="t4">Spezielle Zeichen in XML (Entitäten)</h4>
+<p>Wir müssen darauf achten, dass einige Zeichen in XML bestimmte Bedeutungen haben. Dazu gehören <span class="clisting">&amp;</span>, <span class="clisting">&lt;</span>, <span class="clisting">&gt;</span>, <span class="clisting">"</span> und <span class="clisting">&#8218;</span>. Sie werden im Text durch spezielle Abkürzungen, die <span class="ckursiv">Entitäten</span>, abgebildet. Dies sind für die oben genannten Zeichen <span class="clisting">&amp;amp;</span>, <span class="clisting">&amp;lt;</span>, <span class="clisting">&amp;gt;</span>, <span class="clisting">&amp;quot;</span> und <span class="clisting">&amp;apos;</span>. Diese Entitäten für die Sonderzeichen sind als einzige durch den Standard festgelegt.</p>
+<h4 class="t4">&lt;!-- Kommentare --&gt;</h4>
+<p>XML-Dokumente können auch Kommentare enthalten. Diese werden beim Auswerten der Daten übergangen. Kommentare verbessern die Qualität des XML-Dokuments für den Benutzer wesentlich. Sie können an jeder Stelle des Dokuments verwendet werden, nur nicht innerhalb der Tags. Kommentare haben die Form:</p>
+<div class="listing"><pre class="prettyprint">&lt;!-- Text des Kommentars --&gt;</pre></div>
+<p>Der beste Kommentar eines XML-Dokuments ist die sinnvolle Gliederung des Dokuments und die Wahl selbsterklärender Namen für Tags und Attribute.</p>
+<h4 class="t4">Kopfdefinition</h4>
+<p>Die Wohlgeformtheit muss mindestens erfüllt sein. Zusätzlich dürfen andere Elemente eingebaut werden. Dazu gehört etwa eine Kopfdefinition, die beispielsweise</p>
+<div class="listing"><pre class="prettyprint">&lt;?xml version="1.0"?&gt;</pre></div>
+<p>lauten kann. Diese Kopfdefinition lässt sich durch Attribute erweitern. In diesem Beispiel werden die verwendete XML-Version und die Zeichenkodierung angegeben:</p>
+<div class="listing"><pre class="prettyprint">&lt;?xml version="1.0" encoding="iso-8859&#8211;1"?&gt;</pre></div>
+<p>Wenn eine XML-Deklaration vorhanden ist, muss sie ganz am Anfang des Dokuments stehen. Dort lässt sich auch die benutzte Zeichenkodierung definieren, wenn sie nicht automatisch UTF-8 oder UTF-16 ist. Automatisch kann jedes beliebige Unicode-Zeichen unabhängig von der Kodierung über das Kürzel <span class="clisting">&amp;#xABCD;</span> (<span class="clisting">A, B, C, D</span> stehen für Hexadezimalzeichen) dargestellt werden.</p><a id="mja84996a84fdc9a2d987cb566797a4e08" name="mja84996a84fdc9a2d987cb566797a4e08"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">18.2.2</span> Beschreibungssprache für den Aufbau von XML-Dokumenten  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Im Gegensatz zu HTML ist bei XML die Menge der Tags und deren Kombination nicht festgelegt. Für jede Anwendung können Entwickler beliebige Tags definieren und verwenden. Um aber überprüfen zu können, ob eine XML-Datei für eine bestimmte Anwendung die richtige Form hat, wird eine formale Beschreibung dieser Struktur benötigt. Diese formale Struktur ist in einem bestimmten Format beschrieben, wobei zwei Formate populär sind: das XML <span class="ckursiv">Schema</span> und die <span class="ckursiv">Document Type Definition</span> (DTD). Sie legen fest, welche Tags zwingend vorgeschrieben sind, welche Art Inhalt diese Elemente haben, wie Tags miteinander verschachtelt sind und welche Attribute ein Element besitzen darf. Hält sich ein XML-Dokument an die Definition, ist es <span class="ckursiv">gültig</span> (engl. <span class="ckursiv">valid</span>).</p>
+<p>Mittlerweile gibt es eine große Anzahl von Beschreibungen in Form von DTD und Schema, die Formatierungen für die verschiedensten Daten bieten. Einige DTDs sind unter <span class="ckursiv">http://tutego.de/go/xmlapplications</span> aufgeführt. Um einen Datenaustausch für eine bestimmte Anwendung zu gewährleisten, ist eine eindeutige Beschreibung unerlässlich. Es wäre problematisch, wenn die Unternehmen unter der Struktur einer Rechnung immer etwas anderes verstünden.</p>
+<h4 class="t4">Document Type Definition (DTD)</h4>
+<p>Für die folgende XML-Datei entwickeln wir eine DTD zur Beschreibung der Struktur:</p>
+<p class="tabunter"><strong>Listing 18.2    </strong>party.xml</p>
+<div class="listing"><pre class="prettyprint">&lt;?xml version="1.0" ?&gt;
+&lt;party datum="31.12.01"&gt;
+    &lt;gast name="Albert Angsthase"&gt;
+        &lt;getraenk&gt;Wein&lt;/getraenk&gt;
+        &lt;getraenk&gt;Bier&lt;/getraenk&gt;
+        &lt;zustand ledig="true" nuechtern="false"/&gt;
+    &lt;/gast&gt;
+    &lt;gast name="Martina Mutig"&gt;
+        &lt;getraenk&gt;Apfelsaft&lt;/getraenk&gt;
+        &lt;zustand ledig="true" nuechtern="true"/&gt;
+    &lt;/gast&gt;
+    &lt;gast name="Zacharias Zottelig"&gt;&lt;/gast&gt;
+&lt;/party&gt;</pre></div>
+<p>Für diese XML-Datei legen wir die Struktur fest und beschreiben sie in einer DTD. Dazu sammeln wir zuerst die Daten, die in dieser XML-Datei stehen.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 18.1    </strong>Struktur der Beispiel-XML-Datei</p>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Elementname</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Attribute</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Untergeordnete
+Elemente</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Aufgabe</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">party</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">datum</span>
+Datum der Party</p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">gast</span></p>
+</td>
+<td class="tabellentext">
+<p>Wurzelelement mit dem Datum der Party als Attribut</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">gast</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">name</span>
+Name des Gastes</p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">getraenk</span> und <span class="clisting">zustand</span></p>
+</td>
+<td class="tabellentext">
+<p>die Gäste der Party, Name des Gastes als Attribut</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">getraenk</span></p>
+</td>
+<td class="tabellentext"> </td>
+<td class="tabellentext"> </td>
+<td class="tabellentext">
+<p>Getränk des Gastes als Text</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">zustand</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">ledig</span> und <span class="clisting">nuechtern</span></p>
+</td>
+<td class="tabellentext"> </td>
+<td class="tabellentext">
+<p>Familienstand und Zustand als Attribute</p>
+</td>
+</tr>
+</table><br><h4 class="t4">Elementbeschreibung</h4>
+<p>Die Beschreibung der Struktur eines Elements besteht aus dem Elementnamen und dem Typ. Sie kann auch aus einem oder mehreren untergeordneten Elementen in Klammern bestehen. Der Typ legt die Art der Daten in dem Element fest. Mögliche Typen sind etwa <span class="clisting">PCDATA</span> (<span class="ckursiv">Parsed Character Data</span>) für einfachen Text oder <span class="clisting">ANY</span> für beliebige Daten.</p>
+<p>Untergeordnete Elemente werden als Liste der Elementnamen angegeben. Die Namen sind durch ein Komma getrennt. Falls verschiedene Elemente oder Datentypen alternativ vorkommen können, werden diese ebenfalls in Klammern angegeben und mit dem Oder-Operator (<span class="clisting">|</span>) verknüpft. Hinter jedem Element und hinter der Liste von Elementen legt ein Operator fest, wie häufig das Element oder die Folgen von Elementen erscheinen müssen. Falls kein Operator angegeben ist, muss das Element oder die Elementliste genau einmal erscheinen. Folgende Operatoren stehen zur Verfügung:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 18.2    </strong>DTD-Operatoren für Wiederholungen</p>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Operator</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Wie oft erscheint das Element?</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">?</span></p>
+</td>
+<td class="tabellentext">
+<p>einmal oder gar nicht</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">+</span></p>
+</td>
+<td class="tabellentext">
+<p>mindestens einmal</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">*</span></p>
+</td>
+<td class="tabellentext">
+<p>keinmal, einmal oder beliebig oft</p>
+</td>
+</tr>
+</table><br><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Das Element <span class="clisting">&lt;party&gt;</span> erlaubt beliebig viele Unterelemente vom Typ <span class="clisting">&lt;gast&gt;</span>:</p>
+<div class="listing"><pre class="prettyprint">&lt;!ELEMENT party (gast)*&gt;</pre></div>
+<p class="BStandard">Drückt aus, dass auf einer Party beliebig viele Gäste erscheinen können.</p>
+</td>
+</tr>
+</table><br><h4 class="t4">Attributbeschreibung</h4>
+<p>Die Beschreibung der Attribute sieht sehr ähnlich aus. Sie besteht aus dem Element, den Attributnamen, den Datentypen der Attribute und einem Modifizierer. In einem Attribut können als Werte keine Elemente angegeben werden, sondern nur Datentypen wie <span class="clisting">CDATA</span> (<span class="ckursiv">Character Data</span>). Der Modifizierer legt fest, ob ein Attribut zwingend vorgeschrieben ist oder nicht. Folgende Modifizierer stehen zur Verfügung:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 18.3    </strong>Attribut-Modifizierer</p>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Modifizierer</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Erläuterung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">#IMPLIED</span></p>
+</td>
+<td class="tabellentext">
+<p>Muss nicht vorkommen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">#REQUIRED</span></p>
+</td>
+<td class="tabellentext">
+<p>Muss auf jeden Fall vorkommen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">#FIXED [Wert]</span></p>
+</td>
+<td class="tabellentext">
+<p>Wert wird gesetzt und kann nicht verändert werden.</p>
+</td>
+</tr>
+</table><br><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Das Attribut <span class="clisting">datum</span> für das Element <span class="clisting">&lt;party&gt;</span>:</p>
+<div class="listing"><pre class="prettyprint">&lt;!ATTLIST party datum CDATA #REQUIRED&gt;</pre></div>
+</td>
+</tr>
+</table><br><p>Der Wert des Attributs <span class="clisting">datum</span> ist Text und muss angegeben sein (festgelegt durch den Modifizierer <span class="clisting">#REQUIRED</span>).</p>
+<p>Kümmern wir uns um die Beschreibung eines Gasts, der einen Namen und einen Zustand hat:</p>
+<div class="listing"><pre class="prettyprint">&lt;!ELEMENT gast (getraenk*, zustand?)&gt;
+&lt;!ATTLIST gast name CDATA #REQUIRED&gt;</pre></div>
+<p>Das Element hat als Attribut <span class="clisting">name</span> und die Unterelemente <span class="clisting">&lt;getraenk&gt;</span> und <span class="clisting">&lt;zustand&gt;</span>. Ein Gast kann kein Getränk, ein Getränk oder viele einnehmen. Die Attribute des Elements <span class="clisting">&lt;zustand&gt;</span> müssen genau einmal oder gar nicht vorkommen.</p>
+<p>Das Element <span class="clisting">&lt;getraenk&gt;</span> hat keine Unterelemente, aber einen Text, der das Getränk beschreibt:</p>
+<div class="listing"><pre class="prettyprint">&lt;!ELEMENT getraenk (#PCDATA)&gt;</pre></div>
+<p>Das Element <span class="clisting">&lt;zustand&gt;</span> hat keinen Text und keine Unterelemente, aber die Attribute <span class="clisting">ledig</span> und <span class="clisting">nuechtern</span>, die mit Text gefüllt sind. Die Attribute müssen nicht unbedingt angegeben werden (Modifizierer <span class="clisting">#IMPLIED</span>).</p>
+<div class="listing"><pre class="prettyprint">&lt;!ELEMENT zustand EMPTY&gt;
+&lt;!ATTLIST zustand ledig CDATA #IMPLIED
+   nuechtern CDATA #IMPLIED&gt;</pre></div>
+<h4 class="t4">Bezugnahme auf eine DTD</h4>
+<p>Falls die DTD in einer speziellen Datei steht, wird im Kopf der XML-Datei angegeben, wo die DTD für dieses XML-Dokument steht:</p>
+<div class="listing"><pre class="prettyprint">&lt;!DOCTYPE party SYSTEM "dtd\partyfiles\party.dtd"&gt;</pre></div>
+<p>Hinter <span class="clisting">DOCTYPE</span> steht das Wurzelelement der zu beschreibenden XML-Datei. Hinter <span class="clisting">SYSTEM</span> steht die URI mit der Adresse der DTD-Datei. Die DTD selbst kann in einer eigenen Datei stehen oder Bestandteil der XML-Datei sein.</p>
+<p>Die vollständige DTD zu dem Party-Beispiel sieht folgendermaßen aus:</p>
+<p class="tabunter"><strong>Listing 18.3    </strong>party.dtd</p>
+<div class="listing"><pre class="prettyprint">&lt;!ELEMENT party (gast)*&gt;
+&lt;!ATTLIST party datum CDATA #REQUIRED&gt;
+&lt;!ELEMENT gast (getraenk*, zustand?)&gt;
+&lt;!ATTLIST gast name CDATA #REQUIRED&gt;
+&lt;!ELEMENT getraenk (#PCDATA)&gt;
+&lt;!ELEMENT zustand EMPTY&gt;
+&lt;!ATTLIST zustand ledig CDATA #IMPLIED nuechtern CDATA #IMPLIED&gt;</pre></div>
+<p>Diese DTD definiert somit die Struktur aller Party-beschreibenden XML-Dateien.</p><a id="mj4333546676a25875787fd18c3d254cfe" name="mj4333546676a25875787fd18c3d254cfe"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">18.2.3</span> Schema &#8211; eine Alternative zu DTD  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Ein anderes Verfahren, um die Struktur von XML-Dateien zu beschreiben, ist <span class="ckursiv">Schema</span>. Es ermöglicht eine Strukturbeschreibung wie DTD nur in Form einer XML-Datei. Das vereinfacht das Parsen der Schema-Datei, da die Strukturbeschreibung und die Daten vom gleichen Dateityp sind. Ein Schema beschreibt im Gegensatz zu einer DTD die Datentypen der Elemente und Attribute einer XML-Datei viel detaillierter. Die üblichen Datentypen wie <span class="clisting">string</span>, <span class="clisting">integer</span> und <span class="clisting">double</span> der gängigen Programmiersprachen sind bereits vorhanden. Weitere Datentypen wie <span class="clisting">date</span> und <span class="clisting">duration</span> existieren ebenfalls. Zusätzlich ist es möglich, eigene Datentypen zu definieren. Mit Schema kann weiterhin festgelegt werden, ob ein Element wie eine Ganzzahl in einem speziellen Wertebereich liegt oder ein String auf einen regulären Ausdruck passt. Die Vorteile sind eine genauere Beschreibung der Daten, die in einer XML-Datei dargestellt werden. Das macht aber auch die Strukturbeschreibung aufwändiger als eine DTD. Durch die detaillierte Beschreibung der XML-Struktur ist jedoch der Mehraufwand gerechtfertigt.</p>
+<h4 class="t4">Party-Schema</h4>
+<p>Hier ist ein Beispiel für ein Schema, das die Struktur der Datei <span class="ckursiv">party.xml</span> beschreibt:</p>
+<p class="tabunter"><strong>Listing 18.4    </strong>party.xsd</p>
+<div class="listing"><pre class="prettyprint">&lt;?xml version="1.0"?&gt;
+&lt;xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+
+   &lt;xsd:element name="party" type="partyType" /&gt;
+
+   &lt;xsd:complexType name="partyType"&gt;
+      &lt;xsd:sequence&gt;
+         &lt;xsd:element name="gast" type="gastType" /&gt;
+      &lt;/xsd:sequence&gt;
+      &lt;xsd:attribute name="datum" type="datumType" /&gt;
+   &lt;/xsd:complexType&gt;
+
+   &lt;xsd:complexType name="gastType"&gt;
+      &lt;xsd:sequence&gt;
+         &lt;xsd:element name="getraenk" type="xsd:string" /&gt;
+         &lt;xsd:element name="zustand" type="zustandType" /&gt;
+      &lt;/xsd:sequence&gt;
+   &lt;/xsd:complexType&gt;
+
+   &lt;xsd:simpleType name="datumType"&gt;
+      &lt;xsd:restriction base="xsd:string"&gt;
+         &lt;xsd:pattern value="[0-3][0-9].[0-1][0-9].[0-9]{4}" /&gt;
+      &lt;/xsd:restriction&gt;
+   &lt;/xsd:simpleType&gt;
+
+   &lt;xsd:complexType name="zustandType"&gt;
+      &lt;xsd:complexContent&gt;
+         &lt;xsd:restriction base="xsd:anyType"&gt;
+            &lt;xsd:attribute name="nuechtern" type="xsd:boolean" /&gt;
+            &lt;xsd:attribute name="ledig" type="xsd:boolean" /&gt;
+         &lt;/xsd:restriction&gt;
+      &lt;/xsd:complexContent&gt;
+   &lt;/xsd:complexType&gt;
+
+&lt;/xsd:schema&gt;</pre></div>
+<p>In diesem Beispiel werden die Typen <span class="clisting">string</span> (für die Beschreibung des Elements <span class="clisting">&lt;getraenk&gt;</span>) und <span class="clisting">boolean</span> (für die Beschreibung des Elements <span class="clisting">&lt;ledig&gt;</span>) verwendet. Die Typen <span class="clisting">gastType</span> und <span class="clisting">datumType</span> sind selbst definierte Typen. Ein sehr einfacher regulärer Ausdruck beschreibt die Form eines Datums. Ein Datum besteht aus drei Gruppen zu je zwei Ziffern, die durch Punkte getrennt werden. Die erste Ziffer der ersten Zifferngruppe muss aus dem Zahlenbereich 0 bis 3 stammen.</p>
+<p>In der Schema-Datei basieren die Typen <span class="clisting">datumType</span> und <span class="clisting">zustandType</span> auf vorhandenen Schema-Typen, um diese einzuschränken. So schränkt <span class="clisting">datumType</span> den Typ <span class="clisting">string</span> auf die gewünschte Form eines Datums ein, und <span class="clisting">zustandType</span> schränkt den <span class="clisting">anyType</span> auf die beiden Attribute <span class="clisting">nuechtern</span> und <span class="clisting">ledig</span> ein. Die Schreibweise erzeugt einen neuen Typ, der keinen Text als Inhalt enthält, sondern nur die beiden Attribute <span class="clisting">nuechtern</span> und <span class="clisting">ledig</span> erlaubt. Der Wert der beiden Attribute ist ein Wahrheitswert.</p>
+<h4 class="t4">Simple und komplexe Typen</h4>
+<p>Ein XML-Schema unterscheidet zwischen simplen und komplexen Typen. Simple Typen sind alle Typen, die keine Unterelemente und keine Attribute haben, sondern nur textbasierten Inhalt.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Das Element <span class="clisting">&lt;getraenk&gt;</span> besteht nur aus einer Zeichenkette:</p>
+<div class="listing"><pre class="prettyprint">&lt;xsd:element name="getraenk" type="xsd:string" /&gt;</pre></div>
+</td>
+</tr>
+</table><br><p>Komplexe Typen können neben textbasiertem Inhalt auch Unterelemente und Attribute inkludieren.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Das Element <span class="clisting">&lt;gast&gt;</span> hat den Typ <span class="clisting">gastType</span> und die Unterelemente <span class="clisting">&lt;getraenk&gt;</span> und <span class="clisting">&lt;zustand&gt;</span>:</p>
+<div class="listing"><pre class="prettyprint">&lt;xsd:element name="gast" type="gastType" /&gt;
+&lt;xsd:complexType name="gastType"&gt;
+  &lt;xsd:sequence&gt;
+    &lt;xsd:element name="getraenk" type="xsd:string" /&gt;
+    &lt;xsd:element name="zustand" type="zustandType" /&gt;
+  &lt;/xsd:sequence&gt;
+&lt;/xsd:complexType&gt;</pre></div>
+</td>
+</tr>
+</table><br><p>Simple und komplexe Typen können andere Typen einschränken. Komplexe Typen können zusätzlich andere Typen erweitern. Beim Erweitern ist es möglich, mehrere Typen miteinander zu kombinieren, um einen neuen Typ mit Eigenschaften verschiedener Typen zu erschaffen.</p>
+<p>Das vorige Beispiel kann nur einen kleinen Einblick in die Möglichkeiten von XML-Schemas geben. Eine umfangreiche Dokumentation ist unter der URL <span class="ckursiv">http://www.w3.org/XML/Schema</span> vorhanden. Dort gibt es drei verschiedene Dokumentationen zum Schema:</p>
+<ul class="gp">
+<li><span class="cfett">Schema Part0 Primer</span>: gut lesbares Tutorial mit vielen Beispielen</li>
+</ul>
+<ul class="gp">
+<li><span class="cfett">Schema Part1 Structures</span>: genaue Beschreibung der Struktur einer Schema-Datei</li>
+</ul>
+<ul class="gp">
+<li><span class="cfett">Schema Part2 Datatypes</span>: Beschreibung der Datentypen, die in XML-Schemas verwendet werden</li>
+</ul>
+<p>Der erste Teil bietet eine grundlegende Einführung mit vielen Beispielen. Die beiden anderen Teile dienen als Referenzen für spezielle Fragestellungen.</p><a id="mj3c7cfffeea42d17ec6d4e502c45a3f53" name="mj3c7cfffeea42d17ec6d4e502c45a3f53"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">18.2.4</span> Namensraum (Namespace)  <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Das Konzept des <span class="ckursiv">Namensraums</span> ist besonders wichtig, wenn</p>
+<ul class="gp">
+<li>XML-Daten nicht nur lokal mit einer Anwendung benutzt werden,</li>
+</ul>
+<ul class="gp">
+<li>Daten ausgetauscht oder</li>
+</ul>
+<ul class="gp">
+<li>XML-Dateien kombiniert werden.</li>
+</ul>
+<p>Eine Überschneidung der Namen der Tags, die in den einzelnen XML-Dateien verwendet werden, lässt sich nicht verhindern. Daher ist es möglich, einer XML-Datei einen Namensraum oder mehrere Namensräume zuzuordnen.</p>
+<p>Der Namensraum ist eine Verknüpfung zwischen einem Präfix, das vor den Elementnamen steht, und einer URI. Ein Namensraum wird als Attribut an ein Element (typischerweise das Wurzelelement) gebunden und kann dann von allen Elementen verwendet werden. Das Attribut hat die Form:</p>
+<div class="listing"><pre class="prettyprint">xmlns:Präfix="URI"</pre></div>
+<p>Dem Element, das den Namensraum deklariert, wird ein Präfix vorangestellt. Es hat die Form:</p>
+<div class="listing"><pre class="prettyprint">&lt;Präfix:lokaler Name xmlns:Präfix="URI"&gt;</pre></div>
+<p>Das Präfix ist ein frei wählbares Kürzel, das den Namensraum benennt. Dieses Kürzel wird dem Namen der Elemente, die zu diesem Namensraum gehören, vorangestellt. Der Name eines Elements des Namensraums <span class="clisting">Präfix</span> hat die Form:</p>
+<div class="listing"><pre class="prettyprint">&lt;Präfix:lokaler Name&gt;...&lt;/Präfix:lokaler Name&gt;</pre></div>
+<p>Angenommen, wir möchten für unsere Party das Namensraum-Präfix <span class="clisting">geburtstag</span> verwenden. Die URI für diesen Namensraum ist »http://www.geburtstag.de«. Der Namensraum wird in dem Wurzelelement <span class="clisting">party</span> deklariert. Das Präfix wird jedem Element zugeordnet:</p>
+<div class="listing"><pre class="prettyprint">&lt;geburtstag:party xmlns:geburtstag="http://www.geburtstag.de"
+                  geburtstag:datum="31.12.01"&gt;
+  &lt;geburtstag:gast geburtstag:name="Albert Angsthase"&gt;
+  &lt;/geburtstag:gast&gt;
+&lt;/geburtstag:party&gt;</pre></div>
+<p>Eine weitere wichtige Anwendung von Namensräumen ist es, Tags bestimmter Technologien zu kennzeichnen. Für die XML-Technologien, etwa für Schemas, werden feste Namensräume vergeben.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Namensraumdefinition für ein XML-Schema:</p>
+<div class="listing"><pre class="prettyprint">&lt;xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;</pre></div>
+</td>
+</tr>
+</table><br><p>Eine Anwendung, die XML-Dateien verarbeitet, kann anhand des Namensraums erkennen, welche Technologie verwendet wird. Dabei ist nicht das Präfix, sondern die URI für die Identifikation des Namensraums entscheidend. Für XML-Dateien, die eine Strukturbeschreibung in Form eines Schemas definieren, ist es üblich, das Präfix <span class="clisting">xsd</span> zu verwenden. Es ist aber jedes andere Präfix möglich, wenn die URI auf die Adresse <span class="ckursiv">http://www.w3.org/2001/XMLSchema</span> verweist. Diese Adresse muss nicht unbedingt existieren, und eine Anwendung kann auch nicht erwarten, dass sich hinter dieser Adresse eine konkrete HTML-Seite verbirgt. Die URI dient nur der Identifikation des Namensraums für eine XML-Datei.</p><a id="mj62e6bcc878e81e95702076b2539f77ac" name="mj62e6bcc878e81e95702076b2539f77ac"></a><a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3"><span class="cfett">18.2.5</span> XML-Applikationen *  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Eine <span class="ckursiv">XML-Applikation</span> ist eine festgelegte Auswahl von XML-Elementen und einem Namensraum. XHTML ist eine XML-Applikation, bei der die XML-Elemente die HTML-Elemente zur Beschreibung von Webseiten sind. Durch die Beschränkung auf eine bestimmte Menge von Elementen ist es möglich, diese XML-Dateien für bestimmte Anwendungen zu nutzen. Der Namensraum legt fest, zu welcher Applikation die einzelnen XML-Elemente gehören. Dadurch können verschiedene XML-Applikationen miteinander kombiniert werden.</p>
+<p>Eine bekannte XML-Applikation ist XHTML. Unterschiedliche DTDs beschreiben die Menge möglicher Tags. Für XHTML 1.0 sind es folgende:</p>
+<ul class="gp">
+<li><span class="cfett">XHTML1-strict.dtd</span>: minimale Menge von HTML-Tags</li>
+</ul>
+<ul class="gp">
+<li><span class="cfett">XHTML1-transitional.dtd</span>: die gängigsten HTML-Tags</li>
+</ul>
+<ul class="gp">
+<li><span class="cfett">XHTML1-frameset.dtd</span>: HTML-Tags zur Beschreibung von Frames</li>
+</ul>
+<p>Der Standard XHTML 1.1 geht noch einen Schritt weiter und bietet modulare DTDs an. Hier kann sehr genau differenziert werden, welche HTML-Tags für die eigene XML-Applikation gültig sind. Dadurch ist es sehr einfach möglich, XHTML-Elemente mit eigenen XML-Elementen zu kombinieren. Durch die Verwendung von Namensräumen können die XHTML- und die XML-Tags zur Datenbeschreibung unterschieden werden.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="18.2 Eigenschaften von XML-Dokumenten"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_18_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_18_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

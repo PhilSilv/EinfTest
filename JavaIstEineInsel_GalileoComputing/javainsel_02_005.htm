@@ -1,0 +1,1832 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 2.5 Ausdrücke, Operanden und Operatoren</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 2.5 Ausdrücke, Operanden und Operatoren">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 2.5 Ausdrücke, Operanden und Operatoren">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_05_001.htm#mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_08_001.htm#mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_09_001.htm#mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_11_001.htm#mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_02_004.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_02_006.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2" class="navnav">2 Sprachbeschreibung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_02_001.htm#mj4c39ccec48a76ae30226f3f932121636" class="navnav">2.1 Elemente der Programmiersprache Java</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_001.htm#mj5b64c72b27b5a6ab0a66c5e72bb198cf" class="navnav">2.1.1 Token</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_001.htm#mjecb61a9b6f9af4b3942699e5e3bd68d1" class="navnav">2.1.2 Textkodierung durch Unicode-Zeichen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_001.htm#mjc69b2ac175f46ac3528ed4a2a25453bc" class="navnav">2.1.3 Literale</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_001.htm#mjea18182a41b645e6fbe90ee51045338f" class="navnav">2.1.4 Bezeichner</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_001.htm#mj6c435823530664f454748e31c7501bf7" class="navnav">2.1.5 Reservierte Schlüsselwörter</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_001.htm#mj5a0b15f1dc322e8b94e434a98bb500b4" class="navnav">2.1.6 Zusammenfassung der lexikalischen Analyse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_001.htm#mj60051b94eb75aff76b77b34080d60b4c" class="navnav">2.1.7 Kommentare</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_02_002.htm#mje6cf7db9d2efcd52e5d81fc832f8b139" class="navnav">2.2 Anweisungen formen Programme</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_002.htm#mj41f7748a6816ed4f9e4936292f838c48" class="navnav">2.2.1 Was sind Anweisungen?</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_002.htm#mjf3869f794db9bf16bbaf9a79668c17d3" class="navnav">2.2.2 Klassendeklaration</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_002.htm#mjd13c9e060033d31199f1482b71660888" class="navnav">2.2.3 Die Reise beginnt am main()</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_002.htm#mjb81c2e28c2fe110a0b7a2ef9da7d10a4" class="navnav">2.2.4 Der erste Methodenaufruf: println()</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_002.htm#mj17be0d5f85aa24f9db2bee70ea355e9c" class="navnav">2.2.5 Atomare Anweisungen und Anweisungssequenzen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_002.htm#mje4439fc88c3da817f3de3838c4d83baa" class="navnav">2.2.6 Mehr zu print(), println() und printf() für Bildschirmausgaben</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_002.htm#mj31d33be82ee48d560fea2597234eb467" class="navnav">2.2.7 Die API-Dokumentation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_002.htm#mj2d3ffeacbc5d2d61393972d4204f73c4" class="navnav">2.2.8 Ausdrucksanweisung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_002.htm#mj641d7792a19c51b88ef2fe06bf079712" class="navnav">2.2.9 Erste Idee der Objektorientierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_002.htm#mj5892f57ef257e41d40b817935ca8595f" class="navnav">2.2.10 Modifizierer</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_02_003.htm#mjfa63996892f690e96d6bdc12b0045e24" class="navnav">2.3 Datentypen, Typisierung, Variablen und Zuweisungen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_003.htm#mj2a9abd617099b9fd801bd838feae09cc" class="navnav">2.3.1 Primitive Datentypen im Überblick</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_003.htm#mj2eae18508a8cdb7b415dcb04a19eba9f" class="navnav">2.3.2 Variablendeklarationen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_003.htm#mje0a1a7aa587e4ef38dc8a8d84cfcd506" class="navnav">2.3.3 Variablendeklaration mit Wertinitialisierung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_003.htm#mjb5488e9f0c7c9d35049e1d883a370c30" class="navnav">2.3.4 Zuweisungsoperator</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_003.htm#mjf64878f5c2fa2b31ae20a20c7ef2d2e2" class="navnav">2.3.5 Wahrheitswerte</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_003.htm#mjc11164cdd5eedb52b21ddd19b16f0385" class="navnav">2.3.6 Ganzzahlige Datentypen und Literale</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_003.htm#mjbd61f831aaea6b174b7a007af1a67476" class="navnav">2.3.7 Das binäre (Basis 2), oktale (Basis 8), hexadezimale (Basis 16) Stellenwertsystem *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_003.htm#mjaed1f301e088df504ed1f24dae0d0caf" class="navnav">2.3.8 Die Fließkommazahlen »float« und »double«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_003.htm#mj45c99ccfafcac85ec9c0e87222047c6f" class="navnav">2.3.9 Alphanumerische Zeichen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_003.htm#mj76f1b77014dafca1b945790800d9aedd" class="navnav">2.3.10 Gute Namen, schlechte Namen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_02_004.htm#mjb044d5eb156360a6192e0bde3eeaceb0" class="navnav">2.4 Blöcke, Initialisierung und Sichtbarkeit</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_004.htm#mj266d7a655884ea92d24ba0aa380f56f3" class="navnav">2.4.1 Gruppieren von Anweisungen mit Blöcken</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_004.htm#mjeb2ef4723a3c26e8c0a6ae1eec3a5626" class="navnav">2.4.2 Initialisierung von lokalen Variablen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_004.htm#mj47f0fa7692df8df688cd6a8a6cf9fefd" class="navnav">2.4.3 Sichtbarkeit und Gültigkeitsbereich</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj727e5a27eac7c9b15b5799f50c4a2895" class="navh">2.5 Ausdrücke, Operanden und Operatoren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj9a3af0f9509c60c1a268346af4c9aedb" class="navh">2.5.1 Ausdrücke</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj998e5fa30c9c8bd8a0d12f9b09f3f71d" class="navh">2.5.2 Arithmetische Operatoren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj03da32a2fe369215529830de87a204d1" class="navh">2.5.3 Unäres Minus und Plus</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj63bbbb7a2e0d9190bab41140a3bb33c2" class="navh">2.5.4 Zuweisung mit Operation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj54700b6f99a3a2cf4f2a38465dc17289" class="navh">2.5.5 Präfix- oder Postfix-Inkrement und -Dekrement</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjb37eafd775d803d67baf4aae75ee97d7" class="navh">2.5.6 Die relationalen Operatoren und die Gleichheitsoperatoren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mje27fd167a2ddda300630b8d5c405d763" class="navh">2.5.7 Logische Operatoren: Nicht, Und,Oder, Xor</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj001aa1d35c1746f2106c8a28aff843e8" class="navh">2.5.8 Der Rang der Operatoren in der Auswertungsreihenfolge</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj714856e56857d03d2d050f84d418981d" class="navh">2.5.9 Die Typanpassung (das Casting)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj93a46c1206bdba6ff4c9adf47674d2a7" class="navh">2.5.10 Überladenes Plus für Strings</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj9431e0ffd2d053ce73e865c35801f571" class="navh">2.5.11 Operator vermisst *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_02_006.htm#mj3530d43fab0c366ff75b1414feef64e3" class="navnav">2.6 Bedingte Anweisungen oder Fallunterscheidungen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_006.htm#mj5c02f22dd3cf727da8cf465e7a3ec9a0" class="navnav">2.6.1 Die if-Anweisung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_006.htm#mjb94647aaf953d4eac34b42a303575c94" class="navnav">2.6.2 Die Alternative mit einer if-else-Anweisung wählen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_006.htm#mj0ed4e5c52acd8f230d31a246ccd268c6" class="navnav">2.6.3 Der Bedingungsoperator</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_006.htm#mj448e6960f284a4beda96b23e994ebd5e" class="navnav">2.6.4 Die switch-Anweisung bietet die Alternative</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_02_007.htm#mjb517285509ecebe1bb38c15fc43eb4c2" class="navnav">2.7 Schleifen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_007.htm#mja1bc0775bbd3451450d183be28eeb3eb" class="navnav">2.7.1 Die while-Schleife</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_007.htm#mj6e1455d87e650c79a9c4af1df370cf26" class="navnav">2.7.2 Die do-while-Schleife</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_007.htm#mjdcbb2e90942d428b2c033d90ed115f3b" class="navnav">2.7.3 Die for-Schleife</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_007.htm#mj0a12edb4c2de73996536d2a0cfa93253" class="navnav">2.7.4 Schleifenbedingungen und Vergleiche mit ==</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_007.htm#mj86b3106463107c046e4f10288be23d6f" class="navnav">2.7.5 Ausbruch planen mit break und Wiedereinstieg mit »continue«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_007.htm#mjb66a4e86916302730701a5ea728c4602" class="navnav">2.7.6 »break« und »continue« mit Marken *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_02_008.htm#mjc2d5868bd7bba72c8f470a1eff29b8f8" class="navnav">2.8 Methoden einer Klasse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_008.htm#mj03b21193a0b840663819e08cdcf6aa9a" class="navnav">2.8.1 Bestandteil einer Methode</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_008.htm#mj6cd639c6b783b1a61957698d1c4d5428" class="navnav">2.8.2 Signatur-Beschreibung in der Java-API</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_008.htm#mje562fc58793dd3e128a981b070731e31" class="navnav">2.8.3 Aufruf einer Methode</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_008.htm#mjd30f308b95326a708d51f03f631ca749" class="navnav">2.8.4 Methoden ohne Parameter deklarieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_008.htm#mj2836d5713aaa7620f0e534af0f44159c" class="navnav">2.8.5 Statische Methoden (Klassenmethoden)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_008.htm#mj9b0d4e5b321975f9fc5fd010a7b19af8" class="navnav">2.8.6 Parameter, Argument und Wertübergabe</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_008.htm#mje82aa3de4956da1e1f98332c14f73c54" class="navnav">2.8.7 Methoden vorzeitig mit return beenden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_008.htm#mj8f915a85179c256c6ea97f1a4c2c6640" class="navnav">2.8.8 Nicht erreichbarer Quellcode bei Methoden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_008.htm#mjd33fee2b0c0e1f589dc7bed1badb5329" class="navnav">2.8.9 Rückgabewerte</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_008.htm#mj021ec31631b9b7c44011343c7fbe8def" class="navnav">2.8.10 Methoden überladen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_008.htm#mjf8e7549c7c3a573dcfba78077f9cf7e1" class="navnav">2.8.11 Vorgegebener Wert für nicht aufgeführte Argumente *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_008.htm#mj93af18e3273e580bb7a4395eeec2f1f8" class="navnav">2.8.12 Finale lokale Variablen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_008.htm#mje1fd0b8e4f3262cd2aa633ff59abaab5" class="navnav">2.8.13 Rekursive Methoden *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_02_008.htm#mja99d7594870ad07a0d98217193f32790" class="navnav">2.8.14 Die Türme von Hanoi *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_02_009.htm#mj5080aed8bdb6bf2ecab222e8a24e2514" class="navnav">2.9 Zum Weiterlesen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj727e5a27eac7c9b15b5799f50c4a2895" name="mj727e5a27eac7c9b15b5799f50c4a2895"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">2.5</span> Ausdrücke, Operanden und Operatoren  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Beginnen wir mit mathematischen Ausdrücken, um dann die Schreibweise in Java zu ermitteln. Eine mathematische Formel, etwa der Ausdruck <span class="clisting">&#8211;27 * 9</span>, besteht aus <span class="ckursiv">Operanden</span> (engl. <span class="ckursiv">operands</span>) und <span class="ckursiv">Operatoren</span> (engl. <span class="ckursiv">operators</span>). Ein Operand ist eine Variable oder ein Literal. Im Fall einer Variablen wird der Wert aus der Variablen ausgelesen und mit ihm die Berechnung durchgeführt.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Ein Ausdruck mit Zuweisungen:</p>
+<div class="listing"><pre class="prettyprint">int i = 12, j;
+j = i * 2;</pre></div>
+<p class="BStandard">Die Multiplikation berechnet das Produkt von 12 und 2 und speichert das Ergebnis in <span class="clisting">j</span> ab. Von allen primitiven Variablen, die in dem Ausdruck vorkommen, wird also der Wert ausgelesen und in den Ausdruck eingesetzt.[Es gibt Programmiersprachen, in denen Wertoperationen besonders gekennzeichnet werden. So etwa in LOGO. Eine Wertoperation schreibt sich dort mit einem Doppelpunkt vor der Variablen, etwa <span class="clisting">:X + :Y</span>.
+]</p>
+</td>
+</tr>
+</table><br><p>Dies nennt sich auch <span class="ckursiv">Wertoperation</span>, da der Wert der Variablen betrachtet wird und nicht ihr Speicherort oder gar ihr Variablenname.</p>
+<h4 class="t4">Die Arten von Operatoren</h4>
+<p>Operatoren verknüpfen die Operanden. Je nach Anzahl der Operanden unterscheiden wir:</p>
+<ul class="gp">
+<li>Ist ein Operator auf genau einem Operand definiert, so nennt er sich <span class="ckursiv">unärer Operator</span> (oder <span class="ckursiv">einstelliger Operator</span>). Das Minus (negatives Vorzeichen) vor einem Operand ist ein unärer Operator, da er für genau den folgenden Operanden gilt.</li>
+</ul>
+<ul class="gp">
+<li>Die üblichen Operatoren Plus, Minus, Mal und Geteilt sind <span class="ckursiv">binäre</span> (<span class="ckursiv">zweistellige</span>) <span class="ckursiv">Operatoren</span>.</li>
+</ul>
+<ul class="gp">
+<li>Es gibt auch einen Fragezeichen-Operator für bedingte Ausdrücke, der dreistellig ist.</li>
+</ul><a id="mj9a3af0f9509c60c1a268346af4c9aedb" name="mj9a3af0f9509c60c1a268346af4c9aedb"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">2.5.1</span> Ausdrücke  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Ein <span class="ckursiv">Ausdruck</span> (engl. <span class="ckursiv">expression</span>) ergibt bei der Auswertung ein Ergebnis. Dieser Wert wird auch <span class="ckursiv">Resultat</span> genannt. Ausdrücke haben immer einen Wert, während das für Anweisungen (wie eine Schleife) nicht gilt. Daher kann ein Ausdruck an allen Stellen stehen, an denen ein Wert benötigt wird. Dieser Wert ist entweder ein numerischer Wert (von arithmetischen Ausdrücken), ein Wahrheitswert (<span class="clisting">boolean</span>) oder eine Referenz (etwa von einer Objekt-Erzeugung).</p>
+<p>Operatoren erlauben die Verbindung einzelner Ausdrücke zu neuen Ausdrücken. Einige Operatoren sind aus der Schule bekannt, wie Addition, Vergleich, Zuweisung und weitere. C(++)-Programmierer werden viele Freunde wiedererkennen.</p><a id="mj998e5fa30c9c8bd8a0d12f9b09f3f71d" name="mj998e5fa30c9c8bd8a0d12f9b09f3f71d"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">2.5.2</span> Arithmetische Operatoren  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Ein arithmetischer Operator verknüpft die Operanden mit den Operatoren Addition (+), Subtraktion (&#150;), Multiplikation (*) und Division (/). Zusätzlich gibt es den Restwert-Operator %, der den bei der Division verbleibenden Rest betrachtet. Alle Operatoren sind für ganzzahlige Werte sowie für Fließkommazahlen definiert. Die arithmetischen Operatoren sind binär, und auf der linken und rechten Seite sind die Typen numerisch. Der Ergebnistyp ist ebenfalls numerisch.</p>
+<h4 class="t4">Numerische Umwandlung</h4>
+<p>Bei Ausdrücken mit unterschiedlichen numerischen Datentypen, etwa <span class="clisting">int</span> und <span class="clisting">double</span>, bringt der Compiler vor der Anwendung der Operation alle Operanden auf den umfassenderen Typ. Vor der Auswertung von 1 + 2.0 wird somit die Ganzzahl 1 in ein <span class="clisting">double</span> konvertiert und dann die Addition vorgenommen &#8211; das Ergebnis ist auch vom Typ <span class="clisting">double</span>. Das nennt sich <span class="ckursiv">numerische Umwandlung</span> (engl. <span class="ckursiv">numeric promotion</span>). Bei <span class="clisting">byte</span> und <span class="clisting">short</span> gilt die Sonderregelung, dass sie vorher in <span class="clisting">int</span> konvertiert werden. [<span class="ckursiv">http://java.sun.com/docs/books/jls/third_edition/html/conversions.html#26917</span>
+]  (Auch im Java-Bytecode gibt es keine arithmetischen Operationen auf <span class="clisting">byte</span>, <span class="clisting">short</span> und <span class="clisting">char</span>.) Anschließend wird die Operation ausgeführt, und der Ergebnistyp entspricht dem umfassenderen Typ.</p>
+<h4 class="t4">Der Divisionsoperator</h4>
+<p>Der binäre Operator »<span class="clisting">/</span>« bildet den Quotienten aus Dividend und Divisor. Auf der linken Seite steht der Dividend und auf der rechten der Divisor. Die Division ist für Ganzzahlen und für Fließkommazahlen definiert. Bei der Ganzzahldivision wird zu null hin gerundet, und das Ergebnis ist keine Fließkommazahl, sodass 1/3 das Ergebnis 0 ergibt und nicht 0,333… Den Datentyp des Ergebnisses bestimmen die Operanden und nicht der Operator. Soll das Ergebnis vom Typ <span class="clisting">double</span> sein, muss ein Operand ebenfalls <span class="clisting">double</span> sein.</p>
+<div class="listing"><pre class="prettyprint">System.out.println( 1.0 / 3 );          // 0.3333333333333333
+System.out.println( 1   / 3.0 );        // 0.3333333333333333
+System.out.println( 1 / 3 );            // 0</pre></div>
+<p>Schon die Schulmathematik lehrte uns, dass die Division durch null nicht erlaubt ist. Führen wir in Java eine Ganzzahldivision mit dem Divisor 0 durch, so bestraft uns Java mit einer <span class="clisting">ArithmeticException</span>. Bei Fließkommazahlen liefert eine Division durch 0 keine Ausnahme, sondern +/&#150; unendlich und bei 0.0/0.0 den Sonderwert <span class="clisting">NaN</span> (mehr dazu in Kapitel 12, »Bits und Bytes und Mathematisches«). Ein <span class="clisting">NaN</span> steht für <span class="ckursiv">Not a Number</span> (auch schon manchmal »Unzahl« genannt) und wird vom Prozessor erzeugt, falls er eine mathematische Operation wie die Division durch null nicht durchführen kann. In Kapitel 12 werden wir auf <span class="clisting">NaN</span> noch einmal zurückkommen.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Anekdote   </span>Beim Lenkraketenkreuzer USS Yorktown gab ein Mannschaftsmitglied aus Versehen die Zahl Null ein. Das führte zu einer Division durch null, und der Fehler pflanzte sich so weit fort, dass die Software abstürzte und das Antriebssystem stoppte. Das Schiff trieb mehrere Stunden antriebslos im Wasser.</p>
+</td>
+</tr>
+</table><br><h4 class="t4">Der Restwert-Operator % *</h4>
+<p>Eine Ganzzahldivision muss nicht unbedingt glatt aufgehen, wie im Fall von 9/2. In diesem Fall gibt es den Rest 1. Diesen Rest liefert der <span class="ckursiv">Restwert-Operator</span> (engl. <span class="ckursiv">remainder operator</span>), oft auch <span class="ckursiv">Modulo</span> genannt. Mathematiker unterscheiden die beiden Begriffe <span class="ckursiv">Rest</span> und <span class="ckursiv">Modulo</span>, da ein Modulo nicht negativ ist, der Rest in Java aber schon. Das soll uns aber egal sein.</p>
+<div class="listing"><pre class="prettyprint">System.out.println( 9% 2 );            // 1</pre></div>
+<p>Der Restwert-Operator ist auch auf Fließkommazahlen anwendbar, und die Operanden können negativ sein.</p>
+<div class="listing"><pre class="prettyprint">System.out.println( 12. % 2.5 );        // 2.0</pre></div>
+<p>Die Division und der Restwert richten sich in Java nach einer einfachen Formel: (int)<span class="ckursiv">(a/b)*b + (a%b) = a</span>.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Die Gleichung ist erfüllt, wenn wir etwa <span class="clisting">a = 10</span> und <span class="clisting">b = 3</span> wählen. Es gilt: <span class="clisting">(int)(10/3) = 3</span> und <span class="clisting">10  % 3</span> ergibt <span class="clisting">1</span>. Dann ergeben <span class="clisting">3 * 3 + 1 = 10</span>.</p>
+</td>
+</tr>
+</table><br><p>Aus dieser Gleichung folgt, dass beim Restwert das Ergebnis nur dann negativ ist, wenn der Dividend negativ ist; er ist nur dann positiv, wenn der Dividend positiv ist. Es ist leicht einzusehen, dass das Ergebnis der Restwert-Operation immer echt kleiner ist als der Wert des Divisors. Wir haben den gleichen Fall wie bei der Ganzzahldivision, dass ein Divisor mit dem Wert 0 eine <span class="clisting">ArithmeticException</span> auslöst und bei Fließkommazahlen zum Ergebnis <span class="clisting">NaN</span> führt.</p>
+<p class="tabunter"><strong>Listing 2.9    </strong>RemainerAndDivDemo.java, main()</p>
+<div class="listing"><pre class="prettyprint">System.out.println( "+5% +3 = " + (+5% +3) );    //  2
+System.out.println( "+5 / +3 = " + (+5 / +3) );  //  1
+
+System.out.println( "+5% &#8211;3 = " + (+5% &#8211;3) );    //  2
+System.out.println( "+5 / &#8211;3 = " + (+5 / &#8211;3) );  // &#8211;1
+
+System.out.println( "<span class="cfett">-</span>5% +3 = " + (-5% +3) );    //<span class="cfett"> &#8211;</span>2
+System.out.println( "-5 / +3 = " + (-5 / +3) );  // &#8211;1
+
+System.out.println( "<span class="cfett">-</span>5% &#8211;3 = " + (-5% &#8211;3) );    //<span class="cfett"> &#8211;</span>2
+System.out.println( "-5 / &#8211;3 = " + (-5 / &#8211;3) );  //  1</pre></div>
+<p>Gewöhnungsbedürftig ist die Tatsache, dass der erste Operand (Dividend) das Vorzeichen des Restes definiert und niemals der zweite (Divisor).</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Um mit <span class="clisting">value % 2 == 1</span> zu testen, ob <span class="clisting">value</span> eine ungerade Zahl ist, muss <span class="clisting">value</span> positiv sein, denn <span class="clisting">&#8211;3  % 2</span> wertet Java zu <span class="clisting">&#8211;1</span> aus. Der Test auf ungerade Zahlen wird erst wieder korrekt mit <span class="clisting">value % 2 != 0</span>.</p>
+</td>
+</tr>
+</table><br><h4 class="t4">Restwert für Fließkommazahlen und Math.IEEEremainder() *</h4>
+<p>Über die oben genannte Formel können wir auch bei Fließkommazahlen das Ergebnis einer Restwert-Operation leicht berechnen. Dabei muss beachtet werden, dass sich der Operator nicht so wie unter IEEE 754 verhält. Denn diese Norm schreibt vor, dass die Restwert-Operation den Rest von einer rundenden Division berechnet und nicht von einer abschneidenden. So wäre das Verhalten nicht analog zum Restwert bei Ganzzahlen. Java definiert den Restwert jedoch bei Fließkommazahlen genauso wie den Restwert bei Ganzzahlen. Wünschen wir ein Restwert-Verhalten, wie es IEEE 754 vorschreibt, so können wir immer noch die statische Bibliotheksmethode <span class="clisting">Math.IEEEremainder() [</span>Es gibt auch Methoden, die nicht mit Kleinbuchstaben beginnen, wobei das sehr selten ist und nur in Sonderfällen auftritt. <span class="clisting">ieeeRemainder()</span> sah für die Autoren nicht nett aus.
+]  verwenden.</p>
+<p>Auch bei der Restwert-Operation bei Fließkommazahlen werden wir niemals eine Exception erwarten. Eventuelle Fehler werden, wie im IEEE-Standard beschrieben, mit <span class="clisting">NaN</span> angegeben. Ein Überlauf oder Unterlauf kann zwar vorkommen, aber nicht geprüft werden.</p>
+<h4 class="t4">Rundungsfehler *</h4>
+<p>Prinzipiell sollten Anweisungen wie <span class="clisting">1.1 &#8211; 0.1</span> immer <span class="clisting">1.0</span> ergeben, jedoch treten interne Rundungsfehler bei der Darstellung auf und lassen das Ergebnis von Berechnung zu Berechnung immer ungenauer werden. Ein besonders ungünstiger Fehler trat 1994 beim Pentium-Prozessor im Divisionsalgorithmus Radix-4 SRT auf, ohne dass der Programmierer der Schuldige war:</p>
+<div class="listing"><pre class="prettyprint">double x, y, z;
+x = 4195835.0;
+y = 3145727.0;
+z = x &#8211; (x/y) * y;
+System.out.println( z );</pre></div>
+<p>Ein fehlerhafter Prozessor liefert hier 256, obwohl laut Rechenregel das Ergebnis 0 sein muss. Laut Intel sollte für einen normalen Benutzer (Spieler, Softwareentwickler, Surfer?) der Fehler nur alle 27.000 Jahre auftauchen. Glück für die meisten. Eine Studie von IBM errechnete eine Fehlerhäufigkeit von einmal in 24 Tagen. Alles in allem hat Intel die CPUs zurückgenommen, über 400 Millionen US-Dollar verloren und spät den Kopf gerade noch aus der Schlinge gezogen.</p>
+<p>Die meisten Rundungsfehler resultieren aber daher, dass endliche Dezimalbrüche im Rechner als Näherungswerte für periodische Binärbrüche repräsentiert werden müssen. <span class="clisting">0.1</span> entspricht einer periodischen Mantisse im IEEE-Format.</p><a id="mj03da32a2fe369215529830de87a204d1" name="mj03da32a2fe369215529830de87a204d1"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">2.5.3</span> Unäres Minus und Plus  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die binären Operatoren sitzen zwischen zwei Operanden, während sich ein unärer Operator genau einen Operanden vornimmt. Das unäre Minus (Operator zur Vorzeichenumkehr) etwa dreht das Vorzeichen des Operanden um. So wird aus einem positiven Wert ein negativer und aus einem negativen ein positiver.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Drehe das Vorzeichen einer Zahl um:</p>
+<div class="listing"><pre class="prettyprint">a = -a;</pre></div>
+<p class="BStandard">Alternativ ist:</p>
+<div class="listing"><pre class="prettyprint">a = &#8211;1 * a;</pre></div>
+</td>
+</tr>
+</table><br><p>Das unäre Plus ist eigentlich unnötig; die Entwickler haben es jedoch aus Symmetriegründen mit eingeführt.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Minus und Plus sitzen direkt vor dem Operanden, und der Compiler weiß selbstständig, ob dies unär oder binär ist. Der Compiler erkennt auch folgende Konstruktion:</p>
+<div class="listing"><pre class="prettyprint">int i = &#8211; &#8211; &#8211; 2 + &#8211; + 3;</pre></div>
+<p class="BStandard">Dies ergibt den Wert <span class="clisting">&#8211;5</span>. Einen Ausdruck wie <span class="clisting">---2+-+3</span> erkennt der Compiler dagegen nicht an, da die zusammenhängenden Minuszeichen als Inkrement interpretiert werden und nicht als unärer Operator. Das Leerzeichen ist also bedeutend.</p>
+</td>
+</tr>
+</table><br><h4 class="t4">Vorzeichen erfragen</h4>
+<p>Um für das Vorzeichen einen Wert +1 für positive oder &#150;1 für negative Zahlen und 0 für 0 zu bekommen, lässt sich die statische Methode <span class="clisting">signum()</span> verwenden. Sie ist nicht ganz logisch auf die Klassen <span class="clisting">Math</span> für Fließkommazahlen und <span class="clisting">Integer</span>/<span class="clisting">Long</span> für Ganzzahlen verteilt:</p>
+<ul class="gp">
+<li><span class="clisting">java.lang.</span><span class="cfett">Integer</span><span class="clisting">.signum( int i )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">java.lang.</span><span class="cfett">Long</span><span class="clisting">.signum( long i )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">java.lang.</span><span class="cfett">Math</span><span class="clisting">.signum( double d )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">java.lang.</span><span class="cfett">Math</span><span class="clisting">.signum( float f )</span></li>
+</ul><a id="mj63bbbb7a2e0d9190bab41140a3bb33c2" name="mj63bbbb7a2e0d9190bab41140a3bb33c2"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">2.5.4</span> Zuweisung mit Operation  <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>In Java lassen sich Zuweisungen mit numerischen Operatoren kombinieren. Für einen binären Operator <span class="clisting">#</span> im Ausdruck <span class="clisting">a = a # (b)</span> kürzt der <span class="ckursiv">Verbundoperator</span> den Ausdruck zu <span class="clisting">a #= b</span> ab. Dazu einige Beispiele:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 2.10    </strong>Verbundoperator und ausgeschriebene Variante</p>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Schreibweise mit Verbundoperator</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Ausführliche Schreibweise</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">a += 2;</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">a = a + 2;</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">a *= &#8211;1;</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">a = a * &#8211;1;</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">a /= 10;</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">a = a / 10;</span></p>
+</td>
+</tr>
+</table><br><p>Dass eine Zuweisung immer auch ein Ausdruck ist, zeigt folgendes Beispiel:</p>
+<div class="listing"><pre class="prettyprint">int a = 0;
+System.out.println( a );        // 0
+System.out.println(<span class="cfett"> a += 2</span> );   // 2
+System.out.println( a );        // 2</pre></div>
+<p>Besondere Obacht sollten wir auf die automatische Klammerung geben. Bei einem Ausdruck wie <span class="clisting">a *= 3 + 5</span> gilt <span class="clisting">a = a * (3 + 5)</span> und nicht selbstverständlich die Punkt-vor-Strich-Regelung <span class="clisting">a = a * 3 + 5</span>.</p>
+<p>Falls es sich bei der rechten Seite um einen komplexeren Ausdruck handelt, wird dieser nur einmal ausgewertet. Dies ist wichtig bei Methodenaufrufen, die Nebenwirkungen besitzen, also etwa Zustände wie einen Zähler verändern.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Wir profitieren auch bei Feldzugriffen (siehe Abschnitt 3.7, »Arrays«) von Verbundoperationen, da die Auswertung des Index nur einmal stattfindet:</p>
+<div class="listing"><pre class="prettyprint">array[ 2 * i + j ] = array[ 2 * i + j ] + 1;</pre></div>
+<p class="BStandard">Leichter zu lesen ist die folgende Anweisung:</p>
+<div class="listing"><pre class="prettyprint">array[ 2 * i + j ] += 1;</pre></div>
+</td>
+</tr>
+</table><br><h4 class="t4">Typanpassung beim Verbundoperator *</h4>
+<p>Beim Verbundoperator wird noch etwas mehr gemacht, als <span class="clisting">E1 #= E2</span> zu <span class="clisting">E1 = (E1) # (E2)</span> aufzulösen. Interessanterweise kommt auch noch der Typ von <span class="clisting">E1</span> ins Spiel, denn der Ausdruck <span class="clisting">E1 # E2</span> wird vor der Zuweisung auf den Datentyp von <span class="clisting">E1</span> gebracht, sodass es genau heißen muss: <span class="clisting">E1 #= E2</span> wird zu <span class="clisting">E1 = (Typ von E1)((E1) # (E2))</span>.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Der Verbundoperator soll eine Ganzzahl zu einer Fließkommazahl addieren.</p>
+<div class="listing"><pre class="prettyprint">int i = 1973;
+i += 30.2;</pre></div>
+<p class="BStandard">Die Anwendung des Verbundoperators ist in Ordnung, denn der Übersetzer nimmt eine implizite Typanpassung vor, sodass die Bedeutung bei <span class="clisting">i = (int)(i + 30.2)</span> liegt. So viel dazu, dass Java eine intuitive und einfache Programmiersprache sein soll.</p>
+</td>
+</tr>
+</table><br><a id="mj54700b6f99a3a2cf4f2a38465dc17289" name="mj54700b6f99a3a2cf4f2a38465dc17289"></a><a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3"><span class="cfett">2.5.5</span> Präfix- oder Postfix-Inkrement und -Dekrement  <a href="#t2t37"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Das Herauf- und Heruntersetzen von Variablen ist eine sehr häufige Operation, wofür die Entwickler in der Vorgängersprache C auch einen Operator spendiert hatten. Die praktischen Operatoren <span class="clisting">++</span> und <span class="clisting">--</span> kürzen die Programmzeilen zum Inkrement und Dekrement ab:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">i++</span>;            // Abkürzung für i = i + 1<span class="cfett">
+j--</span>;            //               j = j &#8211; 1</pre></div>
+<p>Eine lokale Variable muss allerdings vorher initialisiert sein, da ein Lesezugriff vor einem Schreibzugriff stattfindet. Der <span class="clisting">++</span>/<span class="clisting">&#8211;&#8211;</span>-Operator erfüllt also zwei Aufgaben: Neben der Wertrückgabe gibt es eine Veränderung der Variablen.</p>
+<h4 class="t4">Vorher oder nachher</h4>
+<p>Die beiden Operatoren liefern einen Ausdruck und geben daher einen Wert zurück. Es macht jedoch einen feinen Unterschied, wo dieser Operator platziert wird. Es gibt ihn nämlich in zwei Varianten: Er kann vor der Variablen stehen, wie in <span class="clisting">++i</span> (Präfix-Schreibweise), oder dahinter, wie bei <span class="clisting">i++</span> (Postfix-Schreibweise). Der Präfix-Operator verändert die Variable vor der Auswertung des Ausdrucks, und der Postfix-Operator ändert sie nach der Auswertung des Ausdrucks. Mit anderen Worten: Nutzen wir einen Präfix-Operator, so wird die Variable erst herauf- beziehungsweise heruntergesetzt und dann der Wert geliefert.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Präfix/Postfix in einer Ausgabeanweisung:</p>
+<p class="BStandard"><span class="cfett">Präfix-Inkrement und -Dekrement:</span></p>
+<div class="listing"><pre class="prettyprint"><span class="clisting">
+int i = 10, j = 20;
+System.out.println( ++i );   // 11
+System.out.println( --j );   // 19
+System.out.println( i );     // 11
+System.out.println( j );     // 19</span></pre></div>
+<p class="BStandard"><span class="cfett">Postfix-Inkrement und -Dekrement:</span></p>
+<div class="listing"><pre class="prettyprint"><span class="clisting">
+int i = 10, j = 20;
+System.out.println( i++ );   // 10
+System.out.println( j-- );   // 20
+System.out.println( i );     // 11
+System.out.println( j );     // 19</span></pre></div>
+</td>
+</tr>
+</table><br><p>Mit der Möglichkeit, Variablen zu erhöhen und zu vermindern, ergeben sich vier Varianten:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 2.11    </strong>Präfix- und Postfix-Inkrement und -Dekrement</p>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett"> </span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Präfix</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Postfix</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="cfett">Inkrement</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="ckursiv">Prä-Inkrement</span>, <span class="clisting">++i</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="ckursiv">Post-Inkrement</span>, <span class="clisting">i++</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="cfett">Dekrement</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="ckursiv">Prä-Dekrement</span>, <span class="clisting">--i</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="ckursiv">Post-Dekrement</span>, <span class="clisting">i--</span></p>
+</td>
+</tr>
+</table><br><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>In Java sind Inkrement (<span class="clisting">++</span>) und Dekrement (<span class="clisting">--</span>) für alle numerischen Datentypen erlaubt, also auch für Fließkommazahlen:</p>
+<div class="listing"><pre class="prettyprint">double d = 12;
+System.out.println( --d );              // 11.0
+double e = 12.456;
+System.out.println( --e );              // 11.456</pre></div>
+</td>
+</tr>
+</table><br><h4 class="t4">Einige Kuriositäten *</h4>
+<p>Wir wollen uns abschließend noch mit einer Besonderheit des Post-Inkrements und Prä-Inkrements beschäftigen, die nicht nachahmenswert ist:</p>
+<div class="listing"><pre class="prettyprint">a = 2;
+a = ++a;      // a = 3
+b = 2;
+b = b++;      // b = 2</pre></div>
+<p>Im ersten Fall bekommen wir den Wert 3 und im zweiten Fall den Wert 2. Der erste Fall überrascht nicht, denn <span class="clisting">a = ++a</span> erhöht den Wert 2 um 1, und anschließend wird 3 der Variablen <span class="clisting">a</span> zugewiesen. Bei <span class="clisting">b</span> ist es raffinierter: Der Wert von <span class="clisting">b</span> ist 2, und dieser Wert wird intern vermerkt. Anschließend erhöht <span class="clisting">b++</span> die Variable <span class="clisting">b</span>. Doch die Zuweisung setzt <span class="clisting">b</span> auf den gemerkten Wert, der 2 war. Also ist <span class="clisting">b = 2</span>.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Das Post-Inkrement finden wir auch im Namen der Programmiersprache C++. Es soll ausdrücken, dass es »C-mit-eins-drauf« ist, also ein verbessertes C. Mit dem Wissen über den Postfix-Operator ist klar, dass diese Erhöhung aber erst nach der Nutzung auftritt &#8211; also C++ ist auch nur C, und der Vorteil kommt später. Einer der Entwickler von Java, Bill Joy, hat einmal Java als C++-- [--C++ könnte besser passen: Erst wird C++ bereinigt und dann zu Java erweitert.
+] beschrieben. Er meinte damit C++ ohne die schwer zu pflegenden Eigenschaften.</p>
+</td>
+</tr>
+</table><br><a id="mjb37eafd775d803d67baf4aae75ee97d7" name="mjb37eafd775d803d67baf4aae75ee97d7"></a><a name="t36"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t37"></a><h3 class="t3"><span class="cfett">2.5.6</span> Die relationalen Operatoren und die Gleichheitsoperatoren  <a href="#t2t38"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t36"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p><span class="ckursiv">Relationale Operatoren</span> sind <span class="ckursiv">Vergleichsoperatoren</span>, die Ausdrücke miteinander vergleichen und einen Wahrheitswert vom Typ <span class="clisting">boolean</span> zurückgeben. Die von Java für numerische Vergleiche zur Verfügung gestellten Operatoren sind:</p>
+<ul class="gp">
+<li>Größer (<span class="clisting">&gt;</span>)</li>
+</ul>
+<ul class="gp">
+<li>Kleiner (<span class="clisting">&lt;</span>)</li>
+</ul>
+<ul class="gp">
+<li>Größer-gleich (<span class="clisting">&gt;=</span>)</li>
+</ul>
+<ul class="gp">
+<li>Kleiner-gleich (<span class="clisting">&lt;=</span>)</li>
+</ul>
+<p>Weiterhin gibt es einen Spezial-Operator <span class="clisting">instanceof</span> zum Testen von Referenzeigenschaften.</p>
+<p>Zudem kommen zwei Vergleichsoperatoren hinzu, die Java als <span class="ckursiv">Gleichheitsoperatoren</span> bezeichnet:</p>
+<ul class="gp">
+<li>Test auf Gleichheit (<span class="clisting">==</span>)</li>
+</ul>
+<ul class="gp">
+<li>Test auf Ungleichheit (<span class="clisting">!=</span>)</li>
+</ul>
+<p>Dass Java hier einen Unterschied macht, liegt an einem etwas anderen Vorrang, der uns aber nicht weiter beschäftigen soll.</p>
+<p>Ebenso wie arithmetische Operatoren passen die relationalen Operatoren ihre Operanden an einen gemeinsamen Typ an. Handelt es sich bei den Typen um Referenztypen, so sind nur die Vergleichsoperatoren <span class="clisting">==</span> und <span class="clisting">!=</span> erlaubt.</p>
+<h4 class="t4">Kaum Verwechslungsprobleme durch == und =</h4>
+<p>Die Verwendung des relationalen Operators <span class="clisting">==</span> und der Zuweisung <span class="clisting">=</span> führt bei Einsteigern oft zu Problemen, da die Mathematik für Vergleiche und Zuweisungen immer nur ein Gleichheitszeichen kennt. Glücklicherweise ist das Problem in Java nicht so drastisch wie beispielsweise in C(++), da die Typen der Operatoren unterschiedlich sind. Der Vergleichsoperator ergibt immer nur den Rückgabewert <span class="clisting">boolean</span>. Zuweisungen von numerischen Typen ergeben jedoch wieder einen numerischen Typ. Es kann also kein Problem wie das folgende geben:</p>
+<div class="listing"><pre class="prettyprint">int a = 10, b = 11;
+boolean result1 = (<span class="cfett"> a = b</span> );        // <img src="common/totenkopf.gif" border="0" align="bottom" alt="Fehler"> Compilerfehler
+boolean result2 = (<span class="cfett"> a == b</span> );  </pre></div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Die Wahrheitsvariable <span class="clisting">hasSign</span> soll dann <span class="clisting">true</span> sein, wenn das Zeichen <span class="clisting">sign</span> gleich dem Minus ist:</p>
+<div class="listing"><pre class="prettyprint">boolean hasSign = (sign == '-');</pre></div>
+<p class="BStandard">Die Auswertungsreihenfolge ist folgende: Erst wird das Ergebnis des Vergleichs berechnet, und dieser Wahrheitswert wird anschließend in <span class="clisting">hasSign</span> kopiert.</p>
+</td>
+</tr>
+</table><br><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">(Anti-)Stil   </span>Bei einem Vergleich mit <span class="clisting">==</span> können beide Operanden vertauscht werden &#8211; wenn die beiden Seiten keine beeinflussenden Seiteneffekte produzieren, also etwa Zustände ändern. Am Ergebnis ändert sich nichts, denn der Vergleichsoperator ist kommutativ. So ist</p>
+<div class="listing"><pre class="prettyprint">if ( worldExpoShanghaiCostInUSD == 58000000000</pre></div>
+<p class="BStandard">und</p>
+<div class="listing"><pre class="prettyprint">if ( 58000000000 == worldExpoShanghaiCostInUSD )</pre></div>
+<p class="BStandard">semantisch gleich. Bei einem Gleichheitsvergleich zwischen Variable und Literal werden viele Entwickler mit einer Vergangenheit in der Programmiersprache C die Variable links und die Konstante rechts setzen. Der Grund für diesen so genannten <span class="ckursiv">Yoda-Stil</span> [Yoda ist eine Figur aus Star Wars, die eine für uns ungewöhnliche Satzstellung nutzt. Anstatt Sätze mit Subjekt + Prädikat + Objekt (SPO) aufzubauen, nutzt Yoda die Form Objekt + Subjekt + Prädikat (OSP), etwa bei »Begun the Clone War has«. Objekt und Subjekt sind umgedreht, so wie die Operanden aus dem Beispiel auch, sodass dieser Ausdruck sich so lesen würde: »Wenn <span class="clisting">58000000000</span> gleich <span class="clisting">worldExpoShanghaiCostInUSD</span> ist« statt der üblichen SPO-Lesung »wenn <span class="clisting">worldExpoShanghaiCostInUSD</span> ist gleich <span class="clisting">58000000000</span>«. Im Arabischen ist diese OSP-Stellung üblich, sodass Entwickler aus dem arabischen Sprachraum diese Form eigentlich natürlich finden könnten. Wenn das mal nicht eine Studie wert ist …] ist die Vermeidung von Fehlern. Fehlt in C ein Gleichheitszeichen, so ist <span class="clisting">if ( worldExpoShanghaiCostInUSD = 58000000000 )</span> compilierbar (wenn auch mittlerweile mit einer Warnung), <span class="clisting">if ( 58000000000 = worldExpoShanghaiCostInUSD )</span> aber nicht. Die erste fehlerhafte Version initialisiert eine Variable und springt immer in die <span class="clisting">if</span>-Anweisung, da in C jeder Ausdruck (hier von der Zuweisung, die ja ein Ausdruck ist) ungleich 0 als wahr interpretiert wird. Das ist ein logischer Fehler, den die zweite Schreibweise verhindert, denn sie führt zu einem Compilerfehler. In Java kann der Fehler nicht passieren &#8211; es sei denn, der Variablentyp ist <span class="clisting">boolean</span>, was sehr selten vorkommt &#8211; und so sollte diese Yoda-Schreibweise vermieden werden.</p>
+</td>
+</tr>
+</table><br><a id="mje27fd167a2ddda300630b8d5c405d763" name="mje27fd167a2ddda300630b8d5c405d763"></a><a name="t37"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t38"></a><h3 class="t3"><span class="cfett">2.5.7</span> Logische Operatoren: Nicht, Und, Oder, Xor  <a href="#t2t39"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t37"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Abarbeitung von Programmcode ist oft an Bedingungen geknüpft. Diese Bedingungen sind oftmals komplex zusammengesetzt, wobei drei Operatoren am häufigsten vorkommen:</p>
+<ul class="gp">
+<li>bzw. <span class="ckursiv">Nicht (Negation)</span>: Dreht die Aussage um: aus wahr wird falsch und aus falsch wird wahr.</li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">Und (Konjunktion)</span>: Beide Aussagen müssen wahr sein, damit die Gesamtaussage wahr wird.</li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">Oder (Disjunktion)</span>: Eine der beiden Aussagen muss wahr sein, damit die Gesamtaussage wahr wird.</li>
+</ul>
+<p>Mit logischen Operatoren werden Wahrheitswerte nach definierten Mustern verknüpft. Logische Operatoren operieren nur auf <span class="clisting">boolean</span>-Typen, andere Typen führen zu Compilerfehlern. Java bietet die Operatoren <span class="ckursiv">Nicht</span> (<span class="clisting">!</span>), <span class="ckursiv">Und</span> (<span class="clisting">&amp;&amp;</span>), <span class="ckursiv">Oder</span> (<span class="clisting">||</span>) und <span class="ckursiv">Xor</span> (<span class="clisting">^</span>) an. Xor ist eine Operation, die genau dann <span class="clisting">wahr</span> liefert, wenn genau einer der beiden Operanden <span class="clisting">wahr</span> ist. Sind beide Operanden gleich (also entweder <span class="clisting">true</span> oder <span class="clisting">false</span>), so ist das Ergebnis <span class="clisting">false</span>. Xor heißt auch <span class="ckursiv">exklusives</span> beziehungsweise <span class="ckursiv">ausschließendes Oder</span>. Im Deutschen trifft es die Sprachweise »entweder … oder« gut: Entweder ist es das eine <span class="ckursiv">oder</span> das andere, aber nicht beides zusammen. Beispiel: »Willst du entweder ins Kino oder DVD schauen?«</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 2.12    </strong>Verknüpfungen der logischen Operatoren Nicht, Und, Oder und Xor</p>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">boolean a</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">boolean b</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">! a</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">a &amp;&amp; b</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">a || b</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">a ^ b</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">true</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">true</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">false</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">true</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">true</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">false</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">true</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">false</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">false</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">false</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">true</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">true</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">false</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">true</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">true</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">false</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">true</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">true</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">false</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">false</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">true</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">false</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">False</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">false</span></p>
+</td>
+</tr>
+</table><br><p>Die logischen Operatoren arbeiten immer auf dem Typ <span class="clisting">boolean</span>. In Abschnitt 12.1.1, »Die Bit-Operatoren Komplement, Und, Oder und Xor«, werden wir sehen, dass sich die gleichen Verknüpfungen auf jedem Bit einer Ganzzahl durchführen lassen.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Ausblick auf die Aussagenlogik   </span>Verknüpfungen dieser Art sind in der Aussagenlogik bzw. Booleschen Algebra sehr wichtig. Die für uns gängigen Begriffe Und, Oder, Xor sind dort auch unter anderen Namen bekannt. Die Und-Verknüpfung nennt sich <span class="ckursiv">Konjunktion</span>, die Oder-Verknüpfung <span class="ckursiv">Disjunktion</span> und das Exklusive Oder heißt <span class="ckursiv">Kontravalenz</span>. Die drei binären Operatoren Und, Oder, Xor decken bestimmte Verknüpfungen ab, jedoch nicht alle, die prinzipiell möglich sind. In der Aussagenlogik gibt es weiterhin die <span class="ckursiv">Implikation</span> (Wenn-Dann-Verknüpfung) und die <span class="ckursiv">Äquivalenz</span>. Für beide gibt es keinen eigenen Operator. Bei der Implikation ist es das Ergebnis von <span class="clisting">a || !b</span> und bei der logischen Äquivalenz ist es die Negation der Kotravalenz (Xor), daher auch exklusiv-nicht-oder-Verknüpfung genannt, also einem <span class="clisting">!(a ^ b)</span>. Logische Äquivalenz herrscht demnach immer dann, wenn beide Wahrheitswerte gleich sind, also entweder <span class="clisting">a</span> und <span class="clisting">b true</span> oder <span class="clisting">a</span> und <span class="clisting">b false</span> sind. Wird die Konjunktion (also das Und) negiert, entspricht das in der digitalen Elektronik dem <span class="ckursiv">NAND-Gatter</span> bzw. dem <span class="ckursiv">Shefferscher Strich</span>. Es ist also definiert als <span class="clisting">!(a &amp;&amp; b)</span>. </p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p class="BStandard">Die Negation eines Oders, also <span class="clisting">!(a || b)</span> entspricht der <span class="ckursiv">Peirce-Funktion</span> &#8211; in der digitalen Elektronik einem <span class="ckursiv">NOR-Gatter</span>. Auch dafür gibt es in Java keine eigenen Operatoren. Wem jetzt der Kopf raucht: Kein Problem, dass brauchen wir alles nicht.</p>
+</td>
+</tr>
+</table><br><h4 class="t4">Kurzschluss-Operatoren</h4>
+<p>Eine Besonderheit sind die beiden Operatoren <span class="clisting">&amp;&amp;</span> (Und) beziehungsweise <span class="clisting">||</span> (Oder). In der Regel muss ein logischer Ausdruck nur dann weiter ausgewertet werden, wenn er das Endergebnis noch beeinflussen kann. Zwei Operatoren bieten sich zur Optimierung der Ausdrücke an:</p>
+<ul class="gp">
+<li><span class="ckursiv">Und:</span> Ist einer der beiden Ausdrücke falsch, so kann der Ausdruck schon nicht mehr wahr werden. Das Ergebnis ist falsch.</li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">Oder:</span> Ist mindestens einer der Ausdrücke schon wahr, so ist auch der gesamte Ausdruck wahr.</li>
+</ul>
+<p>Der Compiler bzw. die Laufzeitumgebung kann den Programmfluss abkürzen. Daher nennen sich die beiden Operatoren auch <span class="ckursiv">Kurzschluss-Operatoren</span> (engl. <span class="ckursiv">short-circuit operators</span>). [Den Begriff verwendet die Java-Sprachdefinition nicht! Siehe dazu auch <span class="ckursiv"><a href="http://java.sun.com/docs/books/jls/third_edition/html/expressions.html#15.23" target="_blank">http://java.sun.com/docs/books/jls/third_edition/html/expressions.html#15.23</a></span>.
+]  Kürzt er ab, wertet er nur den ersten Ausdruck aus und den zweiten dann nicht mehr.</p>
+<h4 class="t4">Nicht-Kurzschluss-Operatoren *</h4>
+<p>In einigen Fällen ist es erwünscht, dass die Laufzeitumgebung alle Teilausdrücke auswertet. Das kann der Fall sein, wenn Methoden Nebenwirkungen haben sollen, etwa Zustände ändern. Daher bietet Java zusätzlich die nicht über einen Kurzschluss arbeitenden Operatoren <span class="clisting">|</span> und <span class="clisting">&amp;</span> an, die eine Auswertung aller Teilausdrücke erzwingen.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>In der ersten und dritten Anweisung wird die Methode <span class="clisting">boolean foo()</span> nicht aufgerufen, in der zweiten und vierten schon.</p>
+<div class="listing"><pre class="prettyprint">System.out.println( true <span class="cfett">||</span> foo() ); // true, foo() wird nicht aufgerufen
+System.out.println( true <span class="cfett">|</span> foo() );  // true, foo() wird aufgerufen
+System.out.println( false <span class="cfett">&amp;&amp;</span> foo() );// false, foo() wird nicht aufgerufen
+System.out.println( false <span class="cfett">&amp;</span> foo() ); // false, foo() wird aufgerufen</pre></div>
+</td>
+</tr>
+</table><br><p>Für Xor kann es keinen Kurzschluss-Operator geben, da immer beide Operanden ausgewertet werden müssen, bevor das Ergebnis feststeht.</p><a id="mj001aa1d35c1746f2106c8a28aff843e8" name="mj001aa1d35c1746f2106c8a28aff843e8"></a><a name="t38"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t39"></a><h3 class="t3"><span class="cfett">2.5.8</span> Der Rang der Operatoren in der Auswertungsreihenfolge  <a href="#t2t310"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t38"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Aus der Schule ist der Spruch »Punktrechnung geht vor Strichrechnung« bekannt, sodass sich der Ausdruck 1 + 2 * 3 zu 7 und nicht zu 9 auswertet. [Dass von diesen Rechnungen eine gewisse Spannung ausgeht, zeigen diverse Fernsehkanäle, die damit ihr Abendprogramm füllen.
+] </p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Auch wenn bei Ausdrücken wie <span class="clisting">a() + b() * c()</span> zuerst das Produkt gebildet wird, schreibt doch die Auswertungsreihenfolge von binären Operatoren vor, dass der linke Operand zuerst ausgewertet werden muss, was bedeutet, dass Java zuerst die Methode <span class="clisting">a()</span> aufruft.</p>
+</td>
+</tr>
+</table><br><p>In den meisten Programmiersprachen gibt es eine Unzahl von Operatoren neben Plus und Mal, die alle ihre eigenen Vorrangregeln besitzen. [Es gibt Programmiersprachen wie APL, die keine Vorrangregeln kennen. Sie werten die Ausdrücke streng von rechts nach links oder umgekehrt aus.
+]  Der Multiplikationsoperator besitzt zum Beispiel eine höhere Priorität und damit eine andere Auswertungsreihenfolge als der Plus-Operator. Die <span class="ckursiv">Rangordnung</span> der Operatoren (engl. <span class="ckursiv">operator precedence</span>) legt folgende Tabelle fest, wobei der arithmetische Typ für Ganz- und Fließkommazahlen steht und der integrale Typ für <span class="clisting">char</span> und Ganzzahlen:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 2.13    </strong>Operatoren mit Rangordnung in Java</p>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Operator</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Rang</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Typ</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">++, --</span></p>
+</td>
+<td class="tabellentext">
+<p>1</p>
+</td>
+<td class="tabellentext">
+<p>arithmetisch</p>
+</td>
+<td class="tabellentext">
+<p>Inkrement und Dekrement</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">+, -</span></p>
+</td>
+<td class="tabellentext">
+<p>1</p>
+</td>
+<td class="tabellentext">
+<p>arithmetisch</p>
+</td>
+<td class="tabellentext">
+<p>unäres Plus und Minus</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">~</span></p>
+</td>
+<td class="tabellentext">
+<p>1</p>
+</td>
+<td class="tabellentext">
+<p>Integral</p>
+</td>
+<td class="tabellentext">
+<p>bitweises Komplement</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">!</span></p>
+</td>
+<td class="tabellentext">
+<p>1</p>
+</td>
+<td class="tabellentext">
+<p>boolean</p>
+</td>
+<td class="tabellentext">
+<p>logisches Komplement</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">(Typ)</span></p>
+</td>
+<td class="tabellentext">
+<p>1</p>
+</td>
+<td class="tabellentext">
+<p>jeder</p>
+</td>
+<td class="tabellentext">
+<p>Cast</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">*, /, %</span></p>
+</td>
+<td class="tabellentext">
+<p>2</p>
+</td>
+<td class="tabellentext">
+<p>arithmetisch</p>
+</td>
+<td class="tabellentext">
+<p>Multiplikation, Division, Rest</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">+, -</span></p>
+</td>
+<td class="tabellentext">
+<p>3</p>
+</td>
+<td class="tabellentext">
+<p>arithmetisch</p>
+</td>
+<td class="tabellentext">
+<p>Addition und Subtraktion</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">+</span></p>
+</td>
+<td class="tabellentext">
+<p>3</p>
+</td>
+<td class="tabellentext">
+<p>String</p>
+</td>
+<td class="tabellentext">
+<p>String-Konkatenation</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">&lt;&lt;</span></p>
+</td>
+<td class="tabellentext">
+<p>4</p>
+</td>
+<td class="tabellentext">
+<p>Integral</p>
+</td>
+<td class="tabellentext">
+<p>Verschiebung links</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">&gt;&gt;</span></p>
+</td>
+<td class="tabellentext">
+<p>4</p>
+</td>
+<td class="tabellentext">
+<p>Integral</p>
+</td>
+<td class="tabellentext">
+<p>Rechtsverschiebung mit Vorzeichenerweiterung</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">&gt;&gt;&gt;</span></p>
+</td>
+<td class="tabellentext">
+<p>4</p>
+</td>
+<td class="tabellentext">
+<p>Integral</p>
+</td>
+<td class="tabellentext">
+<p>Rechtsverschiebung ohne Vorzeichenerweiterung</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">&lt;, &lt;=, &gt;, &gt;=</span></p>
+</td>
+<td class="tabellentext">
+<p>5</p>
+</td>
+<td class="tabellentext">
+<p>arithmetisch</p>
+</td>
+<td class="tabellentext">
+<p>numerische Vergleiche</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">instanceof</span></p>
+</td>
+<td class="tabellentext">
+<p>5</p>
+</td>
+<td class="tabellentext">
+<p>Objekt</p>
+</td>
+<td class="tabellentext">
+<p>Typvergleich</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">==, !=</span></p>
+</td>
+<td class="tabellentext">
+<p>6</p>
+</td>
+<td class="tabellentext">
+<p>primitiv</p>
+</td>
+<td class="tabellentext">
+<p>Gleich-/Ungleichheit von Werten</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">==, !=</span></p>
+</td>
+<td class="tabellentext">
+<p>6</p>
+</td>
+<td class="tabellentext">
+<p>Objekt</p>
+</td>
+<td class="tabellentext">
+<p>Gleich-/Ungleichheit von Referenzen</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">&amp;</span></p>
+</td>
+<td class="tabellentext">
+<p>7</p>
+</td>
+<td class="tabellentext">
+<p>Integral</p>
+</td>
+<td class="tabellentext">
+<p>bitweises Und</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">&amp;</span></p>
+</td>
+<td class="tabellentext">
+<p>7</p>
+</td>
+<td class="tabellentext">
+<p>boolean</p>
+</td>
+<td class="tabellentext">
+<p>logisches Und</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">^</span></p>
+</td>
+<td class="tabellentext">
+<p>8</p>
+</td>
+<td class="tabellentext">
+<p>Integral</p>
+</td>
+<td class="tabellentext">
+<p>bitweises Xor</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">^</span></p>
+</td>
+<td class="tabellentext">
+<p>8</p>
+</td>
+<td class="tabellentext">
+<p>boolean</p>
+</td>
+<td class="tabellentext">
+<p>logisches Xor</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">|</span></p>
+</td>
+<td class="tabellentext">
+<p>9</p>
+</td>
+<td class="tabellentext">
+<p>Integral</p>
+</td>
+<td class="tabellentext">
+<p>bitweises Oder</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">|</span></p>
+</td>
+<td class="tabellentext">
+<p>9</p>
+</td>
+<td class="tabellentext">
+<p>boolean</p>
+</td>
+<td class="tabellentext">
+<p>logisches Oder</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">&amp;&amp;</span></p>
+</td>
+<td class="tabellentext">
+<p>10</p>
+</td>
+<td class="tabellentext">
+<p>boolean</p>
+</td>
+<td class="tabellentext">
+<p>logisches konditionales Und, Kurzschluss</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">||</span></p>
+</td>
+<td class="tabellentext">
+<p>11</p>
+</td>
+<td class="tabellentext">
+<p>boolean</p>
+</td>
+<td class="tabellentext">
+<p>logisches konditionales Oder, Kurzschluss</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">?:</span></p>
+</td>
+<td class="tabellentext">
+<p>12</p>
+</td>
+<td class="tabellentext">
+<p>jeder</p>
+</td>
+<td class="tabellentext">
+<p>Bedingungsoperator</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">=</span></p>
+</td>
+<td class="tabellentext">
+<p>13</p>
+</td>
+<td class="tabellentext">
+<p>jeder</p>
+</td>
+<td class="tabellentext">
+<p>Zuweisung</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">*=, /=, %=, +=, -=, 
+&lt;&lt;=, &gt;&gt;=, &gt;&gt;&gt;=, &amp;=, 
+^=, |=</span></p>
+</td>
+<td class="tabellentext">
+<p>14</p>
+</td>
+<td class="tabellentext">
+<p>jeder</p>
+</td>
+<td class="tabellentext">
+<p>Zuweisung mit Operation</p>
+</td>
+</tr>
+</table><br><p>Die Rechenregel für »Mal vor Plus« kann sich jeder noch leicht merken. Auch ist leicht zu merken, dass die typischen arithmetischen Operatoren wie Plus und Mal eine höhere Priorität als Vergleichsoperationen haben. Komplizierter ist die Auswertung bei den zahlreichen Operatoren, die seltener im Programm vorkommen.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Wie ist die Auswertung bei dem nächsten Ausdruck?</p>
+<div class="listing"><pre class="prettyprint">boolean A = false,
+        B = false,
+        C = true;
+System.out.println( <span class="cfett">A &amp;&amp; B || C</span> );</pre></div>
+<p class="BStandard">Das Ergebnis könnte je nach Rangordnung <span class="clisting">true</span> oder <span class="clisting">false</span> sein. Doch die Tabelle lehrt uns, dass im Beispiel <span class="clisting">A &amp;&amp; B || C</span> das Und stärker als das Oder bindet, also der Ausdruck mit der Belegung <span class="clisting">A=false</span>, <span class="clisting">B=false</span>, <span class="clisting">C=true</span> zu <span class="clisting">true</span> ausgewertet wird.</p>
+</td>
+</tr>
+</table><br><p>Vermutlich gibt es Programmierer, die dies wissen oder eine Tabelle mit Rangordnungen immer am Monitor kleben haben. Aber beim Durchlesen von fremdem Code ist es nicht schön, immer wieder die Tabelle konsultieren zu müssen, die verrät, ob nun das binäre Xor oder das binäre Und stärker bindet.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Tipp   </span>Alle Ausdrücke, die über die einfache Regel »Punktrechnung geht vor Strichrechnung« hinausgehen, sollten geklammert werden. Da die unären Operatoren ebenfalls sehr stark binden, kann eine Klammerung wegfallen.</p>
+</td>
+</tr>
+</table><br><h4 class="t4">Links- und Rechtsassoziativität *</h4>
+<p>Bei den Operatoren <span class="clisting">+</span> und <span class="clisting">*</span> gilt die mathematische Kommutativität und Assoziativität. Das heißt, die Operanden können prinzipiell umgestellt werden, und das Ergebnis sollte davon nicht beeinträchtigt sein. Bei der Division unterscheiden wir zusätzlich <span class="ckursiv">Links- und Rechtsassoziativität</span>. Deutlich wird das am Beispiel <span class="clisting">A / B / C</span>. Den Ausdruck wertet Java von links nach rechts aus, und zwar als <span class="clisting">(A / B) / C</span>; daher ist der Divisionsoperator linksassoziativ. Hier sind Klammern angemessen. Denn würde der Compiler den Ausdruck zu <span class="clisting">A / (B / C)</span> auswerten, käme dies einem <span class="clisting">A * C / B</span> gleich. In Java sind die meisten Operatoren linksassoziativ, aber es gibt Ausnahmen, wie Zuweisungen der Art <span class="clisting">A = B = C</span>, die der Compiler zu <span class="clisting">A = (B = C)</span> auswertet.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Die mathematische Assoziativität ist natürlich gefährdet, wenn durch Überläufe Rechenfehler mit im Spiel sind:</p>
+<div class="listing"><pre class="prettyprint">float a = &#8211;16777217F;
+float b =  16777216F;
+float c =  1F;
+System.out.println( a + b + c );    // 1.0
+System.out.println( a + (b + c) );  // 0.0</pre></div>
+<p class="BStandard">Mathematisch ergibt &#8211;16777217 + 16777216 den Wert &#8211;1, und &#8211;1 plus +1 ist 0. Im zweiten Fall liefert &#8211;16777217 + (16777216 + 1) = &#8211;16777217 + 16777217 = 0. Doch Java wertet <span class="clisting">a + b</span> durch die Beschränkung von <span class="clisting">float</span> zu 0 aus, sodass mit <span class="clisting">c</span> addiert, also 1, die Ausgabe 1 statt 0 erscheint.</p>
+</td>
+</tr>
+</table><br><a id="mj714856e56857d03d2d050f84d418981d" name="mj714856e56857d03d2d050f84d418981d"></a><a name="t39"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t310"></a><h3 class="t3"><span class="cfett">2.5.9</span> Die Typanpassung (das Casting)  <a href="#t2t311"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t39"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Zwar ist Java eine getypte Sprache, aber sie ist nicht so stark getypt, dass es hinderlich ist. So übersetzt der Compiler die folgenden Zeilen problemlos:</p>
+<div class="listing"><pre class="prettyprint">int  anInt = 1;
+long long1 =<span class="cfett"> 1</span>;
+long long2 =<span class="cfett"> anInt</span>;</pre></div>
+<p>Streng genommen <span class="ckursiv">könnte</span> ein Compiler bei einer sehr starken Typisierung die letzten beiden Zeilen ablehnen, denn das Literal <span class="clisting">1</span> ist vom Typ <span class="clisting">int</span> und kein <span class="clisting">1L</span>, also <span class="clisting">long</span>, und in <span class="clisting">long2 = anInt</span> ist die Variable <span class="clisting">anInt</span> vom Typ <span class="clisting">int</span> statt vom gewünschten Datentyp <span class="clisting">long</span>.</p>
+<h4 class="t4">Arten der Typanpassung</h4>
+<p>In der Praxis kommt es also vor, dass Datentypen konvertiert werden müssen. Dies nennt sich <span class="ckursiv">Typanpassung</span> (engl. <span class="ckursiv">typecast,</span> kurz <span class="ckursiv">cast</span>). Java unterscheidet zwei Arten der Typanpassung<span class="ckursiv">:</span></p>
+<ul class="gp">
+<li><span class="ckursiv">Automatische (implizite) Typanpassung</span>. Daten eines kleineren Datentyps werden automatisch (implizit) dem größeren angepasst. Der Compiler nimmt diese Anpassung selbstständig vor. Daher funktioniert unser erstes Beispiel mit etwa <span class="clisting">long2 = anInt</span>.</li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">Explizite Typanpassung</span>. Ein größerer Typ kann einem kleineren Typ mit möglichem Verlust von Informationen zugewiesen werden.</li>
+</ul>
+<p>Typanpassungen gibt es bei primitiven Datentypen und bei Referenztypen. Während die folgenden Absätze die Anpassungen bei einfachen Datentypen beschreiben, kümmert sich Kapitel 5, »Eigene Klassen schreiben«, um die Typkompatibilität bei Referenzen.</p>
+<h4 class="t4">Automatische Anpassung der Größe</h4>
+<p>Werte der Datentypen <span class="clisting">byte</span> und <span class="clisting">short</span> werden bei Rechenoperationen automatisch in den Datentyp <span class="clisting">int</span> umgewandelt. Ist ein Operand vom Datentyp <span class="clisting">long</span>, dann werden alle Operanden auf <span class="clisting">long</span> erweitert. Wird aber <span class="clisting">short</span> oder <span class="clisting">byte</span> als Ergebnis verlangt, dann ist dieses durch einen expliziten Typecast anzugeben, und nur die niederwertigen Bits des Ergebniswerts werden übergeben. Folgende Typumwandlungen führt Java automatisch aus:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 2.14    </strong>Implizite Typanpassungen</p>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Von Typ</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">In Typ</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">byte</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">short</span>, <span class="clisting">int</span>, <span class="clisting">long</span>, <span class="clisting">float</span>, <span class="clisting">double</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">short</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">int</span>, <span class="clisting">long</span>, <span class="clisting">float</span>, <span class="clisting">double</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">char</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">int</span>, <span class="clisting">long</span>, <span class="clisting">float</span>, <span class="clisting">double</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">int</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">long</span>, <span class="clisting">float</span>, <span class="clisting">double</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">long</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">float, double</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">float</span></p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">double</span></p>
+</td>
+</tr>
+</table><br><p>Die Anpassung wird im Englischen auch <span class="ckursiv">widening conversion</span> genannt, weil sie den Wertebereich automatisch erweitert.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Obwohl von der Datentypgröße her ein <span class="clisting">char</span> (16 Bit) zwischen <span class="clisting">byte</span> (8 Bit) und <span class="clisting">int</span> (32 Bit) liegt, taucht der Typ in einer rechten Spalte der oberen Tabelle nicht auf, da <span class="clisting">char</span> kein Vorzeichen speichern kann, während die anderen Datentypen <span class="clisting">byte</span>, <span class="clisting">short</span>, <span class="clisting">int</span>, <span class="clisting">long</span>, <span class="clisting">float</span>, <span class="clisting">double</span> alle ein Vorzeichen besitzen. Daher kann so etwas wie das Folgende nicht funktionieren:</p>
+<div class="listing"><pre class="prettyprint">byte b = 'b';</pre></div>
+<div class="listing"><pre class="prettyprint">char c = b;    // <img src="common/totenkopf.gif" border="0" align="bottom" alt="Fehler"> Type mismatch: cannot convert from byte to char</pre></div>
+</td>
+</tr>
+</table><br><h4 class="t4">Explizite Typanpassung</h4>
+<p>Die explizite Anpassung engt einen Typ ein, sodass diese Operation im Englischen auch <span class="ckursiv">narrowing conversion</span> genannt wird. Der gewünschte Typ für eine Typanpassung wird vor den umzuwandelnden Datentyp in Klammern gesetzt.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Umwandlung einer Fließkommazahl in eine Ganzzahl:</p>
+<div class="listing"><pre class="prettyprint">int n = <span class="cfett">(int)</span> 3.1415;                  // n = 3</pre></div>
+</td>
+</tr>
+</table><br><div class="bildbox">
+<p><a name="IDATD1C"></a><a onClick="OpenWin('bilder/eclipse_addcasttoint.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleineclipse_addcasttoint.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p>Passt der Typ eines Ausdrucks nicht, lässt er sich mit 
+    <span class="tastenkappe">Strg</span>
+  +
+    <span class="tastenkappe">1</span>
+   korrigieren.</p>
+<p>Eine Typumwandlung hat eine sehr hohe Priorität. Daher muss der Ausdruck gegebenenfalls geklammert werden.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Die Zuweisung an <span class="clisting">n</span> verfehlt das Ziel:</p>
+<div class="listing"><pre class="prettyprint">int n = <span class="cfett">(int) 1.0315</span> + 2.1;
+int m = (int)(1.0315 + 2.1);            // das ist korrekt</pre></div>
+</td>
+</tr>
+</table><br><h4 class="t4">Typumwandlung von Fließkommazahlen in Ganzzahlen</h4>
+<p>Bei der expliziten Typumwandlung von <span class="clisting">double</span> und <span class="clisting">float</span> in einen Ganzzahltyp kann es selbstverständlich zum Verlust von Genauigkeit kommen sowie zur Einschränkung des Wertebereichs. Bei der Konvertierung von Fließkommazahlen verwendet Java eine Rundung gegen null.</p>
+<div class="listing"><pre class="prettyprint">System.out.println( (int) +12.34 );     //  12
+System.out.println( (int) +67.89 );     //  67
+System.out.println( (int) &#8211;12.34 );     // &#8211;12
+System.out.println( (int) &#8211;67.89 );     // &#8211;67</pre></div>
+<h4 class="t4">Automatische Typanpassung bei Berechnungen mit »byte« und »short« auf »int«</h4>
+<p>Eine Operation vom Typ <span class="clisting">int</span> mit <span class="clisting">int</span> liefert den Ergebnistyp <span class="clisting">int</span>, und <span class="clisting">long</span> mit <span class="clisting">long</span> liefert ein <span class="clisting">long</span>.</p>
+<p class="tabunter"><strong>Listing 2.10    </strong>AutoConvert.java, main()</p>
+<div class="listing"><pre class="prettyprint">int   i1 = 1, i2 = 2;
+int   i3 = i1 + i2;
+long  l1 = 1, l2 = 2;
+long  l3 = l1 + l2;</pre></div>
+<p>Diese Zeilen übersetzt der Compiler wie erwartet. Und so erscheint es logisch, dass das Gleiche auch für die Datentypen <span class="clisting">short</span> und <span class="clisting">byte</span> gilt.</p>
+<div class="listing"><pre class="prettyprint">short s1 = 1, s2 = 2;
+byte  b1 = 1, b2 = 2;
+// short s3 = s1 + s2;  // <img src="common/totenkopf.gif" border="0" align="bottom" alt="Fehler"> Type mismatch: cannot convert from int to short
+// byte  b3 = b1 + b2;  // <img src="common/totenkopf.gif" border="0" align="bottom" alt="Fehler"> Type mismatch: cannot convert from int to byte</pre></div>
+<p>Die auskommentierten Zeilen machen schon deutlich: Es ist nicht möglich, ohne explizite Typumwandlung zwei <span class="clisting">short</span>- oder <span class="clisting">byte</span>-Zahlen zu addieren. Richtig ist:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">short</span> s3 =<span class="cfett"> (short)</span>(s1 + s2);<span class="cfett">
+byte</span>  b3 = <span class="cfett"> (byte)</span>(b1 + b2);</pre></div>
+<p>Der Grund liegt beim Java-Compiler. Wenn Ganzzahl-Ausdrücke vom Typ kleiner <span class="clisting">int</span> mit einem Operator verbunden werden, passt der Compiler eigenmächtig den Typ auf <span class="clisting">int</span> an. Die Addition der beiden Zahlen im Beispiel arbeitet also nicht mit <span class="clisting">short</span>- oder <span class="clisting">byte</span>-Werten, sondern mit <span class="clisting">int</span>-Werten; intern im Bytecode ist es ebenso realisiert. So führen also alle Ganzzahloperationen mit <span class="clisting">short</span> und <span class="clisting">byte</span> automatisch zum Ergebnistyp <span class="clisting">int</span>. Und das führt bei der Zuweisung aus dem Beispiel zu einem Problem, denn steht auf der rechten Seite der Typ <span class="clisting">int</span> und auf der linken Seite der kleinere Typ <span class="clisting">byte</span> oder <span class="clisting">short</span>, muss der Compiler einen Fehler melden. Mit der ausdrücklichen Typumwandlung erzwingen wir diese Konvertierung.</p>
+<p>Dass der Compiler diese Anpassung vornimmt, müssen wir einfach akzeptieren. <span class="clisting">int</span> und <span class="clisting">int</span> bleibt <span class="clisting">int</span>, <span class="clisting">long</span> und <span class="clisting">long</span> bleibt <span class="clisting">long</span>. Wenn ein <span class="clisting">int</span> mit einem <span class="clisting">long</span> tanzt, wird der Ergebnistyp <span class="clisting">long</span>. Arbeitet der Operator auf einem <span class="clisting">short</span> oder <span class="clisting">byte</span>, ist das Ergebnis automatisch <span class="clisting">int</span>.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Tipp   </span>»Kleine« Typen wie <span class="clisting">short</span> und <span class="clisting">byte</span> führen oft zu Problemen. Wenn sie nicht absichtlich in großen Feldern verwendet werden und Speicherplatz nicht ein absolutes Kriterium ist, erweist sich <span class="clisting">int</span> als die beste Wahl &#8211; auch weil Java nicht durch besonders intuitive Typ-Konvertierungen glänzt, wie das Beispiel mit dem unären Minus und Plus zeigt:</p>
+<div class="listing"><pre class="prettyprint">byte b = 0;
+b = -b;             // <img src="common/totenkopf.gif" border="0" align="bottom" alt="Fehler"> Cannot convert from int to byte
+b = +b;             // <img src="common/totenkopf.gif" border="0" align="bottom" alt="Fehler"> Cannot convert from int to byte</pre></div>
+<p class="BStandard">Der Compiler meldet einen Fehler, denn der Ausdruck auf der rechten Seite wird durch den unären Operator in ein <span class="clisting">int</span> umgewandelt, was immer für die Typen <span class="clisting">byte</span>, <span class="clisting">short</span> und <span class="clisting">char</span> gilt. [<span class="ckursiv"><a href="http://java.sun.com/docs/books/jls/third_edition/html/conversions.html#5.6.1" target="_blank">http://java.sun.com/docs/books/jls/third_edition/html/conversions.html#5.6.1</a></span>
+]</p>
+</td>
+</tr>
+</table><br><h4 class="t4">Keine Typanpassung zwischen einfachen Typen und Referenztypen</h4>
+<p>Allgemeine Umwandlungen zwischen einfachen Typen und Referenztypen gibt es nicht. Falsch sind zum Beispiel:</p>
+<p class="tabunter"><strong>Listing 2.11    </strong>TypecastPrimRef.java, main() Teil 1</p>
+<div class="listing"><pre class="prettyprint">String s = (String) 1;      // <img src="common/totenkopf.gif" border="0" align="bottom" alt="Fehler"> Cannot cast from int to String
+int i = (int) "1";          // <img src="common/totenkopf.gif" border="0" align="bottom" alt="Fehler"> Cannot cast from String to int</pre></div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Getrickse mit Boxing   </span>Einiges sieht dagegen nach Typanpassung aus, ist aber in Wirklichkeit eine Technik, die sich Autoboxing nennt (Abschnitt 9.2, »Wrapper-Klassen und Autoboxing«, geht näher darauf ein):</p>
+<p class="tabunter"><strong>Listing 2.12    </strong>TypecastPrimRef.java, main() Teil</p>
+<div class="listing"><pre class="prettyprint">Long lông = (Long) 2L;      // Alternativ: Long lông = 2L;
+System.out.println( (Boolean) true );
+((Integer)2).toString();</pre></div>
+</td>
+</tr>
+</table><br><a id="mj93a46c1206bdba6ff4c9adf47674d2a7" name="mj93a46c1206bdba6ff4c9adf47674d2a7"></a><a name="t310"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t311"></a><h3 class="t3"><span class="cfett">2.5.10</span> Überladenes Plus für Strings  <a href="#t2t312"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t310"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Obwohl sich in Java die Operatoren fast alle auf primitive Datentypen beziehen, gibt es doch eine weitere Verwendung des Plus-Operators. Diese wurde in Java eingeführt, da ein Aneinanderhängen von Zeichenketten oft benötigt wird. Objekte vom Typ <span class="clisting">String</span> können durch den Plus-Operator mit anderen Strings und Datentypen verbunden werden. Falls zusammenhängende Teile nicht alle den Datentyp <span class="clisting">String</span> annehmen, werden sie automatisch in einen String umgewandelt. Der Ergebnistyp ist immer <span class="clisting">String</span>.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Setze fünf Teile zu einem String zusammen:</p>
+<div class="listing"><pre class="prettyprint">String s = '"' <span class="cfett">+</span> "Extrem Sandmännchen" <span class="cfett">+</span> '"' <span class="cfett">+</span> " frei ab " <span class="cfett">+</span> 18;
+//         char  String                  char  String        int
+System.out.println( s ); // "Extrem Sandmännchen" frei ab 18</pre></div>
+</td>
+</tr>
+</table><br><p>Besteht der Ausdruck aus mehreren Teilen, so muss die Auswertungsreihenfolge beachtet werden, andernfalls kommt es zu seltsamen Zusammensetzungen. So ergibt <span class="clisting">"Aufruf von " + 1 + 0 + 0 + " Ökonomen"</span> tatsächlich »Aufruf von 100 Ökonomen« und nicht »Aufruf von 1 Ökonomen«, da der Compiler die Konvertierung in Strings dann startet, wenn er einen Ausdruck als String-Objekt erkannt hat.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Auswertungsreihenfolge vom Plus:</p>
+<p class="tabunter"><strong>Listing 2.13    </strong>PlusString.java, main()</p>
+<div class="listing"><pre class="prettyprint">System.out.println( 1 + 2 );                 // 3
+System.out.println( "1" + 2 + 3 );           // 123
+System.out.println( 1 + 2 + "3" );           // 33
+System.out.println( 1 + 2 + "3" + 4 + 5 );   // 3345
+System.out.println( 1 + 2 + "3" + (4 + 5) ); // 339</pre></div>
+<p class="BStandard">Nur eine Zeichenkette in doppelten Anführungszeichen ist ein String, und der Plus-Operator entfaltet seine besondere Wirkung. Ein einzelnes Zeichen in einfachen Hochkommata wird lediglich auf ein <span class="clisting">int</span> gecastet, und Additionen sind Ganzzahl-Additionen.</p>
+<div class="listing"><pre class="prettyprint">System.out.println( '0' + 2 );     // 50  &#8211; ASCII value for '0' is 48
+System.out.println( 'A' + 'a' );   // 162 &#8211; 'A'=65, 'a'=97</pre></div>
+</td>
+</tr>
+</table><br><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Der Plus-Operator für Zeichenketten geht streng von links nach rechts vor und bereitet mit eingebetteten arithmetischen Ausdrücken mitunter Probleme. Eine Klammerung hilft, wie im Folgenden zu sehen ist:</p>
+<div class="listing"><pre class="prettyprint">"Ist 1 größer als 2? " + <span class="cfett">(</span>1 &gt; 2 ? "ja" : "nein"<span class="cfett">)</span>;</pre></div>
+<p class="BStandard">Wäre der Ausdruck um den Bedingungsoperator nicht geklammert, dann würde der Plus-Operator an die Zeichenkette die 1 anhängen, und es käme der <span class="clisting">&gt;</span>-Operator. Der erwartet aber kompatible Datentypen, die in unserem Fall &#8211; links stünde die Zeichenkette und rechts die Ganzzahl 2 &#8211; nicht gegeben sind.</p>
+</td>
+</tr>
+</table><br><a id="mj9431e0ffd2d053ce73e865c35801f571" name="mj9431e0ffd2d053ce73e865c35801f571"></a><a name="t311"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t312"></a><h3 class="t3"><span class="cfett">2.5.11</span> Operator vermisst *  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t311"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Da es in Java keine Pointer-Operationen gibt, existieren die unter C(++) bekannten Operatorzeichen zur Referenzierung (<span class="clisting">&amp;</span>) und Dereferenzierung (<span class="clisting">*</span>) nicht. Ebenso ist ein <span class="clisting">sizeof</span> unnötig, da das Laufzeitsystem und der Compiler immer die Größe von Klassen kennen beziehungsweise die primitiven Datentypen immer eine feste Länge haben. Eine abgeschwächte Version vom Komma-Operator ist in Java nur im Kopf von <span class="clisting">for</span>-Schleifen erlaubt. Einige Programmiersprachen haben einen Potenz-Operator (etwa <span class="clisting">**</span>), den es in Java ebenfalls nicht gibt. Skript-Sprachen wie Perl oder Python bieten nicht nur einfache Datentypen, sondern definieren zum Beispiel Listen oder Assoziativspeicher. Damit sind automatisch Operatoren assoziiert, etwa um die Datenstrukturen nach Werten zu fragen oder Elemente einzufügen. Zudem erlauben viele Skript-Sprachen das Prüfen von Zeichenketten gegen reguläre Ausdrücke, etwa Perl mit den Operatoren <span class="clisting">=~</span> bzw. <span class="clisting">!~</span>.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="2.5 Ausdrücke, Operanden und Operatoren"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_02_004.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_02_006.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

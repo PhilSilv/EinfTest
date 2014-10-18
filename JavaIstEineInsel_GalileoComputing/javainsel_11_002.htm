@@ -1,0 +1,735 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 11.2 Klassenlader (Class Loader)</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 11.2 Klassenlader (Class Loader)">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 11.2 Klassenlader (Class Loader)">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_05_001.htm#mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_08_001.htm#mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_09_001.htm#mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_11_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_11_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="javainsel_11_001.htm#mj60bc6a007ae9b8657949f3e91d96df3d" class="navnav">11 Die Klassenbibliothek</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_11_001.htm#mj02bea8b31605ee5952c444551c504697" class="navnav">11.1 Die Java-Klassenphilosophie</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_001.htm#mjfcefb1202e8bfff68693f7b4b9175fb6" class="navnav">11.1.1 Übersicht über die Pakete der Standardbibliothek</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj53ed9654bc9434b172d0438d1702dc19" class="navh">11.2 Klassenlader (Class Loader)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj3dc3fd417e653e689a9f172c4a0d7d01" class="navh">11.2.1 Woher die kleinen Klassen kommen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj215f73ea20d22c8b20d91d9fa0e60d59" class="navh">11.2.2 Setzen des Klassenpfades</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj9a13afdba6dd256f894e02fbadae77a0" class="navh">11.2.3 Die wichtigsten drei Typen von Klassenladern</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjb92320c4d2ceebfbcc9da112835f583a" class="navh">11.2.4 Die Klasse java.lang.ClassLoader *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj431ef7a4d752eaa36a5551472599bbb9" class="navh">11.2.5 Hot Deployment mit dem URL-Classloader *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj759e90ca0161232d122f57a13173e825" class="navh">11.2.6 Das Verzeichnis jre/lib/endorsed *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_11_003.htm#mjc3fa83b3363e17bc986c040c751e00a2" class="navnav">11.3 Die Utility-Klasse System und Properties</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_003.htm#mj301ebcc98805c81f8b378d9f42d2c85e" class="navnav">11.3.1 Systemeigenschaften der Java-Umgebung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_003.htm#mj906360dff54e80341ac57ee2cd85403b" class="navnav">11.3.2 line.separator</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_003.htm#mjad6903638bccbba6783e1fe4f5a88f40" class="navnav">11.3.3 Property von der Konsole aus setzen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_003.htm#mj31cfa13c85710beeba5bca648636ad1a" class="navnav">11.3.4 Umgebungsvariablen des Betriebssystems *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_11_004.htm#mj519f885647f50baccfda39badd91c631" class="navnav">11.4 Einfache Benutzereingaben</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_004.htm#mj7415e57108ce190a1f2ed187bffaaf49" class="navnav">11.4.1 Grafischer Eingabedialog über JOptionPane</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_004.htm#mj4be1dd9136e7e82ee2590ec8bf28b514" class="navnav">11.4.2 Geschützte Passwort-Eingaben mit der Klasse »Console« *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_11_005.htm#mjf64aaa69388264acddb1e1f6e8f7544d" class="navnav">11.5 Ausführen externer Programme *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_005.htm#mj4579515cae281d4a5632f5f4b51adc78" class="navnav">11.5.1 »ProcessBuilder« und Prozesskontrolle mit Process</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_11_005.htm#mjb46035ffa5fdcefb2bb4f32e41390a94" class="navnav">11.5.2 Einen Browser, E-Mail-Client oder Editor aufrufen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_11_006.htm#mj4b961c488f7a34fd4b59068c84c087a6" class="navnav">11.6 Zum Weiterlesen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj53ed9654bc9434b172d0438d1702dc19" name="mj53ed9654bc9434b172d0438d1702dc19"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">11.2</span> Klassenlader (Class Loader)  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Ein Klassenlader ist dafür verantwortlich, eine Klasse zu laden. Aus der Datenquelle (im Allgemeinen einer Datei) liefert der Klassenlader ein Byte-Feld mit den Informationen, die im zweiten Schritt dazu verwendet werden, die Klasse im Laufzeitsystem einzubringen; das ist <span class="ckursiv">Linking</span>.</p>
+<p>Es gibt eine Reihe von vordefinierten Klassenladern und die Möglichkeit, eigene Klassenlader zu schreiben, um etwa verschlüsselte und komprimierte <span class="ckursiv">.class</span>-Dateien zu laden.</p><a id="mj3dc3fd417e653e689a9f172c4a0d7d01" name="mj3dc3fd417e653e689a9f172c4a0d7d01"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">11.2.1</span> Woher die kleinen Klassen kommen  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Nehmen wir zu Beginn ein einfaches Programm mit zwei Klassen:</p>
+<div class="listing"><pre class="prettyprint">class A
+{
+  static String s = new java.util.Date().toString();
+
+  public static void main( String[] args )
+  {
+    B b = new B();
+  }
+}
+
+class B
+{
+  A a;
+}</pre></div>
+<p>Wenn die Laufzeitumgebung das Programm <span class="clisting">A</span> startet, muss sie eine Reihe von Klassen laden. Sofort wird klar, dass es zumindest <span class="clisting">A</span> sein muss. Wenn aber die statische <span class="clisting">main()</span>-Methode aufgerufen wird, muss auch <span class="clisting">B</span> geladen sein. Und da beim Laden einer Klasse auch die statischen Variablen initialisiert werden, wird auch die Klasse <span class="clisting">java.util.Date</span> geladen. Zwei weitere Dinge werden nach einiger Überlegung deutlich:</p>
+<ul class="gp">
+<li>Wenn <span class="clisting">B</span> geladen wird, bezieht es sich auf <span class="clisting">A</span>. Da <span class="clisting">A</span> aber schon geladen ist, muss es nicht noch einmal geladen werden.</li>
+</ul>
+<ul class="gp">
+<li>Unsichtbar stecken noch andere referenzierte Klassen dahinter, die nicht direkt sichtbar sind. So wird zum Beispiel <span class="clisting">Object</span> geladen werden, da implizit in der Klassendeklaration von <span class="clisting">A</span> steht: <span class="clisting">class A extends Object</span>.</li>
+</ul>
+<p>Im Beispiel mit den Klassen <span class="clisting">A</span> und <span class="clisting">B</span> lädt die Laufzeitumgebung selbstständig die Klassen (<span class="ckursiv">implizites Klassenladen</span>). Klassen lassen sich auch mit <span class="clisting">Class.forName()</span> über ihren Namen laden (<span class="ckursiv">explizites Klassenladen)</span>.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Um zu sehen, welche Klassen überhaupt geladen werden, lässt sich der virtuellen Maschine beim Start der Laufzeitumgebung ein Schalter mitgeben &#8211; verbose:class. Dann gibt die Maschine beim Lauf alle Klassen aus, die sie lädt.</p>
+</td>
+</tr>
+</table><br><h4 class="t4">Die Suchorte</h4>
+<p>Ein festes, dreistufiges Schema bestimmt die Suche nach den Klassen:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="top" width="10"><strong>1.</strong></td>
+<td valign="top" width="100%" align="left"> Klassen wie String, Object oder Point stehen in einem ganz speziellen Archiv. Wenn ein eigenes Java-Programm gestartet wird, so sucht die virtuelle Maschine die angeforderten Klassen zuerst in diesem Archiv. Da es elementare Klassen sind, die zum Hochfahren eines Systems gehören, werden sie Bootstrap-KlassenBootstrap-Klassen genannt. Das Archiv mit diesen Klassen heißt oft rt.jarrt.jar (für Runtime). Andere Archive können hinzukommen &#8211; wie i18n.jari18n.jar, das Internationalisierungsdaten beinhaltet. Die Implementierung dieses Bootstrap-Laders ist nicht öffentlich und wird von System zu System unterschiedlich sein.</td>
+</tr>
+<tr>
+<td valign="baseline" width="16">     </td>
+<td valign="top" width="100%" align="left">     </td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="top" width="10"><strong>2.</strong></td>
+<td valign="top" width="100%" align="left"> Findet die Laufzeitumgebung die Klassen nicht bei den Bootstrap-Klassen, so werden alle Archive eines speziellen Verzeichnisses untersucht, das sich Extension-VerzeichnisExtension-Verzeichnis nennt. Das Verzeichnis gibt es bei jeder Java-Version. Es liegt unter lib/ext. Werden hier Klassen eingelagert, so findet es die Laufzeitumgebung ohne weitere Anpassung und Setzen von Pfaden. In sonstige Verzeichnisse einer Java-Installation sollten keine Klassen kopiert werden.</td>
+</tr>
+<tr>
+<td valign="baseline" width="16">     </td>
+<td valign="top" width="100%" align="left">     </td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="top" width="10"><strong>3.</strong></td>
+<td valign="top" width="100%" align="left"> Ist eine Klasse auch im Erweiterungsverzeichnis nicht zu finden, beginnt die Suche im Klassenpfad (Classpath). Diese Pfadangabe besteht aus einer Aufzählung einzelner Verzeichnisse, Klassen oder Jar-Archive, in der die Laufzeitumgebung nach den Klassendateien sucht. Standardmäßig ist dieser Klassenpfad auf das aktuelle Verzeichnis gesetzt (».«).</td>
+</tr>
+<tr>
+<td valign="baseline" width="16">     </td>
+<td valign="top" width="100%" align="left">     </td>
+</tr>
+</table><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Es gibt spezielle Bootstrap-Klassen, die sich überschreiben lassen. Sie werden in das spezielle Verzeichnis <span class="ckursiv">endorsed</span>  gesetzt. Mehr Informationen dazu folgen später.</p>
+</td>
+</tr>
+</table><br><a id="mj215f73ea20d22c8b20d91d9fa0e60d59" name="mj215f73ea20d22c8b20d91d9fa0e60d59"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">11.2.2</span> Setzen des Klassenpfades  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Suchorte lassen sich angeben, wobei die Bestimmung des Klassenpfades für die eigenen Klassen die wichtigste ist. Sollen in einem Java-Projekt Dateien aus einem Verzeichnis oder einem externen Java-Archiv geholt werden, so ist der übliche Weg, dieses Verzeichnis oder Archiv im Klassenpfad anzugeben. Dafür gibt es zwei Varianten. Die erste ist, über den Schalter <span class="clisting">-classpath</span> (kurz <span class="clisting">-cp</span>) beim Start der virtuellen Maschine die Quellen aufzuführen:</p>
+<div class="listing"><pre class="prettyprint">$<span class="cfett"> java -classpath classpath1;classpath2 MainClass</span></pre></div>
+<p>Eine Alternative ist das Setzen der Umgebungsvariablen <span class="clisting">CLASSPATH</span> mit einer Zeichenfolge, die die Klassen spezifiziert:</p>
+<div class="listing"><pre class="prettyprint">$<span class="cfett"> SET CLASSPATH=classpath1;classpath2</span>
+$<span class="cfett"> java MainClass</span></pre></div>
+<p>Ob der Klassenpfad überhaupt gesetzt ist, ermittelt ein einfaches <span class="clisting">echo $CLASSPATH</span> (Unix) beziehungsweise <span class="clisting">echo %CLASSPATH%</span> (Windows).</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Früher &#8211; das heißt vor Java 1.2 &#8211; umfasste der <span class="clisting">CLASSPATH</span> auch die Bootstrap-Klassen. Das ist seit 1.2 überflüssig und bedeutet: Die typischen Klassen aus den Paketen <span class="clisting">java.*</span>, <span class="clisting">com.sun.*</span> usw. wie <span class="clisting">String</span> stehen nicht im <span class="clisting">CLASSPATH</span>.</p>
+</td>
+</tr>
+</table><br><p>Zur Laufzeit steht dieser Klassenpfad in der Umgebungsvariablen <span class="clisting">java.class.path</span>. Auch die Bootstrap-Klassen können angegeben werden. Dazu dient der Schalter <span class="clisting">-Xbootclasspath</span> oder die Variable <span class="clisting">sun.boot.class.path</span>. Zusätzliche Erweiterungsverzeichnisse lassen sich über die Systemeigenschaft <span class="clisting">java.ext.dirs</span> zuweisen.</p>
+<p class="tabunter"><strong>Listing 11.2    </strong>Ausgaben von com/tutego/insel/lang/ClasspathDir.java</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 11.2    </strong>Beispielbelegungen der Variablen</p>
+</caption>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">java.class.path</span></p>
+</td>
+<td class="tabellentext">
+<p>C:\Insel\programme\1_11_Java_Library\bin</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">java.ext.dirs</span></p>
+</td>
+<td class="tabellentext">
+<p>C:\Program Files\Java\jdk1.6.0\jre\lib\ext;
+C:\Windows\Sun\Java\lib\ext</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">sun.boot.class.path</span></p>
+</td>
+<td class="tabellentext">
+<p>C:\Program Files\Java\jdk1.6.0\jre\lib\resources.jar;
+C:\Program Files\Java\jdk1.6.0\jre\lib\rt.jar;
+C:\Program Files\Java\jdk1.6.0\jre\lib\sunrsasign.jar;
+C:\Program Files\Java\jdk1.6.0\jre\lib\jsse.jar;
+C:\Program Files\Java\jdk1.6.0\jre\lib\jce.jar;
+C:\Program Files\Java\jdk1.6.0\jre\lib\charsets.jar;
+C:\Program Files\Java\jdk1.6.0\jre\lib\modules\jdk.boot.jar;
+C:\Program Files\Java\jdk1.6.0\jre\classes</p>
+</td>
+</tr>
+</table><br><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Wird die JVM über java -jar aufgerufen, beachtet sie nur Klassen in dem genannten Jar und ignoriert den Klassenpfad.</p>
+</td>
+</tr>
+</table><br><a id="mj9a13afdba6dd256f894e02fbadae77a0" name="mj9a13afdba6dd256f894e02fbadae77a0"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">11.2.3</span> Die wichtigsten drei Typen von Klassenladern  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Eine Klassendatei kann von der Java-Laufzeitumgebung über verschiedene Klassenlader bezogen werden. Die wichtigsten sind: Bootstrap-, Erweiterungs- und Applikations-Klassenlader. Sie arbeiten insofern zusammen, als sie sich gegenseitig Aufgaben zuschieben, wenn eine Klasse nicht gefunden wird:</p>
+<ul class="gp">
+<li><span class="ckursiv">Bootstrap-Klassenlader</span>: für die Bootstrap-Klassen</li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">Erweiterungs-Klassenlader</span>: für die Klassen im <span class="ckursiv">lib/ext</span>-Verzeichnis</li>
+</ul>
+<ul class="gp">
+<li><span class="ckursiv">Applikations-Klassenlader</span> (auch <span class="ckursiv">System</span><span class="ckursiv">-Klassenlader</span>): Der letzte Klassenlader im Bunde berücksichtigt bei der Suche den <span class="clisting">java.class.path</span>.</li>
+</ul>
+<p>Aus Sicherheitsgründen beginnt der Klassenlader bei einer neuen Klasse immer mit dem System-Klassenlader und reicht dann die Anfrage weiter, wenn er selbst die Klasse nicht laden konnte. Dazu sind die Klassenlader miteinander verbunden. Jeder Klassenlader L hat dazu einen Vater-Klassenlader V. Erst darf der Vater versuchen, die Klassen zu laden. Kann er es nicht, gibt er die Arbeit an L ab.</p>
+<p>Hinter dem letzten Klassenlader können wir einen eigenen <span class="ckursiv">benutzerdefinierten Klassenlader</span> installieren. Auch dieser wird einen Vater haben, den üblicherweise der Applikations-Klassenlader verkörpert.</p><a id="mjb92320c4d2ceebfbcc9da112835f583a" name="mjb92320c4d2ceebfbcc9da112835f583a"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">11.2.4</span> Die Klasse java.lang.ClassLoader *  <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Jeder Klassenlader in Java ist vom Typ <span class="clisting">java.lang.ClassLoader</span>. Die Methode <span class="clisting">loadClass()</span> erwartet einen so genannten »binären Namen«, der an den vollqualifizierten Klassennamen erinnert.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">abstract class java.lang.<span class="cfett">ClassLoader</span></pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">protected Class&lt;?&gt; loadClass( String name, boolean resolve )</span>
+Lädt die Klasse und bindet sie mit <span class="clisting">resolveClass()</span> ein, wenn <span class="clisting">resolve</span> gleich <span class="clisting">true</span> ist.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">public Class&lt;?&gt; loadClass( String name )</span>
+Die öffentliche Methode ruft <span class="clisting">loadClass(name, false)</span> auf, was bedeutet, dass die Klasse nicht standardmäßig angemeldet (gelinkt) wird. Beide Methoden können eine <span class="clisting">ClassNotFoundException</span> auslösen.</li>
+</ul>
+<p>Die geschützte Methode führt anschließend drei Schritte durch:</p>
+<table width="100%" border="0">
+<tr>
+<td valign="top" width="10"><strong>1.</strong></td>
+<td valign="top" width="100%" align="left"> Wird loadClass() auf einer Klasse aufgerufen, die dieser Klassenlader schon eingelesen hat, so kehrt die Methode mit dieser gecachten Klasse zurück.</td>
+</tr>
+<tr>
+<td valign="baseline" width="16">     </td>
+<td valign="top" width="100%" align="left">     </td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="top" width="10"><strong>2.</strong></td>
+<td valign="top" width="100%" align="left"> Ist die Klasse nicht gespeichert, darf zuerst der Vater (parent class loader) versuchen, die Klasse zu laden.</td>
+</tr>
+<tr>
+<td valign="baseline" width="16">     </td>
+<td valign="top" width="100%" align="left">     </td>
+</tr>
+</table>
+<table width="100%" border="0">
+<tr>
+<td valign="top" width="10"><strong>3.</strong></td>
+<td valign="top" width="100%" align="left"> Findet der Vater die Klasse nicht, so darf jetzt der Klassenlader selbst mit findClass() versuchen, die Klasse zu beziehen.</td>
+</tr>
+<tr>
+<td valign="baseline" width="16">     </td>
+<td valign="top" width="100%" align="left">     </td>
+</tr>
+</table>
+<p>Eigene Klassenlader überschreiben in der Regel die Methode <span class="clisting">findClass()</span>, um nach einem bestimmten Schema zu suchen, etwa nach Klassen aus der Datenbank. In diesen Stufen ist es auch möglich, höher stehende Klassenlader zu umgehen, was beispielsweise bei Servlets Anwendung findet.</p>
+<h4 class="t4">Neue Klassenlader</h4>
+<p>Java nutzt an den verschiedensten Stellen spezielle Klassenlader, etwa für Applets den <span class="clisting">sun.applet.AppletClassLoader</span>. Für uns ist der <span class="clisting">java.net.URLClassLoader</span> interessant, da er Klassen von beliebigen URLs laden kann und die Klassen nicht im klassischen Klassenpfad benötigt. Wie ein eigener Klassenlader aussieht, zeigt das Beispiel unter http://tutego.com/go/urlclassloader, das den URL-Classloader vom Prinzip her nachimplementiert.</p>
+<div class="bildbox">
+<p><a name="IDA2ZYD"></a><a onClick="OpenWin('bilder/classloaderurlclassloader.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinclassloaderurlclassloader.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div><a id="mj431ef7a4d752eaa36a5551472599bbb9" name="mj431ef7a4d752eaa36a5551472599bbb9"></a><a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3"><span class="cfett">11.2.5</span> Hot Deployment mit dem URL-Classloader *  <a href="#t2t37"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Unter »Hot Deployment« ist die Möglichkeit zu verstehen, zur Laufzeit Klassen auszutauschen. Diese Möglichkeit ist für viele EJB- oder Servlet-Container wichtig, da sie im Dateisystem auf eine neue Klassendatei warten und im gegebenen Fall die alte Klasse durch eine neue ersetzen. Ein Servlet-Container überwacht geladene Klassen und lädt sie bei Änderungen neu. Eine Internetsuche mit dem Stichwort <span class="ckursiv">AdaptiveClassLoader</span> listet Implementierungen auf.</p>
+<p>Damit dieser heiße Wechsel funktioniert, muss die Klasse über einen neuen Klassenlader bezogen werden. Das liegt daran, dass der Standardklassenlader von Haus aus keine Klasse mehr loswird, wenn er sie einmal geladen hat. Mit anderen Worten: Wenn eine Klasse über <span class="clisting">Class.forName(Klasse)</span> angefordert wird, ist sie immer im Cache und wird nicht mehr entladen. Ein neuer Klassenlader fängt immer von vorn an, wenn er die Klasse für sich zum ersten Mal sieht.</p>
+<p>Mit immer neuen Klassenladern funktioniert das Neuladen, weil für eine neue Klasse dann jeweils ein eigener Klassenlader zuständig ist. Ändert sich die Klasse, wird ein neuer Klassenlader konstruiert, der die neue Klasse lädt. Doch damit ist die alte Klasse noch nicht aus dem Spiel. Nur wenn sich niemand mehr für die alte Klasse und für den Klassenlader interessiert, kann die Laufzeitumgebung diese nicht benutzten Objekte erkennen und aufräumen.</p>
+<h4 class="t4">Gleiche Klasse mehrfach laden</h4>
+<p>Wir wollen im Folgenden eine eigene statische Methode <span class="clisting">newInstance()</span> vorstellen, die beim Aufruf die neueste Version des Dateisystems lädt und ein Exemplar bildet. Die neu zu ladende Klasse soll ohne Beschränkung der Allgemeinheit einen Standard-Konstruktor haben &#8211; andernfalls muss über Reflection ein parametrisierter Konstruktor aufgerufen werden; wir wollen das Beispiel aber kurz halten.</p>
+<p>Beginnen wir mit der Klasse, die zweimal geladen werden soll. Sie besitzt einen statischen Initialisierungsblock, der etwas auf der Konsole ausgibt, wenn er beim Laden ausgeführt wird:</p>
+<p class="tabunter"><strong>Listing 11.3    </strong>com/tutego/insel/lang/ClassToLoadMultipleTimes.java</p>
+<div class="listing"><pre class="prettyprint">package com.tutego.insel.lang;
+
+public class ClassToLoadMultipleTimes
+{
+  static
+  {
+    System.out.println( "ClassToLoadMultipleTimes" );
+  }
+}</pre></div>
+<p>Die Testklasse legen wir unter <span class="ckursiv">C:\</span> ab, und zwar so, dass die Verzeichnisstruktur durch das Paket erhalten bleibt &#8211; demnach unter <span class="ckursiv">C:\com\tutego\insel\lang</span>.</p>
+<p>Jetzt brauchen wir noch eine Testklasse, die <span class="clisting">ClassToLoadMultipleTimes</span> unter dem Wurzelverzeichnis liest (also etwa unter <span class="ckursiv">C:/</span>):</p>
+<p class="tabunter"><strong>Listing 11.4    </strong>com/tutego/insel/lang/LoadClassMultipleTimes.java</p>
+<div class="listing"><pre class="prettyprint">package com.tutego.insel.lang;
+
+import java.io.File;
+import java.net.*;
+
+public class LoadClassMultipleTimes
+{
+  static Object newInstance( String path, String classname ) throws Exception
+  {
+    URL url = new File( path ).toURI().toURL();
+
+    URLClassLoader cl = new URLClassLoader( new URL[]{ url } );
+
+    Class&lt;?&gt; c = cl.loadClass( classname );
+
+    return c.newInstance();
+  }
+
+  public static void main( String[] args ) throws Exception
+  {
+    newInstance( "/", "com.tutego.insel.lang.ClassToLoadMultipleTimes" );
+    newInstance( "/", "com.tutego.insel.lang.ClassToLoadMultipleTimes" );
+  }
+}</pre></div>
+<p>Nach dem direkten Start ohne Vorbereitung bekommen wir nur einmal die Ausgabe &#8211; anders als erwartet. Der Grund liegt in der Hierarchie der Klassenlader. Wichtig ist hier, dass der Standardklassenlader die Klasse <span class="clisting">ClassToLoadMultipleTimes</span> nicht »sehen« darf. Wir müssen die Klasse also aus dem Zugriffspfad der Laufzeitumgebung löschen, da andernfalls aufgrund des niedrigen Rangs unser eigener URL-Klassenlader nicht zum Zuge kommt. (Und ist die Klassendatei nicht im Pfad, können wir das praktische <span class="clisting">ClassToLoadMultipleTimes.class.getName()</span> nicht nutzen.) Erst nach dem Löschen werden wir Zeuge, wie die virtuelle Maschine auf der Konsole die beiden Meldungen ausgibt, wenn der statische Initialisierungsblock ausgeführt wird.</p>
+<p>Die zu ladende Klasse darf nicht den gleichen voll qualifizierten Namen wie eine Standardklasse (etwa <span class="clisting">java.lang.String</span>) tragen. Das liegt daran, dass auch in dem Fall, in dem die Klasse mit dem eigenen <span class="clisting">URLClassLoader</span> bezogen werden soll, die Anfrage trotzdem erst an den System-Klassenlader, dann an den Erweiterungs-Klassenlader und erst ganz zum Schluss an unseren eigenen Klassenlader geht. Es ist also nicht möglich, aus einem Java-Programm Klassen zu beziehen, die prinzipiell vom System-Klassenlader geladen werden. Wir können eine Klasse wie <span class="clisting">javax.swing.JButton</span> nicht selbst beziehen. Wenn sie mit einem Klassenlader ungleich unserem eigenen geladen wird, hat dies wiederum zur Folge, dass wir die geladene Klasse nicht mehr loswerden &#8211; was allerdings im Fall der Systemklassen kein Problem sein sollte.</p>
+<p>Implementiert die Klasse eine bestimmte Schnittstelle oder erbt sie von einer Basisklasse, lässt sich der Typ der Rückgabe unserer Methode <span class="clisting">newInstance()</span> einschränken. Auf diese Weise ist ein Plugin-Prinzip realisierbar: Die geladene Klasse bietet mit dem Typ Methoden an. Während dieser Typ bekannt ist (der implizite Klassenlader besorgt sie), wird die Klasse selbst erst zur Laufzeit geladen (expliziter Klassenlader).</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Einzigartigkeit eines Singletons   </span>Ein Singleton ist ein Erzeugermuster, das ein Exemplar nur einmal hervorbringt. Singletons finden sich in der JVM an einigen Stellen; so gibt es <span class="clisting">java.lang.Runtime</span> nur einmal, genauso wie <span class="clisting">java.awt.Toolkit</span>. Auch Enums sind Singletons, und so lassen sich die Aufzählungen problemlos mit <span class="clisting">==</span> vergleichen. Und doch gibt es zwischen den Bibliotheks-Singletons und den von Hand gebauten Singleton-Realisierungen und Enums einen großen Unterschied: Sie basieren alle auf statischen Variablen, die dieses eine Exemplar referenzieren. Damit ist eine Schwierigkeit verbunden. Denn wie wir an den Beispielen mit dem <span class="clisting">URLClassLoader</span> gesehen haben, ist dieses Exemplar immer nur pro Klassenlader einzigartig, aber nicht in der gesamten JVM an sich, die eine unbestimmte Anzahl von Klassenladern nutzen kann. Die Enums sind ein gutes Beispiel. In einem Server kann es zwei gleiche <span class="clisting">Weekday</span>-Aufzählungen im gleichen Paket geben. Und doch sind sie völlig unterschiedlich und miteinander inkompatibel, wenn sie zwei unterschiedliche Klassenlader einlesen. Selbst die <span class="clisting">Class</span>-Objekte dieser Enums, die ja auch Singletons innerhalb eines Klassenladers sind, sind bei zwei verschiedenen Klassenladern nicht identisch. Globale Singletons für die gesamte JVM gibt es nicht &#8211; zum Glück. Auf der anderen Seite verursachen diese Klassen-Phantome viele Probleme in Java EE-Umgebungen. Doch das ist eine andere Geschichte für ein Java-EE Buch.</p>
+</td>
+</tr>
+</table><br><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.net.<span class="cfett">URLClassLoader</span>
+extends SecureClassLoader</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">URLClassLoader( URL[] urls )</span>
+Erzeugt einen neuen <span class="clisting">URLClassLoader</span> für ein Feld von URLs mit dem Standard-Vater-Klassenlader.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">URLClassLoader( URL[] urls, ClassLoader parent )</span>
+Erzeugt einen neuen <span class="clisting">URLClassLoader</span> für ein Feld von URLs mit einem gegebenen Vater-Klassenlader.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">protected void addURL( URL url )</span>
+Fügt eine URL hinzu.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">URL[] getURLs()</span>
+Liefert die URLs.</li>
+</ul><a id="mj759e90ca0161232d122f57a13173e825" name="mj759e90ca0161232d122f57a13173e825"></a><a name="t36"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t37"></a><h3 class="t3"><span class="cfett">11.2.6</span> Das Verzeichnis jre/lib/endorsed *  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t36"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Im Fall der XML-Parser und weiterer Bibliotheken kommt es häufiger vor, dass sich die Versionen einmal ändern. Es wäre nun müßig, aus diesem Grund die neuen Bibliotheken immer im <span class="clisting">bootclasspath</span> aufzunehmen, da dann immer eine Einstellung über die Kommandozeile stattfände. Die Entwickler haben daher für spezielle Pakete ein Verzeichnis vorgesehen, in dem Updates eingelagert werden können: das Verzeichnis <span class="ckursiv">jre/lib/endorsed</span> der Java-Installation. Alternativ können die Klassen und Archive auch durch die Kommandozeilenoption <span class="clisting">java.endorsed.dirs</span> spezifiziert werden.</p>
+<p>Wenn der Klassenlader im Verzeichnis <span class="ckursiv">endorsed</span> eine neue Version &#8211; etwa vom XML-Parser &#8211; findet, lädt er die Klassen von dort und nicht aus dem Jar-Archiv, aus dem sonst die Klassen geladen würden. Standardmäßig bezieht er die Ressourcen aus der Datei <span class="ckursiv">rt.jar</span>. Alle im Verzeichnis <span class="ckursiv">endorsed</span> angegebenen Typen überdecken somit die Standardklassen aus der Java SE; neue Versionen lassen sich einfach einspielen.</p>
+<p>Nicht alle Klassen lassen sich mit <span class="ckursiv">endorsed</span> überdecken. Es lässt sich zum Beispiel keine neue Version von <span class="clisting">java.lang.String</span> einfügen. Die Dokumentation »Endorsed Standards Override Mechanism« zeigt die überschreibbaren Pakete an: <span class="clisting">javax.rmi.CORBA</span>, <span class="clisting">org.omg.*</span>, <span class="clisting">org.w3c.dom</span> und <span class="clisting">org.xml.*</span>. (Im Übrigen definiert auch Tomcat, die Servlet-Engine, ein solches Überschreibverzeichnis. Hier können Sie Klassen in das Verzeichnis <span class="ckursiv">common/lib/endorsed</span> aufnehmen, die dann beim Start von Tomcat die Standardklassen überschreiben.)</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="11.2 Klassenlader (Class Loader)"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_11_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_11_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

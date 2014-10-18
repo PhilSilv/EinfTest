@@ -1,0 +1,1012 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 25.2 Metadaten der Klassen mit dem Class-Objekt</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 25.2 Metadaten der Klassen mit dem Class-Objekt">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 25.2 Metadaten der Klassen mit dem Class-Objekt">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_05_001.htm#mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_08_001.htm#mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_09_001.htm#mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_11_001.htm#mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_25_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_25_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf" class="navnav">25 Reflection und Annotationen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_25_001.htm#mj2abe911fdec059a6e42247b9b091064f" class="navnav">25.1 Metadaten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_001.htm#mj315a4069dd5f2c47668112f03fb9d797" class="navnav">25.1.1 Metadaten durch JavaDoc-Tags</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj16f08fd7fd4c9adeb13f5d7c2fcd919f" class="navh">25.2 Metadaten der Klassen mit dem Class-Objekt</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj09d7b1757c11f48d2685f264293cfd81" class="navh">25.2.1 An ein Class-Objekt kommen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj67c730a004636f6b47cd8c294e184982" class="navh">25.2.2 Was das Class-Objekt beschreibt *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj3099d747a25881ea8508e42405ac13b7" class="navh">25.2.3 Der Name der Klasse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj61fae72b0d46a4162986360803fdb072" class="navh">25.2.4 »instanceof« mit Class-Objekten *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mja42718317af09f43821fba60e5e53536" class="navh">25.2.5 Oberklassen finden *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj707904bd78adebe73ebc9f20c1fca7aa" class="navh">25.2.6 Implementierte Interfaces einer Klasse oder eines Interfaces *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjb52b207dc3b9c9ab6add1ccb619d8024" class="navh">25.2.7 Modifizierer und die Klasse »Modifier« *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj04b2a72dbd3a393bc006c673524f83f3" class="navh">25.2.8 Die Arbeit auf dem Feld *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_25_003.htm#mjdcf36b03d66b224f70db70883063e30b" class="navnav">25.3 Attribute, Methoden und Konstruktoren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_003.htm#mjaf2fc804a04b0a9605e6ec61ad101b2d" class="navnav">25.3.1 Reflections &#8211; Gespür für Attribute einer Klasse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_003.htm#mja146160d83c4a4db68437c73bca7751d" class="navnav">25.3.2 Methoden einer Klasse erfragen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_003.htm#mj8e71fa5b8ac8cd9c415a9010d64d3a2d" class="navnav">25.3.3 Properties einer Bean erfragen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_003.htm#mj697f2a7998bfed8740ab0d7c8811267d" class="navnav">25.3.4 Konstruktoren einer Klasse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_003.htm#mjb90edd9e2256dd8950c5b3d8a38f05ab" class="navnav">25.3.5 Annotationen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_25_004.htm#mj8470eefe9558d2ea22830eebb54d3895" class="navnav">25.4 Objekte erzeugen und manipulieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_004.htm#mj41602c234dfdbd610ac24bb06ae70de4" class="navnav">25.4.1 Objekte erzeugen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_004.htm#mjdf779c908881a0b5c5bf32e8d86f743d" class="navnav">25.4.2 Die Belegung der Variablen erfragen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_004.htm#mj30f0dba6dc37ccee0118d7eb0294d137" class="navnav">25.4.3 Eine generische eigene toString()-Methode *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_004.htm#mj9aa10e65b00af04545359f2f77450651" class="navnav">25.4.4 Variablen setzen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_004.htm#mje9b0769f149edb46e2121d84d5471acb" class="navnav">25.4.5 Bean-Zustände kopieren *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_004.htm#mj2b2f793581f0133d58222cafdaf7d7f1" class="navnav">25.4.6 Private Attribute ändern</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_25_005.htm#mjefb1bc55a562666a08a70715595d26ba" class="navnav">25.5 Methoden aufrufen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_005.htm#mjdb4ca121d3d40f6489ba59ca88ec7818" class="navnav">25.5.1 Statische Methoden aufrufen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_25_006.htm#mj633b70502b735c98bdc3cd6b7f0b1390" class="navnav">25.6 Eigene Annotationstypen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_006.htm#mj8ee5e422cd1e266400f74d0dd2f6c02a" class="navnav">25.6.1 Annotationen zum Laden von Ressourcen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_006.htm#mj60e296b60a6dc2097ae7cac3434583ff" class="navnav">25.6.2 Neue Annotationen deklarieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_006.htm#mj052733c31d36a27bd3dc6aad17941a4a" class="navnav">25.6.3 Annotationen mit genau einem Attribut</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_006.htm#mja0eeecc785b7efb2f25f7b1932680e04" class="navnav">25.6.4 Element-Werte-Paare (Attribute) hinzufügen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_006.htm#mj4460b6f67f4881b62b0b3c63358d99f1" class="navnav">25.6.5 Annotationsattribute vom Typ einer Aufzählung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_006.htm#mjd9458ce9a06e7d41f2949ed430624809" class="navnav">25.6.6 Felder von Annotationsattributen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_006.htm#mjf04378e5ff87249012651cf607682580" class="navnav">25.6.7 Vorbelegte Attribute</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_006.htm#mj6dc62903d2743fc2d8a27fd497950dcd" class="navnav">25.6.8 Annotieren von Annotationstypen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_006.htm#mj60aea92bba1e0a0f9f928ac360d8e86f" class="navnav">25.6.9 Deklarationen für unsere Ressourcen-Annotationen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_006.htm#mjd93de34d21000e81fee2f0f533171473" class="navnav">25.6.10 Annotierte Elemente auslesen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_006.htm#mjbd900d811b3ff68ed9fa7a1dcaa3f261" class="navnav">25.6.11 Auf die Annotationsattribute zugreifen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_006.htm#mj01b681e8b50436cb7046411e70e21119" class="navnav">25.6.12 Komplettbeispiel zum Initialisieren von Ressourcen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_006.htm#mj7ef44c5695fc82f66dff1ba5ac1c9f1c" class="navnav">25.6.13 Mögliche Nachteile von Annotationen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_25_007.htm#mj24125bb544ec1fc07a6ac90fb6bdd8ef" class="navnav">25.7 Zum Weiterlesen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj16f08fd7fd4c9adeb13f5d7c2fcd919f" name="mj16f08fd7fd4c9adeb13f5d7c2fcd919f"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">25.2</span> Metadaten der Klassen mit dem Class-Objekt  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Angenommen, wir wollen einen Klassen-Browser schreiben. Dieser soll alle zum laufenden Programm gehörenden Klassen und darüber hinaus weitere Informationen, wie etwa Variablenbelegung, deklarierte Methoden, Konstruktoren und Informationen über die Vererbungshierarchie, anzeigen. Dafür benötigen wir die Bibliotheksklasse <span class="clisting">Class</span>. Exemplare der Klasse <span class="clisting">Class</span> sind Objekte, die entweder eine Java-Klasse oder Java-Schnittstelle repräsentieren (dass auch Schnittstellen durch <span class="clisting">Class</span>-Objekte repräsentiert werden, wird im Folgenden nicht mehr ausführlich unterschieden).</p>
+<p>In diesem Punkt unterscheidet sich Java von vielen herkömmlichen Programmiersprachen, da sich Eigenschaften von Klassen vom gerade laufenden Programm mittels der <span class="clisting">Class</span>-Objekte abfragen lassen. Bei den Exemplaren von <span class="clisting">Class</span> handelt es sich um eine eingeschränkte Form von Meta-Objekten [Echte Metaklassen wären Klassen, deren jeweils einziges Exemplar die normale Java-Klasse ist. Dann wären etwa die normalen Klassenvariablen in Wahrheit Objektvariablen in der Metaklasse.
+]  &#8211; die Beschreibung einer Java-Klasse, die aber nur ausgewählte Informationen preisgibt. Neben normalen Klassen werden auch Schnittstellen durch je ein <span class="clisting">Class</span>-Objekt repräsentiert.</p><a id="mj09d7b1757c11f48d2685f264293cfd81" name="mj09d7b1757c11f48d2685f264293cfd81"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">25.2.1</span> An ein Class-Objekt kommen  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Zunächst müssen wir für eine bestimmte Klasse das zugehörige <span class="clisting">Class</span>-Objekt in Erfahrung bringen. <span class="clisting">Class</span>-Objekte selbst kann nur die JVM erzeugen. Wir können das nicht (die Objekte sind immutable und der Konstruktor ist privat). [Und der JavaDoc lautet: »Constructor. Only the Java Virtual Machine creates Class objects.«
+]  Um einen Verweis auf ein <span class="clisting">Class</span>-Objekt zu bekommen, bieten sich an:</p>
+<ul class="gp">
+<li>Ist ein Exemplar der Klasse verfügbar, rufen wir die <span class="clisting">getClass()</span>-Methode des Objekts auf und erhalten das <span class="clisting">Class</span>-Exemplar der zugehörigen Klasse.</li>
+</ul>
+<ul class="gp">
+<li>Jede Klasse enthält eine Klassenvariable mit Namen <span class="clisting">.class</span> vom Typ <span class="clisting">Class</span>, die auf das zugehörige <span class="clisting">Class</span>-Exemplar verweist.</li>
+</ul>
+<ul class="gp">
+<li>Auch auf primitiven Datentypen ist das Ende <span class="clisting">.class</span> erlaubt. Das gleiche <span class="clisting">Class</span>-Objekt liefert die statische Variable <span class="clisting">TYPE</span> der Wrapper-Klassen. Damit ist <span class="clisting">int.class == Integer.TYPE</span>.</li>
+</ul>
+<ul class="gp">
+<li>Die Klassenmethode <span class="clisting">Class.forName</span><span class="clisting">(String)</span> kann eine Klasse erfragen, und wir erhalten das zugehörige <span class="clisting">Class</span>-Exemplar als Ergebnis. Ist die Klasse noch nicht geladen, sucht und bindet <span class="clisting">forName()</span> die Klasse ein. Weil das Suchen schiefgehen kann, ist eine <span class="clisting">ClassNotFoundException</span> möglich.</li>
+</ul>
+<ul class="gp">
+<li>Haben wir bereits ein <span class="clisting">Class</span>-Objekt, sind wir aber nicht an ihm, sondern an seinen Vorfahren interessiert, so können wir einfach mit <span class="clisting">getSuperclass()</span> ein <span class="clisting">Class</span>-Objekt für die Oberklasse erhalten.</li>
+</ul>
+<p>Das folgende Beispiel zeigt drei Möglichkeiten auf, um an ein <span class="clisting">Class</span>-Objekt für <span class="clisting">java.util.Date</span> heranzukommen:</p>
+<p class="tabunter"><strong>Listing 25.1    </strong>com/tutego/insel/meta/GetClassObject.java, main()</p>
+<div class="listing"><pre class="prettyprint">Class&lt;Date&gt; c1 = java.util.Date<span class="cfett">.class</span>;
+System.out.println( c1 );        // class java.util.Date
+
+Class&lt;?&gt; c2 = new java.util.Date()<span class="cfett">.getClass()</span>;
+ // oder Class&lt;? extends Date&gt; c2 = ...
+
+System.out.println( c2 );        // class java.util.Date
+
+try {
+  Class&lt;?&gt; c3 =<span class="cfett"> Class.forName</span>( "java.util.Date" );
+  System.out.println( c3 );      // class java.util.Date
+}
+catch ( ClassNotFoundException e ) { e.printStackTrace(); }</pre></div>
+<p>Die Variante mit <span class="clisting">forName()</span> ist sinnvoll, wenn der Klassenname bei der Übersetzung des Programms noch nicht feststand. Sonst ist die vorhergehende Technik eingängiger, und der Compiler kann prüfen, ob es den Typ gibt.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Klassenobjekte für primitive Elemente liefert <span class="clisting">forName()</span> nicht! Die Anweisungen <span class="clisting">Class.forName("boolean");</span> und <span class="clisting">Class.forName(boolean.class.getName());</span> führen zu einer <span class="clisting">java.lang.ClassNotFoundException</span>.</p>
+</td>
+</tr>
+</table><br><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.lang.<span class="cfett">Object</span></pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">final Class&lt;? extends Object&gt; getClass()</span>
+Liefert zur Laufzeit das <span class="clisting">Class</span>-Exemplar, das die Klasse des Objekts repräsentiert.</li>
+</ul><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">final class java.lang.<span class="cfett">Class</span>&lt;T&gt;
+implements Serializable, GenericDeclaration, Type, AnnotatedElement</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">static Class&lt;?&gt; forName( String className ) throws ClassNotFoundException</span>
+Liefert das <span class="clisting">Class</span>-Exemplar für die Klasse oder Schnittstelle mit dem angegebenen voll qualifizierten Namen. Falls sie bisher noch nicht vom Programm benötigt wurde, sucht und lädt der Klassenlader die Klasse. Die Methode liefert niemals <span class="clisting">null</span> zurück. Falls die Klasse nicht geladen und eingebunden werden konnte, gibt es eine <span class="clisting">ClassNotFoundException</span>. Eine alternative Methode <span class="clisting">forName()</span> ermöglicht auch das Laden mit einem gewünschten Klassenlader.</li>
+</ul>
+<h4 class="t4">»ClassNotFoundException« und »NoClassDefFoundError« *</h4>
+<p>Eine <span class="clisting">ClassNotFoundException</span> lösen die Methoden <span class="clisting">forName()</span> aus <span class="clisting">Class</span> und <span class="clisting">loadClass()</span> bzw. <span class="clisting">findSystemClass()</span> aus <span class="clisting">ClassLoader</span> immer dann aus, wenn der Klassenlader die Klasse nach ihrem Klassennamen nicht finden kann.</p>
+<p>Neben der Exception-Klasse gibt es ein <span class="clisting">NoClassDefFoundError</span> &#8211; ein harter <span class="clisting">LinkageError</span>, den das System immer dann auslöst, wenn die JVM eine im Bytecode referenzierte Klasse nicht laden kann. Nehmen wir zum Beispiel eine Anweisung wie <span class="clisting">new MeineKlasse()</span>. Führt die JVM diese Anweisung aus, versucht sie den Bytecode von <span class="clisting">MeineKlasse</span> zu laden. Ist der Bytecode für <span class="clisting">MeineKlasse</span> nach dem Compilieren entfernt worden, löst die JVM durch den nicht geglückten Ladeversuch den <span class="clisting">NoClassDefFoundError</span> aus. Auch tritt der Fehler auf, wenn beim Laden des Bytecodes die Klasse <span class="clisting">MeineKlasse</span> zwar gefunden wurde, aber <span class="clisting">MeineKlasse</span> einen statischen Initialisierungsblock besitzt, der wiederum eine Klasse referenziert, für die keine Klassendatei vorhanden ist.</p>
+<p>Während <span class="clisting">ClassNotFoundException</span> häufiger vorkommt als <span class="clisting">NoClassDefFoundError</span>, ist es im Allgemeinen ein Indiz dafür, dass ein Java-Archiv im Klassenpfad fehlt.</p>
+<h4 class="t4">Umbenennungen der Klassennamen durch den Obfuscator</h4>
+<p>Dass der Compiler automatisch Bytecode gemäß dieses veränderten Quellcodes erzeugt, führt nur dann zu unerwarteten Problemen, wenn wir einen Obfuscator über den Programmtext laufen lassen, der nachträglich den Bytecode modifiziert und damit die Bedeutung des Programms beziehungsweise des Bytecodes verschleiert und dabei Klassen umbenennt. Offensichtlich darf ein Obfuscator Klassen, deren <span class="clisting">Class</span>-Exemplare abgefragt werden, nicht umbenennen; oder der Obfuscator müsste die entsprechenden Zeichenketten ebenfalls korrekt ersetzen (aber natürlich nicht alle Zeichenketten, die zufällig mit Namen von Klassen übereinstimmen).</p><a id="mj67c730a004636f6b47cd8c294e184982" name="mj67c730a004636f6b47cd8c294e184982"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">25.2.2</span> Was das Class-Objekt beschreibt *  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Ein <span class="clisting">Class</span>-Exemplar kann eine Schnittstelle, eine Klasse, einen primitiven Datentyp oder auch einen Array-Typ beschreiben. Dies lässt sich durch die drei Methoden <span class="clisting">isInterface()</span>, <span class="clisting">isPrimitive()</span> und <span class="clisting">isArray()</span> herausfinden. Wenn keine der drei Methoden für ein <span class="clisting">Class</span>-Exemplar <span class="clisting">true</span> liefert, repräsentiert das Objekt eine gewöhnliche Klasse.</p>
+<p>Dass es auch <span class="clisting">Class</span>-Exemplare gibt, die die primitiven Datentypen von Java beschreiben, erstaunt zunächst. Damit ist es jedoch möglich, die Parameter- und Ergebnistypen beliebiger Java-Methoden einheitlich durch <span class="clisting">Class</span>-Exemplare zu beschreiben. Dazu kodieren jede der acht Wrapper-Klassen, die zu den Datentypen <span class="clisting">boolean</span>, <span class="clisting">byte</span>, <span class="clisting">char</span>, <span class="clisting">short</span>, <span class="clisting">int</span>, <span class="clisting">long</span>, <span class="clisting">float</span> und <span class="clisting">double</span> gehören, und die spezielle Klasse für den Typ <span class="clisting">void</span> eine Konstante <span class="clisting">TYPE</span>. Benötigen wir ein <span class="clisting">Class</span>-Objekt für den primitiven Typ <span class="clisting">int</span>, so greifen wir mit <span class="clisting">Integer.TYPE</span> (oder alternativ mit <span class="clisting">int.class</span>) darauf zu. Alle <span class="clisting">Class</span>-Exemplare für primitive Datentypen werden automatisch von der JVM erzeugt. Die Methode <span class="clisting">isPrimitive()</span> gibt genau für diese neun besonderen <span class="clisting">Class</span>-Exemplare <span class="clisting">true</span> zurück, sodass sie von Repräsentanten für echte Klassen unterschieden werden können.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Obwohl <span class="clisting">void</span> kein Typ ist, meldet <span class="clisting">isPrimitive()</span> dies:</p>
+<div class="listing"><pre class="prettyprint">System.out.println( void.class.isPrimitive() );  // true</pre></div>
+</td>
+</tr>
+</table><br><p>Das folgende Programmstück testet die Attribute von <span class="clisting">Class</span>-Objekten systematisch durch. Wir benutzen die Methode <span class="clisting">getName()</span>, um den Namen des <span class="clisting">Class</span>-Objekts auszugeben. Im nächsten Unterkapitel mehr dazu. Das <span class="clisting">Class</span>-Objekt für Felder setzt sich aus dem Basistyp und Paaren von eckigen Klammern zusammen, etwa <span class="clisting">double[][].class</span>.</p>
+<p class="tabunter"><strong>Listing 25.2    </strong>com/tutego/insel/meta/CheckClassType.java, CheckClassType</p>
+<div class="listing"><pre class="prettyprint">class CheckClassType
+{
+  public static void main( String[] args )
+  {
+    checkClassType( Observer.class );
+    checkClassType( Observable.class );
+    checkClassType( (new int[2][3][4]).getClass() );
+    checkClassType( Integer.TYPE );
+  }
+
+  static void checkClassType( Class&lt;?&gt; c )
+  {
+    if (<span class="cfett"> c.isArray()</span> )
+    System.out.println( c.getName() + " ist ein Feld." );
+    else if (<span class="cfett"> c.isPrimitive()</span> )
+    System.out.println( c + " ist ein primitiver Typ.");
+    else if (<span class="cfett"> c.isInterface()</span> )
+    System.out.println( c.getName() + " ist ein Interface." );
+    else
+    System.out.println( c.getName() + " ist eine Klasse." );
+   }
+}</pre></div>
+<p>Die Ausgabe des Programms ist nun:</p>
+<div class="listing"><pre class="prettyprint">java.util.Observer ist ein Interface.
+java.util.Observable ist eine Klasse.
+[[[I ist ein Feld.
+int ist ein primitiver Typ.</pre></div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">final class java.lang.<span class="cfett">Class</span>&lt;T&gt;
+implements Serializable, GenericDeclaration, Type, AnnotatedElement</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">boolean isInterface()</span>
+Liefert <span class="clisting">true</span>, wenn das <span class="clisting">Class</span>-Objekt eine Schnittstelle beschreibt.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">boolean isArray()</span>
+Liefert <span class="clisting">true</span>, wenn das <span class="clisting">Class</span>-Objekt einen Array-Typ beschreibt.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">boolean isPrimitive()</span>
+Testet, ob das <span class="clisting">Class</span>-Objekt einen primitiven Datentyp beschreibt.</li>
+</ul>
+<h4 class="t4">Komponententyp bei Feldern</h4>
+<p>Die Methode <span class="clisting">getComponentType()</span> liefert bei Feldern den Typ der Elemente als <span class="clisting">Class</span>-Objekt. Steht das <span class="clisting">Class</span>-Objekt für kein Feld, ist die Methodenrückgabe <span class="clisting">null</span>.</p>
+<div class="listing"><pre class="prettyprint">System.out.println( double[].class.getComponentType() );    // double
+System.out.println( double[][].class.getComponentType() );  // class [D
+System.out.println( double.class.getComponentType() );      // null</pre></div><a id="mj3099d747a25881ea8508e42405ac13b7" name="mj3099d747a25881ea8508e42405ac13b7"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">25.2.3</span> Der Name der Klasse  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Liegt zu einer Klasse das <span class="clisting">Class</span>-Objekt vor, so können wir zur Laufzeit ihren voll qualifizierten Namen über die Methode <span class="clisting">getName()</span> ausgeben. Da jeder Typ über einen Namen verfügt, führt diese Methode also jedes Mal zum Ziel:</p>
+<p class="tabunter"><strong>Listing 25.3    </strong>SampleName.java</p>
+<div class="listing"><pre class="prettyprint">String n1 = new java.util.Date().getClass().getName();
+System.out.println( n1 );                         // java.util.Date
+String n2 = java.util.RandomAccess.class.getName();
+System.out.println( n2 );                         // java.util.RandomAccess
+String n3 = Deprecated.class.getName();
+System.out.println( n3 );                         // java.lang.Deprecated
+String n4 = Thread.State.class.getName();
+System.out.println( n4 );                         // java.lang.Thread$State</pre></div>
+<h4 class="t4">Kodierung von Feldern *</h4>
+<p>Schwieriger ist die Kodierung bei Array-Typen, die ja eine besondere Form von Klassen sind. <span class="clisting">getName()</span> kodiert sie mit einer führenden »[«. Jede Klammer steht dabei für eine Dimension des Array-Typs. Nach den Klammern folgt in einer kodierten Form der Typ der Array-Elemente. So liefert</p>
+<div class="listing"><pre class="prettyprint">System.out.println( int[][][].class.getName() );                // [[[I
+System.out.println( (new int[2][3][4]).getClass().getName() );  // [[[I</pre></div>
+<p>den String »[[[I«, also einen dreidimensionalen Array-Typ mit Array-Elementen vom primitiven Typ <span class="clisting">int</span>. Der Elementtyp ist wie folgt kodiert:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 25.1    </strong>Kodierung der Elementtypen</p>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Kürzel</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Datentyp</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">B</span></p>
+</td>
+<td class="tabellentext">
+<p>Byte</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">C</span></p>
+</td>
+<td class="tabellentext">
+<p>Char</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">D</span></p>
+</td>
+<td class="tabellentext">
+<p>Double</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">F</span></p>
+</td>
+<td class="tabellentext">
+<p>Float</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">I</span></p>
+</td>
+<td class="tabellentext">
+<p>Int</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">J</span></p>
+</td>
+<td class="tabellentext">
+<p>Long</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">L</span>Elementtyp<span class="clisting">;</span></p>
+</td>
+<td class="tabellentext">
+<p>Klasse oder Schnittstelle, etwa <span class="clisting">[Ljava.lang.String;</span> oder <span class="clisting">[Ljava.awt.Point;</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">S</span></p>
+</td>
+<td class="tabellentext">
+<p>Short</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">Z</span></p>
+</td>
+<td class="tabellentext">
+<p>Boolean</p>
+</td>
+</tr>
+</table><br><p>Nimmt das Array Objektreferenzen auf, wird deren Typ in der Form »LKlassenname;« kodiert. So liefert <span class="clisting">(new Object[3]).getClass().getName()</span> den String <span class="clisting">[L</span><span class="clisting">java.lang.Object;</span>. Der Klassen- beziehungsweise Schnittstellenname ist wie üblich voll qualifiziert.</p>
+<p>Der String ist auch für <span class="clisting">Class.forName()</span> von Bedeutung. Im Fall von Arrays liefert die Methode ein <span class="clisting">Class</span>-Objekt für den Elementtyp. Die ersten Versuche, um ein <span class="clisting">Class</span>-Objekt für Felder zu beziehen, scheitern an einer <span class="clisting">ClassNotFoundException</span>:</p>
+<div class="listing"><pre class="prettyprint">Class.forName( "String[]" );
+Class.forName( "java.lang.String[]" );</pre></div>
+<p>In der ersten Anweisung ist der Klassenname nicht voll qualifiziert, und auch in der zweiten Anweisung ist der String falsch aufgebaut;</p>
+<div class="listing"><pre class="prettyprint">out.println( Class.forName("[Ljava.lang.String;") ); // class [Ljava.lang.String;</pre></div>
+<p>Steht die Frage an, ob ein <span class="clisting">Class</span>-Objekt für ein Feld von Objekten steht oder für ein primitives Feld, lässt sich das Ergebnis von <span class="clisting">getName()</span> auswerten:</p>
+<div class="listing"><pre class="prettyprint">public static boolean isObjectArray( Class clazz )
+{
+  if ( clazz != null &amp;&amp; clazz.isArray() )
+    return clazz.getName().startsWith( "[L" );
+  return false;
+}</pre></div>
+<p>So liefert:</p>
+<div class="listing"><pre class="prettyprint">System.out.println( isObjectArray( Object[].class ) );       // true
+System.out.println( isObjectArray( int[].class ) );          // false
+System.out.println( isObjectArray( Object.class ) );         // false</pre></div>
+<h4 class="t4">toString()</h4>
+<p>Auch eine zweite Methode ist uns bekannt, um <span class="clisting">Class</span>-Exemplare für Menschen lesbar auszugeben: die Methode <span class="clisting">toString()</span>. Sie basiert im Kern auf <span class="clisting">getName()</span>, fügt aber zusätzlich die Art der repräsentierten Klasse (normale Klasse, Schnittstelle oder primitiver Datentyp) ein:</p>
+<div class="listing"><pre class="prettyprint">public String toString() {
+  return (isInterface() ? "interface " :
+     (isPrimitive() ? "" : "class ")) + getName();
+}</pre></div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">final class java.lang.<span class="cfett">Class</span>&lt;T&gt;
+implements Serializable, GenericDeclaration, Type, AnnotatedElement</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">String getName()</span>
+Liefert für ein <span class="clisting">Class</span>-Exemplar als String den voll qualifizierten Namen der repräsentierten Klasse oder Schnittstelle beziehungsweise des repräsentierten Array-Typs oder des primitiven Datentyps.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">String toString()</span>
+Liefert eine für Menschen lesbare String-Repräsentation des <span class="clisting">Class</span>-Objekts.</li>
+</ul><a id="mj61fae72b0d46a4162986360803fdb072" name="mj61fae72b0d46a4162986360803fdb072"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">25.2.4</span> »instanceof« mit Class-Objekten *  <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Der binäre Operator <span class="clisting">instanceof</span> testet, ob ein Objekt Exemplar einer Klasse oder der Oberklasse ist. Wenn das Ergebnis wahr ist, lässt sich das Objekt unter dem gegebenen Typen ansprechen, ist also zuweisungskompatibel. Der rechte Operator bei <span class="clisting">instanceof</span>, der Typname, muss jedoch immer zur Übersetzungszeit bekannt sein und kann nicht dynamisch, etwa durch eine String, festgelegt werden.</p>
+<p>Ist der Typname zur Compilierzeit vielleicht unbekannt, kann das <span class="clisting">Class</span>-Objekt helfen. Die Methode <span class="clisting">isInstance(Object)</span> ist sozusagen ein dynamisches <span class="clisting">instanceof</span>. Gilt mit dem Operator</p>
+<div class="listing"><pre class="prettyprint">object instanceof ReferenceType</pre></div>
+<p>so heißt das mit der Methode</p>
+<div class="listing"><pre class="prettyprint">ReferenceType-Class-Objekt.isInstance( object )</pre></div>
+<p>Gewöhnungsbedürftig ist sicherlich die Tatsache, dass bei der Methode <span class="clisting">isInstance()</span> die beiden Operanden umgedreht sind. Dazu ein paar Beispiele:</p>
+<p class="tabunter"><strong>Listing 25.4    </strong>IsAssignableFrom.java, main()</p>
+<div class="listing"><pre class="prettyprint">Component b = new JLabel();
+out.println( b instanceof JLabel );                                       // true
+out.println( JLabel.class.isInstance( b ) );                              // true
+out.println( Object.class.isInstance( b ) );                              // true
+out.println( Class.forName("java.awt.Component").isInstance( b ) );       // true
+out.println( String.class.isInstance( b ) );                              // false</pre></div>
+<p>Die Methode <span class="clisting">isInstance(object)</span> ist natürlich ein wenig dadurch eingeschränkt, dass es immer ein Test-Objekt geben muss. Die Frage etwa, ob das <span class="clisting">Class</span>-Objekt der Schnittstelle <span class="clisting">PublicKey</span> eine »Ist-eine-Art-von-<span class="clisting">Serializable</span>« ist, kann <span class="clisting">isInstance(object)</span> nicht beantworten, denn dann müsste es vorher ein Objekt geben. Für diesen Fall bietet das <span class="clisting">Class</span>-Objekt noch eine zweite Methode: <span class="clisting">isAssignableFrom(Class)</span>:</p>
+<div class="listing"><pre class="prettyprint">Class&lt;?&gt; clazz = Serializable.class;
+out.println( clazz.isAssignableFrom( String.class ) );                  // true
+out.println( clazz.isAssignableFrom( Thread.class ) );                  // false
+out.println( clazz.isAssignableFrom( PublicKey.class ) );               // true</pre></div>
+<p>Solange der Typname zur Übersetzungszeit bekannt ist, ist <span class="clisting">instanceof</span> immer noch die beste Lösung. Doch wenn die Klasse nur durch ein <span class="clisting">Class</span>-Objekt gegeben ist, bleibt immer noch <span class="clisting">isAssignableFrom()</span>. Die Methode <span class="clisting">clazz.isInstance(obj)</span> ist sozusagen eine Kurzform von <span class="clisting">clazz.isAssignableFrom(obj.getClass())</span>.</p><a id="mja42718317af09f43821fba60e5e53536" name="mja42718317af09f43821fba60e5e53536"></a><a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3"><span class="cfett">25.2.5</span> Oberklassen finden *  <a href="#t2t37"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Das <span class="clisting">Class</span>-Exemplar für eine Klasse gibt Zugriff auf die Oberklasse, die Sichtbarkeitsstufe und weitere Informationen. Die Oberklasse ermittelt <span class="clisting">getSuperclass()</span>. Die Methode gibt <span class="clisting">null</span> zurück, falls das <span class="clisting">Class</span>-Objekt eine Schnittstelle repräsentiert oder wir schon am oberen Ende der Hierarchie sind, also bei dem <span class="clisting">Class</span>-Objekt für die Wurzelklasse <span class="clisting">Object</span>. Das folgende Programm findet alle Oberklassen einer Klasse durch den wiederholten Aufruf der Methode <span class="clisting">getSuperclass()</span>:</p>
+<p class="tabunter"><strong>Listing 25.5    </strong>com/tutego/insel/meta/ShowSuperclasses.java</p>
+<div class="listing"><pre class="prettyprint">Class&lt;?&gt; subclass   = javax.swing.JButton.class;
+Class&lt;?&gt; superclass = subclass.<span class="cfett">getSuperclass()</span>;
+
+while ( superclass != null )
+{
+  String className = superclass.getName();
+  System.out.println( className );
+  subclass   = superclass;
+  superclass = subclass.<span class="cfett">getSuperclass()</span>;
+}</pre></div>
+<p>Wahrscheinlich wäre eine rekursive Variante noch eleganter, aber darauf kommt es jetzt nicht an.</p>
+<div class="listing"><pre class="prettyprint">javax.swing.AbstractButton
+javax.swing.JComponent
+java.awt.Container
+java.awt.Component
+java.lang.Object</pre></div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">final class java.lang.<span class="cfett">Class</span>&lt;T&gt;
+implements Serializable, GenericDeclaration, Type, AnnotatedElement</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">Class&lt;? super T&gt; getSuperclass()</span>
+Liefert ein <span class="clisting">Class</span>-Exemplar für die Oberklasse der Klasse, die durch das aufrufende <span class="clisting">Class</span>-Objekt repräsentiert wird. Falls wir schon oben auf der Vererbungshierarchie bei <span class="clisting">Object</span> sind oder nach der Oberklasse einer Schnittstelle fragen, liefert die Methode <span class="clisting">null</span>.</li>
+</ul><a id="mj707904bd78adebe73ebc9f20c1fca7aa" name="mj707904bd78adebe73ebc9f20c1fca7aa"></a><a name="t36"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t37"></a><h3 class="t3"><span class="cfett">25.2.6</span> Implementierte Interfaces einer Klasse oder eines Interfaces *  <a href="#t2t38"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t36"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Klassen stehen zum einen in einer Vererbungsbeziehung zu einer Oberklasse und können zum anderen mehrere Schnittstellen implementieren. Schnittstellen können ihrerseits wiederum andere Schnittstellen erweitern. Bei einer Klassendeklaration folgt direkt hinter dem Schlüsselwort <span class="clisting">implements</span> eine Auflistung der implementierten Schnittstellen. So implementiert die Klasse <span class="clisting">RandomAccessFile</span> die Schnittstellen <span class="clisting">DataOutput, DataInput</span> und <span class="clisting">Closeable</span>:</p>
+<div class="listing"><pre class="prettyprint">public class RandomAccessFile implements DataOutput, DataInput, Closeable</pre></div>
+<p>Um zu einem vorhandenen <span class="clisting">Class</span>-Objekt die Schnittstellen aufzulisten, rufen wir <span class="clisting">getInterfaces()</span> auf, die uns ein Array von <span class="clisting">Class</span>-Objekten liefert. Von hier aus kennen wir den Weg zum Namen: Der Aufruf von <span class="clisting">getName()</span> liefert den String für den Namen der Schnittstelle.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Gib die implementierten Schnittstellen von <span class="clisting">RandomAccessFile</span> aus:</p>
+<p class="tabunter"><strong>Listing 25.6    </strong>com/tutego/insel/meta/ShowInterfaces.java, main()</p>
+<div class="listing"><pre class="prettyprint">for ( Class&lt;?&gt; theInterface: java.io.RandomAccessFile.class.<span class="cfett">getInterfaces()</span> )
+  System.out.println( theInterface.getName() );</pre></div>
+<p class="BStandard">Die Ausgabe ist:</p>
+<div class="listing"><pre class="prettyprint">java.io.DataOutput
+java.io.DataInput
+java.io.Closeable</pre></div>
+</td>
+</tr>
+</table><br><a id="mjb52b207dc3b9c9ab6add1ccb619d8024" name="mjb52b207dc3b9c9ab6add1ccb619d8024"></a><a name="t37"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t38"></a><h3 class="t3"><span class="cfett">25.2.7</span> Modifizierer und die Klasse »Modifier« *  <a href="#t2t39"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t37"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Eine Klassendeklaration kann Modifizierer enthalten, also Schlüsselwörter, die zum Beispiel die Sichtbarkeit bestimmen. Unter anderem sind dies <span class="clisting">public</span>, <span class="clisting">protected</span>, <span class="clisting">private</span> und <span class="clisting">final</span>. Sie stehen etwa in der Klassendeklaration vor dem Schlüsselwort <span class="clisting">class</span> oder auch vor Methoden. Die Modifizierer können auch kombiniert werden: So ist die Klasse <span class="clisting">Class</span> selbst <span class="clisting">public final</span>. Die Methode <span class="clisting">getModifiers()</span> liefert im Rückgabewert die Modifizierer verschlüsselt als Ganzzahl:</p>
+<div class="listing"><pre class="prettyprint">System.out.println( Modifier.class.getModifiers() );                    // 1
+System.out.println( Modifier.toString(Modifier.class.getModifiers()) ); // public</pre></div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">final class java.lang.<span class="cfett">Class</span>&lt;T&gt;
+implements Serializable, GenericDeclaration, Type, AnnotatedElement</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">int getModifiers()</span>
+Liefert die Modifizierer für eine Klasse oder eine Schnittstelle.</li>
+</ul>
+<p>Damit wir uns bei der Entschlüsselung nicht mit magischen Zahlenwerten der JVM herumschlagen müssen, gibt es in der Klasse <span class="clisting">java.lang.reflect.Modifier</span> einige statische Methoden, die diese Ganzzahl testen. Zudem werden Konstanten deklariert (wie <span class="clisting">Modifier.PUBLIC</span>), mit denen dieser Integerwert verglichen werden kann. Da die Ganzzahl potenziell eine Kombination mehrerer Modifizierer kodiert, ist die gezielte Abfrage allerdings mit den statischen <span class="clisting">isXXX()</span>-Methoden einfacher. Obwohl eine Klasse nicht <span class="clisting">transient</span>, <span class="clisting">synchronized</span>, <span class="clisting">nativ</span> sein kann, listen wir hier alle statischen Methoden auf, da wir diese Modifizierer später auch für die Untersuchung von Methoden und Objekt- beziehungsweise Klassenvariablen per Reflection einsetzen. Jede dieser Testmethoden liefert <span class="clisting">true</span>, wenn der gefragte Modifizierer in dem kodierten Ganzzahlwert enthalten ist. Alle Methoden sind <span class="clisting">static</span> und liefern ein <span class="clisting">boolean</span>-Ergebnis, außer <span class="clisting">toString()</span>.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.lang.reflect.<span class="cfett">Modifier</span></pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">static boolean isAbstract( int mod )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static boolean isFinal( int mod )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static boolean isInterface( int mod )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static boolean isNative( int mod )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static boolean isPrivate( int mod )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static boolean isProtected( int mod )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static boolean isPublic( int mod )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static boolean isStatic( int mod )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static boolean isSynchronized( int mod )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static boolean isTransient( int mod )</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">static boolean isVolatile( int mod )</span></li>
+</ul>
+<p>Betrachten wir die <span class="clisting">toString()</span>-Methode der Klasse <span class="clisting">Modifier</span>. Dort finden wir eine Liste aller möglichen Modifizierer mit den Konstanten:</p>
+<div class="listing"><pre class="prettyprint">public static String toString( int mod )
+{
+  StringBuffer sb = new StringBuffer();
+  int len;
+  if ((mod &amp; PUBLIC) != 0) sb.append("public ");
+  if ((mod &amp; PRIVATE) != 0) sb.append("private ");
+  if ((mod &amp; PROTECTED) != 0) sb.append("protected ");
+  /* Canonical order */
+  if ((mod &amp; ABSTRACT) != 0) sb.append("abstract ");
+  if ((mod &amp; STATIC) != 0) sb.append("static ");
+  if ((mod &amp; FINAL) != 0) sb.append("final ");
+  if ((mod &amp; TRANSIENT) != 0) sb.append("transient ");
+  if ((mod &amp; VOLATILE) != 0) sb.append("volatile ");
+  if ((mod &amp; NATIVE) != 0) sb.append("native ");
+  if ((mod &amp; SYNCHRONIZED) != 0) sb.append("synchronized ");
+  if ((mod &amp; INTERFACE) != 0) sb.append("interface ");
+
+
+  if ((len = sb.length()) &gt; 0)/* trim trailing space */
+    return sb.toString().substring(0, len-1);
+  return "";
+}</pre></div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Schnittstellen, wie <span class="clisting">java.io.Serializable</span>, tragen den Modifier »abstract«.</p>
+<div class="listing"><pre class="prettyprint">int modifier = Serializable.class.getModifiers();
+out.println( modifier );                    // 1537
+out.println( Modifier.toString(modifier) ); // public abstract interface</pre></div>
+</td>
+</tr>
+</table><br><a id="mj04b2a72dbd3a393bc006c673524f83f3" name="mj04b2a72dbd3a393bc006c673524f83f3"></a><a name="t38"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t39"></a><h3 class="t3"><span class="cfett">25.2.8</span> Die Arbeit auf dem Feld *  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t38"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Utility-Klasse <span class="clisting">java.lang.reflect.Array</span> stellt statische Methoden bereit, um auf Array-Objekten generisch zu arbeiten. Elemente lassen sich erfragen und setzen und auch Arrays mit einem gewünschten Typ anlegen:</p>
+<div class="listing"><pre class="prettyprint">Object array =<span class="cfett"> Array.newInstance</span>( int.class, 20 ); System.out.println(<span class="cfett"> </span><img src="common/umbruch.gif" border="0" alt="Umbruch"><span class="cfett">
+Array.getLength</span>(array) );  // 20<span class="cfett">
+Array.setInt</span>( array, 0, &#8211;1 );
+System.out.println(<span class="cfett"> Array.getInt</span>(array, 0) );     // &#8211;1</pre></div>
+<p>Bei <span class="clisting">newInstance()</span> ist der Typ <span class="clisting">int.class</span> und nicht <span class="clisting">int[].class</span>!</p>
+<p>Eine allgemeine statische <span class="clisting">Array</span>-Methode <span class="clisting">set()</span> und <span class="clisting">get()</span> arbeitet für Objekte, wobei auch Wrapper für primitive Felder verwendet werden können:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">Array.set</span>( array, 0, Integer.valueOf(-1) );
+System.out.println(<span class="cfett"> Array.get</span>(array, 0) );     // &#8211;1</pre></div>
+<p>Für mehrdimensionale Felder lässt sich bei <span class="clisting">newInstance()</span> ein Feld von Größen angeben:</p>
+<div class="listing"><pre class="prettyprint">Object array =<span class="cfett"> Array.newInstance</span>( int.class,<span class="cfett"> new int[]{ 2, 2 }</span> );
+((int[][])array)[0][0] = 1;
+((int[][])array)[1][1] = 1;
+System.out.println( Arrays.deepToString( (int[][])array ) ); // [[1, 0], [0, 1]]</pre></div><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="25.2 Metadaten der Klassen mit dem Class-Objekt"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_25_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_25_003.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

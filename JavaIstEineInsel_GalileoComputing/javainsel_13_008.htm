@@ -1,0 +1,1147 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 13.8 Assoziative Speicher</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 13.8 Assoziative Speicher">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 13.8 Assoziative Speicher">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_05_001.htm#mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_08_001.htm#mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_09_001.htm#mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_11_001.htm#mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_13_007.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_13_009.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b" class="navnav">13 Datenstrukturen und Algorithmen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_13_001.htm#mj6ccdb9587d160efa70d8ec6e341ed18d" class="navnav">13.1 Datenstrukturen und die Collection-API</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_001.htm#mj1f6e6f95ae58be78d8c7c33d5ec49eb9" class="navnav">13.1.1 Designprinzip mit Schnittstellen, abstrakten und konkreten Klassen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_001.htm#mj93c1c1e6b86c74945bc9929e635b50ed" class="navnav">13.1.2 Die Basis-Schnittstellen Collection und Map</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_001.htm#mj7a79efaff3ac0ccbf8d02255a3aaeb21" class="navnav">13.1.3 Das erste Programm mit Container-Klassen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_001.htm#mj2026369214f78e117bc4014be1b17b42" class="navnav">13.1.4 Die Schnittstelle Collection und Kernkonzepte</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_001.htm#mj09ef8eba4417ef39ea4188a48e2b4fe7" class="navnav">13.1.5 Schnittstellen, die Collection erweitern, und Map</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_001.htm#mj8a76d089e7c9ff06b5403c9e8cb0dbd5" class="navnav">13.1.6 Konkrete Container-Klassen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_001.htm#mj20c3f4b9802e0f1a9aee25c67327fe8c" class="navnav">13.1.7 Welche Container-Klasse nehmen?</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_001.htm#mj4eefaa341178c745bfceae42501036bb" class="navnav">13.1.8 Generische Datentypen in der Collection-API</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_001.htm#mje5050a5669fd9b4900809aa4e1d34308" class="navnav">13.1.9 Die Schnittstelle »Iterable« und das erweiterte »for«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_13_002.htm#mj6a20dd38f9c93abb1c32b6f2f56357af" class="navnav">13.2 Mit einem Iterator durch die Daten wandern</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_002.htm#mj45b286662ec7b5715ef9c802f6c3513a" class="navnav">13.2.1 Die Schnittstellen Enumeration und Iterator</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_002.htm#mja7762290bb6067a0fbd05b8f3464f59d" class="navnav">13.2.2 Iteratoren von Sammlungen und das erweiterte »for«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_002.htm#mj30dd8d057bfa61a6525e9269b03019c0" class="navnav">13.2.3 Fail-Fast-Iterator und die ConcurrentModificationException</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_13_003.htm#mjf4178c97cb04d7bdd4be130334579516" class="navnav">13.3 Listen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_003.htm#mj924ffbfcb5de21fdf1a47f32930e42ce" class="navnav">13.3.1 Auswahlkriterium ArrayList oder LinkedList</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_003.htm#mja4d1641a6292a2df6e31df7304ee0c9b" class="navnav">13.3.2 Die Schnittstelle List</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_003.htm#mj63d4129737eb19c28d378dc37e103df2" class="navnav">13.3.3 ListIterator *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_003.htm#mj10f6167ad1bdfb44e9b980a4a744a0c0" class="navnav">13.3.4 ArrayList</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_003.htm#mj6144fdfaf67c663736500be97c6834aa" class="navnav">13.3.5 LinkedList</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_003.htm#mj28bdf78da3eae580db1861dbf88c91e3" class="navnav">13.3.6 Der Feld-Adapter »Arrays.asList()«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_003.htm#mj1f8103e31724ff7e2fceb8bcb60aa67d" class="navnav">13.3.7 »toArray()« von Collection verstehen &#8211; die Gefahr einer Falle erkennen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_003.htm#mja85bfc5d8a94f925335e5488e8a3e81c" class="navnav">13.3.8 Primitive Elemente in den Collection-Datenstrukturen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_13_004.htm#mje7632b0de42c17693defeebd48736c7f" class="navnav">13.4 Datenstrukturen mit Ordnung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_004.htm#mj71f45ecb57e5f607156239ebc8ee1c86" class="navnav">13.4.1 Algorithmen mit Such- und Sortiermöglichkeiten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_004.htm#mj7a8c8fc5d6d143c1438c20607bff376f" class="navnav">13.4.2 Den größten und kleinsten Wert einer Collection finden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_004.htm#mj7a4c4509ffe85c1968d541492369c412" class="navnav">13.4.3 Sortieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_13_005.htm#mj45263b87fd44c62f2cde668164897a93" class="navnav">13.5 Mengen (Sets)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_005.htm#mj3aa70559d61c305035645bb81b8d2469" class="navnav">13.5.1 HashSet</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_005.htm#mj5eea6a1f66c7382900fdecd6e5865d3b" class="navnav">13.5.2 TreeSet &#8211; die Menge durch Bäume</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_005.htm#mj41ba16b6b9fd82b4ea19fa31e73fe365" class="navnav">13.5.3 LinkedHashSet</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_13_006.htm#mje2d6ca56ec06f93d3b2c8a18b73fde6e" class="navnav">13.6 Stack (Kellerspeicher, Stapel)</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_006.htm#mj99b21bfdc1d5b5e12b826848170d6fc6" class="navnav">13.6.1 Die Methoden von »Stack«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_006.htm#mj0c9a4bc09c3ca7bb4407a33d4270d2b4" class="navnav">13.6.2 Ein »Stack« ist ein »Vector« &#8211; aha!</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_13_007.htm#mj0cdc7b3eb6a6b4dcdd7ac41f265dad03" class="navnav">13.7 Queues (Schlangen) und Deques</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_007.htm#mj490b2d33f4c96d064299bf581dd127af" class="navnav">13.7.1 Die Schnittstelle »Queue«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_007.htm#mjea3134c093b3ea42696ef5d64da7fe21" class="navnav">13.7.2 Blockierende Queues und Prioritätswarteschlangen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_007.htm#mj716e961cbb2ed8dabc4e62745bf8907a" class="navnav">13.7.3 »Deque«-Klassen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj836f3979bc516dee7023f5bc030ad627" class="navh">13.8 Assoziative Speicher</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj6251e23375a9e2c3e729ddc747e1f2ed" class="navh">13.8.1 Die Klassen »HashMap« und »TreeMap«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj748c34d0cdfc13971e9638ab713d6eff" class="navh">13.8.2 Einfügen und Abfragen der Datenstruktur</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj3dc1756cf378db77cc9c38a682281404" class="navh">13.8.3 Über die Bedeutung von »equals()«, »hashCode()«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mje58b19cabdd91545346c9160bbf456fa" class="navh">13.8.4 IdentityHashMap</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj4c0fb480d9f5dca8b0ac98ca26a8c0c3" class="navh">13.8.5 Das Problem von veränderten Elementen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj03374baa89cf87ef02349f703180bd14" class="navh">13.8.6 Aufzählungen und Ansichten des Assoziativspeichers</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj02c989d784a59defc8cb239a494d2b42" class="navh">13.8.7 Der Gleichheitstest, Hash-Wert und Klon einer Hash-Tabelle*</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj5260d04d10949c0ec2c9122090ea613a" class="navh">13.8.8 Die Arbeitsweise einer Hash-Tabelle *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_13_009.htm#mj3caf7868aebd71a657cac5c47c87cec9" class="navnav">13.9 Die Properties-Klasse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_009.htm#mj182eaee2a4ca8f8b458ab3d60d50537c" class="navnav">13.9.1 Properties setzen und lesen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_009.htm#mj24463d6c9d1783930fb460cb62ff3921" class="navnav">13.9.2 Properties verketten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_009.htm#mj604807f32ff53197c8b3667285c5f39c" class="navnav">13.9.3 Hierarchische Eigenschaften</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_009.htm#mj72243719024672251cb31a808440771d" class="navnav">13.9.4 Eigenschaften ausgeben *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_009.htm#mjf8ebe35d4f4fd0199f37e99984e7f732" class="navnav">13.9.5 Properties laden und speichern</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_13_010.htm#mj31b29f3f7c1152bc2f6997ab29af14b7" class="navnav">13.10 Algorithmen in Collections</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_010.htm#mjf5b4df2039dbfb4fc4e44f5e4ee93747" class="navnav">13.10.1 Nicht-änderbare Datenstrukturen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_010.htm#mj7b5e23e879a8b82fc7967e3134b020a7" class="navnav">13.10.2 Null Object Pattern und leere Sammlungen zurückgeben</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_010.htm#mjc40940722b422ff38ddc02f6e4f223a8" class="navnav">13.10.3 Mit der Halbierungssuche nach Elementen fahnden</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_010.htm#mj71789a9023a966258b7e3c417cc967c4" class="navnav">13.10.4 Ersetzen, Kopieren, Füllen, Umdrehen, Rotieren, Durchmischen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_010.htm#mj0ef664400e5bb7afaf45f07bc99fb342" class="navnav">13.10.5 Häufigkeit eines Elements *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_010.htm#mjb2c1c49f74f26c58e17bfca0a558f725" class="navnav">13.10.6 nCopies() *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_010.htm#mj87b606bd070a3fe065d9e3235aa42215" class="navnav">13.10.7 Singletons *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_13_011.htm#mj0ff161e9620174964e86be55a40f1eff" class="navnav">13.11 Synchronisation der Datenstrukturen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_011.htm#mjb7c8b7760ff21e6e5bb0ad40f4f29968" class="navnav">13.11.1 Lock-free-Algorithmen aus java.util.concurrent</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_011.htm#mjf1ac096770848daaaf781e0d6c15b8a0" class="navnav">13.11.2 Wrapper zur Synchronisation</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_011.htm#mj587b04b2fa3737ce40a9118e27d1f818" class="navnav">13.11.3 »CopyOnWriteArrayList« und »CopyOnWriteArraySet«</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_13_012.htm#mjbfcd83b3541482d2f9c2c4faee3b7013" class="navnav">13.12 Die Klasse »BitSet« für Bitmengen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_012.htm#mje31079a72ad10f37120efe1808f08c38" class="navnav">13.12.1 Ein »BitSet« anlegen, füllen und erfragen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_012.htm#mjebe1a504ea1a65bd97894c79caae5b6f" class="navnav">13.12.2 Mengenorientierte Operationen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_012.htm#mjf275d8829b6e2f0bc03919159b7b96a8" class="navnav">13.12.3 Methodenübersicht</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_13_012.htm#mjb5daec6a05d52b553339ade302571692" class="navnav">13.12.4 Primzahlen in einem BitSet verwalten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_13_013.htm#mjc65ac117dfc6f17596056e9184d73038" class="navnav">13.13 Zum Weiterlesen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj836f3979bc516dee7023f5bc030ad627" name="mj836f3979bc516dee7023f5bc030ad627"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">13.8</span> Assoziative Speicher  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Ein assoziativer Speicher verbindet einen Schlüssel mit einem Wert. Java bietet für Datenstrukturen dieser Art die allgemeine Schnittstelle <span class="clisting">Map</span> mit wichtigen Operationen wie <span class="clisting">put(key, value)</span> zum Aufbau einer Assoziation und <span class="clisting">get(key)</span> zum Erfragen eines assoziierten Wertes.</p><a id="mj6251e23375a9e2c3e729ddc747e1f2ed" name="mj6251e23375a9e2c3e729ddc747e1f2ed"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">13.8.1</span> Die Klassen »HashMap« und »TreeMap«  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Java-Bibliothek implementiert assoziativen Speicher mit einigen Klassen, wobei wir unser Augenmerk zunächst auf zwei wichtige Klassen richten wollen:</p>
+<ul class="gp">
+<li>Eine schnelle Implementierung ist die <span class="ckursiv">Hash-Tabelle</span> (engl. <span class="ckursiv">hashtable</span>), die in Java durch <span class="clisting">java.util.HashMap</span> implementiert ist. Vor Java 1.2 wurde <span class="clisting">java.util.Hashtable</span> verwendet. Die Schlüsselobjekte müssen »hashbar« sein, also <span class="clisting">equals()</span> und <span class="clisting">hashCode()</span> konkret implementieren. Eine besondere Schnittstelle für die Elemente ist nicht nötig.</li>
+</ul>
+<ul class="gp">
+<li>Daneben existiert die Klasse <span class="clisting">java.util.TreeMap</span>, die etwas langsamer im Zugriff ist, doch dafür alle Schlüsselobjekte immer sortiert hält. Sie sortiert die Elemente in einen internen Binärbaum ein. Die Schlüssel müssen sich in eine Ordnung bringen lassen, wozu etwas Vorbereitung nötig ist.</li>
+</ul><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Ein Assoziativspeicher, dem wir Werte [Siehe dazu auch <span class="ckursiv">http://www.aldibaran.de/?page_id=13#2.</span>] hinzufügen:</p>
+<p class="tabunter"><strong>Listing 13.19    </strong>com/tutego/insel/util/map/HashMapDemo.java, main()</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">Map</span>&lt;String, String&gt; aldiSupplier = new <span class="cfett">HashMap</span>&lt;String, String&gt;();
+aldiSupplier.<span class="cfett">put</span>( "Carbo, spanischer Sekt", "Freixenet" );
+aldiSupplier.<span class="cfett">put</span>( "ibu Stapelchips", "Bahlsen Chipsletten" );
+aldiSupplier.<span class="cfett">put</span>( "Ko-kra Katzenfutter", "felix Katzenfutter" );
+aldiSupplier.<span class="cfett">put</span>( "Küchenpapier", "Zewa" );
+aldiSupplier.<span class="cfett">put</span>( "Nuss-Nougat-Creme", "Zentis" );
+aldiSupplier.<span class="cfett">put</span>( "Pommes Frites", "McCaine" );</pre></div>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p class="BStandard">Die zweite <span class="clisting">HashMap</span> soll Strings mit Zahlen assoziieren:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">Map</span>&lt;String, Number&gt; num = new <span class="cfett">HashMap</span>&lt;String, Number&gt;();
+num.<span class="cfett">put</span>( "zwei", 2 );    // Boxing durch Integer.valueOf(2)
+num.<span class="cfett">put</span>( "drei", 3.0 );  // Boxing durch Double.valueOf(3.0)</pre></div>
+</td>
+</tr>
+</table><br><p>Während also bei den Assoziativspeichern nach dem Hashing-Verfahren eine <span class="clisting">hashCode()</span>- und <span class="clisting">equals()</span>-Methode bei den Schlüssel-Objekten essenziell ist, ist das bei den Baum-orientierten Verfahren nicht nötig &#8211; hier muss nur eine Ordnung zwischen den Elementen entweder mit <span class="clisting">Comparable</span> oder <span class="clisting">Comparator</span> her.</p>
+<div class="bildbox">
+<p><a name="IDAWP0D"></a><a onClick="OpenWin('bilder/mapentryuml.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinmapentryuml.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<p>Ein Assoziativspeicher arbeitet nur in einer Richtung schnell. Wenn etwa im Fall eines Telefonbuchs ein Name mit einer Nummer assoziiert wurde, kann die Datenstruktur die Frage nach einer Telefonnummer schnell beantworten, in die andere Richtung dauert es wesentlich länger, weil hier keine Verknüpfung besteht. Sie ist immer nur einseitig. Auf wechselseitige Beziehungen sind die Klassen nicht vorbereitet.</p>
+<h4 class="t4">Die Klasse »HashMap«</h4>
+<p>Die Klasse <span class="clisting">HashMap</span> eignet sich ideal dazu, viele Elemente unsortiert zu speichern und sie über die Schlüssel schnell wieder verfügbar zu machen. Das interne Hashing-Verfahren ist schnell, eine Sortierung der Schlüssel nach einem gegebenen Kriterium aber nicht möglich.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.util.<span class="cfett">HashMap</span>&lt;K,V&gt;
+extends AbstractMap&lt;K,V&gt;
+implements Map&lt;K,V&gt;, Cloneable, Serializable</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">HashMap()</span>
+Erzeugt eine neue Hash-Tabelle.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">HashMap( Map&lt;? extends K,? extends V&gt; m )</span>
+Erzeugt eine neue Hash-Tabelle aus einer anderen <span class="clisting">Map</span>.</li>
+</ul>
+<h4 class="t4">Die Klasse »TreeMap« und die Schnittstelle »SortedMap«/»NavigableMap«</h4>
+<p>Eine <span class="clisting">TreeMap</span> implementiert seit Java 6 die Schnittstelle <span class="clisting">NavigableMap</span>, die wiederum von der Schnittstelle <span class="clisting">SortedMap</span> [Vor Java 6 war dies die implementierte Schnittstelle.
+]  erbt und diese wiederum <span class="clisting">Map</span> erweitert. Eine <span class="clisting">NavigableMap</span> sortiert die Elemente eines Assoziativspeichers nach Schlüsseln und bietet Zugriff auf das kleinste oder größte Element mit Methoden wie <span class="clisting">firstKey()</span>, <span class="clisting">lastKey()</span> und kann mit <span class="clisting">subMap()</span> und  <span class="clisting">tailMap()</span> Teilansichten des Assoziativspeichers bilden.</p>
+<p>Damit die Schlüssel in einer <span class="clisting">TreeMap</span> sortiert werden können, gilt das Gleiche wie beim <span class="clisting">TreeSet</span>: Die Elemente müssen eine natürliche Ordnung besitzen, oder ein externer <span class="clisting">Comparator</span> muss die Ordnung festlegen.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.util.<span class="cfett">TreeMap</span>&lt;K,V&gt;
+extends AbstractMap&lt;K,V&gt;
+implements NavigableMap&lt;K,V&gt;, Cloneable, Serializable</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">TreeMap()</span>
+Erzeugt eine neue <span class="clisting">TreeMap</span>, welche eine natürliche Ordnung von ihren Elementen erwartet.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">TreeMap( Comparator&lt;? super K&gt; comparator )</span>
+Erzeugt eine neue <span class="clisting">TreeMap</span> mit einem <span class="clisting">Comparator</span>, sodass die Elemente keine natürliche Ordnung besitzen müssen.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">TreeMap( Map&lt;? extends K,? extends V&gt; m )</span>
+Erzeugt eine <span class="clisting">TreeMap</span> mit einsortierten Elementen aus <span class="clisting">m</span>, die eine natürliche Ordnung besitzen müssen.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">TreeMap( SortedMap&lt;K,? extends V&gt; m )</span>
+Erzeugt eine <span class="clisting">TreeMap</span> mit einsortierten Elementen aus <span class="clisting">m</span> und übernimmt von <span class="clisting">m</span> auch die Ordnung.</li>
+</ul>
+<p>Um die Sortierung zu ermöglichen, ist der Zugriff etwas langsamer als über <span class="clisting">HashMap</span>, aber mit dem Hashing-Verfahren lassen sich Elemente nicht sortieren.</p><a id="mj748c34d0cdfc13971e9638ab713d6eff" name="mj748c34d0cdfc13971e9638ab713d6eff"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">13.8.2</span> Einfügen und Abfragen der Datenstruktur  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Wir haben gesagt, dass die Elemente des Assoziativspeichers Paare aus Schlüssel und zugehörigem Wert sind. Das Wiederfinden der Werte ist effizient nur über Schlüssel möglich.</p>
+<h4 class="t4">Daten einfügen</h4>
+<p>Zum Hinzufügen von Schlüssel-Werte-Paaren dient die Methode <span class="clisting">put</span><span class="clisting">(key, value)</span>. Das erste Argument ist der Schlüssel und das zweite Argument der mit dem Schlüssel zu assoziierende Wert. Der Schlüssel und der Wert können <span class="clisting">null</span> sein.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">interface java.util.<span class="cfett">Map</span>&lt;K,V&gt;</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">V put( K key, V value )</span>
+Speichert den Schlüssel und den Wert in der Hash-Tabelle. Falls sich zu diesem Schlüssel schon ein Eintrag in der Hash-Tabelle befand, wird der alte Wert überschrieben und der vorherige Wert zum Schlüssel zurückgegeben (das ist anders als beim <span class="clisting">Set</span>, wo die Operation dann nichts tut). Ist der Schlüssel neu, liefert <span class="clisting">put()</span> den Rückgabewert <span class="clisting">null</span>. Das heißt natürlich auch, dass mit <span class="clisting">put(key, value) == null</span> nicht klar ist, ob <span class="clisting">put()</span> einen Wert überschreibt und der alte Wert <span class="clisting">null</span> war, oder ob noch kein Schlüssel-Werte-Paar in dem Assoziativspeicher lag.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void putAll( Map&lt;? extends K, ? extends V&gt; m )</span>
+Fügt alle Schlüssel-Werte-Paare aus <span class="clisting">m</span> in die aktuelle <span class="clisting">Map</span> ein. Auch diese Methode überschreibt unter Umständen vorhandene Schlüssel.</li>
+</ul>
+<h4 class="t4">Daten auslesen</h4>
+<p>Um wieder ein Element auszulesen, deklariert <span class="clisting">Map</span> die Operation <span class="clisting">get</span><span class="clisting">(key)</span>. Das Argument identifiziert das zu findende Objekt über den Schlüssel, indem das Objekt aus der Datenstruktur herausgesucht wird, das im Sinne von <span class="clisting">equals()</span> mit dem Anfrageobjekt gleich ist. Wenn das Objekt nicht vorhanden ist, ist die Rückgabe <span class="clisting">null</span>. Allerdings kann auch <span class="clisting">null</span> der mit einem Schlüssel assoziierte Wert sein, da <span class="clisting">null</span> als Wert durchaus erlaubt ist.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Erfrage den Assoziativspeicher nach »zwei«. Das Ergebnis wird ein <span class="clisting">Number</span>-Objekt sein:</p>
+<div class="listing"><pre class="prettyprint">Map&lt;String, Number&gt; num = new HashMap&lt;String, Number&gt;();
+Number number = num.<span class="cfett">get</span>( "zwei" );
+if ( number != null )
+  System.out.println( number.intValue() );</pre></div>
+<p class="BStandard">Mit Generics kann eine Typanpassung entfallen, wenn &#8211; wie in unserem Beispiel &#8211; <span class="clisting">Number</span>-Objekte mit dem String assoziiert waren. Wurde der Typ nicht angegeben, ist eine Typanpassung nötig.</p>
+</td>
+</tr>
+</table><br><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">interface java.util.<span class="cfett">Map</span>&lt;K,V&gt;</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">V get( Object key )</span>
+Liefert das mit dem entsprechenden Schlüssel verbundene Objekt. Falls kein passendes Objekt vorhanden ist, liefert die Methode <span class="clisting">null</span>.</li>
+</ul>
+<h4 class="t4">Existiert der Schlüssel, existiert der Wert?</h4>
+<p>Neben <span class="clisting">get()</span> kann auch mit einer anderen Methode das Vorhandensein eines Schlüssels getestet werden: <span class="clisting">containsKey</span><span class="clisting">()</span> überprüft, ob ein Schlüssel in der Tabelle vorkommt, und gibt dann ein <span class="clisting">true</span> zurück. Die Implementierung unterscheidet sich nicht wesentlich von <span class="clisting">get()</span>.</p>
+<p>Im Gegensatz zu <span class="clisting">get()</span> und <span class="clisting">containsKey()</span>, die das Auffinden eines Werts bei gegebenem Schlüssel erlauben, lässt sich auch nur nach den Werten ohne Schlüssel suchen. Dies ist allerdings wesentlich langsamer, da alle Werte der Reihe nach durchsucht werden müssen. Die Klasse bietet hierzu <span class="clisting">containsValue()</span> an.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">interface java.util.<span class="cfett">Map</span>&lt;K,V&gt;</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">boolean containsKey( Object key )</span>
+Liefert <span class="clisting">true</span>, falls der Schlüssel in der Hash-Tabelle vorkommt. Den Vergleich auf Gleichheit führt <span class="clisting">HashMap</span> mit <span class="clisting">equals()</span> durch. Demnach sollte das zu vergleichende Objekt diese Methode aus <span class="clisting">Object</span> passend überschreiben. <span class="clisting">hashCode()</span> und <span class="clisting">equals()</span> müssen miteinander konsistent sein. Aus der Gleichheit zweier Objekte unter <span class="clisting">equals()</span> muss auch jeweils die Gleichheit von <span class="clisting">hashCode()</span> folgen.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">boolean containsValue( Object value )</span>
+Liefert <span class="clisting">true</span>, falls der Assoziativspeicher einen oder mehrere Werte enthält, die mit dem Objekt inhaltlich (also per <span class="clisting">equals()</span>) übereinstimmen.</li>
+</ul>
+<h4 class="t4">Einträge und die Map löschen</h4>
+<p>Zum Löschen eines Elements gibt es <span class="clisting">remove()</span> und zum Löschen der gesamten <span class="clisting">Map</span> die Methode <span class="clisting">clear()</span>.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">interface java.util.<span class="cfett">Map</span>&lt;K,V&gt;</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">V remove( Object key )</span>
+Löscht den Schlüssel und seinen zugehörigen Wert. Wenn der Schlüssel nicht in der Hash-Tabelle ist, so bewirkt die Methode nichts. Im letzten Atemzug wird noch der Wert zum Schlüssel zurückgegeben.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">void clear()</span>
+Löscht die Hash-Tabelle so, dass sie keine Werte mehr enthält.</li>
+</ul>
+<h4 class="t4">Sonstiges</h4>
+<p>Mit <span class="clisting">size()</span> lässt sich die Anzahl der Werte in der Hash-Tabelle erfragen. <span class="clisting">isEmpty()</span> entspricht einem <span class="clisting">size() == 0</span>, gibt also <span class="clisting">true</span> zurück, falls die Hash-Tabelle keine Elemente enthält. <span class="clisting">toString()</span> liefert eine Zeichenkette, die eine Repräsentation der Hash-Tabelle zurückgibt. Die Stringrepräsentation der Hash-Tabelle liefert jeden enthaltenen Schlüssel, gefolgt von einem Gleichheitszeichen und dem zugehörigen Wert.</p><a id="mj3dc1756cf378db77cc9c38a682281404" name="mj3dc1756cf378db77cc9c38a682281404"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">13.8.3</span> Über die Bedeutung von »equals()«, »hashCode()«  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Wenn wir Assoziativspeicher wie eine <span class="clisting">HashMap</span> nutzen, dann sollte uns bewusst sein, dass Vergleiche nach dem Hashcode und der Gleichheit durchgeführt werden, nicht aber nach der Identität. Die folgenden Zeilen zeigen ein Beispiel:</p>
+<p class="tabunter"><strong>Listing 13.20    </strong>com/tutego/insel/util/map/HashMapAndEquals.java(), main()</p>
+<div class="listing"><pre class="prettyprint">Map&lt;Point, String&gt; map = new HashMap&lt;Point, String&gt;();
+Point p1 = new Point( 10, 20 );
+map.put( p1, "Point p1" );</pre></div>
+<p>Die <span class="clisting">HashMap</span> assoziiert den Punkt <span class="clisting">p1</span> mit einer Zeichenkette. Was ist nun, wenn wir ein zweites Punkt-Objekt mit den gleichen Koordinaten bilden und die <span class="clisting">Map</span> nach diesem Objekt fragen?</p>
+<div class="listing"><pre class="prettyprint">Point p2 = new Point( 10, 20 );
+System.out.println( map.get( p2 ) );                    // ???</pre></div>
+<p>Die Antwort ist die Zeichenfolge »Point p1«. Das liegt daran, dass zunächst der Hashcode von <span class="clisting">p1</span> und <span class="clisting">p2</span> gleich ist. Des Weiteren liefert auch <span class="clisting">equals()</span> ein <span class="clisting">true</span>, sodass dies als ein Fund zu werten ist (das liefert noch einmal einen wichtigen Hinweis, dass immer beide Methoden <span class="clisting">equals()</span> und <span class="clisting">hashCode()</span> in Unterklassen zu überschreiben sind).</p>
+<p>Mit etwas Überlegung folgt dieser Punkt fast zwangsläufig, denn bei einer Anfrage ist ja das zu erfragende Objekt nicht bekannt. Daher kann der Vergleich nur auf Gleichheit, nicht aber auf Identität stattfinden.</p>
+<h4 class="t4">Eigene Objekte hashen</h4>
+<p>Für Objekte, die als Schlüssel in einen Hash-Assoziativspeicher gesetzt werden, gibt es keine Schnittstelle zu implementieren, lediglich die Aufforderung, dass <span class="clisting">equals()</span> und <span class="clisting">hashCode()</span> in geeigneter Weise (der Bedeutung oder Semantik des Objekts entsprechend) untereinander konsistent implementiert sein sollen. Viele Standard-Klassen, wie <span class="clisting">String</span> oder <span class="clisting">Point</span>, erfüllen dies, andere, wie <span class="clisting">StringBuilder</span>, wiederum nicht. Für Schlüsselobjekte in einer <span class="clisting">NavigableMap</span> ist <span class="clisting">hashCode()</span> natürlich nicht erforderlich.</p>
+<p>In Abschnitt 9.3.5, »Hashcodes über hashCode() liefern«, haben wir Implementierungsdetails schon beleuchtet. Wir wollen nun kurz eine Klasse entwerfen, die <span class="clisting">hashCode()</span> und <span class="clisting">equals()</span> so implementiert, dass Strings unabhängig von ihrer Groß-/Kleinschreibung einsortiert und gefunden werden:</p>
+<p class="tabunter"><strong>Listing 13.21    </strong>com/tutego/insel/util/map/EqualsIgnoreCaseString.java</p>
+<div class="listing"><pre class="prettyprint">package com.tutego.insel.util.map;
+
+public class EqualsIgnoreCaseString
+{
+  private final String string;
+
+  public EqualsIgnoreCaseString( String string )
+  {
+    this.string = string.toLowerCase();
+  }
+
+
+
+ <span class="cfett"> @Override public int hashCode()</span>
+  {
+    return string.hashCode();
+  }
+
+ <span class="cfett"> @Override public boolean equals( Object obj )</span>
+  {
+    if ( this == obj )
+      return true;
+    if ( obj == null )
+      return false;
+    if ( getClass() != obj.getClass() )
+      return false;
+    if ( string == null )
+      if ( ((EqualsIgnoreCaseString) obj).string != null )
+        return false;
+    return string.equals( ((EqualsIgnoreCaseString) obj).string );
+  }
+}</pre></div>
+<p>Ein kleiner Test mit den Rückgaben im Kommentar:</p>
+<p class="tabunter"><strong>Listing 13.22    </strong>com/tutego/insel/util/map/EqualsIgnoreCaseStringDemo.java, main()</p>
+<div class="listing"><pre class="prettyprint">Map&lt;EqualsIgnoreCaseString, String&gt; map =
+  new HashMap&lt;EqualsIgnoreCaseString, String&gt;();
+map.put( new EqualsIgnoreCaseString("tutego"), "tutego" ); // null
+map.put( new EqualsIgnoreCaseString("Tutego"), "Tutego" ); // tutego
+map.put( new EqualsIgnoreCaseString("TUTI!"), "TUTI!" );   // null
+
+map.get( new EqualsIgnoreCaseString("tutego") );           // Tutego
+map.get( new EqualsIgnoreCaseString("TUTEGO") );           // Tutego
+map.get( new EqualsIgnoreCaseString("tUtI!") );            // TUTI!
+map.get( new EqualsIgnoreCaseString("tröt") );             // null</pre></div><a id="mje58b19cabdd91545346c9160bbf456fa" name="mje58b19cabdd91545346c9160bbf456fa"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">13.8.4</span> IdentityHashMap  <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Es gibt eine besondere Datenstruktur mit dem Namen <span class="clisting">IdentityHashMap</span>, die statt der internen <span class="clisting">equals()</span>-Vergleiche einen Identitätsvergleich mit <span class="clisting">==</span> durchführt. Die Implementierung ist selten im Einsatz, kann aber im Bereich der Performance-Optimierung eine interessante Rolle übernehmen und auch das Problem lösen, wenn in der <span class="clisting">Map</span> denn absichtlich Objekte enthalten sein sollen, die <span class="clisting">equals()</span>-gleich, aber nicht identisch sind.</p><a id="mj4c0fb480d9f5dca8b0ac98ca26a8c0c3" name="mj4c0fb480d9f5dca8b0ac98ca26a8c0c3"></a><a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3"><span class="cfett">13.8.5</span> Das Problem von veränderten Elementen  <a href="#t2t37"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Ein Hashcode ergibt sich aus den Attributen eines Objekts. Um ein Objekt in einem Assoziativspeicher zu finden, wird dann nach dem Hash-Wert gesucht; dumm, wenn sich dieser in der Zwischenzeit geändert hat:</p>
+<p class="tabunter"><strong>Listing 13.23    </strong>com/tutego/insel/util/map/MapImmutable.java(), main()</p>
+<div class="listing"><pre class="prettyprint">Map&lt;Point, String&gt; map = new HashMap&lt;Point, String&gt;();
+Point q = new Point( 10, 10 );
+map.put( q, "Punkt q" );
+q.x = 12345;
+System.out.println( map.get( q ) ); // ???</pre></div>
+<p>Nach der Zuweisung an <span class="clisting">x</span> wird <span class="clisting">hashCode()</span> einen anderen Wert als vorher liefern. Wenn nun <span class="clisting">get()</span> nach dem Objekt sucht, berechnet es den Hashcode und sucht in den internen Datenstrukturen. Ändert sich der Hashcode jedoch unterdessen, kann das Element nicht mehr gefunden werden und liegt als Leiche in der Map. Daher kann nur davor gewarnt werden, Objektattribute von Objekten, die durch Assoziativspeicher verwaltet werden, nachträglich zu ändern. Das Prinzip Hashing benutzt gerade diese Eigenschaft, um Objekte durch unveränderte Zustände wiederzufinden.</p><a id="mj03374baa89cf87ef02349f703180bd14" name="mj03374baa89cf87ef02349f703180bd14"></a><a name="t36"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t37"></a><h3 class="t3"><span class="cfett">13.8.6</span> Aufzählungen und Ansichten des Assoziativspeichers  <a href="#t2t38"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t36"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Eine <span class="clisting">Map</span> kann beim erweiterten <span class="clisting">for</span> nicht rechts vom Doppelpunkt stehen, da sie kein <span class="clisting">Iterable</span> implementiert &#8211; nicht direkt und, da eine <span class="clisting">Map</span> keine <span class="clisting">Collection</span> ist, auch nicht indirekt. Auch fehlt der <span class="clisting">Map</span> irgendeine direkte Methode <span class="clisting">iterator()</span>.</p>
+<p>Eine <span class="clisting">Map</span> kann jedoch auf drei Arten <span class="clisting">Collection</span>-Sammlungen zurückgeben, über die sich iterieren lässt:</p>
+<ul class="gp">
+<li><span class="clisting">keySet()</span> liefert eine Menge der Schlüssel.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">values()</span> liefert eine <span class="clisting">Collection</span> der Werte.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">entrySet()</span> liefert ein <span class="clisting">Set</span> mit speziellen <span class="clisting">Map.Entry</span>-Objekten. Die <span class="clisting">Map.Entry</span>-Objekte speichern gleichzeitig den Schlüssel sowie den Wert.</li>
+</ul>
+<p>Für die Sammlungen gibt es erst einmal keine definierte Reihenfolge, es sei denn, die <span class="clisting">Map</span> ist eine <span class="clisting">NavigableMap</span>, wo ein <span class="clisting">Comparator</span> die Ordnung vorgibt oder die Elemente <span class="clisting">Comparable</span> sind.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Laufe die Schlüssel einer <span class="clisting">HashMap</span> mit einem Iterator (über das erweiterte <span class="clisting">for</span>) ab:</p>
+<div class="listing"><pre class="prettyprint">HashMap&lt;String,String&gt; h = new HashMap&lt;String,String&gt;();
+h.put( "C.Ullenboom", "C.Ullenboom@no-spam.com" );
+h.put( "Webmaster", "C.Ullenboom@spammer.com" );
+h.put( "Weihnachtsmann", "Wunsch@weihnachtsmann.com" );
+h.put( "Christkind", "wunsch@pro-christkind.at" );
+for ( String elem : <span class="cfett">h.keySet()</span> )
+  System.out.println( elem );</pre></div>
+<p class="BStandard">Liefert:</p>
+<div class="listing"><pre class="prettyprint">Christkind
+Webmaster
+C.Ullenboom
+Weihnachtsmann</pre></div>
+</td>
+</tr>
+</table><br><p>Für die Werte ist kein <span class="clisting">valueSet()</span> möglich, weil ein Wert mehr als einmal vorkommen kann und eine Menge laut Definition einen Wert nicht zweimal enthalten darf. <span class="clisting">values()</span> liefert die spezielle <span class="clisting">Collection</span> mit den Werten &#8211; <span class="clisting">iterator()</span> auf dieser <span class="clisting">Collection</span> bietet dann eine Aufzählung nach Werten. Über den Iterator oder die <span class="clisting">Collection</span> können Elemente aus der <span class="clisting">Map</span> gelöscht, aber keine neuen eingefügt werden.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Laufe die Werte einer <span class="clisting">HashMap</span> mit einem Iterator ab:</p>
+<div class="listing"><pre class="prettyprint">for ( String elem : <span class="cfett">h.values()</span> )
+  System.out.println( elem );</pre></div>
+<p class="BStandard">Das liefert:</p>
+<div class="listing"><pre class="prettyprint">wunsch@pro-christkind.at
+C.Ullenboom@no-spam.com
+C.Ullenboom@spammer.com
+Wunsch@weihnachtsmann.com</pre></div>
+</td>
+</tr>
+</table><br><p>Während <span class="clisting">keySet()</span> nur die eindeutigen Schlüssel in einer Menge liefert, gibt <span class="clisting">entrySet()</span> eine Menge von Objekten vom Typ <span class="clisting">Map.Entry</span> zurück. <span class="clisting">Entry</span> ist eine innere Schnittstelle in der Schnittstelle <span class="clisting">Map</span>, die Schlüssel-Werte-Paare speichert. Die wichtigen Operationen dieser Schnittstelle sind <span class="clisting">getKey()</span>, <span class="clisting">getValue()</span> und <span class="clisting">setValue()</span>, wobei die letzte Methode von <span class="clisting">HashMap</span> angeboten wird, aber eine optionale Operation ist.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Laufe die Elemente <span class="clisting">HashMap</span> als Menge von <span class="clisting">Map.Entry</span>-Objekten ab:</p>
+<div class="listing"><pre class="prettyprint"><span class="clisting">for (</span> <span class="cfett">Map.Entry</span><span class="clisting">&lt;String, String&gt; e :</span> <span class="cfett">h.entrySet()</span> <span class="clisting">)</span>
+  <span class="clisting">System.out.println( e.</span><span class="cfett">getKey()</span> <span class="clisting">+ "=" + e.</span><span class="cfett">getValue()</span> <span class="clisting">);</span></pre></div>
+</td>
+</tr>
+</table><br><div class="bildbox">
+<p><a name="IDAIO1D"></a><a onClick="OpenWin('bilder/mapentryuml.gif','Abbildung',800,800)"><img border="0" src="bilderklein/kleinmapentryuml.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Es ist zu erfragen, ob sich in zwei Assoziativspeichern <span class="clisting">map1</span> und <span class="clisting">map2</span> die gleichen Schlüssel befinden &#8211; unabhängig vom Wert:</p>
+<div class="listing"><pre class="prettyprint">boolean areSameKeys = map1.keySet().equals( map2.keySet() );</pre></div>
+</td>
+</tr>
+</table><br><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">interface java.util.<span class="cfett">Map</span>&lt;K,V&gt;</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">Set&lt;K&gt; keySet()</span>
+Liefert eine Menge mit den Schlüsseln.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet()</span>
+Liefert eine Menge von <span class="clisting">Map.Entry</span>-Objekten, die Zugriff auf die Schlüssel und Werte bieten.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Collection&lt;V&gt; values()</span>
+Liefert eine Sammlung der Werte.</li>
+</ul>
+<h4 class="t4">Verändernde Ansichten</h4>
+<p>Allen Methoden ist gemeinsam, dass sie nur eine andere Sicht auf die Originalmenge darstellen. Wir müssen uns dessen bewusst sein, dass Lösch-Operationen die ursprüngliche Menge verändern. Mit anderen Worten: Die von <span class="clisting">keySet()</span>, <span class="clisting">values()</span> oder <span class="clisting">entrySet()</span> zurückgegebenen Sammlungen sind verschiedene Ansichten des Originals, und Veränderungen wirken sich unmittelbar auf das Original aus:</p>
+<p class="tabunter"><strong>Listing 13.24    </strong>com/tutego/insel/util/map/MapView, main()</p>
+<div class="listing"><pre class="prettyprint">Map&lt;Integer, String&gt; m = new HashMap&lt;Integer, String&gt;();
+m.put( 1, "Eins" );
+m.put( 2, "ZZZZZWWWWEEEEEIIII" );
+m.put( 3, "drei" );
+System.out.println( m );     // {1=Eins, 2=ZZZZZWWWWEEEEEIIII, 3=drei}
+
+m.keySet().remove( 2 );
+System.out.println( m );     // {1=Eins, 3=drei}
+
+m.values().remove( "Eins" );
+System.out.println( m );     // {3=drei}
+
+m.entrySet().clear();
+System.out.println( m );     // {}</pre></div><a id="mj02c989d784a59defc8cb239a494d2b42" name="mj02c989d784a59defc8cb239a494d2b42"></a><a name="t37"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t38"></a><h3 class="t3"><span class="cfett">13.8.7</span> Der Gleichheitstest, Hash-Wert und Klon einer Hash-Tabelle*  <a href="#t2t39"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t37"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Aus <span class="clisting">Object</span> stammen die Methoden <span class="clisting">equals()</span> und <span class="clisting">hashCode()</span>, die eine <span class="clisting">Map</span> wie <span class="clisting">HashMap</span> beide implementiert. Jede <span class="clisting">HashMap</span>/<span class="clisting">TreeMap</span> besitzt zudem eine <span class="clisting">clone()</span>-Methode, die eine Kopie der Hash-Tabelle erzeugt. Die Kopie bezieht sich allerdings nur auf den Assoziativspeicher selbst; die Schlüssel- und Wert-Objekte teilen sich Original und Klon. Diese Form der Kopie nennt sich auch <span class="ckursiv">flache Kopie</span> (engl. s<span class="ckursiv">hallow copy</span>). Eine Veränderung an den enthaltenen Schlüssel-Werte-Objekten betrifft also immer beide Datenstrukturen, und eine unsachgemäße Modifikation kann zu Unregelmäßigkeiten im Original führen.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">interface java.util.<span class="cfett">Map</span>&lt;K,V&gt;</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">boolean equals( Object o )</span>
+Damit die Gleichheit von zwei Hash-Tabellen gezeigt werden kann, vergleicht <span class="clisting">equals()</span> alle Elemente von beiden Tabellen.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">int hashCode()</span>
+Liefert den Hashcode des Objekts. Das ist wichtig, wenn Sie eine Hash-Tabelle selbst als Schlüssel benutzen wollen &#8211; was jedoch als problematisch gelten kann, wenn die Hash-Tabelle später noch verändert werden soll. [Fast schon philosophisch wird&#8217;s, wenn eine Hash-Tabelle als Schlüssel oder Wert in sich selbst eingefügt werden soll. Das kann sie zwar noch erkennen, aber bei <span class="clisting">Map h = new HashMap(); h.put(h, "a"); h.put(h, "b");</span> gibt es einen <span class="clisting">StackOverflowError</span>, und damit ist die Philosophie am Ende.] </li>
+</ul><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.util.<span class="cfett">HashMap</span>&lt;K,V&gt; ...
+class java.util.<span class="cfett">TreeMap</span>&lt;K,V&gt; ...</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">Object clone()</span>
+Fertigt eine Kopie an, ohne jedoch die Werte selbst zu klonen.</li>
+</ul><a id="mj5260d04d10949c0ec2c9122090ea613a" name="mj5260d04d10949c0ec2c9122090ea613a"></a><a name="t38"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t39"></a><h3 class="t3"><span class="cfett">13.8.8</span> Die Arbeitsweise einer Hash-Tabelle *  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t38"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die Hash-Tabelle arbeitet mit Schlüssel-Werte-Paaren. Aus dem Schlüssel wird nach einer mathematischen Funktion &#8211; der so genannten <span class="ckursiv">Hash-Funktion</span> &#8211; ein <span class="ckursiv">Hashcode</span> berechnet. Dieser dient dann als Index für ein internes Array. Dieses Array hat am Anfang eine feste Größe. Wenn später eine Anfrage nach dem Schlüssel gestellt wird, muss einfach diese Berechnung erfolgen, und wir können dann an dieser Stelle nachsehen. Wir können uns eine einfache Hash-Funktion für folgendes Problem denken: Beliebige Zeichenketten sollen in der Hash-Tabelle abgelegt werden. Die Hash-Funktion summiert einfach alle ASCII-Werte der Buchstaben und nimmt sie Modulo 77. Dann können in einem Array mit 77 Elementen 77 verschiedene Wörter aufgenommen werden. Leider hat diese Technik einen entscheidenden Nachteil: Wenn zwei unterschiedliche Wörter denselben Hashcode besitzen, kommt es zu einer Kollision. Darauf muss die Datenstruktur vorbereitet sein. Hier gibt es verschiedene Lösungsansätze. Die unter Java implementierte Lösung benutzt eine verkettete Liste hinter jedem Feldelement (einen so genannten <span class="ckursiv">Bucket</span>); diese Implementierungsvariante heißt <span class="ckursiv">Hashing mit Verkettung</span>. Falls eine Kollision auftritt, wird ein kleines Behälterobjekt mit dem Schlüssel und Wert aufgebaut und als Element an die Liste angehängt. Eine Sortierung findet nicht statt. Wir merken, dass es auf eine geschickte Wahl der Hash-Funktion ankommt. Denn eine »dumme« Hash-Funktion, die beispielsweise alle Schlüssel nur auf einen Indexwert abbilden würde, erreicht keine Verteilung, sondern lediglich eine lange Liste von Schlüssel-Werte-Paaren; das nennt sich <span class="ckursiv">Clustering</span>. Doch auch bei der besten Verteilung über 77 Elemente ist nach dem Einfügen des 78. Elements irgendwo eine Liste mit mindestens zwei Elementen aufgebaut. Je länger die Listen der miteinander kollidierenden Einträge wird, desto langsamer wird der Zugriff auf die Datenstrukturen, die auf Hashing basieren.</p>
+<p>Um ein Maß für den Füllgrad zu bekommen, wird ein <span class="ckursiv">Füllfaktor</span> (Füllgrad; engl. <span class="ckursiv">load factor</span>) eingeführt. Dieser liegt zwischen 0  % und 100  %. Ist er 0  %, so bedeutet dies, dass die Hash-Tabelle leer ist; ist er 100  %, so enthält die Hash-Tabelle genauso viele Einträge, wie das interne Array Elemente umfasst. Die Verteilung der Einträge auf die Array-Elemente wird dabei in der Regel ungleichmäßig sein. Einige Array-Elemente enthalten bereits (kurze) Listen mit kollidierenden Einträgen, während andere Array-Elemente noch unbenutzt sind. Der Füllfaktor einer Hash-Tabelle sollte für einen schnellen Zugriff nicht höher als 75  % sein, das heißt, ein Viertel der Array-Elemente wird grundsätzlich nicht belegt.</p>
+<h4 class="t4">Der Füllfaktor und die Konstruktoren</h4>
+<p>Wir haben oben schon kurz über den Füllfaktor gesprochen. Dieser gibt an, wie »voll« die Hash-Tabelle ist. Es lässt sich nun einstellen, dass die Hash-Tabelle sich automatisch vergrößert, damit der Zugriff wieder schneller wird. Dazu ordnen wir dem Füllgrad einen Prozentwert als Fließkommazahl zwischen 0,0 und 1,0 zu. Ein Wert von 0,75 entspricht also dem oben angesprochenen idealen Füllgrad von 75 Prozent. Es gibt einen Konstruktor für <span class="clisting">HashMap</span>/<span class="clisting">Hashtable</span>-Exemplare, der die Angabe eines Füllgrads erlaubt. Ist dieser überschritten, wird die Hash-Tabelle neu berechnet. Dies nennt sich <span class="ckursiv">rehash</span>. Dazu wird eine neue Hash-Tabelle angelegt, deren Array größer als das alte ist. Jeder Wert aus der alten Hash-Tabelle wird dabei gemäß der Hash-Funktion an die passende Stelle in das größere Array eingefügt. Ist dies für alle Elemente geschehen, wird die alte Hash-Tabelle gelöscht. Dieses Kopieren und Neuberechnen dauert zwar einige Zeit, doch direkt danach lassen sich die Anfragen an die Datenstruktur wieder schnell beantworten. Wenn die Hash-Tabelle zu oft vergrößert und neu organisiert werden muss, ist dies natürlich ein gewaltiger Geschwindigkeitsnachteil. Doch durch die Vergrößerung wird der Zugriff wieder schneller. Das Rehashen kann nicht ausdrücklich erzwungen werden.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">class java.util.<span class="cfett">HashMap</span>&lt;K,V&gt;
+extends AbstractMap&lt;K,V&gt;
+implements Map&lt;K,V&gt;, Cloneable, Serializable</pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">HashMap()</span>
+Die Hash-Tabelle enthält initial eine Kapazität von 16 freien Plätzen [Das JDK 1.3 setzte beim Standard-Konstruktor einen Initialwert von 101 Elementen, die frühen 1.4-Versionen 11 Elemente und seit 1.4.1 in einer ganz neuen Implementierung des Hashings 16 Elemente. Üblicherweise nutzen Implementierungen Primzahlen, doch dann kommt es sehr auf die Qualität der Hash-Funktionen an, und schlechte Funktionen führen zur Verschlechterung der Laufzeit. Durch die Umstellung bildet nicht mehr die Funktion <span class="clisting">hashCode()</span> die Elemente direkt auf das interne Feld ab, sondern eine private Hash-Funktion, die das Ergebnis von <span class="clisting">hashCode()</span> nur als einen Parameter sieht. Durch die Umstellung auf eine zweite Funktion sind keine Primzahlen für die Größe des internen Feldes zwingend nötig.
+]  und einen Füllfaktor von 75  %, also 0,75.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">HashMap( int initialCapacity )</span>
+Erzeugt eine Hash-Tabelle mit einer vorgegebenen Kapazität und dem Füllfaktor 0,75.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">HashMap( int initialCapacity, float loadFactor )</span>
+Erzeugt eine Hash-Tabelle mit einer vorgegebenen Kapazität und dem angegebenen Füllfaktor.</li>
+</ul>
+<p>Die anfängliche Größe des internen Arrays lässt sich in zwei Konstruktoren angeben; ein unsinniger Wert löst eine <span class="clisting">IllegalArgumentException</span> aus. Zusätzlich kann der Füllfaktor angegeben werden; ist dieser falsch, wird diese Exception ebenfalls ausgelöst. <span class="clisting">initialCapacity</span> muss größer als die geplante Nutzlast der Hash-Tabelle gewählt werden. Das heißt, bei geplanten 1000 Einträgen etwa 1000 × (1/0,75) = 1333. Ist ein Füllfaktor nicht explizit angegeben, wird die Hash-Tabelle dann vergrößert und neu organisiert, wenn die Anzahl der Einträge in der Hash-Tabelle größer gleich 0,75 × Größe des Arrays ist.</p>
+<p>Auch die Konstruktoren von <span class="clisting">HashSet</span> ermöglichen die Angabe des Füllfaktors und der Initialgröße.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">class java.util.</span><span class="cfett">HashSet</span><span class="clisting">&lt;E&gt;
+extends AbstractSet&lt;E&gt;
+implements Set&lt;E&gt;, Cloneable, Serializable</span></p>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">HashSet()</span>
+Erzeugt ein neues <span class="clisting">HashSet</span>-Objekt mit 16 freien Plätzen und einem Füllfaktor von 0,75.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">HashSet( int initialCapacity )</span>
+Erzeugt ein neues <span class="clisting">HashSet</span> mit einer gegebenen Anzahl freier Plätze und dem Füllfaktor von 0,75.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">HashSet( int initialCapacity, float loadFactor )</span>
+Erzeugt ein neues, leeres <span class="clisting">HashSet</span> mit einer Startkapazität und einem gegebenen Füllfaktor.</li>
+</ul>
+<p>Die Startgröße ist für die Performance wichtig. Ist die Größe zu klein gewählt, muss die Datenstruktur bei neu hinzugefügten Elementen vergrößert werden &#8211; hier unterscheidet sich die Klasse <span class="clisting">HashSet</span> nicht von der Klasse <span class="clisting">HashMap</span>, da <span class="clisting">HashSet</span> intern auf <span class="clisting">HashMap</span> basiert.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="13.8 Assoziative Speicher"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_13_007.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_13_009.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

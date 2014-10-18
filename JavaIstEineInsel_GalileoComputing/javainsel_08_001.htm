@@ -1,0 +1,885 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 8 Äußere.innere Klassen</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 8 Äußere.innere Klassen">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 8 Äußere.innere Klassen">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_05_001.htm#mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="##mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_09_001.htm#mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_11_001.htm#mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_07_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_09_001.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="#mj46e914488628367f5dfc0a62c3a78a53" class="navh">8 Äußere.innere Klassen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mjb093410d60fa678ba7b4ad5bece8084f" class="navh">8.1 Geschachtelte (innere) Klassen, Schnittstellen, Aufzählungen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjec6461c128c0fc5740188f9c9ec7d249" class="navh">8.1.1 Statische innere Klassen und Schnittstellen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjc2030b0c4a6aa1f3f0689378ab7bb901" class="navh">8.1.2 Mitglieds- oder Elementklassen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj2518319e7d43802c20b7287386561781" class="navh">8.1.3 Lokale Klassen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj58cf4fadac5cc0924b9451626df2228c" class="navh">8.1.4 Anonyme innere Klassen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj0c473c2e8f45ea41c4c9f6c2af2e0130" class="navh">8.1.5 Zugriff auf lokale Variablen aus lokalen inneren und anonymen Klassen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj99c4de5754df35b29f1a98ad715c870e" class="navh">8.1.6 »this« und Vererbung *</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main">
+<p class="anleser"><em>»Der Nutzen ist ein Teil der Schönheit.«
+&#8211; Albrecht Dürer (1471&#8211;1528)</em></p><a id="mj46e914488628367f5dfc0a62c3a78a53" name="mj46e914488628367f5dfc0a62c3a78a53"></a><h1 class="t1"><span class="cfett">8</span> Äußere.innere Klassen</h1><a id="mjb093410d60fa678ba7b4ad5bece8084f" name="mjb093410d60fa678ba7b4ad5bece8084f"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">8.1</span> Geschachtelte (innere) Klassen, Schnittstellen, Aufzählungen  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Bisher haben wir Klassen, Schnittstellen und Aufzählungen kennengelernt, die entweder allein in der Datei oder zusammen mit anderen Typen in einer Datei, also einer Compilationseinheit deklariert wurden. Es gibt darüber hinaus die Möglichkeit, eine Klasse, Aufzählung oder Schnittstelle in andere Typdeklarationen hineinzunehmen. Das ist sinnvoll, denn die Motivation dahinter ist, noch mehr Details zu verstecken, denn es gibt sehr lokale Typdeklarationen, die keine größere Sichtbarkeit brauchen.</p>
+<p>Für eine Klasse <span class="clisting">In</span>, die in eine Klasse <span class="clisting">Out</span> gesetzt wird, sieht das im Quellcode so aus:</p>
+<div class="listing"><pre class="prettyprint">class Out {
+  class In {
+  }
+}</pre></div>
+<p>Eine geschachtelte Klasse, die so eingebunden wird, heißt »innere Klasse«. Im Folgenden wollen wir nicht mehr ständig betonen, dass auch Schnittstellen als Typen eingebettet werden können, und bleiben bei der einfachen Sprachregelung »innere Klassen«. (Aufzählungen werden vom Compiler in Klassen übersetzt und müssen daher nicht unbedingt gesondert behandelt werden. Natürlich lassen sich auch Aufzählungen innerhalb von Klassen oder Schnittstellen deklarieren.)</p>
+<p>Die Java-Spezifikation beschreibt vier Typen von inneren Klassen, die im Folgenden vorgestellt werden. Egal, wie sie deklariert werden, es ist eine enge Kopplung der Typen, und der Name des inneren Typs muss sich vom Namen des äußeren Typs unterscheiden.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 8.1    </strong>Die vier Typen von inneren Klassen</p>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Typ</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beispiel</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>statische innere Klasse</p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">class Out</span>
+ <span class="cfett">static class In {}</span><span class="clisting">
+}</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>Mitgliedsklasse</p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">class Out</span>
+ <span class="cfett">class In</span><span class="clisting">
+}</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>lokale Klasse</p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">class Out</span>
+ <span class="clisting">Out()</span>
+  <span class="cfett">class In</span><span class="clisting">
+}</span></p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p>anonyme innere Klasse</p>
+</td>
+<td class="tabellentext">
+<p><span class="clisting">class Out</span>
+ <span class="clisting">Out()</span>
+  <span class="cfett">new Runnable()</span>
+     <span class="cfett">public void run()</span>
+  <span class="cfett">};</span><span class="clisting">
+}</span></p>
+</td>
+</tr>
+</table><br><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Das Gegenteil von geschachtelten Klassen, also das, womit wir uns bisher die ganze Zeit beschäftigt haben, heißt »Top-Level-Klasse«. Die Laufzeitumgebung kennt nur Top-Level-Klassen, und geschachtelte innere Klassen werden letztendlich zu ganz »normalen« Klassendeklarationen.</p>
+</td>
+</tr>
+</table><br><a id="mjec6461c128c0fc5740188f9c9ec7d249" name="mjec6461c128c0fc5740188f9c9ec7d249"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">8.1.1</span> Statische innere Klassen und Schnittstellen  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Die einfachste Variante einer inneren Klasse oder Schnittstelle wird wie eine statische Eigenschaft in die Klasse eingesetzt und heißt <span class="ckursiv">statische innere Klasse</span>. Wegen der Schachtelung wird dieser Typ im Englischen <span class="ckursiv">nested top-level class</span> genannt. Die Namensgebung betont mit dem Begriff <span class="ckursiv">top-level</span>, dass die Klassen das Gleiche können wie »normale« Klassen oder Schnittstellen, nur bilden sie quasi ein kleines Unterpaket mit eigenem Namensraum. Insbesondere sind zur Erzeugung von Exemplaren von statischen inneren Klassen nach diesem Muster keine Objekte der äußeren Klasse nötig. (Die weiteren inneren Typen, die wir kennenlernen wollen, sind alle nicht-statisch und benötigen einen Verweis auf das äußere Objekt.) Sun betont in der Spezifikation der Sprache, dass die statischen inneren Klassen keine »echten« inneren Klassen sind, doch um die Sprache einfach zu halten, bleiben wir bei »statischen inneren Typen«.</p>
+<p>Deklarieren wir <span class="clisting">Lamp</span> als äußere Klasse und <span class="clisting">Bulb</span> als eine innere statische Klasse:</p>
+<p class="tabunter"><strong>Listing 8.1    </strong>com/tutego/insel/inner/Lamp.java, Lamp</p>
+<div class="listing"><pre class="prettyprint">public class Lamp
+{
+ <span class="cfett"> static String s</span> = "Huhu";
+  int i = 1;
+
+ <span class="cfett"> static class Bulb</span>
+  {
+    void output()
+    {
+      System.out.println(<span class="cfett"> s</span> );
+//    System.out.println( i );   // <img src="common/totenkopf.gif" border="0" align="bottom" alt="Fehler"> Compilerfehler: i is not static
+    }
+  }
+
+  public static void main( String[] args )
+  {
+    Bulb bulb = new Lamp.Bulb();  // oder Lamp.Bulb bulb = ...
+    bulb.output();
+  }
+}</pre></div>
+<p>Die statische innere Klasse <span class="clisting">Bulb</span> besitzt Zugriff auf alle anderen statischen Eigenschaften der äußeren Klasse <span class="clisting">Lamp</span>, in unserem Fall auf die Variable <span class="clisting">s</span>. Ein Zugriff auf Objektvariablen ist aus der statischen inneren Klasse heraus nicht möglich, da sie als gesonderte Klasse gezählt wird, die im gleichen Paket liegt. Der Zugriff von außen auf innere Klassen gelingt mit der Schreibweise <span class="clisting">ÄußereKlasse.InnereKlasse</span>; der Punkt wird also so verwendet, wie wir es vom Zugriff auf statische Eigenschaften her kennen und auch von den Paketen als Namensraum gewöhnt sind. Die innere Klasse muss einen anderen Namen als die äußere haben.</p>
+<h4 class="t4">Modifizierer und Sichtbarkeit</h4>
+<p>Erlaubt sind die Modifizierer <span class="clisting">abstract</span>, <span class="clisting">final</span> und einige Sichtbarkeitsmodifizierer. Normale Top-Level-Klassen können paketsichtbar oder <span class="clisting">public</span> sein; innere Klassen dürfen ebenfalls <span class="clisting">public</span> oder paketsichtbar alternativ aber auch <span class="clisting">protected</span> oder <span class="clisting">private</span> sein. Eine private statische innere Klasse ist dabei wie eine normale private statische Variable zu verstehen: Sie kann nur von der umschließenden äußeren Klasse gesehen werden, aber nicht von anderen Top-Level-Klassen. <span class="clisting">protected</span> an statischen inneren Typen ermöglicht für den Compiler einen etwas effizienteren Bytecode, ist aber ansonsten nicht in Gebrauch.</p>
+<h4 class="t4">Umsetzung der inneren Typen *</h4>
+<p>Die Sun-Entwickler haben es geschafft, die Einführung von inneren Klassen in Java 1.1 ohne Änderung der virtuellen Maschine über die Bühne zu bringen. Der Compiler generiert aus den inneren Typen nämlich einfach normale Klassendateien, die jedoch mit einigen so genannten <span class="ckursiv">synthetischen Methoden</span> ausgestattet sind. Für die inneren Typen generiert der Compiler neue Namen nach dem Muster: <span class="clisting">ÄußererTyp$</span><span class="clisting">InnererTyp</span>, das heißt, ein Dollar-Zeichen trennt die Namen von äußerem und innerem Typ. Genauso heißt die entsprechende <span class="ckursiv">.class</span>-Datei auf der Festplatte.</p><a id="mjc2030b0c4a6aa1f3f0689378ab7bb901" name="mjc2030b0c4a6aa1f3f0689378ab7bb901"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">8.1.2</span> Mitglieds- oder Elementklassen  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Eine <span class="ckursiv">Mitgliedsklasse</span> (engl. <span class="ckursiv">member class</span>), auch <span class="ckursiv">Elementklasse</span> genannt, ist ebenfalls vergleichbar mit einem Attribut, nur ist sie nicht statisch (statische innere Klassen lassen sich aber auch als <span class="ckursiv">statische Mitgliedsklassen</span> bezeichnen). Deklarieren wir eine innere Mitgliedsklasse <span class="clisting">Room</span> in <span class="clisting">House</span>:</p>
+<p class="tabunter"><strong>Listing 8.2    </strong>com/tutego/insel/inner/House.java, Ausschnitt</p>
+<div class="listing"><pre class="prettyprint">class House
+{
+  private String owner = "Ich";
+
+ <span class="cfett"> class Room</span>
+ <span class="cfett"> {</span>
+   <span class="cfett"> void ok()</span>
+   <span class="cfett"> {</span>
+     <span class="cfett"> System.out.println( owner );</span>
+   <span class="cfett"> }</span>
+   <span class="cfett"> // static void error() { }</span>
+ <span class="cfett"> }</span>
+}</pre></div>
+<p>Ein Exemplar der Klasse <span class="clisting">Room</span> hat Zugriff auf alle Eigenschaften von <span class="clisting">House</span>, auch auf die privaten. Eine wichtige Eigenschaft ist, dass innere Mitgliedsklassen selbst keine statischen Eigenschaften deklarieren dürfen. Der Versuch führt in unserem Fall zu einem Compilerfehler:</p>
+<div class="listing"><pre class="prettyprint">The method error cannot be declared static; static methods can only be declared in a static or top level type</pre></div>
+<h4 class="t4">Exemplare innerer Klassen erzeugen</h4>
+<p>Um ein Exemplar von <span class="clisting">Room</span> zu erzeugen, muss ein Exemplar der äußeren Klasse existieren. Das ist eine wichtige Unterscheidung gegenüber den statischen inneren Klassen von Abschnitt 8.1.1 existieren auch ohne Objekt der äußeren Klasse.</p>
+<p>In einem Konstruktor oder in einer Objektmethode der äußeren Klassen kann einfach mit dem <span class="clisting">new</span>-Operator ein Exemplar der inneren Klasse erzeugt werden. Kommen wir von außerhalb &#8211; oder von einem statischen Block der äußeren Klasse &#8211; und wollen Exemplare der inneren Klasse erzeugen, so müssen wir bei Elementklassen sicherstellen, dass es ein Exemplar der äußeren Klasse gibt. Java schreibt eine spezielle Form für die Erzeugung mit <span class="clisting">new</span> vor, die folgendes allgemeine Format besitzt:</p>
+<div class="listing"><pre class="prettyprint">referenz.new InnereKlasse(...)</pre></div>
+<p>Dabei ist <span class="clisting">referenz</span> eine Referenz vom Typ der äußeren Klasse. Um in der statischen <span class="clisting">main()</span>-Methode vom Haus ein <span class="clisting">Room</span>-Objekt aufzubauen, schreiben wir:</p>
+<p class="tabunter"><strong>Listing 8.3    </strong>com/tutego/insel/inner/House.java, main()</p>
+<div class="listing"><pre class="prettyprint">House h = new House();
+Room  r =<span class="cfett"> h.new Room()</span>;</pre></div>
+<p>Oder auch in einer Zeile:</p>
+<div class="listing"><pre class="prettyprint">Room  r =<span class="cfett"> new House().new Room()</span>;</pre></div>
+<h4 class="t4">Die this-Referenz</h4>
+<p>Möchte eine innere Klasse <span class="clisting">In</span> auf die <span class="clisting">this</span>-Referenz der sie umgebenden Klasse <span class="clisting">Out</span> zugreifen, schreiben wir <span class="clisting">Out.this</span>. Wenn Variablen der inneren Klasse die Variablen der äußeren Klasse überdecken, so schreiben wir <span class="clisting">Out.this.Eigenschaft</span>, um an die Eigenschaften der äußeren Klasse <span class="clisting">Out</span> zu gelangen:</p>
+<p class="tabunter"><strong>Listing 8.4    </strong>com/tutego/insel/inner/FurnishedHouse.java,FurnishedHouse</p>
+<div class="listing"><pre class="prettyprint">class FurnishedHouse
+{
+  String s = "House";
+
+  class Room
+  {
+    String s = "Room";
+
+    class Chair
+    {
+      String s = "Chair";
+
+      void output()
+      {
+        System.out.println( s );                      // Chair
+        System.out.println(<span class="cfett"> this.s</span> );                 // Chair
+        System.out.println(<span class="cfett"> Chair.this.s</span> );           // Chair
+        System.out.println(<span class="cfett"> Room.this.s</span> );            // Room
+        System.out.println(<span class="cfett"> FurnishedHouse.this.s</span> );  // House
+      }
+    }
+  }
+
+  public static void main( String[] args )
+  {
+    new FurnishedHouse().new Room().new Chair().output();
+  }
+}</pre></div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Elementklassen können beliebig geschachtelt sein, und da der Name eindeutig ist, gelangen wir mit <span class="clisting">Klassenname.this</span> immer an die jeweilige Eigenschaft.</p>
+</td>
+</tr>
+</table><br><p>Betrachten wir das obige Beispiel, dann lassen sich Objekte für die inneren Klassen <span class="clisting">Room</span> und <span class="clisting">Chair</span> wie folgt erstellen:</p>
+<div class="listing"><pre class="prettyprint">FurnishedHouse h            = new FurnishedHouse(); // Exemplar von FurnishedHouse
+FurnishedHouse.Room r       = h.new Room();         // Exemplar von Room in h
+FurnishedHouse.Room.Chair c = r.new Chair();        // Exemplar von Chair in r
+c.out();                                            // Methode von Chair</pre></div>
+<p>Das Beispiel macht deutlich, dass die Qualifizierung mit dem Punkt bei <span class="clisting">FurnishedHouse.Room.Chair</span> nicht automatisch bedeutet, dass <span class="clisting">FurnishedHouse</span> ein Paket mit dem Unterpaket <span class="clisting">Room</span> ist, in dem die Klasse <span class="clisting">Chair</span> existiert. Die Doppelbelegung des Punkts verbessert die Lesbarkeit nicht gerade, und es droht Verwechslungsgefahr zwischen inneren Klassen und Paketen. Deshalb sollte die Namenskonvention beachtet werden: Klassennamen beginnen mit Großbuchstaben, Paketnamen mit Kleinbuchstaben.</p>
+<h4 class="t4">Vom Compiler generierte Klassendateien *</h4>
+<p>Für das Beispiel <span class="clisting">House</span> und <span class="clisting">Room</span> erzeugt der Compiler die Dateien <span class="ckursiv">House.class</span> und <span class="ckursiv">House$Room.class</span>. Damit die innere Klasse an die Attribute der äußeren gelangt, generiert der Compiler automatisch in jedes Exemplar der inneren Klasse eine Referenz auf das zugehörige Objekt der äußeren Klasse. Damit kann die innere Klasse auch auf nicht-statische Attribute der äußeren Klasse zugreifen. Für die innere Klasse ergibt sich folgendes Bild in <span class="ckursiv">House$Room.class</span>:</p>
+<div class="listing"><pre class="prettyprint">class HouseBorder$Room
+{
+  final<span class="cfett"> House this$0</span>;
+
+ <span class="cfett"> House$Room( House house )</span>
+  {
+    this$0 = house;
+  }
+  // ...
+}</pre></div>
+<p>Die Variable <span class="clisting">this$0</span> referenziert das Exemplar <span class="clisting">House.this</span>, also die zugehörige äußere Klasse. Die Konstruktoren der inneren Klasse erhalten einen zusätzlichen Parameter vom Typ <span class="clisting">House</span>, um die <span class="clisting">this$0</span>-Variable zu initialisieren. Da wir die Konstruktoren sowieso nicht zu Gesicht bekommen, kann uns das egal sein…</p>
+<h4 class="t4">Erlaubte Modifizierer bei äußeren und inneren Klassen</h4>
+<p>Ist in einer Datei nur eine Klasse deklariert, kann diese nicht privat sein. Private innere Klassen sind aber legal. Statische Hauptklassen gibt es zum Beispiel auch nicht, aber innere statische Klassen sind legitim. Die folgende Tabelle fasst die erlaubten Modifizier noch einmal kompakt zusammen:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 8.2    </strong>Erlaubte Modifizierer</p>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Modifizierer erlaubt auf</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">äußeren Klassen</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">inneren Klassen</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">äußeren Schnittstellen</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">inneren Schnittstellen</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">public</span></p>
+</td>
+<td class="tabellentext">
+<p>ja</p>
+</td>
+<td class="tabellentext">
+<p>ja</p>
+</td>
+<td class="tabellentext">
+<p>ja</p>
+</td>
+<td class="tabellentext">
+<p>ja</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">protected</span></p>
+</td>
+<td class="tabellentext">
+<p>nein</p>
+</td>
+<td class="tabellentext">
+<p>ja</p>
+</td>
+<td class="tabellentext">
+<p>nein</p>
+</td>
+<td class="tabellentext">
+<p>ja</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">private</span></p>
+</td>
+<td class="tabellentext">
+<p>nein</p>
+</td>
+<td class="tabellentext">
+<p>ja</p>
+</td>
+<td class="tabellentext">
+<p>nein</p>
+</td>
+<td class="tabellentext">
+<p>ja</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">static</span></p>
+</td>
+<td class="tabellentext">
+<p>nein</p>
+</td>
+<td class="tabellentext">
+<p>ja</p>
+</td>
+<td class="tabellentext">
+<p>nein</p>
+</td>
+<td class="tabellentext">
+<p>ja</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">final</span></p>
+</td>
+<td class="tabellentext">
+<p>ja</p>
+</td>
+<td class="tabellentext">
+<p>ja</p>
+</td>
+<td class="tabellentext">
+<p>nein</p>
+</td>
+<td class="tabellentext">
+<p>nein</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">abstract</span></p>
+</td>
+<td class="tabellentext">
+<p>ja</p>
+</td>
+<td class="tabellentext">
+<p>ja</p>
+</td>
+<td class="tabellentext">
+<p>ja</p>
+</td>
+<td class="tabellentext">
+<p>ja</p>
+</td>
+</tr>
+</table><br><h4 class="t4">Zugriffsrechte *</h4>
+<p>Eine innere Klasse kann auf alle Attribute der äußeren Klasse zugreifen. Da eine innere Klasse als ganz normale Klasse übersetzt wird, stellt sich allerdings die Frage, wie sie das genau macht. Auf öffentliche Variablen kann jede andere Klasse ohne Tricks zugreifen, so auch die innere. Und da eine innere Klasse als normale Klassendatei im gleichen Paket sitzt, kann sie ebenfalls ohne Verrenkungen auf paketsichtbare und <span class="clisting">protected</span>-Eigenschaften der äußeren Klasse zugreifen. Eine innere Klasse kann jedoch auch auf private Eigenschaften zurückgreifen, eine Designentscheidung, die sehr umstritten ist und lange kontrovers diskutiert wurde. Doch wie ist das zu schaffen, ohne gleich die Zugriffsrechte des Attributs zu ändern? Der Trick ist, dass der Compiler eine synthetische statische Methode in der äußeren Klasse einführt:</p>
+<div class="listing"><pre class="prettyprint">class House
+{
+  private String owner;
+
+ <span class="cfett"> static String access$0( House house )</span>
+  {
+    return house.owner;
+  }
+}</pre></div>
+<p>Die statische Methode <span class="clisting">access$0()</span> ist der Helfershelfer, der für ein gegebenes <span class="clisting">House</span> das private Attribut nach außen gibt. Da die innere Klasse einen Verweis auf die äußere Klasse pflegt, gibt sie diesen beim gewünschten Zugriff mit, und die <span class="clisting">access$0()</span>-Methode erledigt den Rest.</p>
+<p>Für jedes von der inneren Klasse genutzte private Attribut erzeugt der Compiler eine solche Methode. Wenn wir eine weitere private Variable <span class="clisting">int size</span> hinzunehmen, würde der Compiler ein <span class="clisting">int access$1(House)</span> generieren.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Problematisch ist das bei Klassen, die in ein Paket eingeschmuggelt werden. Nehmen wir an, <span class="clisting">House</span> liegt im Paket <span class="clisting">p1.p2</span>. Dann kann ein Angreifer seine Klassen auch in ein Paket legen, was <span class="clisting">p1.p2</span> heißt. Da die <span class="clisting">access$XXX()</span>-Methoden paketsichtbar sind, können eingeschmuggelte Klassen die packetsichtbaren <span class="clisting">access$XXX()</span>-Methoden aufrufen. Es reicht ein Exemplar der äußeren Klasse, um über einen <span class="clisting">access$XXX()</span>-Aufruf auf die privaten Variablen zuzugreifen, die eine innere Klasse nutzt. Glücklicherweise lässt sich gegen eingeschleuste Klassen in Java-Archiven leicht etwas unternehmen &#8211; sie müssen nur abgeschlossen werden, was bei Java <span class="ckursiv">sealing</span> heißt.</p>
+</td>
+</tr>
+</table><br><a id="mj2518319e7d43802c20b7287386561781" name="mj2518319e7d43802c20b7287386561781"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">8.1.3</span> Lokale Klassen  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Lokale Klassen sind ebenfalls innere Klassen, die jedoch nicht einfach wie eine Eigenschaft im Rumpf einer Klasse, sondern direkt in Anweisungsblöcken von Methoden, Konstruktoren und Initialisierungsblöcken gesetzt werden. Lokale Schnittstellen sind nicht möglich.</p>
+<p>Im folgenden Beispiel deklariert die <span class="clisting">main()</span>-Methode eine innere Klasse mit einem Konstruktor, der auf die finale Variable <span class="clisting">j</span> zugreift:</p>
+<p class="tabunter"><strong>Listing 8.5    </strong>com/tutego/insel/inner/FunInside.java, FunInside</p>
+<div class="listing"><pre class="prettyprint">public class FunInside
+{
+  public static void main( String[] args )
+  {
+    int i = 2;
+   <span class="cfett"> final int j</span> = 3;
+
+   <span class="cfett"> class In</span>
+   <span class="cfett"> {</span>
+     <span class="cfett"> In() {</span>
+       <span class="cfett"> System.out.println( j );
+//</span>       <span class="cfett"> System.out.println( i );</span>   <span class="cfett"> // Compiler error because i is not final</span>
+     <span class="cfett"> }</span>
+   <span class="cfett"> }</span>
+    new In();
+  }
+}</pre></div>
+<p>Die Deklaration der inneren Klasse <span class="clisting">In</span> wird hier wie eine Anweisung eingesetzt. Ein Sichtbarkeitsmodifizierer ist bei inneren lokalen Klassen ungültig, und die Klasse darf keine Klassenmethoden und allgemeinen statischen Variablen deklarieren (finale Konstanten schon).</p>
+<p>Jede lokale Klasse kann auf Methoden der äußeren Klasse zugreifen und zusätzlich auf die lokalen Variablen und Parameter, die mit dem Modifizierer <span class="clisting">final</span> als unveränderlich ausgezeichnet sind. Liegt die innere Klasse in einer statischen Methode, kann sie keine Objektmethoden der äußeren Klasse aufrufen.</p><a id="mj58cf4fadac5cc0924b9451626df2228c" name="mj58cf4fadac5cc0924b9451626df2228c"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">8.1.4</span> Anonyme innere Klassen  <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Anonyme Klassen gehen noch einen Schritt weiter als lokale Klassen. Sie haben keinen Namen und erzeugen immer automatisch ein Objekt; Klassendeklaration und Objekterzeugung sind zu einem Sprachkonstrukt verbunden. Die allgemeine Notation ist folgende:</p>
+<div class="listing"><pre class="prettyprint">new KlasseOderSchnittstelle() { /* Eigenschaften der inneren Klasse */ }</pre></div>
+<p>In dem Block geschweifter Klammern lassen sich nun Methoden und Attribute deklarieren oder Methoden überschreiben. Hinter <span class="clisting">new</span> steht der Name einer Klasse oder Schnittstelle:</p>
+<ul class="gp">
+<li><span class="clisting">new Klassenname(Optionale Argumente) {</span> ... <span class="clisting">}</span>. Steht hinter <span class="clisting">new</span> ein Klassentyp, dann ist die anonyme Klasse eine Unterklasse von <span class="clisting">Klassenname</span>. Es lassen sich mögliche Argumente für den Konstruktor der Basisklasse angeben (das ist zum Beispiel dann nötig, wenn die Oberklasse keinen Standardkonstruktor deklariert).</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">new Schnittstellenname() {</span> ... <span class="clisting">}</span>. Steht hinter <span class="clisting">new</span> der Name einer Schnittstelle, dann erbt die anonyme Klasse von <span class="clisting">Object</span> und implementiert die Schnittstelle <span class="clisting">Schnittstellenname</span>. Implementiert sie nicht die Operationen der Schnittstelle, ist das ein Fehler; wir hätten nichts davon, denn dann hätten wir eine abstrakte innere Klasse, von der sich kein Objekt erzeugen lässt.</li>
+</ul>
+<p>Für anonyme innere Klassen gilt die Einschränkung, dass keine zusätzlichen <span class="clisting">extends</span>- oder <span class="clisting">implements</span>-Angaben möglich sind. Ebenso sind keine eigenen Konstruktoren möglich und nur Objektmethoden und finale statische Variablen erlaubt.</p>
+<p>Wir wollen eine innere Klasse schreiben, die Unterklasse von <span class="clisting">java.awt.Point</span> ist. Sie soll die <span class="clisting">toString()</span>-Methode überschreiben:</p>
+<p class="tabunter"><strong>Listing 8.6    </strong>com/tutego/insel/inner/InnerToStringPoint.java, main()</p>
+<div class="listing"><pre class="prettyprint">Point p = new Point( 10, 12 ) {
+ <span class="cfett"> @Override public String toString() {</span>
+   <span class="cfett"> return "(" + x + "," + y + ")";</span>
+ <span class="cfett"> }</span>
+};
+
+System.out.println( p );    // (10,12)</pre></div>
+<p>Da sofort eine Unterklasse von <span class="clisting">Point</span> aufgebaut wird, fehlt der Name der inneren Klasse. Das einzige Exemplar dieser anonymen Klasse lässt sich über die Variable <span class="clisting">p</span> weiterverwenden.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Eine innere Klasse kann Methoden der Oberklasse überschreiben, Operationen aus Schnittstellen implementieren und sogar neue Eigenschaften anbieten:</p>
+<div class="listing"><pre class="prettyprint">String s = new Object()
+  String quote( String s ) { return String.format( "'%s'", s );
+}.quote( "Juvy" );
+System.out.println( s );  // 'Juvy'</pre></div>
+<p class="BStandard">Der neu deklarierte anonyme Typ hat eine Methode <span class="clisting">quote()</span>, die direkt aufgerufen werden kann. Ohne diesen direkten Aufruf ist die <span class="clisting">quote()</span>-Methode aber unsichtbar, denn der Typ ist ja anonym, und so sind nur die Methoden der Oberklasse (bei uns <span class="clisting">Object</span>) beziehungsweise Schnittstelle bekannt. (Wir lassen die Tatsache, dass eine Anwendung mit Reflection auf die Methoden zugreifen kann, außen vor.)</p>
+</td>
+</tr>
+</table><br><h4 class="t4">Umsetzung innerer anonymer Klassen *</h4>
+<p>Auch für innere anonyme Klassen erzeugt der Compiler eine normale Klassendatei. Wir haben gesehen, dass im Fall einer »normalen« inneren Klasse die Notation <span class="clisting">ÄußereKlasse$</span><span class="clisting">InnereKlasse</span> gewählt wird. Das klappt bei anonymen inneren Klassen natürlich nicht mehr, da uns der Name der inneren Klasse fehlt. Der Compiler wählt daher folgende Notation für Klassennamen: <span class="clisting">InnerToStringDate$1</span>. Falls es mehr als eine innere Klasse gibt, folgen <span class="clisting">$2</span>, <span class="clisting">$3</span> und so weiter.</p>
+<h4 class="t4">Nutzung innerer Klassen für Threads *</h4>
+<p>Sehen wir uns ein weiteres Beispiel für die Implementierung von Schnittstellen an: Um nebenläufige Programme zu implementieren, gibt es die Klasse <span class="clisting">Thread</span> und die Schnittstelle <span class="clisting">Runnable</span> (für das Beispiel greifen wir vor; Threads werden in Kapitel 14, »Threads und nebenläufige Programmierung«, genau beschrieben).</p>
+<p>Die Schnittstelle <span class="clisting">Runnable</span> schreibt eine Operation <span class="clisting">run()</span> vor, in die der parallel abzuarbeitende Programmcode gesetzt wird. Das geht gut mit einer inneren anonymen Klasse, die <span class="clisting">Runnable</span> implementiert:</p>
+<div class="listing"><pre class="prettyprint">new Runnable() {     // Anonyme Klasse extends Object implements Runnable
+  public void run() {
+    ...
+  }
+}</pre></div>
+<p>Das so erzeugte Exemplar kommt in den Konstruktor der Klasse <span class="clisting">Thread</span>. Der Thread wird mit <span class="clisting">start()</span> angekurbelt. Damit folgt zusammengesetzt und mit Implementierung von <span class="clisting">run()</span>:</p>
+<p class="tabunter"><strong>Listing 8.7    </strong>com/tutego/insel/inner/FirstThread, main()</p>
+<div class="listing"><pre class="prettyprint">new Thread(<span class="cfett"> new Runnable() {</span>
+  @Override<span class="cfett"> public void run() {</span>
+    for ( int i = 0; i &lt; 10; i++ )
+      System.out.printf( "%d ", i );
+ <span class="cfett"> }
+}</span> ).start();
+
+for ( int i = 0; i &lt; 10; i++ )
+  System.out.printf( "%d ", i );</pre></div>
+<p>In der Ausgabe wird zum Beispiel Folgendes erscheinen (hier komprimiert):</p>
+<div class="listing"><pre class="prettyprint">0 0 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9</pre></div>
+<p>Der neue Thread beginnt mit der 0 und wird dann unterbrochen. Der <span class="clisting">main</span>-Thread kann in einem Zug 0 bis 9 ausgeben. Danach folgt wieder der erste Thread und kann den Rest ausgeben. Ausführliche Informationen zu Threads vermittelt Kapitel 14.</p>
+<p><div class="eclipse"><img src="common/eclipseicon.gif" align="top" width="53" height="23" alt="Eclipse" title="Eclipse"></div>
+    <span class="tastenkappe">Strg</span>
+   + Leertaste nach der geschweiften Klammer listet eine Reihe von Methoden auf, die wir uns von Eclipse implementieren lassen können. Da entscheiden wir uns doch für <span class="clisting">run()</span>.</p>
+<div class="bildbox">
+<p><a name="IDAVJZD"></a><a onClick="OpenWin('bilder/365_java_06_031.gif','Abbildung',800,800)"><img border="0" src="bilderklein/klein365_java_06_031.gif" alt="Abbildung"><br><span class="tabunter">Hier klicken, um das Bild zu vergrößern</span></a></p>
+</div>
+<h4 class="t4">Konstruktoren innerer anonymer Klassen *</h4>
+<p>Der Compiler setzt anonyme Klassen in normale Klassendateien um. Jede Klasse kann einen eigenen Konstruktor deklarieren, und auch für anonyme Klassen sollte das möglich sein, um Initialisierungscode dort hineinzusetzen. Da aber anonyme Klassen keinen Namen haben, muss für Konstruktoren ein anderer Weg gefunden werden. Hier helfen <span class="ckursiv">Exemplarinitialisierungsblöcke</span>, also Blöcke in geschweiften Klammern direkt innerhalb einer Klasse, die wir schon in Kapitel 5, »Eigene Klassen schreiben«, vorgestellt haben. Exemplarinitialisierer gibt es ja eigentlich gar nicht im Bytecode, sondern der Compiler setzt den Programmcode automatisch in jeden Konstruktor. Obwohl anonyme Klassen keinen direkten Konstruktor haben können, gelangt doch über den Exemplarinitialisierer Programmcode in den Konstruktor der Bytecode-Datei.</p>
+<p>Dazu ein Beispiel: Die anonyme Klasse ist eine Unterklasse von <span class="clisting">Point</span> und initialisiert im Konstruktor einen Punkt mit den Koordinaten &#8211;1, &#8211;1. Aus diesem speziellen Punkt-Objekt lesen wir dann die Koordinaten wieder aus:</p>
+<p class="tabunter"><strong>Listing 8.8    </strong>com/tutego/insel/inner/AnonymousAndInside.java, main()</p>
+<div class="listing"><pre class="prettyprint">java.awt.Point p = new java.awt.Point() { { x = &#8211;1; y = &#8211;1; } };
+
+System.out.println( p.getLocation() );  // java.awt.Point[x=&#8211;1,y=&#8211;1]
+
+System.out.println( new java.awt.Point( &#8211;1, 0 )
+{
+  {
+    y = &#8211;1;
+  }
+}.getLocation() );                      // java.awt.Point[x=&#8211;1,y=&#8211;1]</pre></div>
+<h4 class="t4">Gar nicht »super()« *</h4>
+<p>Innerhalb eines »anonymen Konstruktors« kann kein <span class="clisting">super()</span> verwendet werden, um den Konstruktor der Oberklasse aufzurufen. Dies liegt daran, dass automatisch ein <span class="clisting">super()</span> in den Initialisierungsblock eingesetzt wird. Die Parameter für die gewünschte Variante des (überladenen) Oberklassen-Konstruktors werden am Anfang der Deklaration der anonymen Klasse angegeben. Dies zeigt das zweite Beispiel:</p>
+<div class="listing"><pre class="prettyprint">System.out.println( new Point(&#8211;1, 0) { { y = &#8211;1; } }.getLocation() );</pre></div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Wir initialisieren ein Objekt <span class="clisting">BigDecimal</span>, das beliebig große Ganzzahlen aufnehmen kann. Im Konstruktor der anonymen Unterklasse geben wir anschließend den Wert mit der geerbten <span class="clisting">toString()</span>-Methode aus:</p>
+<div class="listing"><pre class="prettyprint">new java.math.BigDecimal( "12345678901234567890" ) {
+  { System.out.println( toString() ); }
+};</pre></div>
+</td>
+</tr>
+</table><br><a id="mj0c473c2e8f45ea41c4c9f6c2af2e0130" name="mj0c473c2e8f45ea41c4c9f6c2af2e0130"></a><a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3"><span class="cfett">8.1.5</span> Zugriff auf lokale Variablen aus lokalen inneren und anonymen Klassen *  <a href="#t2t37"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Lokale und innere Klassen können auf die lokalen Variablen beziehungsweise Parameter der umschließenden Methode lesend zugreifen, jedoch nur dann, wenn die Variable <span class="clisting">final</span> ist. Verändern können lokale und innere Klassen diese Variablen natürlich nicht, denn <span class="clisting">final</span> verbietet einen zweiten Schreibzugriff.</p>
+<p>Ist eine Veränderung nötig, ist ein Trick möglich. Zwei Lösungen bieten sich an:</p>
+<ul class="gp">
+<li>die Nutzung eines finalen Feldes der Länge 1, welches das Ergebnis aufnehmen kann</li>
+</ul>
+<ul class="gp">
+<li>die Nutzung von <span class="clisting">AtomicXXX</span>-Klassen aus dem <span class="clisting">java.util.concurrent.atomic</span>-Paket, die ein primitives Element oder eine Referenz aufnehmen</li>
+</ul>
+<p>Ein Beispiel:</p>
+<p class="tabunter"><strong>Listing 8.9    </strong>com/tutego/insel/inner/ModifyLocalVariable.java, main()</p>
+<div class="listing"><pre class="prettyprint">public static void main( String[] args )
+{
+ <span class="cfett"> final int[] result1 = { 0 };</span>
+ <span class="cfett"> final String[] result2 = { null };</span>
+ <span class="cfett"> final AtomicInteger result3 = new AtomicInteger();</span>
+ <span class="cfett"> final AtomicReference&lt;String&gt; result4 = new AtomicReference&lt;String&gt;();</span><span class="clisting">
+
+  System.out.println( result1[0] );     // 0
+  System.out.println( result2[0] );     // null
+  System.out.println( result3.get() );  // 0
+  System.out.println( result4.get() );  // null
+
+  new Object(){{
+      result1[0] = 1;
+      result2[0] = "Der Herr der Felder";
+      result3.set( 1 );
+      result4.set( "Wurstwasser-Wette" );
+  }};
+
+  System.out.println( result1[0] );     // 1
+  System.out.println( result2[0] );     // Der Herr der Felder
+  System.out.println( result3.get() );  // 1
+  System.out.println( result4.get() );  // Wurstwasser-Wette
+}</span></pre></div>
+<p>Die <span class="clisting">AtomicXXX</span>-Klassen haben eigentlich die Aufgabe, Schreib- und Veränderungsoperationen atomar durchzuführen, können jedoch in diesem Szenario hilfreich sein.</p><a id="mj99c4de5754df35b29f1a98ad715c870e" name="mj99c4de5754df35b29f1a98ad715c870e"></a><a name="t36"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t37"></a><h3 class="t3"><span class="cfett">8.1.6</span> »this« und Vererbung *  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t36"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Wenn wir ein qualifiziertes <span class="clisting">this</span> verwenden, dann bezeichnet <span class="clisting">C.this</span> die äußere Klasse, also das umschließende Exemplar. Das haben wir schon im Abschnitt »Die »this«-Referenz« in Abschnitt 8.1.2 kennengelernt. Gilt jedoch die Beziehung <span class="clisting">C1.C2. ...</span>.. <span class="clisting">Ci.</span> ... <span class="clisting">Cn.</span>, haben wir mit <span class="clisting">Ci.this</span> ein Problem, wenn <span class="clisting">Ci</span> eine Oberklasse von <span class="clisting">Cn</span> ist. Es geht also um den Fall, dass eine textuell umgebende Klasse zugleich auch Oberklasse ist. Das eigentliche Problem besteht darin, dass hier zweidimensionale Namensräume hierarchisch kombiniert werden müssen. Die eine Dimension sind die Bezeichner beziehungsweise Methoden aus den lexikalisch umgebenden Klassen, die andere Dimension die ererbten Eigenschaften aus der Oberklasse. Hier sind beliebige Überlappungen und Mehrdeutigkeiten denkbar. Durch diese ungenaue Beziehung zwischen inneren Klassen und Vererbung kam es unter JDK 1.1 und 1.2 zu unterschiedlichen Ergebnissen.</p>
+<p>Im nächsten Beispiel soll von der Klasse <span class="clisting">Shoe</span> die innere Klasse <span class="clisting">LeatherBoot</span> den <span class="clisting">Shoe</span> erweitern und die Methode <span class="clisting">out()</span> überschreiben:</p>
+<p class="tabunter"><strong>Listing 8.10    </strong>com/tutego/insel/inner/Shoe.java, Shoe</p>
+<div class="listing"><pre class="prettyprint">public class Shoe
+{
+  void out()
+  {
+    System.out.println( "Ich bin der Schuh des Manitu." );
+  }
+
+  class LeatherBoot extends Shoe
+  {
+    void what()
+    {
+     <span class="cfett"> Shoe.this</span>.out();
+    }
+
+    @Override
+    void out()
+    {
+      System.out.println( "Ich bin ein Shoe.LeatherBoot." );
+    }
+  }
+
+  public static void main( String[] args )
+  {
+    new Shoe().new LeatherBoot().what();
+  }
+}</pre></div>
+<p>Legen wir in der statischen <span class="clisting">main()</span>-Methode ein Objekt der Klasse <span class="clisting">LeatherBoot</span> an, dann landen wir bei <span class="clisting">what()</span> in der Klasse <span class="clisting">LeatherBoot</span>, was <span class="clisting">Shoe.this.out()</span> ausführt. Interessant ist aber, dass hier kein dynamisch gebundener Aufruf an <span class="clisting">out()</span> vom <span class="clisting">LeatherBoot</span>-Objekt erfolgt, sondern die Ausgabe von <span class="clisting">Shoe</span> ist:</p>
+<div class="listing"><pre class="prettyprint">Ich bin der Schuh des Manitu.</pre></div>
+<p>Die überschriebene Ausgabe von <span class="clisting">LeatherBoot</span> liefert die ähnlich aussehende Anweisung <span class="clisting">((Shoe)this).out()</span>. Vor Version 1.2 kam als Ergebnis immer diese Zeichenkette heraus, aber das ist Geschichte und nur eine historische Randnotiz.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="8 Äußere.innere Klassen"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_07_001.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_09_001.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>

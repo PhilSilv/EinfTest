@@ -1,0 +1,1200 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Galileo Computing :: Java ist auch eine Insel – 25.6 Eigene Annotationstypen *</title>
+<meta name="title" content="Galileo Computing :: Java ist auch eine Insel - 25.6 Eigene Annotationstypen *">
+<meta name="author" content="Christian Ullenboom ">
+<meta name="publisher" content="Galileo Press 2011">
+<meta name="copyright" content="Galileo Press 2011">
+<meta name="Description" content="Java ist auch eine Insel - Das umfassende Handbuch – 25.6 Eigene Annotationstypen *">
+<meta name="audience" content="Alle">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta http-equiv="content-language" content="de">
+<link rel="stylesheet" type="text/css" href="common/galileo_open.css">
+<link rel="prev" href=".htm">
+<link rel="next" href=".htm"><script type="text/javascript"><!--
+    function OpenWin(url,name,height,width)
+    {
+      var InfoWin = window.open(url,name,"directories=0,height="+height+",width=" + width + ",hotkeys=0,location=0,menubar=0,resizable=1,screenX=150,screenY=10,left=150,top=10,scrollbars=1,status=1,titlebar=0,toolbar=0");
+      InfoWin.focus();
+    }
+    //--></script><link href="common/prettify.css" type="text/css" rel="stylesheet"><script type="text/javascript" src="common/prettify.js"></script></head>
+<body vlink="#000099" link="#000099" alink="#000099" onload="prettyPrint()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000066">
+<tr>
+<td height="74" valign="bottom" colspan="2"><a href="http://www.galileocomputing.de/katalog/openbook?GPP=opjiVIV"><img src="common/galileocomputing_openbook.gif" width="200" height="56" border="0" alt="Galileo Computing < openbook >" title="Galileo Computing < openbook >"></a></td>
+<td width="80" height="74"><a href="http://www.galileocomputing.de/?GPP=opjiVIV"><img src="common/galileocomputing.gif" border="0" alt="Galileo Computing - Professionelle Bücher. Auch für Einsteiger." title="Galileo Computing - Professionelle Bücher. Auch für Einsteiger."></a></td>
+</tr>
+</table>
+<div align="right"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Professionelle Bücher. Auch für Einsteiger.</a></div><br><table class="tbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="190" valign="top">
+<table class="tbl1" border="0" cellpadding="3" cellspacing="0" width="190" align="left">
+<tr>
+<td class="tbl2"><a class="nav" href="index.htm#_top">Inhaltsverzeichnis</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_00_001.htm#mj58b119301920569a446c9c510503f310">Vorwort</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_01_001.htm#mja8fc5b7ad19fc7332bc66b09a8fda26e">1 Java ist auch eine Sprache</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_02_001.htm#mj313f67c98dc9ecaddfa2d8b80f057fd2">2 Sprachbeschreibung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_03_001.htm#mjcd3b5720e8605484942e3476a1075bdf">3 Klassen und Objekte</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_04_001.htm#mj71fbc84ad33a281b9352b0b19fae2fb2">4 Der Umgang mit Zeichenketten</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_05_001.htm#mj005cd8e604aefc3ae72b92880fcee5c6">5 Eigene Klassen schreiben</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_06_001.htm#mj6f6b47453043c38837bfc32154a97968">6 Exceptions</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_07_001.htm#mjc4a1f6f3499a02fb64fe89046739edca">7 Generics&lt;T&gt;</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_08_001.htm#mj46e914488628367f5dfc0a62c3a78a53">8 Äußere.innere Klassen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_09_001.htm#mj94af2b90e8a2dad6c1ef67255f89a137">9 Besondere Klassen der Java SE</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_10_001.htm#mjcae20f50ffbc015d0b66861e7087af9b">10 Architektur, Design und angewandte Objektorientierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_11_001.htm#mj60bc6a007ae9b8657949f3e91d96df3d">11 Die Klassenbibliothek</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_12_001.htm#mj0ce00eb41aae2b084534019cf6edc3b6">12 Bits und Bytes und Mathematisches</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_13_001.htm#mj245f5f8d5a858b46462d64e9b9c0786b">13 Datenstrukturen und Algorithmen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_14_001.htm#mj8c6f381221d805dd6fbe480731ac0c58">14 Threads und nebenläufige Programmierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_15_001.htm#mjbe3ed0989722396930966f95deeb2497">15 Raum und Zeit</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_16_001.htm#mj78bd405fb0de0cff099c06255fe36853">16 Dateien, Verzeichnisse und Dateizugriffe</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_17_001.htm#mjb420b02f4ccf65226f7271e48cefa05d">17 Datenströme</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_18_001.htm#mjedab16f1a9cc168eda4a24416359e0b9">18 Die eXtensible Markup Language (XML)</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_19_001.htm#mjc8f47f7f51ac3795c46c4544f391b02e">19 Grafische Oberflächen mit Swing</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_20_001.htm#mj25cc7d47e476b8b1a183a10ee741dbaa">20 Grafikprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_21_001.htm#mjea7bcdd596c8bd25b078a00221a01a75">21 Netzwerkprogrammierung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_22_001.htm#mjde622db61608a627262a27ecb377d675">22 Verteilte Programmierung mit RMI</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_23_001.htm#mj23bf599d65364bcd05d06a34cb5593bf">23 JavaServer Pages und Servlets</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_24_001.htm#mja621f3b4a74c7fa576b4a58b1614041e">24 Datenbankmanagement mit JDBC</a></td>
+</tr>
+<tr>
+<td><a class="navh" href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf">25 Reflection und Annotationen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_26_001.htm#mjb47dd6e0a309b7e78cad68f6b5de9319">26 Dienstprogramme für die Java-Umgebung</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="javainsel_27_001.htm#mjf59db36d9280a70e0d3d196e9bf160f5">A Die Begleit-DVD</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="stichwort.htm#_top">Stichwort</a></td>
+</tr>
+<tr>
+<td><br><a href="http://download2.galileo-press.de/openbook/galileocomputing_javainsel9.zip" class="navnav"><strong>Download:</strong><br>- ZIP, ca. 20,5 MB</a></td>
+</tr>
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav">Buch bestellen</a></td>
+</tr>
+<tr>
+<td><a class="navnav" href="#kommentar">Ihre Meinung?</a><br><br></td>
+</tr>
+</table>
+</td>
+<td width="10"><img src="common/spacer10.gif" width="10" height="10" alt="Spacer"></td>
+<td width="85%" valign="top" align="center"><div align="center">
+<table width="98%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_25_005.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a href="http://www.galileocomputing.de/?GPP=opjiVIV" class="navnav">Galileo Computing /</a><a href="http://www.galileocomputing.de/katalog/openbook/?GPP=opjiVIV" class="navnav"> &lt;openbook&gt; /</a><a href="index.htm" class="navnav"> Java-Insel</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_25_007.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" valign="top"><table width="100%" border="0" cellpadding="10" cellspacing="0" class="box">
+<tr>
+<td colspan="2"><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="buchtitel">Java ist auch eine Insel</a><span class="autor"> von Christian Ullenboom </span><br><span class="untertitel">Das umfassende Handbuch</span></td>
+</tr>
+<tr>
+<td valign="top" width="211"><dl>
+<dt><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV" class="navnav"><img src="common/9783836215060.gif" border="0" alt="Buch: Java ist auch eine Insel" title="Buch: Java ist auch eine Insel"></a></dt>
+<dd><br><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV"><span class="autor"><strong>Java ist auch eine Insel</strong><br>geb., mit DVD<br>1482 S., 49,90 Euro<br>Galileo Computing<br>ISBN 978-3-8362-1506-0</span></a></dd>
+</dl></td>
+<td width="80%"><table border="0">
+<tr>
+<td valign="baseline"><img src="common/pfeil_u.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="3" class="kap"><strong><a href="javainsel_25_001.htm#mja2e217bf5724cc65eba184a2af8b79cf" class="navnav">25 Reflection und Annotationen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_25_001.htm#mj2abe911fdec059a6e42247b9b091064f" class="navnav">25.1 Metadaten</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_001.htm#mj315a4069dd5f2c47668112f03fb9d797" class="navnav">25.1.1 Metadaten durch JavaDoc-Tags</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_25_002.htm#mj16f08fd7fd4c9adeb13f5d7c2fcd919f" class="navnav">25.2 Metadaten der Klassen mit dem Class-Objekt</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_002.htm#mj09d7b1757c11f48d2685f264293cfd81" class="navnav">25.2.1 An ein Class-Objekt kommen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_002.htm#mj67c730a004636f6b47cd8c294e184982" class="navnav">25.2.2 Was das Class-Objekt beschreibt *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_002.htm#mj3099d747a25881ea8508e42405ac13b7" class="navnav">25.2.3 Der Name der Klasse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_002.htm#mj61fae72b0d46a4162986360803fdb072" class="navnav">25.2.4 »instanceof« mit Class-Objekten *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_002.htm#mja42718317af09f43821fba60e5e53536" class="navnav">25.2.5 Oberklassen finden *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_002.htm#mj707904bd78adebe73ebc9f20c1fca7aa" class="navnav">25.2.6 Implementierte Interfaces einer Klasse oder eines Interfaces *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_002.htm#mjb52b207dc3b9c9ab6add1ccb619d8024" class="navnav">25.2.7 Modifizierer und die Klasse »Modifier« *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_002.htm#mj04b2a72dbd3a393bc006c673524f83f3" class="navnav">25.2.8 Die Arbeit auf dem Feld *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_25_003.htm#mjdcf36b03d66b224f70db70883063e30b" class="navnav">25.3 Attribute, Methoden und Konstruktoren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_003.htm#mjaf2fc804a04b0a9605e6ec61ad101b2d" class="navnav">25.3.1 Reflections &#8211; Gespür für Attribute einer Klasse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_003.htm#mja146160d83c4a4db68437c73bca7751d" class="navnav">25.3.2 Methoden einer Klasse erfragen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_003.htm#mj8e71fa5b8ac8cd9c415a9010d64d3a2d" class="navnav">25.3.3 Properties einer Bean erfragen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_003.htm#mj697f2a7998bfed8740ab0d7c8811267d" class="navnav">25.3.4 Konstruktoren einer Klasse</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_003.htm#mjb90edd9e2256dd8950c5b3d8a38f05ab" class="navnav">25.3.5 Annotationen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_25_004.htm#mj8470eefe9558d2ea22830eebb54d3895" class="navnav">25.4 Objekte erzeugen und manipulieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_004.htm#mj41602c234dfdbd610ac24bb06ae70de4" class="navnav">25.4.1 Objekte erzeugen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_004.htm#mjdf779c908881a0b5c5bf32e8d86f743d" class="navnav">25.4.2 Die Belegung der Variablen erfragen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_004.htm#mj30f0dba6dc37ccee0118d7eb0294d137" class="navnav">25.4.3 Eine generische eigene toString()-Methode *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_004.htm#mj9aa10e65b00af04545359f2f77450651" class="navnav">25.4.4 Variablen setzen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_004.htm#mje9b0769f149edb46e2121d84d5471acb" class="navnav">25.4.5 Bean-Zustände kopieren *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_004.htm#mj2b2f793581f0133d58222cafdaf7d7f1" class="navnav">25.4.6 Private Attribute ändern</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_25_005.htm#mjefb1bc55a562666a08a70715595d26ba" class="navnav">25.5 Methoden aufrufen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="javainsel_25_005.htm#mjdb4ca121d3d40f6489ba59ca88ec7818" class="navnav">25.5.1 Statische Methoden aufrufen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="#mj633b70502b735c98bdc3cd6b7f0b1390" class="navh">25.6 Eigene Annotationstypen *</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj8ee5e422cd1e266400f74d0dd2f6c02a" class="navh">25.6.1 Annotationen zum Laden von Ressourcen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj60e296b60a6dc2097ae7cac3434583ff" class="navh">25.6.2 Neue Annotationen deklarieren</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj052733c31d36a27bd3dc6aad17941a4a" class="navh">25.6.3 Annotationen mit genau einem Attribut</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mja0eeecc785b7efb2f25f7b1932680e04" class="navh">25.6.4 Element-Werte-Paare (Attribute) hinzufügen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj4460b6f67f4881b62b0b3c63358d99f1" class="navh">25.6.5 Annotationsattribute vom Typ einer Aufzählung</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjd9458ce9a06e7d41f2949ed430624809" class="navh">25.6.6 Felder von Annotationsattributen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjf04378e5ff87249012651cf607682580" class="navh">25.6.7 Vorbelegte Attribute</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj6dc62903d2743fc2d8a27fd497950dcd" class="navh">25.6.8 Annotieren von Annotationstypen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj60aea92bba1e0a0f9f928ac360d8e86f" class="navh">25.6.9 Deklarationen für unsere Ressourcen-Annotationen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjd93de34d21000e81fee2f0f533171473" class="navh">25.6.10 Annotierte Elemente auslesen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mjbd900d811b3ff68ed9fa7a1dcaa3f261" class="navh">25.6.11 Auf die Annotationsattribute zugreifen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj01b681e8b50436cb7046411e70e21119" class="navh">25.6.12 Komplettbeispiel zum Initialisieren von Ressourcen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline"><strong><a href="#mj7ef44c5695fc82f66dff1ba5ac1c9f1c" class="navh">25.6.13 Mögliche Nachteile von Annotationen</a></strong></td>
+</tr>
+<tr>
+<td valign="baseline" width="10"> </td>
+<td valign="baseline" width="10"><img src="common/pfeil_rechts5.gif" width="10" height="10" border="0" alt="Pfeil"></td>
+<td valign="baseline" colspan="2"><strong><a href="javainsel_25_007.htm#mj24125bb544ec1fc07a6ac90fb6bdd8ef" class="navnav">25.7 Zum Weiterlesen</a></strong></td>
+</tr>
+</table><br></td>
+</tr>
+</table>
+<table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#eeeeee">
+<tr>
+<td><div class="main"><a id="mj633b70502b735c98bdc3cd6b7f0b1390" name="mj633b70502b735c98bdc3cd6b7f0b1390"></a><a name="t21"></a><a name="t2t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div>
+<h2 class="t2"><span class="cfett">25.6</span> Eigene Annotationstypen *  <a href="#t2t32"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><img src="common/15x15leer.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></h2>
+<p>Die in der Java Standardbibliothek vorgegebenen Annotationen haben entweder eine besondere Semantik für den Compiler, wie <span class="clisting">@Override</span> oder <span class="clisting">@SuppressWarnings</span>, oder dienen zum Beispiel der Definition von Web-Services (<span class="clisting">@WebService</span>, <span class="clisting">@WebMethod</span>, …) oder Komponenten mit XML-Abbildung (<span class="clisting">@XmlRootElement</span>, <span class="clisting">@XmlElement</span>, …). Insbesondere die Java Enterprise Edition (Java EE) macht von Annotationen fleißig Gebrauch, und es lassen sich auch neue Annotationstypen deklarieren.</p><a id="mj8ee5e422cd1e266400f74d0dd2f6c02a" name="mj8ee5e422cd1e266400f74d0dd2f6c02a"></a><a name="t31"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t32"></a><h3 class="t3"><span class="cfett">25.6.1</span> Annotationen zum Laden von Ressourcen  <a href="#t2t33"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t31"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Im Folgenden wollen wir drei Annotationstypen deklarieren, die den Inhalt von Objektvariablen beschreiben. Zunächst werden die Annotationstypen selbst beschrieben und abschließend folgt eine Klasse, die die Annotationen ausliest und die Ressourcen initialisiert.</p>
+<p>Möglich soll sein, mit <span class="clisting">@CurrentDateResource</span> eine Objektvariable mit dem aktuellen Datum zu belegen:</p>
+<div class="listing"><pre class="prettyprint">@CurrentDateResource
+public Date now;</pre></div>
+<p>Ist eine Variable mit <span class="clisting">@ListOfFilesResource</span> annotiert, so sollen alle Dateien und Unterverzeichnisse aus einem gegebenen Verzeichnis aufgelistet und damit ein Feld initialisiert werden:</p>
+<div class="listing"><pre class="prettyprint">@ListOfFilesResource( "c:/" )
+String[] files;</pre></div>
+<p>Die Annotation <span class="clisting">@UrlResource</span> ist die komplexeste Annotation. Sie beschreibt im einfachsten Fall eine URL mit Daten von einem HTTP-Server (mit dem URL-Protokoll <span class="ckursiv">file://</span> auch vom lokalen Dateisystem), sodass eine Variable mit dem Inhalt initialisiert werden kann:</p>
+<div class="listing"><pre class="prettyprint">@UrlResource( "http://tutego.de/aufgaben/bond.txt" )
+String testFile;</pre></div>
+<p>Der Annotation lassen sich noch einige Attribute (Element-Wert-Paare) übergeben, sodass etwa Leerraum entfernt wird oder der String in Groß-/Kleinbuchstaben konvertiert wird:</p>
+<div class="listing"><pre class="prettyprint">@UrlResource( value = "http://tutego.de/aufgaben/bond.txt",
+              trim = true,
+              upperLowerCase = UpperLowerCase.UPPERCASE )
+public String testFile;</pre></div>
+<p>Zu guter Letzt lassen sich bei <span class="clisting">@UrlResource</span> auch beliebige Konvertierer-Klassen angeben, die den Text der Ressource transformieren:</p>
+<div class="listing"><pre class="prettyprint">@UrlResource( value = "http://tutego.de/aufgaben/bond.txt",
+              converter = { RemoveNoWordCharactersConverter.class, 
+              SortConverter.class } )
+public String testFile;</pre></div><a id="mj60e296b60a6dc2097ae7cac3434583ff" name="mj60e296b60a6dc2097ae7cac3434583ff"></a><a name="t32"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t33"></a><h3 class="t3"><span class="cfett">25.6.2</span> Neue Annotationen deklarieren  <a href="#t2t34"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t32"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Ein Annotationstyp (engl. <span class="ckursiv">annotation type</span>) wird so deklariert wie eine Schnittstelle, nur steht vor dem Schlüsselwort <span class="clisting">interface</span> ein @-Zeichen.</p>
+<p>Beginnen wir mit dem einfachsten Annotationstyp <span class="clisting">CurrentDateResource</span>:</p>
+<div class="listing"><pre class="prettyprint">public<span class="cfett"> @interface</span> CurrentDateResource { }</pre></div>
+<p>Die Ähnlichkeit von neuen Annotationstypen und Schnittstellen ist so groß, dass in der <span class="ckursiv">Java Language Specification</span> die Annotationen auch im Kapitel über Schnittstellen behandelt werden (später erfahren wir den Grund dafür: Der Compiler übersetzt die Annotationstypen in Schnittstellen).</p>
+<p>Wo sich der Annotationstyp festmachen lässt, kann eingeschränkt werden. Im Standardfall kann er überall angeheftet werden, das heißt an beliebigen Typdeklarationen, Annotationen, Aufzählungen, Objekt-/Klassenvariablen, lokalen Variablen, Parametern, Methoden, Konstruktoren oder auch an Paketen (wobei die Syntax da etwas anders ist).</p>
+<p>Damit ist erlaubt:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">@CurrentDateResource</span> public Date now;</pre></div><a id="mj052733c31d36a27bd3dc6aad17941a4a" name="mj052733c31d36a27bd3dc6aad17941a4a"></a><a name="t33"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t34"></a><h3 class="t3"><span class="cfett">25.6.3</span> Annotationen mit genau einem Attribut  <a href="#t2t35"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t33"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Der Annotationstyp <span class="clisting">@CurrentDateResource</span> kann mit keinem zusätzlichen Attribut versehen werden, da er in der bisherigen Schreibweise eine Markierungsannotation ist. Erlaubt sind zwar ein Paar runde Klammern hinter dem Namen und auch Kommentare, aber eben kein zusätzliches Attribut, wie es <span class="clisting">@ListOfFilesResource</span> etwa wünscht:</p>
+<div class="listing"><pre class="prettyprint">@CurrentDateResource public Date now;
+@CurrentDateResource<span class="cfett">()</span> public Date now;
+@CurrentDateRessource<span class="cfett">( "gestern" )</span> public Date now;           // <img src="common/totenkopf.gif" border="0" align="bottom" alt="Fehler"> Compilerfehler</pre></div>
+<p>Damit zusätzliche Informationen für den Pfadnamen bei <span class="clisting">@ListOfFilesResource("c:/")</span> möglich sind, werden im Annotationstyp Deklarationen für Attribute eingesetzt, deren Schreibweise an Operationen einer Java-Schnittstelle erinnert. (Aber die Operationen dürfen keinen Parameter besitzen, die Rückgabe darf nicht <span class="clisting">void</span> sein und kein <span class="clisting">throws</span> besitzen. Und Operationen, die so heißen wie die Methoden aus <span class="clisting">Object</span>, sind nicht zugelassen.)</p>
+<p>Damit ein zusätzliches Attribut den Pfadnamen annehmen kann, sieht die Deklaration vom Annotationstyp <span class="clisting">ListOfFilesResource</span> so aus:</p>
+<div class="listing"><pre class="prettyprint">public @interface ListOfFilesResource
+{
+ <span class="cfett"> String value();</span>
+}</pre></div>
+<p>Damit haben wir den zweite Annotationstyp aus unserem Beispiel vorbereitet und gültig wäre:</p>
+<div class="listing"><pre class="prettyprint">@ListOfFilesResource( "c:/" )
+String[] files;</pre></div>
+<p>Fehlt das erwartete Element, also der Pfad-String, gibt es einen Compilerfehler.</p>
+<h4 class="t4">Attributtypen</h4>
+<p>Das, was so wie ein Rückgabetyp einer Methode aussieht, bestimmt den Typ des Attributs und ist im begrenzten Rahmen wählbar. Der Typ muss nicht immer nur String sein. Insgesamt erlaubt Java:</p>
+<ul class="gp">
+<li>alle primitiven Datentypen (<span class="clisting">byte</span>, <span class="clisting">short</span>, <span class="clisting">int</span>, <span class="clisting">long</span>, <span class="clisting">float</span>, <span class="clisting">double</span>, <span class="clisting">boolean</span>), aber keine Wrapper</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">String</span></li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Class</span>. Insbesondere mit der generischen Angabe ermöglicht er eine präzise Klassenangabe.</li>
+</ul>
+<ul class="gp">
+<li>Enum-Typen</li>
+</ul>
+<ul class="gp">
+<li>andere Annotationen (was zu geschachtelten Annotationen führt)</li>
+</ul>
+<ul class="gp">
+<li>Felder von oben genannten Typen. Felder von Feldern (mehrdimensionale Felder) sind aber nicht gestattet.</li>
+</ul><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Die Attribute sind typisiert, und fehlerhafte Tyen lehnt der Compiler ab. <span class="clisting">null</span> ist als Argument nie erlaubt. Mögliche Typkonvertierungen führt der Compiler automatisch durch:</p>
+<div class="listing"><pre class="prettyprint">@ListOfFilesResource( "" ) String[] files;                // OK
+@ListOfFilesResource() String[] files;                    // <img src="common/totenkopf.gif" border="0" align="bottom" alt="Fehler"> Compilerfehler
+@ListOfFilesResource( null ) String[] files;              // <img src="common/totenkopf.gif" border="0" align="bottom" alt="Fehler"> Compilerfehler
+@ListOfFilesResource( 1 ) String[] files;                 // <img src="common/totenkopf.gif" border="0" align="bottom" alt="Fehler"> Compilerfehler
+@ListOfFilesResource( 'C' ) String[] files;               // <img src="common/totenkopf.gif" border="0" align="bottom" alt="Fehler"> Compilerfehler
+@ListOfFilesResource( "C:" + '/' ) String[] files;        // OK</pre></div>
+</td>
+</tr>
+</table><br><a id="mja0eeecc785b7efb2f25f7b1932680e04" name="mja0eeecc785b7efb2f25f7b1932680e04"></a><a name="t34"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t35"></a><h3 class="t3"><span class="cfett">25.6.4</span> Element-Werte-Paare (Attribute) hinzufügen  <a href="#t2t36"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t34"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Wenn der Annotationstyp ein Attribut mit dem Namen <span class="clisting">value</span> deklariert, so muss keine Angabe über einen Schlüsselnamen gemacht werden. Möglich wäre das aber schon, und geschrieben würde das:</p>
+<div class="listing"><pre class="prettyprint">@ListOfFilesResource(<span class="cfett"> value = "c:/"</span> )
+String[] files;</pre></div>
+<p>Eine Annotation lässt sich mit einer beliebigen Anzahl von Attributen deklarieren, und das Attribut muss auch nur dann <span class="clisting">value</span> heißen, wenn der Schlüssel nicht ausdrücklich genannt werden soll &#8211; also <span class="clisting">@ListOfFilesResource("c:/")</span> statt <span class="clisting">@ListOfFilesResource(value = "c:/")</span>. Ist mehr als ein Attribut nötig, muss ohnehin immer der Attributname zusammen mit der Belegung genannt werden.</p>
+<p>Wenn <span class="clisting">@ListOfFilesResource</span> mit einem Attribut <span class="clisting">trim</span> ausgestattet wird, sodass die gelesenen Texte automatisch vorne und hinten den Weißraum abgeschnitten bekommen, so könnte die Deklaration des Annotationstyps so aussehen:</p>
+<div class="listing"><pre class="prettyprint">public @interface UrlResource
+{
+  String  <span class="cfett"> value()</span>;
+  boolean <span class="cfett"> trim()</span>;
+}</pre></div>
+<p>Und in der Anwendung:</p>
+<div class="listing"><pre class="prettyprint">@UrlResource(<span class="cfett"> value = "http://tutego.de/aufgaben/bond.txt", trim = true</span> )
+String testFile;</pre></div><a id="mj4460b6f67f4881b62b0b3c63358d99f1" name="mj4460b6f67f4881b62b0b3c63358d99f1"></a><a name="t35"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t36"></a><h3 class="t3"><span class="cfett">25.6.5</span> Annotationsattribute vom Typ einer Aufzählung  <a href="#t2t37"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t35"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Bisher haben wir als Attributtyp <span class="clisting">String</span> und <span class="clisting">boolean</span> eingesetzt. Attribute dürfen auch Aufzählungen sein. Wir wollen das für <span class="clisting">@UrlResource</span> nutzen, damit wir beim Einlesen wählen können, ob der Text in Groß- oder Kleinbuchstaben konvertiert wird:</p>
+<div class="listing"><pre class="prettyprint">@UrlResource( value = "http://tutego.de/aufgaben/bond.txt",
+             <span class="cfett"> upperLowerCase = UpperLowerCase.UPPERCASE</span> )
+String testFile;</pre></div>
+<p>Für die Konvertierungsart deklarieren wir zunächst eine Aufzählung und deklarieren das Attribut <span class="clisting">upperLowerCase</span> dann genau mit dem Aufzählungstyp:</p>
+<div class="listing"><pre class="prettyprint">public @interface UrlResource
+{
+ <span class="cfett"> public enum UpperLowerCase { UNCHANGED, LOWERCASE, UPPERCASE }</span>
+
+  String          value();<span class="cfett">
+  UpperLowerCase </span> upperLowerCase();
+}</pre></div>
+<p>Die Aufzählung <span class="clisting">UpperLowerCase</span> als inneren Typ zu deklarieren, ist daher interessant, da sie ja nicht allgemein ist, sondern ausschließlich Sinn mit der Annotation <span class="clisting">@UrlResource</span> ergibt.</p><a id="mjd9458ce9a06e7d41f2949ed430624809" name="mjd9458ce9a06e7d41f2949ed430624809"></a><a name="t36"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t37"></a><h3 class="t3"><span class="cfett">25.6.6</span> Felder von Annotationsattributen  <a href="#t2t38"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t36"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Von den unterschiedlichen Elementtypen dürfen eindimensionale Felder gebildet werden. Da es keine anderen Sammlungen gibt, stellt das Feld die einzige Möglichkeit dar, beliebig viele Elemente anzugeben.</p>
+<p>Der <span class="clisting">@UrlResource</span> sollen beliebig viele Konvertierungsfilter zugewiesen werden. Konvertierungsfilter sind Klassen, die die Schnittstelle <span class="clisting">ResourceConverter</span> implementieren und den eingelesenen String transformieren. Dann heißt es in der Deklaration vom Annotationstyp:</p>
+<div class="listing"><pre class="prettyprint">public @interface UrlResource
+{
+  String value();
+ <span class="cfett"> Class&lt;? extends ResourceConverter&gt;[]</span> converter();
+}</pre></div>
+<p>Der interessante Teil ist natürlich <span class="clisting">Class&lt;? extends ResourceConverter&gt;[]</span>. Der setzt sich wie folgt zusammen:</p>
+<ul class="gp">
+<li>Da Java es nicht erlaubt, dass beliebige Attributtypen verwendet werden, bleibt bei der Angabe der Konverter nur <span class="clisting">Class</span>-Objekte und nicht etwa <span class="clisting">ResourceConverter[]</span>.</li>
+</ul>
+<ul class="gp">
+<li>Die Typangabe <span class="clisting">Class[]</span> wäre nicht ausreichend, da <span class="clisting">Class</span> mit einem generischen Typ präzisiert werden muss. Jetzt ist aber <span class="clisting">Class&lt;ResourceConverter&gt;</span> auch noch nicht präzise, denn wir wollen ja nicht nur exakt den Typ <span class="clisting">RessourceConverter</span> treffen, sondern Untertypen, also Klassen, die <span class="clisting">RessourceConverter</span> erweitern. Damit sind wir bei <span class="clisting">Class&lt;? extends ResourceConverter&gt;</span>.</li>
+</ul>
+<ul class="gp">
+<li>Da es eine Liste von <span class="clisting">Class</span>-Angaben werden kann, muss das Paar eckiger Klammen an die Deklaration.</li>
+</ul>
+<p>Weisen wir zum Beispiel zwei Konverter &#8211; die Klassen wurde noch nicht vorgestellt, aber das folgt &#8211; der <span class="clisting">@UrlResource</span> zu:</p>
+<div class="listing"><pre class="prettyprint">@UrlResource( value = "http://tutego.de/aufgaben/bond.txt",
+             <span class="cfett"> converter = { RemoveNoWordCharactersConverter.class, 
+              SortConverter.class }</span> )
+public String testFile;</pre></div>
+<p>Bei nur einem angegeben Konverter können die geschweiften Klammern sogar entfallen:</p>
+<div class="listing"><pre class="prettyprint">@UrlResource( value = "http://tutego.de/aufgaben/bond.txt",
+             <span class="cfett"> converter = RemoveNoWordCharactersConverter.class</span> )</pre></div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Da ein Attribut wieder eine Annotation sein kann, ergeben sich interessante Möglichkeiten. Neben wir an, der Annotationstyp <span class="clisting">Name</span> speichert Vor- und Nachnamen:</p>
+<div class="listing"><pre class="prettyprint"><span class="clisting">@interface Name
+{</span>
+  <span class="clisting">String firstname();</span>
+  <span class="clisting">String lastname();
+}</span></pre></div>
+<p class="BStandard">Ein Annotationstyp <span class="clisting">Author</span> soll <span class="clisting">Name</span> als Elementtyp für <span class="clisting">value</span> nutzen:</p>
+<div class="listing"><pre class="prettyprint">@interface Author
+{
+  <span class="cfett">Name</span>[] value();
+}</pre></div>
+<p class="BStandard">Vor <span class="clisting">Name</span> steht nicht das <span class="clisting">@</span>-Zeichen. Nur in der Anwendung:</p>
+<div class="listing"><pre class="prettyprint">@Author( <span class="cfett">@Name( firstname = "Christian", lastname = "Ullenboom"</span></pre></div>
+<p class="BStandard">Hätten wir das Element nicht <span class="clisting">value</span>, sondern etwa <span class="clisting">name</span> genannt, müsste die Angabe so heißen:</p>
+<div class="listing"><pre class="prettyprint">name = @Name( firstname = "Christian", lastname = "Ullenboom"</pre></div>
+<p class="BStandard">Und hätten wir mehrere Autoren angegeben, würden wir Folgendes schreiben:</p>
+<div class="listing"><pre class="prettyprint">@Author(
+  <span class="cfett">{</span>
+    @Name( firstname = "Christian", lastname = "Ullenboom" ),
+    @Name( firstname = "Hansi", lastname = "Hinterweltler"
+  <span class="cfett">}</span> )</pre></div>
+</td>
+</tr>
+</table><br><a id="mjf04378e5ff87249012651cf607682580" name="mjf04378e5ff87249012651cf607682580"></a><a name="t37"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t38"></a><h3 class="t3"><span class="cfett">25.6.7</span> Vorbelegte Attribute  <a href="#t2t39"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t37"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Im bisherigen Fall mussten alle Attributbelegungen angegeben werden, und wir konnten kein Element-Werte-Paar auslassen. Die Annotationstypen ermöglichen allerdings für Attribute Standardwerte, sodass ein Wert angeben werden kann, aber nicht muss. Statt</p>
+<div class="listing"><pre class="prettyprint">@UrlResource( value = "http://tutego.de/aufgaben/bond.txt",<span class="cfett"> trim = false</span> )</pre></div>
+<p>soll möglich sein, <span class="clisting">trim = false</span> wegzulasssen, weil es Standard sein soll:</p>
+<div class="listing"><pre class="prettyprint">@UrlResource( value = "http://tutego.de/aufgaben/bond.txt" )</pre></div>
+<p>Beziehungsweise dann wieder kürzer:</p>
+<div class="listing"><pre class="prettyprint">@UrlResource( "http://tutego.de/aufgaben/bond.txt" )</pre></div>
+<p>In der Syntax für Vorbelegungen hält dafür das Schlüsselwort <span class="clisting">default</span> her, was auch zu einer neuen Schreibweise führt, die von den Schnittstellen abweicht.</p>
+<p>Bei unserem <span class="clisting">@UrlResource</span> ist nur die Angabe der Textquelle vonnöten; alles andere soll mit Default-Werten belegt sein:</p>
+<div class="listing"><pre class="prettyprint">public @interface UrlResource
+{
+  enum UpperLowerCase { UNCHANGED, LOWERCASE, UPPERCASE }
+
+  String value();
+  boolean trim()<span class="cfett"> default false</span>;
+  UpperLowerCase upperLowerCase()<span class="cfett"> default UpperLowerCase.UNCHANGED</span>;
+  Class&lt;? extends ResourceConverter&gt;[] converter()<span class="cfett"> default { }</span>;
+}</pre></div>
+<h4 class="t4">Nachträgliche Änderung und die Sinnhaftigkeit von Standardwerten</h4>
+<p>Standardwerte sind für Annotationen ein sehr wichtiges Instrument, denn wenn einmal ein Annotationstyp deklariert wurde, ist eine Änderung nicht immer möglich; das Phänomen ist von Schnittstellen hinlänglich bekannt. Neben dem Hinzufügen neuer Elemente stellt bei Schnittstellen das Löschen von Operationen kein Problem dar [Es sei denn, es wird seit Java 6 die Annotation <span class="clisting">@Override</span> für die implementierten Methoden verwendet.
+]  &#8211; ganz im Unterschied zu Annotationen: Werden Elemente entfernt, gibt es Compilerfehler. Auch das Ändern von Elementtypen führt im Allgemeinen zu Compilerfehlern.</p>
+<p>Werden neue Elemente in bestehende Annotationstypen eingefügt, dann müssten alle existierenden konkreten Annotationen das neue Element setzen, was eine sehr große Änderung ist, vergleichbar einem neuen Element in einer Schnittstelle. Anders als bei Schnittstellen lösen Default-Werte das Problem, da auf diese Weise für das neue Element immer gleich ein Wert vorhanden ist, der, sofern erwünscht, neu belegt werden kann. Ohne Probleme ist es möglich, einen Default-Wert hinzuzunehmen, während das Entfernen von Standardwerten kritisch ist.</p><a id="mj6dc62903d2743fc2d8a27fd497950dcd" name="mj6dc62903d2743fc2d8a27fd497950dcd"></a><a name="t38"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t39"></a><h3 class="t3"><span class="cfett">25.6.8</span> Annotieren von Annotationstypen  <a href="#t2t310"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t38"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Von den in Java 5 eingeführten Annotationen haben wir die drei Typen aus dem Paket <span class="clisting">java.lang</span> schon kennengelernt. Die restlichen vier Annotationen aus dem Paket <span class="clisting">java.lang.annotation</span> dienen dazu, Annotationstypen zu annotieren. In diesem Fall wird von <span class="ckursiv">Meta-Annotationen</span> gesprochen.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 25.2    </strong>Meta-Annotationen</p>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">Annotation</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Beschreibung</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">@Target</span></p>
+</td>
+<td class="tabellentext">
+<p>Was lässt sich annotieren? Klasse, Methode …?</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">@Retention</span></p>
+</td>
+<td class="tabellentext">
+<p>Wo ist die Annotation sichtbar? Nur für den Compiler oder auch für die Laufzeitumgebung?</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">@Documented</span></p>
+</td>
+<td class="tabellentext">
+<p>Zeigt den Wunsch an, die Annotation in der Dokumentation zu erwähnen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">@Inherited</span></p>
+</td>
+<td class="tabellentext">
+<p>Macht deutlich, dass ein annotiertes Element auch in der Unterklasse annotiert ist.</p>
+</td>
+</tr>
+</table><br><h4 class="t4">@Target</h4>
+<p>Die Annotation <span class="clisting">@Target</span> beschreibt, wo eine Annotation angeheftet werden kann. Ist kein ausdrückliches <span class="clisting">@Target</span> gewählt, gilt es für alle Elemente.</p>
+<p>Die Aufzählung <span class="clisting">java.lang.annotation.ElementType</span> deklariert folgenden Ziele:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<caption class="tabunter"><p class="ptabunter"><strong>Tabelle 25.3    </strong>»ElementType« bestimmt Orte, an denen Annotationen erlaubt sind.</p>
+</caption>
+<tr>
+<td class="tabellenkopf"><span class="cfett">ElementType</span>
+</td>
+<td class="tabellenkopf"><span class="cfett">Erlaubt Annotationen …</span>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">ANNOTATION_TYPE</span></p>
+</td>
+<td class="tabellentext">
+<p>… an anderen Annotationstypen, was <span class="clisting">@Target(ANNOTATION_TYPE)</span> somit zu einer Meta-Annotation macht.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">TYPE</span></p>
+</td>
+<td class="tabellentext">
+<p>… an allen Typdeklarationen, also Klassen, Schnittstellen, Aufzählungen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">CONSTRUCTOR</span></p>
+</td>
+<td class="tabellentext">
+<p>… an Konstruktoren.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">METHOD</span></p>
+</td>
+<td class="tabellentext">
+<p>… an statischen und nicht-statischen Methoden.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">FIELD</span></p>
+</td>
+<td class="tabellentext">
+<p>… an statischen Variablen und Objekt- Variablen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">PARAMETER</span></p>
+</td>
+<td class="tabellentext">
+<p>… an Parametervariablen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">LOCAL_VARIABLE</span></p>
+</td>
+<td class="tabellentext">
+<p>… an lokalen Variablen.</p>
+</td>
+</tr>
+<tr>
+<td class="tabellentext">
+<p><span class="clisting">PACKAGE</span></p>
+</td>
+<td class="tabellentext">
+<p>… an <span class="clisting">package</span>-Deklarationen.</p>
+</td>
+</tr>
+</table><br><p>Soll eine Annotation etwa vor beliebigen Typen, Methoden, Paketen und Konstruktoren erlaubt sein, so setzen wir an die Deklaration der Annotation:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">@Target( { TYPE, METHOD, CONSTRUCTOR, PACKAGE } )</span>
+public @interface …</pre></div>
+<p>Unsere eigenen drei Annotationstypen sind nur für Attribute sinnvoll. So nutzen wir <span class="clisting">FIELD</span>, gezeigt an <span class="clisting">CurrentDateResource</span>:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">@Target( java.lang.annotation.ElementType.FIELD )</span>
+public @interface CurrentDateResource { }</pre></div><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Soll statt <span class="clisting">ElementType.FIELD</span> einfach nur <span class="clisting">FIELD</span> verwendet werden, so muss <span class="clisting">FIELD</span> entsprechend aus <span class="clisting">ElementType</span> statisch eingebunden werden. Damit ist folgender Programmcode eine Alternative:</p>
+<div class="listing"><pre class="prettyprint">import static java.lang.annotation.ElementType.*;
+import java.lang.annotation.Target;
+
+@Target( FIELD
+public @interface CurrentDateResource { }</pre></div>
+</td>
+</tr>
+</table><br><p>Mit <span class="clisting">ElementType.TYPE</span> ist die Annotation vor allen Typen &#8211; Klassen, Schnittstellen, Annotationen, Enums &#8211; erlaubt. Eine Einschränkung, etwa nur auf Klassen, ist nicht möglich. Interessant ist die Tatsache, dass eine Unterteilung für Methoden und Konstruktoren möglich ist und sogar lokale Variablen annotiert werden können.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Beim existierenden Annotationstyp <span class="clisting">@Override</span> ist die Annotation <span class="clisting">@Target</span> schön zu erkennen:</p>
+<div class="listing"><pre class="prettyprint"><span class="cfett">@Target( value = METHOD )</span>
+public @interface Override</pre></div>
+<p class="BStandard">Die Idee der Meta-Annotation: Es gibt nur überschriebene Methoden.</p>
+</td>
+</tr>
+</table><br><p>Annotationen für Pakete sind speziell, weil sich die Frage stellt, wo hier die Metadaten über ein Paket stehen sollen. Eine Klasse selbst wird ja einem Paket zugeordnet &#8211; sollte das heißen, in irgendeiner wahllosen Typdeklaration stehen dann an der <span class="clisting">package</span>-Deklaration die Meta-Annotationen für das Paket? Nein, denn dann würde zum einen die Annotation bei vielen Typen vielleicht nie mehr wiedergefunden, und zum anderen gäbe es bestimmt Konflikte, wenn aus Versehen an zwei Typen widersprüchliche Annotationen an der <span class="clisting">package</span>-Deklaration stünden. Java wählt eine andere Lösung. Es muss eine Datei mit dem Namen <span class="ckursiv">package-info.java</span> im jeweiligen Paket stehen, und dort darf die <span class="clisting">package</span>-Deklaration annotiert sein. Da der Dateiname schon kein Klassenname sein kann (Minuszeichen sind nicht erlaubt), wird die Datei auch keine Typdeklaration enthalten, aber der Compiler erzeugt natürlich eine <span class="ckursiv">.class</span>-Datei für die Metadaten des Pakets. Kommentare sind selbstverständlich erlaubt, und die Datei wurde auch schon vor Java 5 für die API-Dokumentation eines Pakets verwendet.</p>
+<p>Dazu ein Beispiel. Ein neuer Annotationstyp <span class="clisting">AutomaticUmlDiagram</span> soll deklariert werden, und er soll nur an Paketen gültig sein:</p>
+<p class="tabunter"><strong>Listing 25.19    </strong>com/tutego/insel/annotation/AutomaticUmlDiagram.java</p>
+<div class="listing"><pre class="prettyprint">package com.tutego.insel.annotation;
+
+import java.lang.annotation.*;
+
+@Target( value = ElementType.PACKAGE  )
+public @interface AutomaticUmlDiagram {}</pre></div>
+<p>Das Paket <span class="clisting">com.tutego.insel.annotation</span> soll nun mit <span class="clisting">AutomaticUmlDiagram</span> annotiert werden:</p>
+<p class="tabunter"><strong>Listing 25.20    </strong>com/tutego/insel/annotation/package-info.java</p>
+<div class="listing"><pre class="prettyprint">@ AutomaticUmlDiagram
+package com.tutego.insel.annotation;</pre></div>
+<p>Die Datei <span class="ckursiv">package-info.java</span> ist schlank, wird aber in der Regel größer sein, da sie das JavaDoc des Pakets enthält.</p>
+<h4 class="t4">@Retention</h4>
+<p>Die Annotation <span class="clisting">@Retention</span> steuert, wer die Annotation sehen kann. Es gibt drei Typen, die in der Aufzählung <span class="clisting">java.lang.annotation.RetentionPolicy</span> genannt sind:</p>
+<ul class="gp">
+<li><span class="clisting">SOURCE</span>: Nützlich für Tools, die den Quellcode analysieren, aber die Annotationen werden vom Compiler verworfen, sodass sie nicht den Weg in den Bytecode finden.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">CLASS</span>: Die Annotationen speichert der Compiler in der Klassendatei, aber sie werden nicht in die Laufzeitumgebung gebracht.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">RUNTIME</span>: Die Annotationen werden in der Klassendatei gespeichert und sind zur Laufzeit in der JVM verfügbar.</li>
+</ul>
+<p>Die Unterscheidung haben die Java-Designer vorgesehen, da nicht automatisch jede Annotation zur Laufzeit verfügbar ist (eine Begründung: andernfalls würde es den Ressourcenverbrauch erhöhen). Der Standard ist <span class="clisting">RetentionPolicy.CLASS</span>.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Der Annotationstyp <span class="clisting">@Deprecated</span> ist nur für den Compiler und nicht für die Laufzeit von Interesse:</p>
+<div class="listing"><pre class="prettyprint">@Retention( <span class="cfett">value = SOURCE</span> )
+public @interface Deprecated</pre></div>
+<p class="BStandard">Ist ein Element mit <span class="clisting">@Target</span> annotiert, so soll diese Information auch zur Laufzeit vorliegen:</p>
+<div class="listing"><pre class="prettyprint">@Retention( <span class="cfett">value = RUNTIME</span> )
+@Target( value = ANNOTATION_TYPE )
+public @interface Target</pre></div>
+<p class="BStandard">Das Beispiel zeigt, dass die Anwendung auch rekursiv sein kann (natürlich auch indirekt rekursiv, denn nicht nur <span class="clisting">@Retention</span> annotiert <span class="clisting">@Target</span>, auch <span class="clisting">@Target</span> annotiert <span class="clisting">@Retention</span>).</p>
+</td>
+</tr>
+</table><br><p>Für den Zugriff auf die Annotationen gibt es dann, je nach Retention-Typ, unterschiedliche Varianten. Im Fall <span class="clisting">Source</span> ist es ein Tool, welches auf Textebene arbeitet, also etwa ein Compiler oder ein statisches Analysetool, das Quellcode analysiert. Sind die Annotationen im Bytecode abgelegt, so lassen sie sich über ein Werkzeug beziehungsweise eine Bibliothek auslesen. Zwei Wege sind möglich: zunächst über die Pluggable Annotation Processing API und dann über rohe Tools, die direkt auf der Ebene vom Bytecode arbeiten. Im ersten Fall gibt es eine eigene API, die das Erfragen einfach macht. Die zweite Lösung sind Bytecode-Bibliotheken, wie etwa ASM (unter <span class="ckursiv">http://asm.ow2.org/</span>), die alles auslesen können, was in der Klassendatei steht, also auch die Annotationen. Sie sind aber proprietär und nicht einfach zu nutzen. Die dritte Variante ist einfach, da hier Reflection eine Möglichkeit bietet. Das schauen wir uns gleich im Anschluss in Abschnitt 25.6.10, »Annotierte Elemente auslesen«, an.</p>
+<h4 class="t4">@Documented</h4>
+<p>Die Annotation <span class="clisting">@Documented</span> zeigt an, dass die Annotation in der API-Dokumentation genannt werden soll. Alle Standard-Annotationen von Java werden so angezeigt, auch <span class="clisting">@Documented</span> selbst. In der API-Dokumentation ist für die Annotationen ein neues Segment vorgesehen.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span><span class="clisting">@Documented</span> ist selbst <span class="clisting">@Documented</span>:</p>
+<div class="listing"><pre class="prettyprint">@Documented
+@Target( value = ANNOTATION_TYPE )
+public @interface Documented</pre></div>
+</td>
+</tr>
+</table><br><a id="mj60aea92bba1e0a0f9f928ac360d8e86f" name="mj60aea92bba1e0a0f9f928ac360d8e86f"></a><a name="t39"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t310"></a><h3 class="t3"><span class="cfett">25.6.9</span> Deklarationen für unsere Ressourcen-Annotationen  <a href="#t2t311"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t39"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Da unsere drei Annotationen zur Laufzeit ausgelesen werden sollen, muss die <span class="clisting">@Retention</span> mit <span class="clisting">RetentionPolicy.RUNTIME</span> gesetzt sein. Damit sind unsere Annotationstypen vollständig, und der Quellcode soll an dieser Stelle aufgeführt werden.</p>
+<p>Der einfachste Annotationstyp war <span class="clisting">CurrentDateResource</span>:</p>
+<p class="tabunter"><strong>Listing 25.21    </strong>com/tutego/insel/annotation/CurrentDateResource.java, CurrentDateResource</p>
+<div class="listing"><pre class="prettyprint">@Documented
+@Target( ElementType.FIELD )
+@Retention( RetentionPolicy.RUNTIME )
+public @interface CurrentDateResource { }</pre></div>
+<p>Der Annotationstyp <span class="clisting">ListOfFilesResource</span> erwartet eine Pfadangabe, ist aber nicht deutlich komplexer als <span class="clisting">CurrentDateResource</span>:</p>
+<p class="tabunter"><strong>Listing 25.22    </strong>com/tutego/insel/annotation/ListOfFilesResource.java, ListOfFilesResource</p>
+<div class="listing"><pre class="prettyprint">@Documented
+@Target( ElementType.FIELD )
+@Retention( RetentionPolicy.RUNTIME )
+public @interface ListOfFilesResource
+{
+  String value();
+}</pre></div>
+<p>Und zu guter Letzt: Der Annotationstyp <span class="clisting">UrlResource</span> hat am meisten zu bieten. Doch beginnen wir zunächst mit der Deklaration der Schnittstelle für die Konverter:</p>
+<p class="tabunter"><strong>Listing 25.23    </strong>com/tutego/insel/annotation/ResourceConverter.java, ResourceConverter</p>
+<div class="listing"><pre class="prettyprint">public interface ResourceConverter
+{
+  String convert( String input );
+}</pre></div>
+<p>Zwei Implementierungen sollen für das Beispiel genügen:</p>
+<p class="tabunter"><strong>Listing 25.24    </strong>com/tutego/insel/annotation/SortConverter.java, SortConverter</p>
+<div class="listing"><pre class="prettyprint">public class RemoveNoWordCharactersConverter implements ResourceConverter
+{
+  @Override public String convert( String input )
+  {
+    return input.replaceAll( "\\W", "" );
+  }
+}</pre></div>
+<p class="tabunter"><strong>Listing 25.25    </strong>com/tutego/insel/annotation/SortConverter.java, SortConverter</p>
+<div class="listing"><pre class="prettyprint">public class SortConverter implements ResourceConverter
+{
+  @Override public String convert( String input )
+  {
+    char[] chars = input.toCharArray();
+    Arrays.sort( chars );
+    return new String( chars );
+  }
+}</pre></div>
+<p>Damit kann dann der letzte Annotationstyp übersetzt werden:</p>
+<p class="tabunter"><strong>Listing 25.26    </strong>com/tutego/insel/annotation/UrlResource.java, UrlResource</p>
+<div class="listing"><pre class="prettyprint">@Documented
+@Target( ElementType.FIELD )
+@Retention( RetentionPolicy.RUNTIME )
+public @interface UrlResource
+{
+  enum UpperLowerCase { UNCHANGED, LOWERCASE, UPPERCASE }
+
+  String value();
+  boolean trim() default false;
+  UpperLowerCase upperLowerCase() default UpperLowerCase.UNCHANGED;
+  Class&lt;? extends ResourceConverter&gt;[] converter() default { };
+}</pre></div><a id="mjd93de34d21000e81fee2f0f533171473" name="mjd93de34d21000e81fee2f0f533171473"></a><a name="t310"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t311"></a><h3 class="t3"><span class="cfett">25.6.10</span> Annotierte Elemente auslesen  <a href="#t2t312"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t310"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Ob eine Klasse annotiert ist, erfragt ganz einfach die Methode <span class="clisting">isAnnotationPresent()</span> auf dem <span class="clisting">Class</span>-Objekt:</p>
+<div class="listing"><pre class="prettyprint">println( String.class.<span class="cfett">isAnnotationPresent</span>( Deprecated.class ) ); 
+// false
+println( StringBufferInputStream.class.<span class="cfett">isAnnotationPresent</span>( Deprecated.class ) ); 
+// true</pre></div>
+<p>Da unterschiedliche Dinge annotierbar sind, schreibt eine Schnittstelle <span class="clisting">AnnotatedElement</span> für die Klassen <span class="clisting">Class</span>, <span class="clisting">Constructor</span>, <span class="clisting">Field</span>, <span class="clisting">Method</span>, <span class="clisting">Package</span> und <span class="clisting">AccessibleObject</span> folgende Operationen vor:</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<div class="listing"><pre class="prettyprint">interface java.lang.reflect.<span class="cfett">AnnotatedElement</span></pre></div>
+</td>
+</tr>
+</table><br><ul class="gp">
+<li><span class="clisting">&lt;T extends Annotation&gt; T getAnnotation( Class&lt;T&gt; annotationType )</span>
+Liefert die Annotation für einen bestimmten Typ. Ist sie nicht vorhanden, dann ist die Rückgabe <span class="clisting">null</span>. Der generische Typ ist bei der Rückgabe hilfreich. Denn das Argument ist ein <span class="clisting">Class</span>-Objekt, das den Annotationstyp repräsentiert. Die Rückgabe ist genau die konkrete Annotation für das annotierte Element.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">boolean isAnnotationPresent( Class&lt;? extends Annotation&gt; annotationType )</span>
+Gibt es die angegebene Annotation?</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Annotation[] getAnnotations()</span>
+Liefert die an dem Element festgemachten Annotationen. Gibt es keine Annotation, ist das Feld leer. Die Methode liefert auch Annotationen, die aus den Oberklassen kommen.</li>
+</ul>
+<ul class="gp">
+<li><span class="clisting">Annotation[] getDeclaredAnnotations()</span>
+Liefert die Annotationen, die exakt an diesem Element festgemacht sind.</li>
+</ul>
+<p>Um die Annotationen etwa von Variablen oder Methoden zu erfragen, ist ein wenig Reflection-Wissen nötig. Ist <span class="clisting">obj</span> ein Objekt, so findet folgende Schleife alle mit <span class="clisting">CurrentDateResource</span> annotierten Objektvariablen und gibt eine Meldung aus:</p>
+<div class="listing"><pre class="prettyprint">for ( Field field : obj.getFields() )
+  if ( field.<span class="cfett">isAnnotationPresent</span>( CurrentDateResource.class ) )
+    System.out.println( "CurrentDateResource gesetzt" );</pre></div><a id="mjbd900d811b3ff68ed9fa7a1dcaa3f261" name="mjbd900d811b3ff68ed9fa7a1dcaa3f261"></a><a name="t311"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t312"></a><h3 class="t3"><span class="cfett">25.6.11</span> Auf die Annotationsattribute zugreifen  <a href="#t2t313"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t311"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Um auf die einzelnen Attribute einer Annotation zuzugreifen, müssen wir etwas mehr über die Umsetzung einer Annotation von Compiler und der JVM wissen. Übersetzt der Compiler einen Annotationstyp, generiert er daraus eine Schnittstelle.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Beispiel   </span>Für den Annotationstyp <span class="clisting">ListOfFilesResource</span> generiert der Compiler:</p>
+<div class="listing"><pre class="prettyprint">import java.lang.annotation.Annotation;
+
+public interface ListOfFilesResource <span class="cfett">extends Annotation</span>
+{
+    <span class="cfett">public abstract String value();</span>
+}</pre></div>
+</td>
+</tr>
+</table><br><p>Rufen wir auf einem <span class="clisting">AnnotatedElement</span>, etwa <span class="clisting">Field</span>, eine Methode wie <span class="clisting">getAnnotation()</span> auf, bekommen wir ein Objekt, das Zugriff auf unsere Element-Werte-Paare liefert. Denn zur Laufzeit werden über <span class="clisting">java.lang.reflect.Proxy</span> Objekte gebaut, die unsere Schnittstelle &#8211; das ist <span class="clisting">ListOfFilesResource</span> &#8211; implementiert und so die Methode <span class="clisting">value()</span> anbietet.</p><br><table width="100%" border="0" cellspacing="1" cellpadding="3">
+<tr>
+<td class="tabellentext">
+<p class="BStandard"><span class="cfett">Hinweis   </span>Die Annotation ist zur Laufzeit ein Proxy-Objekt und daher kann der Annotationstyp keine eigene Klasse erweitern und auch keine anderen eigenen Schnittstellen implementieren. Ein Annotationstyp kann auch keine anderen Annotationstypen erweitern. Es könnte eine eigene Klasse zwar die Schnittstelle <span class="clisting">java.lang.annotation.Annotation</span> implementieren, doch entsteht dadurch keine echte Annotation, was den Versuch sinnlos macht.</p>
+</td>
+</tr>
+</table><br><p>Testen wir die Möglichkeit, indem wir zwei annotierte Variablen in eine Klasse setzen und dann per Reflection über alle Variablen laufen und alle Annotationen erfragen lassen:</p>
+<p class="tabunter"><strong>Listing 25.27    </strong>com/tutego/insel/annotation/GetTheUrlResourceValues.java, GetTheUrlResourceValues</p>
+<div class="listing"><pre class="prettyprint">public class GetTheUrlResourceValues
+{
+  @UrlResource( value = "http://tutego.de/aufgaben/bond.txt",
+      upperLowerCase = UpperLowerCase.UPPERCASE, trim = true,
+      converter = { RemoveNoWordCharactersConverter.class, SortConverter.class } )
+  public String testFile;
+
+  @XmlValue @Deprecated
+  public String xmlValue;
+
+  public static void main( String[] args ) throws Exception
+  {
+   <span class="cfett"> for ( Field field : GetTheUrlResourceValues.class.getFields() )</span>
+     <span class="cfett"> for ( Annotation a : field.getAnnotations() )</span>
+       <span class="cfett"> System.out.println( a );</span>
+  }
+}</pre></div>
+<p>Die Ausgabe zeigt drei Annotationen:</p>
+<div class="listing"><pre class="prettyprint">@com.tutego.insel.annotation.UrlResource(converter=[class com.tutego.insel.<img src="common/umbruch.gif" border="0" alt="Umbruch">
+annotation.RemoveNoWordCharactersConverter, class com.tutego.insel.annotation.<img src="common/umbruch.gif" border="0" alt="Umbruch">
+SortConverter], trim=true, upperLowerCase=UPPERCASE, value=http://tutego.de/<img src="common/umbruch.gif" border="0" alt="Umbruch">
+aufgaben/bond.txt)
+@javax.xml.bind.annotation.XmlValue()
+@java.lang.Deprecated()</pre></div>
+<p>Die Default-Werte werden zur Laufzeit gesetzt.</p><a id="mj01b681e8b50436cb7046411e70e21119" name="mj01b681e8b50436cb7046411e70e21119"></a><a name="t312"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t313"></a><h3 class="t3"><span class="cfett">25.6.12</span> Komplettbeispiel zum Initialisieren von Ressourcen  <a href="#t2t314"><img src="common/down.gif" width="15" height="15" border="0" alt="Zur nächsten Überschrift"></a><a href="#t2t312"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Zusammenfassend können wir jetzt eine Klasse vorstellen, die tatsächlich die mit den Ressourcen-Annotationen versehenen Variablen mit sinnvollem Inhalt füllt. Zunächst ein Beispiel, damit es die Nutzung einer solchen Klasse aufzeigt.</p>
+<p>Die Klasse <span class="clisting">Resources</span> bildet den Rahmen für Objekte, die automatisch aufgebaut und korrekt initialisiert werden sollen:</p>
+<p class="tabunter"><strong>Listing 25.28    </strong>com/tutego/insel/annotation/AnnotatedResourceExample.java, Resources</p>
+<div class="listing"><pre class="prettyprint">class Resources
+{
+  @CurrentDateResource()
+  public Date now;
+
+  @ListOfFilesResource( value = "c:/" )
+  public String[] files;
+
+  @UrlResource( "http://tutego.de/aufgaben/bond.txt" )
+  public String testFile;
+}</pre></div>
+<p>Einer zweiten Klassen geben wir ein <span class="clisting">main()</span> und dort die Aufforderung, ein Objekt vom Typ <span class="clisting">Resources</span> anzulegen und zu initialisieren:</p>
+<p class="tabunter"><strong>Listing 25.29    </strong>com/tutego/insel/annotation/AnnotatedResourceExample.java, AnnotatedResourceExample</p>
+<div class="listing"><pre class="prettyprint">public class AnnotatedResourceExample
+{
+  public static void main( String[] args )
+  {
+   <span class="cfett"> Resources resources = ResourceReader.getInitializedResourcesFor( Resources.class );</span>
+    System.out.println( resources.now );
+    System.out.println( Arrays.toString( resources.files ) );
+    System.out.println( resources.testFile );
+  }
+}</pre></div>
+<p>Kommen wir zum Herz, der Klasse <span class="clisting">ResourceReader</span>:</p>
+<p class="tabunter"><strong>Listing 25.30    </strong>com/tutego/insel/annotation/ResourceReader.java, ResourceReader</p>
+<div class="listing"><pre class="prettyprint">package com.tutego.insel.annotation;
+
+import java.io.File;
+import java.lang.reflect.Field;
+import java.net.URL;
+import java.util.Date;
+import java.util.Scanner;
+
+public class ResourceReader
+{
+  public static &lt;T&gt; T getInitializedResourcesFor( Class&lt;T&gt; ressources )
+  {
+    try
+    {
+      T newInstance = ressources.newInstance();
+
+      for ( Field field : ressources.getFields() )
+      {
+        if ( field.isAnnotationPresent( CurrentDateResource.class ) )
+          field.set( newInstance, new Date() );
+
+        else if ( field.isAnnotationPresent( ListOfFilesResource.class ) )
+          field.set( newInstance, new File(field.getAnnotation(
+                         ListOfFilesResource.class ).value().toString()).list() );
+
+        else if ( field.isAnnotationPresent( UrlResource.class ) )
+        {
+          String url = field.getAnnotation( UrlResource.class ).value();
+          String content = new Scanner( new URL(url).openStream() ).useDelimiter(
+            "\\z" ).next();
+
+          if ( field.getAnnotation( UrlResource.class ).trim() )
+            content = content.trim();
+
+          switch ( field.getAnnotation( UrlResource.class ).upperLowerCase() )
+          {
+            case UPPERCASE: content = content.toUpperCase(); break;
+            case LOWERCASE: content = content.toLowerCase(); break;
+            default: // Nichts zu tun
+          }
+
+          Class&lt;? extends ResourceConverter&gt;[] converterClasses =
+            field.getAnnotation( UrlResource.class ).converter();
+          for ( Class&lt; ? extends ResourceConverter&gt; converterClass : 
+              converterClasses )
+            content = converterClass.newInstance().convert( content );
+
+          field.set( newInstance, content );
+        }
+      }
+
+      return newInstance;
+    }
+    catch ( Exception e )
+    {
+      return null;
+    }
+  }
+}</pre></div>
+<p>An den folgenden Anweisungen ist das Prinzip gut ablesbar:</p>
+<div class="listing"><pre class="prettyprint">T newInstance = ressources.newInstance();
+for ( Field field : ressources.getFields() )
+  if ( field.isAnnotationPresent( CurrentDateResource.class ) )
+    field.set( newInstance, new Date() );</pre></div>
+<p>Zunächst wird ein neues Exemplar, ein Behälter, aufgebaut. Dann läuft eine Schleife über alle Variablen. Gibt es zum Beispiel die Annotation <span class="clisting">CurrentDateResource</span> an einer Variablen, so wird ein <span class="clisting">Date</span>-Objekt aufgebaut und mit <span class="clisting">set()</span> die Variable mit dem Datum initialisiert.</p><a id="mj7ef44c5695fc82f66dff1ba5ac1c9f1c" name="mj7ef44c5695fc82f66dff1ba5ac1c9f1c"></a><a name="t313"></a><br><div align="center"><a href="#top"><img src="common/jupiters.gif" border="0" alt="Galileo Computing - Zum Seitenanfang"></a></div><a name="t2t314"></a><h3 class="t3"><span class="cfett">25.6.13</span> Mögliche Nachteile von Annotationen  <img src="common/15x15leer.gif" width="15" height="15" border="0" alt="top"><a href="#t2t313"><img src="common/top.gif" width="15" height="15" border="0" alt="Zur vorigen Überschrift"></a></h3>
+<p>Annotationen sind eine gewaltige Neuerung und sicherlich die wichtigste seit vielen Java-Jahren. Auch wenn die Generics auf den ersten Blick bedeutsam erscheinen, sind die Annotationen ein ganz neuer Schritt in die deklarative Programmierung, wie sie Frameworks schon heute aufzeigen. Völlig problemlos sind Annotationen allerdings nicht und so müssen wir etwas Wasser in den Wein gießen:</p>
+<ul class="gp">
+<li>Die Annotationen sind stark mit dem Quellcode verbunden, können also auch nur dort geändert werden. Ist der Original-Quellcode nicht verfügbar, etwa weil der Auftraggeber ihn geschlossen hält, ist eine Änderung der Werte nahezu unmöglich.</li>
+</ul>
+<ul class="gp">
+<li>Wenn Annotationen allerdings nach der Übersetzung nicht mehr geändert werden können, stellt das bei externen Konfigurationsdateien kein Problem dar. Externe Konfigurationsdateien können ebenso den Vorteil bieten, dass die relevanten Informationen auf einen Blick erfassbar sind und sich mitunter nicht redundant auf unterschiedliche Java-Klassen verteilen.</li>
+</ul>
+<ul class="gp">
+<li>Klassen mit Annotationen sind invasiv und binden auch die Implementierungen an einen gewissen Typ, wie es Schnittstellen tun. Sind die Annotationstypen nicht im Klassenpfad, kommt es zu einem Compilerfehler.</li>
+</ul>
+<ul class="gp">
+<li>Bisher gibt es keine Vererbung von Annotationen: Ein Annotationstyp kann keinen anderen Annotationstyp erweitern.</li>
+</ul>
+<ul class="gp">
+<li>Die bei den Annotationen gesetzten Werte lassen sich zur Laufzeit erfragen, aber nicht modifizieren.</li>
+</ul>
+<ul class="gp">
+<li>Warum werden Annotationen mit <span class="clisting">@interface</span> deklariert, einer Schreibweise, die in Java sonst völlig unbekannt ist?</li>
+</ul>
+<p>Ein Problem gibt es allerdings nur bei finalen statischen Variablen (Konstanten), das bei den Default-Werten der Annotationen nicht vorkommt: Weil die Default-Werte zur Laufzeit gesetzt werden, lassen sie sich in der Deklaration vom Annotationstyp leicht ändern, und eine Neuübersetzung des Projekts kann somit unterbleiben.</p>
+<p>Zur Ehrenrettung sei erwähnt, dass moderne Frameworks wie JPA oder JSF 2 aus dem Java EE Standard immer noch den Einsatz von XML vorsehen. So lässt sich auf Annotationen verzichten bzw. XML einsetzen, sodass Zuweisungen aus den Annotationen überschrieben werden können.</p><br><hr><a name="kommentar"></a><h3>Ihr Kommentar</h3>
+                       Wie hat Ihnen das &lt;openbook&gt; gefallen? Wir freuen uns immer über Ihre freundlichen und kritischen Rückmeldungen.
+                       <form action="http://www.galileo-press.de/feedback/openbook" method="post" style="text-align: center; margin-top: 10px;"><input type="hidden" name="openbookurl" value="javainsel9/.htm"><input type="hidden" name="buchtitel" value="Java ist auch eine Insel"><input type="hidden" name="Kapitel" value="25.6 Eigene Annotationstypen *"><table border="0">
+<tr>
+<td><label for="name">Name</label><br></td>
+<td><input type="text" name="name" id="name" size="40"><br></td>
+</tr>
+<tr>
+<td><label for="email">E-Mail</label><br></td>
+<td><input type="text" name="email" id="email" size="40"><br></td>
+</tr>
+<tr>
+<td valign="top"><label for="comment">Ihr Kommentar</label><br></td>
+<td><textarea name="comment" id="comment" rows="10" cols="40"></textarea><br></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit" value="Kommentar absenden"></td>
+</tr>
+</table>
+</form>
+</div></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="100%" class="start" colspan="1" height="22" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25%"><a href="javainsel_25_005.htm" class="navnav"> &lt;&lt;   zurück</a></td>
+<td width="49%"><div align="center"><a class="navnav" href="#">&lt;top&gt;</a></div></td>
+<td align="right" width="25%"><div align="right"><a href="javainsel_25_007.htm" class="navnav">vor   &gt;&gt; </a></div></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></td>
+<td width="10" valign="top">  </td>
+<td width="160" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="160">
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">
+&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor">
+<strong>Zum Katalog</strong></a>
+
+</td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2">
+<img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><a href="http://www.galileocomputing.de/2254?GPP=opjiVIV">
+<img src="common/9783836215060_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java ist auch eine Insel" title="Zum Katalog: Java ist auch eine Insel">
+<br><br><br><br><br><br><strong>Java ist auch eine Insel</strong><br><img src="common/pfeil_rechts5.gif" border="0" alt="">Jetzt bestellen</a><br /><br />
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Ihre Meinung?</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+
+<table cellspacing="3">
+<tr>
+<td>Wie hat Ihnen das &lt;openbook&gt; gefallen?<br><a href="#kommentar"><img src="common/pfeil_rechts5.gif" border="0" alt="">Ihre Meinung</a>
+<br><br></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2">&nbsp;<a href="http://www.galileocomputing.de/katalog/buecher/?GPP=opjiVIV" class="autor"><strong>Buchempfehlungen</strong></a></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2285?GPP=opjiVIV">
+<img src="common/9783836215275_s.gif" width="102" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks" title="Zum Katalog: Computergeschichte(n) – nicht nur für Geeks"><br><br><br><br><br><br>&nbsp;Computergeschichte(n)<br>&nbsp;nicht nur für Geeks</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/1949?GPP=opjiVIV">
+<img src="common/9783836213080_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Java und XML" title="Zum Katalog: Java und XML"><br><br><br><br><br><br><br>&nbsp;Java und XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2346?GPP=opjiVIV">
+<img src="common/9783836215688_s.gif" width="105" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in Java" title="Zum Katalog: Einstieg in Java"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in Java</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2051?GPP=opjiVIV">
+
+<img src="common/9783836213677_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Einstieg in XML" title="Zum Katalog: Einstieg in XML"><br><br><br><br><br><br><br>&nbsp;Einstieg<br>&nbsp;in XML</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2322?GPP=opjiVIV">
+<img src="common/9783836215527_s.gif" width="112" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Visual C# 2010" title="Zum Katalog: Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2212?GPP=opjiVIV">
+<img src="common/9783836214742_s.gif" width="119" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: Professionell entwickeln mit Visual C# 2010" title="Zum Katalog: Professionell entwickeln mit Visual C# 2010"><br><br><br><br><br><br><br>&nbsp;Professionell<br>&nbsp;entwickeln mit<br>&nbsp;Visual C# 2010</a><br><br></td>
+</tr>
+
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td><td valign="top">
+<a href="http://www.galileocomputing.de/2156?GPP=opjiVIV">
+<img src="common/9783836214292_s.gif" width="108" height="90" border="0" align="left" hspace="4" vspace="8" alt="Zum Katalog: C++ von A bis Z" title="Zum Katalog: C++ von A bis Z"><br><br><br><br><br><br><br>&nbsp;C++ von A bis Z</a><br><br></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img src="common/leer.gif" height="2" width="1" border="0" /></img></td>
+</tr>
+
+<tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="start" height="20" colspan="2"><span class="autor"><strong>&nbsp;Shopping</strong></span></td>
+</tr>
+<tr>
+<td valign="top" class="tbl4" width="2"><img src="common/leer.gif" border="0" height="1" width="1"></td>
+<td valign="top">
+<table cellspacing="3">
+<tr>
+<td><b>Versandkostenfrei</b> bestellen in Deutschland und &Ouml;sterreich<br><a href="http://www.galileocomputing.de/hilfe/Shop/?GPP=opjiVIV"><img src="common/pfeil_rechts5.gif" border="0" alt="Info">Info</a><br><br></td>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br><br><hr width="70%" align="center">
+<div align="center">
+<p class="standard"><strong>Copyright © Galileo Press 2011</strong><br>
+        Für Ihren privaten Gebrauch dürfen Sie die Online-Version natürlich ausdrucken.
+        Ansonsten unterliegt das &lt;openbook&gt; denselben Bestimmungen, wie die
+        gebundene Ausgabe: Das Werk einschließlich aller seiner Teile ist urheberrechtlich
+        geschützt. Alle Rechte vorbehalten einschließlich der Vervielfältigung, Übersetzung,
+        Mikroverfilmung sowie Einspeicherung und Verarbeitung in elektronischen Systemen.</p><br><a href="http://www.galileocomputing.de/">[Galileo Computing]</a><br><br>
+      Galileo Press, Rheinwerkallee 4, 53227 Bonn, Tel.: 0228.42150.0, Fax 0228.42150.77, <a href="mailto:info@galileo-press.de">info@galileo-press.de</a></div><br><br></body>
+</html>
